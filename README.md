@@ -18,7 +18,7 @@ Available hot-keys:
 
 [b] – Border-less on/off.
 
-[F1], [h] – This help.
+[F1], [h] – Hot-key help.
 
 [m], Mouse left click – Settings window.
 
