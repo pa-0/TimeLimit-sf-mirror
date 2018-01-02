@@ -25,3 +25,7 @@ Available hot-keys:
 [Left], [Up] – Increase time by 1 minute.
 
 [Right], [Down] – Decrease time by 1 minute.
+
+
+At present the files are located in Sourceforge:
+https://sourceforge.net/projects/time-limit/
