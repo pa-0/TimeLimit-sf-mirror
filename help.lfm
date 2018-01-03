@@ -1,0 +1,30 @@
+object FHelp: TFHelp
+  Left = 600
+  Height = 303
+  Top = 433
+  Width = 331
+  Caption = 'Hot keys'
+  ClientHeight = 303
+  ClientWidth = 331
+  OnCreate = FormCreate
+  OnResize = FormResize
+  ShowInTaskBar = stNever
+  LCLVersion = '1.8.0.6'
+  object MHKey: TMemo
+    Left = 0
+    Height = 271
+    Top = 0
+    Width = 317
+    BorderSpacing.Left = 9
+    BorderSpacing.Top = 9
+    BorderSpacing.Right = 9
+    BorderSpacing.Bottom = 9
+    BorderStyle = bsNone
+    Lines.Strings = (
+      'MHKey'
+    )
+    ReadOnly = True
+    ScrollBars = ssAutoBoth
+    TabOrder = 0
+  end
+end

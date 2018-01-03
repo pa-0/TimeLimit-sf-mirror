@@ -1,0 +1,21 @@
+{"version":1,"strings":[
+{"hash":213582195,"name":"tfconfig.caption","sourcebytes":[83,101,116,116,105,110,103,115],"value":"Settings"},
+{"hash":193790965,"name":"tfconfig.ttab1.caption","sourcebytes":[65,112,112,101,97,114,97,110,99,101],"value":"Appearance"},
+{"hash":72570004,"name":"tfconfig.bsettingsarr.caption","sourcebytes":[65,112,112,108,121,44,32,114,101,115,101,116,32,97,110,100,32,114,101,115,116,97,114,116],"value":"Apply, reset and restart"},
+{"hash":21232116,"name":"tfconfig.bsettingsar.caption","sourcebytes":[65,112,112,108,121,32,97,110,100,32,114,101,115,101,116],"value":"Apply and reset"},
+{"hash":225364341,"name":"tfconfig.bsettingsa.hint","sourcebytes":[65,112,112,108,121,32,99,104,97,110,103,101,115,32,102,111,114,32,108,97,116,101,114,32,116,105,109,101],"value":"Apply changes for later time"},
+{"hash":4749113,"name":"tfconfig.bsettingsa.caption","sourcebytes":[65,112,112,108,121],"value":"Apply"},
+{"hash":52495161,"name":"tfconfig.ccloseme.caption","sourcebytes":[67,108,111,115,101,32,111,110,32,65,112,112,108,121],"value":"Close on Apply"},
+{"hash":47893770,"name":"tfconfig.lminutes4.caption","sourcebytes":[72,97,108,102,116,105,109,101,58],"value":"Halftime:"},
+{"hash":169780010,"name":"tfconfig.lminutes3.caption","sourcebytes":[76,97,115,116,32,119,97,114,110,105,110,103,58],"value":"Last warning:"},
+{"hash":231777098,"name":"tfconfig.lminutes2.caption","sourcebytes":[50,45,110,100,32,119,97,114,110,105,110,103,58],"value":"2-nd warning:"},
+{"hash":215917386,"name":"tfconfig.lminutes1.caption","sourcebytes":[49,45,115,116,32,119,97,114,110,105,110,103,58],"value":"1-st warning:"},
+{"hash":6072618,"name":"tfconfig.lminutes.caption","sourcebytes":[77,105,110,117,116,101,115,58],"value":"Minutes:"},
+{"hash":224412757,"name":"tfconfig.bchangefont.hint","sourcebytes":[67,104,97,110,103,101,32,110,97,109,101,32,110,111,116,32,115,105,122,101],"value":"Change name not size"},
+{"hash":222248468,"name":"tfconfig.bchangefont.caption","sourcebytes":[67,104,97,110,103,101,32,102,111,110,116],"value":"Change font"},
+{"hash":105921058,"name":"tfconfig.eminutes.hint","sourcebytes":[84,105,109,101,32,102,111,114,32,80,114,101,115,101,110,116,101,114],"value":"Time for Presenter"},
+{"hash":152532852,"name":"tfconfig.ewarning2.hint","sourcebytes":[77,105,110,117,116,101,115,32,108,101,102,116],"value":"Minutes left"},
+{"hash":152532852,"name":"tfconfig.ewarning3.hint","sourcebytes":[77,105,110,117,116,101,115,32,108,101,102,116],"value":"Minutes left"},
+{"hash":95464125,"name":"tfconfig.ttab2.caption","sourcebytes":[83,121,115,116,101,109],"value":"System"},
+{"hash":91913155,"name":"tfconfig.bhotkeys.caption","sourcebytes":[76,105,115,116,32,104,111,116,45,107,101,121,115],"value":"List hot-keys"}
+]}

@@ -1,0 +1,20 @@
+Sakārto secību Iestatījumiem.(.TabStop un .TabOrder)
+
+Iespēja pilnekrānā redzēt pulksteni.
+
+Iespēja pievienot "progress bar".
+
+Iespēja pievienot attēlu:
+	Kā logo vienā no stūriem;
+	Kā pamatnes attēlu.
+
+Iespēja mainīt beigu tekstu.
+
+Lasīt paramaterus no komandrindas.
+
+Lasīt/rakstīt parametrus no faila.
+
+Iestatījumus  ielikt cilnēs
+	Otrā cilnē iespēja saglabāt, izvēlēties valodu
+
+Palīgu par taustiņiem ar noformējumu (TSynEdit?)

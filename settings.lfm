@@ -1,0 +1,290 @@
+object FConfig: TFConfig
+  Left = 357
+  Height = 319
+  Top = 413
+  Width = 233
+  BorderStyle = bsDialog
+  Caption = 'Settings'
+  ClientHeight = 319
+  ClientWidth = 233
+  FormStyle = fsStayOnTop
+  OnCreate = FormCreate
+  ShowHint = True
+  ShowInTaskBar = stNever
+  LCLVersion = '1.8.0.6'
+  object PTabs: TPageControl
+    Left = 0
+    Height = 316
+    Top = 0
+    Width = 233
+    ActivePage = TTab1
+    TabIndex = 0
+    TabOrder = 0
+    object TTab1: TTabSheet
+      Caption = 'Appearance'
+      ClientHeight = 287
+      ClientWidth = 229
+      object BSettingsARR: TButton
+        Left = 6
+        Height = 21
+        Top = 263
+        Width = 217
+        Caption = 'Apply, reset and restart'
+        OnClick = BSettingsARRClick
+        TabOrder = 0
+      end
+      object BSettingsAR: TButton
+        Left = 6
+        Height = 21
+        Top = 239
+        Width = 217
+        Caption = 'Apply and reset'
+        OnClick = BSettingsARClick
+        TabOrder = 1
+      end
+      object BSettingsA: TButton
+        Left = 6
+        Height = 21
+        Hint = 'Apply changes for later time'
+        Top = 215
+        Width = 217
+        Caption = 'Apply'
+        OnClick = BSettingsAClick
+        TabOrder = 2
+      end
+      object CCloseMe: TCheckBox
+        Left = 6
+        Height = 23
+        Top = 191
+        Width = 119
+        Alignment = taLeftJustify
+        Caption = 'Close on Apply'
+        Checked = True
+        State = cbChecked
+        TabOrder = 3
+      end
+      object STHalf: TShape
+        Left = 199
+        Height = 23
+        Top = 38
+        Width = 27
+        OnMouseDown = STHalfMouseDown
+      end
+      object SBHalf: TShape
+        Left = 167
+        Height = 23
+        Top = 38
+        Width = 27
+        OnMouseDown = SBHalfMouseDown
+      end
+      object STWarning3: TShape
+        Left = 199
+        Height = 23
+        Top = 134
+        Width = 27
+        OnMouseDown = STWarning3MouseDown
+      end
+      object LMinutes4: TLabel
+        Left = 3
+        Height = 15
+        Top = 42
+        Width = 58
+        Caption = 'Halftime:'
+        ParentColor = False
+      end
+      object SBWarning3: TShape
+        Left = 167
+        Height = 23
+        Top = 134
+        Width = 27
+        OnMouseDown = SBWarning3MouseDown
+      end
+      object LMinutes3: TLabel
+        Left = 3
+        Height = 15
+        Top = 138
+        Width = 84
+        Caption = 'Last warning:'
+        ParentColor = False
+      end
+      object STWarning2: TShape
+        Left = 199
+        Height = 23
+        Top = 102
+        Width = 27
+        OnMouseDown = STWarning2MouseDown
+      end
+      object SBWarning2: TShape
+        Left = 167
+        Height = 23
+        Top = 102
+        Width = 27
+        OnMouseDown = SBWarning2MouseDown
+      end
+      object LMinutes2: TLabel
+        Left = 3
+        Height = 15
+        Top = 106
+        Width = 86
+        Caption = '2-nd warning:'
+        ParentColor = False
+      end
+      object STWarning1: TShape
+        Left = 199
+        Height = 23
+        Top = 70
+        Width = 27
+        OnMouseDown = STWarning1MouseDown
+      end
+      object SBWarning1: TShape
+        Left = 167
+        Height = 23
+        Top = 70
+        Width = 27
+        OnMouseDown = SBWarning1MouseDown
+      end
+      object LMinutes1: TLabel
+        Left = 3
+        Height = 15
+        Top = 74
+        Width = 82
+        Caption = '1-st warning:'
+        ParentColor = False
+      end
+      object STMain: TShape
+        Left = 199
+        Height = 23
+        Top = 7
+        Width = 27
+        OnMouseDown = STMainMouseDown
+      end
+      object SBMain: TShape
+        Left = 167
+        Height = 23
+        Top = 7
+        Width = 27
+        OnMouseDown = SBMainMouseDown
+      end
+      object LMinutes: TLabel
+        Left = 3
+        Height = 15
+        Top = 10
+        Width = 54
+        Caption = 'Minutes:'
+        ParentColor = False
+      end
+      object BChangeFont: TButton
+        Left = 6
+        Height = 22
+        Hint = 'Change name not size'
+        Top = 162
+        Width = 217
+        Caption = 'Change font'
+        OnClick = BChangeFontClick
+        TabOrder = 4
+      end
+      object EMinutes: TFloatSpinEdit
+        Left = 105
+        Height = 23
+        Hint = 'Time for Presenter'
+        Top = 7
+        Width = 57
+        Alignment = taRightJustify
+        DecimalPlaces = 1
+        Increment = 1
+        MaxValue = 100
+        MinValue = 0
+        TabOrder = 5
+        Value = 0
+      end
+      object EWarning1: TFloatSpinEdit
+        Left = 104
+        Height = 23
+        Top = 70
+        Width = 58
+        Alignment = taRightJustify
+        DecimalPlaces = 1
+        Increment = 1
+        MaxValue = 100
+        MinValue = 0
+        TabOrder = 6
+        Value = 0
+      end
+      object EWarning2: TFloatSpinEdit
+        Left = 105
+        Height = 23
+        Hint = 'Minutes left'
+        Top = 102
+        Width = 56
+        Alignment = taRightJustify
+        DecimalPlaces = 1
+        Increment = 1
+        MaxValue = 100
+        MinValue = 0
+        TabOrder = 7
+        Value = 0
+      end
+      object EWarning3: TFloatSpinEdit
+        Left = 105
+        Height = 23
+        Hint = 'Minutes left'
+        Top = 134
+        Width = 57
+        Alignment = taRightJustify
+        DecimalPlaces = 1
+        Increment = 1
+        MaxValue = 100
+        MinValue = 0
+        TabOrder = 8
+        Value = 0
+      end
+    end
+    object TTab2: TTabSheet
+      Caption = 'System'
+      ClientHeight = 287
+      ClientWidth = 229
+      object BHotKeys: TButton
+        Left = 2
+        Height = 25
+        Top = 13
+        Width = 225
+        Caption = 'List hot-keys'
+        OnClick = BHotKeysClick
+        TabOrder = 0
+      end
+    end
+  end
+  object ColorDialog1: TColorDialog
+    Color = clBlack
+    CustomColors.Strings = (
+      'ColorA=000000'
+      'ColorB=000080'
+      'ColorC=008000'
+      'ColorD=008080'
+      'ColorE=800000'
+      'ColorF=800080'
+      'ColorG=808000'
+      'ColorH=808080'
+      'ColorI=C0C0C0'
+      'ColorJ=0000FF'
+      'ColorK=00FF00'
+      'ColorL=00FFFF'
+      'ColorM=FF0000'
+      'ColorN=FF00FF'
+      'ColorO=FFFF00'
+      'ColorP=FFFFFF'
+      'ColorQ=C0DCC0'
+      'ColorR=F0CAA6'
+      'ColorS=F0FBFF'
+      'ColorT=A4A0A0'
+    )
+    left = 177
+  end
+  object FontDialog1: TFontDialog
+    MinFontSize = 0
+    MaxFontSize = 0
+    Options = [fdEffects, fdNoSizeSel]
+    PreviewText = '42:00'
+    left = 203
+  end
+end

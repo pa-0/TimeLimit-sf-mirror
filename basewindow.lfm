@@ -1,0 +1,69 @@
+object FTimer: TFTimer
+  Left = 357
+  Height = 265
+  Top = 138
+  Width = 528
+  Anchors = []
+  Caption = 'Countdown Timer'
+  ClientHeight = 265
+  ClientWidth = 528
+  Constraints.MinHeight = 44
+  Constraints.MinWidth = 99
+  FormStyle = fsSystemStayOnTop
+  OnCreate = FormCreate
+  OnDblClick = FormDblClick
+  OnKeyDown = FormKeyDown
+  OnKeyPress = FormKeyPress
+  OnMouseDown = FormMouseDown
+  OnResize = FormResize
+  LCLVersion = '1.8.0.6'
+  object LClock: TLabel
+    Left = 176
+    Height = 15
+    Top = 0
+    Width = 41
+    Alignment = taCenter
+    AutoSize = False
+    Caption = 'LClock'
+    Layout = tlCenter
+    ParentColor = False
+    OnDblClick = LClockDblClick
+    OnMouseDown = LClockMouseDown
+  end
+  object LClockM: TLabel
+    Left = 0
+    Height = 15
+    Top = 0
+    Width = 52
+    Alignment = taRightJustify
+    AutoSize = False
+    Caption = 'LClockM'
+    Layout = tlCenter
+    ParentColor = False
+    OnDblClick = LClockMDblClick
+    OnMouseDown = LClockMMouseDown
+    OnMouseWheelDown = LClockMMouseWheelDown
+    OnMouseWheelUp = LClockMMouseWheelUp
+  end
+  object LClockS: TLabel
+    AnchorSideTop.Side = asrCenter
+    AnchorSideRight.Side = asrBottom
+    Left = 336
+    Height = 15
+    Top = 0
+    Width = 50
+    AutoSize = False
+    Caption = 'LClockS'
+    Layout = tlCenter
+    ParentColor = False
+    OnDblClick = LClockSDblClick
+    OnMouseDown = LClockSMouseDown
+    OnMouseWheelDown = LClockSMouseWheelDown
+    OnMouseWheelUp = LClockSMouseWheelUp
+  end
+  object Timer1: TTimer
+    OnTimer = Timer1Timer
+    left = 240
+    top = 96
+  end
+end
