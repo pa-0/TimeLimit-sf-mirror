@@ -24,5 +24,5 @@ Available hot-keys:
 The binary files are kept in Sourceforge:
 https://sourceforge.net/projects/time-limit/
 
-License: GPLv3
-Programming Language: Lazarus, Free Pascal
+- License: GPLv3
+- Programming Language: Lazarus, Free Pascal
