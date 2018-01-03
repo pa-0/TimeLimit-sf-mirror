@@ -1,0 +1,205 @@
+# Es Pats <eko@lanet.lv>, 2018.
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2018-01-03 09:21+0300\n"
+"PO-Revision-Date: 2018-01-03 09:22+0300\n"
+"Last-Translator: Es Pats <eko@lanet.lv>\n"
+"Language-Team: karlo\n"
+"Language: lv\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n != 0 ? 1 : 2);"
+"\n"
+"X-Generator: Virtaal 0.7.1\n"
+
+#: basewindow.rstrstop
+msgid "STOP"
+msgstr "BEIGT"
+
+#: help.hkey01
+msgid "Be patient!"
+msgstr "Esi pacietīgs!"
+
+#: help.hkey03
+msgid "Any interactive changes are carried out within 1 second interval."
+msgstr "Programma atsaucas uz izmaiņām tikai reizi sekundē."
+
+#: help.hkey05
+msgid "[Space], [s], Mouse click - start/stop the timer."
+msgstr "[Atstarpe], [s], peles klikšķis – Sākt/apstādināt laika atskaiti."
+
+#: help.hkey06
+msgid "[F11], [f], Mouse double-click  - Full screen on/off."
+msgstr "[F11], [f], peles dubultklikšķis – Ieslēgt/izslēgt pilnekrāna skatu."
+
+#: help.hkey07
+msgid "[Esc] - Exit."
+msgstr "[Esc] – Iziet."
+
+#: help.hkey08
+msgid "[b] - Border-less on/off."
+msgstr "[b] – Noņemt/atjaunot loga apmales."
+
+#: help.hkey09
+msgid "[F1], [h] - This help."
+msgstr "[F1], [h] – Šis paskaidrojums."
+
+#: help.hkey10
+msgid "[m], Mouse right click - Settings window."
+msgstr "[m], peles „labā” poga – Pulksteņa iestatījumi."
+
+#: help.hkey11
+msgid "[Left], [Up] - Increase time by 1 minute."
+msgstr "[Pa_kreisi], [Uz_augšu] – Palielināt laiku par 1 minūti."
+
+#: help.hkey12
+msgid "[Right], [Down] - Decrease time by 1 minute."
+msgstr "[Pa_labi], [Uz_leju] – Samazināt laiku par 1 minūti."
+
+#: help.hkey13
+msgid "[r], Mouse middle click - reset timer."
+msgstr "[r], Peles vidējā poga – palaists laika atskaiti no jauna."
+
+#: help.hkey14
+msgid "You can change current time with the mouse wheel as well."
+msgstr "Patreizējo laiku iespējams mainīt ar peles ritenīti."
+
+#: settings.backgroudcolourhint
+msgctxt "settings.backgroudcolourhint"
+msgid "Background colour. Click to change."
+msgstr "Pamatnes krāsa. Uzklikšķini, lai izmainītu."
+
+#: settings.colourdialogb
+msgid "Select background colour"
+msgstr "Izvēlies pamatnes krāsu"
+
+#: settings.colourdialogt
+msgid "Select text colour"
+msgstr "Izvēlies ciparu krāsu"
+
+#: settings.fontdialog
+msgid "Select a font (the size is ignored)"
+msgstr "Izvēlies fontu (izmērs netiek ņemt vērā)"
+
+#: settings.minuteshint
+msgctxt "settings.minuteshint"
+msgid "Minutes left"
+msgstr "Minūtes līdz beigām"
+
+#: settings.tabappearance
+msgctxt "settings.tabappearance"
+msgid "Appearance"
+msgstr "Izskats"
+
+#: settings.tabsystem
+msgctxt "settings.tabsystem"
+msgid "System"
+msgstr "Sistēmai"
+
+#: settings.textcolourhint
+msgctxt "settings.textcolourhint"
+msgid "Text colour. Click to change."
+msgstr "Teksta krāsa. Uzklikšķini, lai izmainītu."
+
+#: tfconfig.bchangefont.caption
+msgid "Change font"
+msgstr "Nomainīt fontu"
+
+#: tfconfig.bchangefont.hint
+msgid "Change name not size"
+msgstr "Maina izskatu, bet ne izmēru."
+
+#: tfconfig.bhotkeys.caption
+msgid "List hot-keys"
+msgstr "Īsinājumtaustiņu saraksts"
+
+#: tfconfig.bsettingsa.caption
+msgid "Apply"
+msgstr "Izmainīt izskatu"
+
+#: tfconfig.bsettingsa.hint
+msgid "Apply changes for later time"
+msgstr "Izmaina izskatu, atceras laiku."
+
+#: tfconfig.bsettingsar.caption
+msgid "Apply and reset"
+msgstr "Izmainīt izskatu un laiku"
+
+#: tfconfig.bsettingsarr.caption
+msgid "Apply, reset and restart"
+msgstr "Izmainīt un sākt atskaiti"
+
+#: tfconfig.caption
+msgid "Settings"
+msgstr "Iestatījumi"
+
+#: tfconfig.ccloseme.caption
+msgid "Close on Apply"
+msgstr "Izmainot aizvērt šo logu"
+
+#: tfconfig.eminutes.hint
+msgid "Time for Presenter"
+msgstr "Atvēlētais laiks"
+
+#: tfconfig.ewarning2.hint
+msgctxt "tfconfig.ewarning2.hint"
+msgid "Minutes left"
+msgstr "Minūtes līdz beigām"
+
+#: tfconfig.ewarning3.hint
+msgctxt "tfconfig.ewarning3.hint"
+msgid "Minutes left"
+msgstr "Minūtes līdz beigām"
+
+#: tfconfig.lminutes.caption
+msgid "Minutes:"
+msgstr "Minūtes:"
+
+#: tfconfig.lminutes1.caption
+msgid "1-st warning:"
+msgstr "1. brīdinājums:"
+
+#: tfconfig.lminutes2.caption
+msgid "2-nd warning:"
+msgstr "2. brīdinājums:"
+
+#: tfconfig.lminutes3.caption
+msgid "Last warning:"
+msgstr "3. brīdinājums:"
+
+#: tfconfig.lminutes4.caption
+msgid "Halftime:"
+msgstr "Puse no laika:"
+
+#: tfconfig.ttab1.caption
+msgctxt "tfconfig.ttab1.caption"
+msgid "Appearance"
+msgstr "Izskats"
+
+#: tfconfig.ttab2.caption
+msgctxt "tfconfig.ttab2.caption"
+msgid "System"
+msgstr "Sistēmai"
+
+#: tfhelp.caption
+msgid "Hot keys"
+msgstr "Īsinājumtaustiņi"
+
+#: tftimer.caption
+msgid "Countdown Timer"
+msgstr "Laika atskaites pulkstenis"
+
+#: tftimer.lclock.caption
+msgid "LClock"
+msgstr "LClock"
+
+#: tftimer.lclockm.caption
+msgid "LClockM"
+msgstr "LClockM"
+
+#: tftimer.lclocks.caption
+msgid "LClockS"
+msgstr "LClockS"

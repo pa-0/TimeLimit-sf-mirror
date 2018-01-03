@@ -1,0 +1,192 @@
+msgid ""
+msgstr "Content-Type: text/plain; charset=UTF-8"
+
+#: basewindow.rstrstop
+msgid "STOP"
+msgstr ""
+
+#: help.hkey01
+msgid "Be patient!"
+msgstr ""
+
+#: help.hkey03
+msgid "Any interactive changes are carried out within 1 second interval."
+msgstr ""
+
+#: help.hkey05
+msgid "[Space], [s], Mouse click - start/stop the timer."
+msgstr ""
+
+#: help.hkey06
+msgid "[F11], [f], Mouse double-click  - Full screen on/off."
+msgstr ""
+
+#: help.hkey07
+msgid "[Esc] - Exit."
+msgstr ""
+
+#: help.hkey08
+msgid "[b] - Border-less on/off."
+msgstr ""
+
+#: help.hkey09
+msgid "[F1], [h] - This help."
+msgstr ""
+
+#: help.hkey10
+msgid "[m], Mouse right click - Settings window."
+msgstr ""
+
+#: help.hkey11
+msgid "[Left], [Up] - Increase time by 1 minute."
+msgstr ""
+
+#: help.hkey12
+msgid "[Right], [Down] - Decrease time by 1 minute."
+msgstr ""
+
+#: help.hkey13
+msgid "[r], Mouse middle click - reset timer."
+msgstr ""
+
+#: help.hkey14
+msgid "You can change current time with the mouse wheel as well."
+msgstr ""
+
+#: settings.backgroudcolourhint
+msgctxt "settings.backgroudcolourhint"
+msgid "Background colour. Click to change."
+msgstr ""
+
+#: settings.colourdialogb
+msgid "Select background colour"
+msgstr ""
+
+#: settings.colourdialogt
+msgid "Select text colour"
+msgstr ""
+
+#: settings.fontdialog
+msgid "Select a font (the size is ignored)"
+msgstr ""
+
+#: settings.minuteshint
+msgctxt "settings.minuteshint"
+msgid "Minutes left"
+msgstr ""
+
+#: settings.tabappearance
+msgctxt "settings.tabappearance"
+msgid "Appearance"
+msgstr ""
+
+#: settings.tabsystem
+msgctxt "settings.tabsystem"
+msgid "System"
+msgstr ""
+
+#: settings.textcolourhint
+msgctxt "settings.textcolourhint"
+msgid "Text colour. Click to change."
+msgstr ""
+
+#: tfconfig.bchangefont.caption
+msgid "Change font"
+msgstr ""
+
+#: tfconfig.bchangefont.hint
+msgid "Change name not size"
+msgstr ""
+
+#: tfconfig.bhotkeys.caption
+msgid "List hot-keys"
+msgstr ""
+
+#: tfconfig.bsettingsa.caption
+msgid "Apply"
+msgstr ""
+
+#: tfconfig.bsettingsa.hint
+msgid "Apply changes for later time"
+msgstr ""
+
+#: tfconfig.bsettingsar.caption
+msgid "Apply and reset"
+msgstr ""
+
+#: tfconfig.bsettingsarr.caption
+msgid "Apply, reset and restart"
+msgstr ""
+
+#: tfconfig.caption
+msgid "Settings"
+msgstr ""
+
+#: tfconfig.ccloseme.caption
+msgid "Close on Apply"
+msgstr ""
+
+#: tfconfig.eminutes.hint
+msgid "Time for Presenter"
+msgstr ""
+
+#: tfconfig.ewarning2.hint
+msgctxt "tfconfig.ewarning2.hint"
+msgid "Minutes left"
+msgstr ""
+
+#: tfconfig.ewarning3.hint
+msgctxt "tfconfig.ewarning3.hint"
+msgid "Minutes left"
+msgstr ""
+
+#: tfconfig.lminutes.caption
+msgid "Minutes:"
+msgstr ""
+
+#: tfconfig.lminutes1.caption
+msgid "1-st warning:"
+msgstr ""
+
+#: tfconfig.lminutes2.caption
+msgid "2-nd warning:"
+msgstr ""
+
+#: tfconfig.lminutes3.caption
+msgid "Last warning:"
+msgstr ""
+
+#: tfconfig.lminutes4.caption
+msgid "Halftime:"
+msgstr ""
+
+#: tfconfig.ttab1.caption
+msgctxt "tfconfig.ttab1.caption"
+msgid "Appearance"
+msgstr ""
+
+#: tfconfig.ttab2.caption
+msgctxt "tfconfig.ttab2.caption"
+msgid "System"
+msgstr ""
+
+#: tfhelp.caption
+msgid "Hot keys"
+msgstr ""
+
+#: tftimer.caption
+msgid "Countdown Timer"
+msgstr ""
+
+#: tftimer.lclock.caption
+msgid "LClock"
+msgstr ""
+
+#: tftimer.lclockm.caption
+msgid "LClockM"
+msgstr ""
+
+#: tftimer.lclocks.caption
+msgid "LClockS"
+msgstr ""
+
