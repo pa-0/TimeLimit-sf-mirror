@@ -1,11 +1,12 @@
 # Es Pats <eko@lanet.lv>, 2018.
+# Karlis Kalviskis <eko@lanet.lv>, 2018.
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2018-01-03 09:21+0300\n"
-"PO-Revision-Date: 2018-01-03 09:22+0300\n"
-"Last-Translator: Es Pats <eko@lanet.lv>\n"
+"PO-Revision-Date: 2018-01-17 00:49+0300\n"
+"Last-Translator: Karlis Kalviskis <eko@lanet.lv>\n"
 "Language-Team: karlo\n"
 "Language: lv\n"
 "MIME-Version: 1.0\n"
@@ -19,53 +20,140 @@ msgstr ""
 msgid "STOP"
 msgstr "BEIGT"
 
-#: help.hkey01
+#: help.binfo01
+msgid "Built for"
+msgstr "Mērķsistēma"
+
+#: help.binfo02
+#| msgid "FPC version"
+msgid "Free Pascal Compiler version"
+msgstr "„Free Pascal” kompilatora versija"
+
+#: help.binfo03
+msgid "Lazarus version"
+msgstr "„Lazarus” versija"
+
+#: help.binfo04
+msgid "Compiled on"
+msgstr "Izveides datums"
+
+#: help.hkey00a
+msgctxt "help.hkey00a"
 msgid "Be patient!"
 msgstr "Esi pacietīgs!"
 
-#: help.hkey03
+#: help.hkey01a
+#| msgid "Be patient!"
+msgctxt "help.hkey01a"
 msgid "Any interactive changes are carried out within 1 second interval."
 msgstr "Programma atsaucas uz izmaiņām tikai reizi sekundē."
 
-#: help.hkey05
-msgid "[Space], [s], Mouse click - start/stop the timer."
-msgstr "[Atstarpe], [s], peles klikšķis – Sākt/apstādināt laika atskaiti."
+#: help.hkey02a
+#| msgid ""
+#| "[Space], [s],\n"
+#| "Mouse click\n"
+msgctxt "help.hkey02a"
+msgid "[Space], [s], Mouse click"
+msgstr "[Atstarpe], [s], peles klikšķis"
 
-#: help.hkey06
-msgid "[F11], [f], Mouse double-click  - Full screen on/off."
-msgstr "[F11], [f], peles dubultklikšķis – Ieslēgt/izslēgt pilnekrāna skatu."
+#: help.hkey02b
+msgctxt "help.hkey02b"
+msgid "start/stop the timer."
+msgstr "sākt/apstādināt laika atskaiti."
 
-#: help.hkey07
-msgid "[Esc] - Exit."
-msgstr "[Esc] – Iziet."
+#: help.hkey03a
+msgid "[F11], [f], Mouse double-click"
+msgstr "[F11], [f], peles dubultklikšķis"
 
-#: help.hkey08
-msgid "[b] - Border-less on/off."
-msgstr "[b] – Noņemt/atjaunot loga apmales."
+#: help.hkey03b
+msgid "full screen on/off."
+msgstr "ieslēgt/izslēgt pilnekrāna skatu."
 
-#: help.hkey09
-msgid "[F1], [h] - This help."
-msgstr "[F1], [h] – Šis paskaidrojums."
+#: help.hkey04a
+msgid "[Esc]"
+msgstr "[Esc]"
 
-#: help.hkey10
-msgid "[m], Mouse right click - Settings window."
-msgstr "[m], peles „labā” poga – Pulksteņa iestatījumi."
+#: help.hkey04b
+msgid "exit."
+msgstr "iziet."
 
-#: help.hkey11
-msgid "[Left], [Up] - Increase time by 1 minute."
-msgstr "[Pa_kreisi], [Uz_augšu] – Palielināt laiku par 1 minūti."
+#: help.hkey05a
+msgid "[b]"
+msgstr "[b]"
 
-#: help.hkey12
-msgid "[Right], [Down] - Decrease time by 1 minute."
-msgstr "[Pa_labi], [Uz_leju] – Samazināt laiku par 1 minūti."
+#: help.hkey05b
+msgid "border-less on/off."
+msgstr "noņemt/atjaunot loga apmales."
 
-#: help.hkey13
-msgid "[r], Mouse middle click - reset timer."
-msgstr "[r], Peles vidējā poga – palaists laika atskaiti no jauna."
+#: help.hkey06a
+msgid "[F1], [h]"
+msgstr "[F1], [h]"
 
-#: help.hkey14
+#: help.hkey06b
+msgid "this help."
+msgstr "šis paskaidrojums."
+
+#: help.hkey07a
+msgid "[m], Mouse right click"
+msgstr "[m], peles „labā” poga"
+
+#: help.hkey07b
+msgid "settings window."
+msgstr "pulksteņa iestatījumi."
+
+#: help.hkey08a
+msgid "[Left], [Up]"
+msgstr "[Pa_kreisi], [Uz_augšu]"
+
+#: help.hkey08b
+msgid "increase time by 1 minute."
+msgstr "palielināt laiku par 1 minūti."
+
+#: help.hkey09a
+msgid "[Right], [Down]"
+msgstr "[Pa_labi], [Uz_leju]"
+
+#: help.hkey09b
+msgid "decrease time by 1 minute."
+msgstr "samazināt laiku par 1 minūti."
+
+#: help.hkey10b
+#| msgid "[Right], [Down] - Decrease time by 1 minute."
+msgctxt "help.hkey10b"
 msgid "You can change current time with the mouse wheel as well."
 msgstr "Patreizējo laiku iespējams mainīt ar peles ritenīti."
+
+#: help.hkey11a
+msgid "[r], Mouse middle click"
+msgstr "[r], Peles vidējā poga"
+
+#: help.hkey11b
+msgid "reset timer."
+msgstr "palaists laika atskaiti no jauna."
+
+#: help.sinfo01
+msgid "Product name"
+msgstr "Pilns nosaukums"
+
+#: help.sinfo02
+msgid "Original filename"
+msgstr "Sākotnējais vārds"
+
+#: help.sinfo03
+msgid "File version"
+msgstr "Versija"
+
+#: help.sinfo04
+msgid "File description"
+msgstr "Apraksts"
+
+#: help.sinfo05
+msgid "Legal copyright"
+msgstr "Autors un licence"
+
+#: help.sinfo06
+msgid "Comments"
+msgstr "Piezīmes"
 
 #: settings.backgroudcolourhint
 msgctxt "settings.backgroudcolourhint"
@@ -185,7 +273,16 @@ msgid "System"
 msgstr "Sistēmai"
 
 #: tfhelp.caption
-msgid "Hot keys"
+#| msgid "Hot keys"
+msgid "Help"
+msgstr "Palīgs"
+
+#: tfhelp.ptabout.caption
+msgid "About"
+msgstr "Par programmu"
+
+#: tfhelp.pthotkey.caption
+msgid "Hot Keys"
 msgstr "Īsinājumtaustiņi"
 
 #: tftimer.caption
@@ -193,13 +290,20 @@ msgid "Countdown Timer"
 msgstr "Laika atskaites pulkstenis"
 
 #: tftimer.lclock.caption
-msgid "LClock"
-msgstr "LClock"
+#| msgid "LClock"
+msgid ":"
+msgstr ":"
 
 #: tftimer.lclockm.caption
-msgid "LClockM"
-msgstr "LClockM"
+#| msgid "LClockM"
+msgid "42"
+msgstr "42"
 
 #: tftimer.lclocks.caption
-msgid "LClockS"
-msgstr "LClockS"
+#| msgid "LClockS"
+msgid "00"
+msgstr "00"
+
+#: versionsupport.missinginfo
+msgid "No build information available"
+msgstr "Nav ziņas par programmu"

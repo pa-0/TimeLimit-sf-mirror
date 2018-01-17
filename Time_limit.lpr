@@ -1,4 +1,9 @@
-program Uzraksti_logaa;
+(*
+ * Version: 00.05.00.
+ * Author: Kārlis Kalviškis, 2018.01.17. 14:22
+ * License: GPLv3
+ *)
+program TimeLimit;
 
 {$mode objfpc}{$H+}
 
@@ -7,7 +12,8 @@ uses
   cthreads,
   {$ENDIF}{$ENDIF}
   Interfaces, // this includes the LCL widgetset
-  Forms, basewindow, settings, help;
+  Forms, basewindow, settings, help
+;
 
 {$R *.res}
 

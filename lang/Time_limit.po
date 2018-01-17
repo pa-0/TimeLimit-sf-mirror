@@ -5,52 +5,133 @@ msgstr "Content-Type: text/plain; charset=UTF-8"
 msgid "STOP"
 msgstr ""
 
-#: help.hkey01
+#: help.binfo01
+msgid "Built for"
+msgstr ""
+
+#: help.binfo02
+msgid "Free Pascal Compiler version"
+msgstr ""
+
+#: help.binfo03
+msgid "Lazarus version"
+msgstr ""
+
+#: help.binfo04
+msgid "Compiled on"
+msgstr ""
+
+#: help.hkey00a
+msgctxt "help.hkey00a"
 msgid "Be patient!"
 msgstr ""
 
-#: help.hkey03
+#: help.hkey01a
+msgctxt "help.hkey01a"
 msgid "Any interactive changes are carried out within 1 second interval."
 msgstr ""
 
-#: help.hkey05
-msgid "[Space], [s], Mouse click - start/stop the timer."
+#: help.hkey02a
+msgctxt "help.hkey02a"
+msgid "[Space], [s], Mouse click"
 msgstr ""
 
-#: help.hkey06
-msgid "[F11], [f], Mouse double-click  - Full screen on/off."
+#: help.hkey02b
+msgctxt "help.hkey02b"
+msgid "start/stop the timer."
 msgstr ""
 
-#: help.hkey07
-msgid "[Esc] - Exit."
+#: help.hkey03a
+msgid "[F11], [f], Mouse double-click"
 msgstr ""
 
-#: help.hkey08
-msgid "[b] - Border-less on/off."
+#: help.hkey03b
+msgid "full screen on/off."
 msgstr ""
 
-#: help.hkey09
-msgid "[F1], [h] - This help."
+#: help.hkey04a
+msgid "[Esc]"
 msgstr ""
 
-#: help.hkey10
-msgid "[m], Mouse right click - Settings window."
+#: help.hkey04b
+msgid "exit."
 msgstr ""
 
-#: help.hkey11
-msgid "[Left], [Up] - Increase time by 1 minute."
+#: help.hkey05a
+msgid "[b]"
 msgstr ""
 
-#: help.hkey12
-msgid "[Right], [Down] - Decrease time by 1 minute."
+#: help.hkey05b
+msgid "border-less on/off."
 msgstr ""
 
-#: help.hkey13
-msgid "[r], Mouse middle click - reset timer."
+#: help.hkey06a
+msgid "[F1], [h]"
 msgstr ""
 
-#: help.hkey14
+#: help.hkey06b
+msgid "this help."
+msgstr ""
+
+#: help.hkey07a
+msgid "[m], Mouse right click"
+msgstr ""
+
+#: help.hkey07b
+msgid "settings window."
+msgstr ""
+
+#: help.hkey08a
+msgid "[Left], [Up]"
+msgstr ""
+
+#: help.hkey08b
+msgid "increase time by 1 minute."
+msgstr ""
+
+#: help.hkey09a
+msgid "[Right], [Down]"
+msgstr ""
+
+#: help.hkey09b
+msgid "decrease time by 1 minute."
+msgstr ""
+
+#: help.hkey10b
+msgctxt "help.hkey10b"
 msgid "You can change current time with the mouse wheel as well."
+msgstr ""
+
+#: help.hkey11a
+msgid "[r], Mouse middle click"
+msgstr ""
+
+#: help.hkey11b
+msgid "reset timer."
+msgstr ""
+
+#: help.sinfo01
+msgid "Product name"
+msgstr ""
+
+#: help.sinfo02
+msgid "Original filename"
+msgstr ""
+
+#: help.sinfo03
+msgid "File version"
+msgstr ""
+
+#: help.sinfo04
+msgid "File description"
+msgstr ""
+
+#: help.sinfo05
+msgid "Legal copyright"
+msgstr ""
+
+#: help.sinfo06
+msgid "Comments"
 msgstr ""
 
 #: settings.backgroudcolourhint
@@ -171,7 +252,15 @@ msgid "System"
 msgstr ""
 
 #: tfhelp.caption
-msgid "Hot keys"
+msgid "Help"
+msgstr ""
+
+#: tfhelp.ptabout.caption
+msgid "About"
+msgstr ""
+
+#: tfhelp.pthotkey.caption
+msgid "Hot Keys"
 msgstr ""
 
 #: tftimer.caption
@@ -179,14 +268,18 @@ msgid "Countdown Timer"
 msgstr ""
 
 #: tftimer.lclock.caption
-msgid "LClock"
+msgid ":"
 msgstr ""
 
 #: tftimer.lclockm.caption
-msgid "LClockM"
+msgid "42"
 msgstr ""
 
 #: tftimer.lclocks.caption
-msgid "LClockS"
+msgid "00"
+msgstr ""
+
+#: versionsupport.missinginfo
+msgid "No build information available"
 msgstr ""
 

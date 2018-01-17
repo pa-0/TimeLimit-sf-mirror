@@ -20,9 +20,9 @@
     </i18n>
     <VersionInfo>
       <UseVersionInfo Value="True"/>
-      <MinorVersionNr Value="4"/>
+      <MinorVersionNr Value="5"/>
       <Language Value="0809"/>
-      <StringTable Comments="A windowed/full-screen countdown timer." CompanyName="Kārlis Kalviškis  &lt;eko@lanet.lv>" FileDescription="A countdown timer." LegalCopyright="Karlis Kalviskis, GPLv3" ProductName="Time limit (Countdown timer)"/>
+      <StringTable Comments="A windowed/full-screen countdown timer." FileDescription="A countdown timer." LegalCopyright="Karlis Kalviskis, GPLv3" LegalTrademarks="Kārlis Kalviškis  &lt;eko@lanet.lv>" OriginalFilename="Time_limit" ProductName="Time limit (Countdown timer)"/>
     </VersionInfo>
     <BuildModes Count="1">
       <Item1 Name="Default" Default="True"/>
@@ -35,15 +35,19 @@
         <FormatVersion Value="1"/>
       </local>
     </RunParams>
-    <RequiredPackages Count="1">
+    <RequiredPackages Count="2">
       <Item1>
-        <PackageName Value="LCL"/>
+        <PackageName Value="TurboPowerIPro"/>
       </Item1>
+      <Item2>
+        <PackageName Value="LCL"/>
+      </Item2>
     </RequiredPackages>
     <Units Count="6">
       <Unit0>
         <Filename Value="Time_limit.lpr"/>
         <IsPartOfProject Value="True"/>
+        <UnitName Value="TimeLimit"/>
       </Unit0>
       <Unit1>
         <Filename Value="basewindow.pas"/>

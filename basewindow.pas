@@ -1,8 +1,8 @@
 (*
-Version: 00.04.
-Author: Kārlis Kalviškis, 2018.01.02. 09:38
-License: GPLv3
-*)
+ * Version: 00.05.00.
+ * Author: Kārlis Kalviškis, 2018.01.17. 14:22
+ * License: GPLv3
+ *)
 
 unit BaseWindow;
 
@@ -12,13 +12,16 @@ interface
 
 uses
   Classes, SysUtils, FileUtil, Forms, Controls, Graphics,
-  LCLType, Dialogs, StdCtrls, ExtCtrls, DateUtils, DefaultTranslator, types;
+  LCLType, Dialogs, StdCtrls, ExtCtrls, DateUtils, DefaultTranslator, types
+;
 
 type
 
   { TFTimer }
 
   TFTimer = class(TForm)
+     ILogo: TImage;
+     ILogoList: TImageList;
      LClock: TLabel;
      LClockM: TLabel;
      LClockS: TLabel;
@@ -71,6 +74,7 @@ type
      ColourT4 : TColor;
      MinWidth : integer;
      MinHeight : integer;
+     LogoRatio : Real;
   end;
 
 var
@@ -93,6 +97,8 @@ resourcestring
 
 
 procedure TFTimer.FormCreate(Sender: TObject);
+var
+   LogoBitmap: TBitmap;
 begin
   LClock.Caption := ':';
   LClock.Left := 0;
@@ -106,7 +112,7 @@ begin
   MinHeight := 44;
   Self.Constraints.MinWidth := MinWidth;
   Self.Constraints.MinHeight := MinHeight;
-  {Text and bacground colours}
+  //Text and bacground colours
   ColourB0 := clBlack;
   ColourT0 := $00DBDBEE;
   ColourB1 := clBlack;
@@ -119,6 +125,14 @@ begin
   ColourT4 := $0066EEFF;
   Self.Color := ColourB0;
   LClock.Font.Color := ColourT0;
+  // Reads the included logo
+  LogoBitmap := TBitmap.Create;
+  LogoBitmap.Width := ILogoList.Width;
+  LogoBitmap.Height := ILogoList.Height;
+  LogoRatio := ILogoList.Width/ILogoList.Height;
+  ILogoList.GetBitmap(0, LogoBitmap);
+  ILogo.Picture.Bitmap := LogoBitmap;
+  LogoBitmap.Free;
  {Timer1}
 end;
 
@@ -141,29 +155,29 @@ end;
 procedure TFTimer.FormKeyPress(Sender: TObject; var Key: char);
 begin
   case Key of
-       {[Esc]}
+       //[Esc]
        #27: begin
-             if  Self.BorderStyle =  bsNone then
-                 Self.BorderStyle := bsSizeable
-             else if Self.WindowState <> wsNormal then
-                 Self.WindowState := wsNormal
+             if  BorderStyle =  bsNone then
+                 BorderStyle := bsSizeable
+             else if WindowState = wsFullScreen then
+                 WindowState := wsNormal
              else
-                   Application.Terminate;
+                 Application.Terminate;
        end;
-       {[Space], [S]}
+       //[Space], [S]
        #32, 's': RUNING := not RUNING;
        'r': ResetTimer;
        'f': ChangeFullScreen;
        'b': begin
-           if Self.BorderStyle = bsSizeable then begin
-               Self.Constraints.MinWidth := Self.Width;
-               Self.Constraints.MinHeight := Self.Height;
-               Self.BorderStyle :=  bsNone;
+           if BorderStyle = bsSizeable then begin
+              Constraints.MinWidth := Width;
+              Constraints.MinHeight := Height;
+              BorderStyle :=  bsNone;
            end
            else begin
-                 Self.Constraints.MinWidth := MinWidth;
-                 Self.Constraints.MinHeight := MinHeight;
-                 Self.BorderStyle := bsSizeable;
+              Constraints.MinWidth := MinWidth;
+              Constraints.MinHeight := MinHeight;
+              BorderStyle := bsSizeable;
            end;
        end;
        'h': FHelp.Show;
@@ -185,20 +199,18 @@ procedure TFTimer.FormResize(Sender: TObject);
     var
       i: integer;
 begin
-  if Self.Width / Self.Height < 1.8 then
-      i := round(Self.Width / 4)
+  if Width / Height < 1.8 then
+      i := Width div 4
   else
-      i := round(Self.Height / 2);
-  LClock.Font.Size := i;
+      i := Height div 2;
+  LClock.Font.Size := round(i * 0.75);
   LClockM.Font.Size := i;
   LClockS.Font.Size := i;
-  LClockM.Width := round(Self.Width / 2.3);
-  LClockS.Left := round(Self.Width / 1.82);
-  LClockS.Width := Self.Width -  LClockS.Left;
-  LClock.Width := Self.Width;
-  LClockM.Height := Self.Height;
-  LClockS.Height := Self.Height;
-  LClock.Height := Self.Height - round(i * 0.2 );
+  // Logo size and placement
+  ILogo.Left := Width div 10;
+  ILogo.Top := Height div 20;
+  ILogo.Height := ILogo.Top;
+  ILogo.Width := round(ILogo.Height * LogoRatio);
 end;
 
 
@@ -236,9 +248,6 @@ procedure TFTimer.LClockMouseDown(Sender: TObject; Button: TMouseButton;
 begin
    FTimer.OnMouseDown (Sender, Button, Shift, X, Y);
 end;
-
-
-
 
 procedure TFTimer.LClockSDblClick(Sender: TObject);
 begin
@@ -316,10 +325,10 @@ end;
 
 procedure TFTimer.ChangeFullScreen;
 begin
-     if Self.WindowState = wsNormal then
-         Self.WindowState:= wsFullScreen
+     if WindowState = wsNormal then
+         WindowState:= wsFullScreen
      else
-         Self.WindowState := wsNormal;
+         WindowState := wsNormal;
 end;
 
 procedure TFTimer.ResetTimer;

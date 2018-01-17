@@ -1,6 +1,6 @@
 {"version":1,"strings":[
 {"hash":201334530,"name":"tftimer.caption","sourcebytes":[67,111,117,110,116,100,111,119,110,32,84,105,109,101,114],"value":"Countdown Timer"},
-{"hash":84555163,"name":"tftimer.lclock.caption","sourcebytes":[76,67,108,111,99,107],"value":"LClock"},
-{"hash":10705325,"name":"tftimer.lclockm.caption","sourcebytes":[76,67,108,111,99,107,77],"value":"LClockM"},
-{"hash":10705491,"name":"tftimer.lclocks.caption","sourcebytes":[76,67,108,111,99,107,83],"value":"LClockS"}
+{"hash":58,"name":"tftimer.lclock.caption","sourcebytes":[58],"value":":"},
+{"hash":882,"name":"tftimer.lclockm.caption","sourcebytes":[52,50],"value":"42"},
+{"hash":816,"name":"tftimer.lclocks.caption","sourcebytes":[48,48],"value":"00"}
 ]}

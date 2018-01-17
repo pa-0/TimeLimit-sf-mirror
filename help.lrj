@@ -1,3 +1,5 @@
 {"version":1,"strings":[
-{"hash":107420147,"name":"tfhelp.caption","sourcebytes":[72,111,116,32,107,101,121,115],"value":"Hot keys"}
+{"hash":322608,"name":"tfhelp.caption","sourcebytes":[72,101,108,112],"value":"Help"},
+{"hash":107289075,"name":"tfhelp.pthotkey.caption","sourcebytes":[72,111,116,32,75,101,121,115],"value":"Hot Keys"},
+{"hash":4691652,"name":"tfhelp.ptabout.caption","sourcebytes":[65,98,111,117,116],"value":"About"}
 ]}

@@ -1,8 +1,8 @@
 (*
-Version: 00.04.
-Author: Kārlis Kalviškis, 2018.01.02. 09:38
-License: GPLv3
-*)
+ * Version: 00.05.00.
+ * Author: Kārlis Kalviškis, 2018.01.17. 14:22
+ * License: GPLv3
+ *)
 
 unit settings;
 
@@ -90,10 +90,10 @@ implementation
 
 { TFConfig }
 
-{
+(*
   To use 'Main' and 'help' window's objects.
   Should be placed here not to run in circular refernce.
-}
+*)
 uses basewindow, help;
 
 resourcestring
@@ -140,8 +140,12 @@ begin
     PTabs.TabIndex := 0;
     PTabs.Pages[0].Caption := TabAppearance;
     PTabs.Pages[1].Caption := TabSystem;
+
+    // Ajust the size of the window to fit all cotrols
     PTabs.Width := STMain.Left + STMain.Width + 12;
     Self.Width := PTabs.Width;
+    PTabs.Height := BSettingsARR.Top + BSettingsARR.Height + 3 + PTabs.Height - TTab1.Height;
+    Self.Height := PTabs.Height;
 end;
 
 
@@ -236,7 +240,7 @@ end;
 
 procedure TFConfig.BSettingsAClick(Sender: TObject);
 begin
-    {Apply all settings}
+    // Apply all settings
      FTimer.DefTIME := round(EMinutes.Value * 60);
      FTimer.Warning1 := round(EWarning1.Value * 60);
      FTimer.Warning2 := round(EWarning2.Value * 60);

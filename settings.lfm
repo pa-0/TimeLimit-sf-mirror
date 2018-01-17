@@ -1,12 +1,12 @@
 object FConfig: TFConfig
-  Left = 357
-  Height = 319
-  Top = 413
-  Width = 233
+  Left = 420
+  Height = 337
+  Top = 406
+  Width = 264
   BorderStyle = bsDialog
   Caption = 'Settings'
-  ClientHeight = 319
-  ClientWidth = 233
+  ClientHeight = 337
+  ClientWidth = 264
   FormStyle = fsStayOnTop
   OnCreate = FormCreate
   ShowHint = True
