@@ -161,6 +161,11 @@ msgctxt "settings.tabappearance"
 msgid "Appearance"
 msgstr ""
 
+#: settings.tabimage
+msgctxt "settings.tabimage"
+msgid "Image"
+msgstr ""
+
 #: settings.tabsystem
 msgctxt "settings.tabsystem"
 msgid "System"
@@ -207,6 +212,14 @@ msgstr ""
 msgid "Close on Apply"
 msgstr ""
 
+#: tfconfig.chshowlogo.caption
+msgid "Show logo"
+msgstr ""
+
+#: tfconfig.eminlogoheight.hint
+msgid "The minimal height (in pixels) of the logo.  If the resized logo is lower, it is not shown."
+msgstr ""
+
 #: tfconfig.eminutes.hint
 msgid "Time for Presenter"
 msgstr ""
@@ -219,6 +232,10 @@ msgstr ""
 #: tfconfig.ewarning3.hint
 msgctxt "tfconfig.ewarning3.hint"
 msgid "Minutes left"
+msgstr ""
+
+#: tfconfig.llogoheight.caption
+msgid "Minimal logo height"
 msgstr ""
 
 #: tfconfig.lminutes.caption
@@ -241,14 +258,19 @@ msgstr ""
 msgid "Halftime:"
 msgstr ""
 
-#: tfconfig.ttab1.caption
-msgctxt "tfconfig.ttab1.caption"
+#: tfconfig.ttabbase.caption
+msgctxt "tfconfig.ttabbase.caption"
 msgid "Appearance"
 msgstr ""
 
-#: tfconfig.ttab2.caption
-msgctxt "tfconfig.ttab2.caption"
+#: tfconfig.ttabfiles.caption
+msgctxt "tfconfig.ttabfiles.caption"
 msgid "System"
+msgstr ""
+
+#: tfconfig.ttabimage.caption
+msgctxt "tfconfig.ttabimage.caption"
+msgid "Image"
 msgstr ""
 
 #: tfhelp.caption

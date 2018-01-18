@@ -1,6 +1,6 @@
 (*
- * Version: 00.05.00.
- * Author: Kārlis Kalviškis, 2018.01.17. 14:22
+ * Version: 00.05.01.
+ * Author: Kārlis Kalviškis, 2018.01.18. 05:09
  * License: GPLv3
  *)
 
@@ -14,6 +14,15 @@ uses
   Classes, SysUtils, FileUtil, Forms, Controls, Graphics,
   LCLType, Dialogs, StdCtrls, ExtCtrls, DateUtils, DefaultTranslator, types
 ;
+
+(* Default logo.
+ * Logo is kept in a TImageList "ILogoList" as the first image.
+ * To change the logo:
+ *   1. Set the new values for ILogoList.width and  ILogoList.Height.
+ *      Be aware, - changining these values will reset the Image list.
+ *   2. Double click on the ILOgoList icon to open the image list.
+ *   3. Click [Add] to look for the new logo.
+ *)
 
 type
 
@@ -53,6 +62,7 @@ type
     procedure Timer1Timer(Sender: TObject);
     procedure ChangeFullScreen;
     procedure ResetTimer;
+    procedure CheckLogoVisibility;
    private
 
   public
@@ -75,6 +85,7 @@ type
      MinWidth : integer;
      MinHeight : integer;
      LogoRatio : Real;
+     LogoMinHeight : Integer;
   end;
 
 var
@@ -126,6 +137,7 @@ begin
   Self.Color := ColourB0;
   LClock.Font.Color := ColourT0;
   // Reads the included logo
+  LogoMinHeight := 9;
   LogoBitmap := TBitmap.Create;
   LogoBitmap.Width := ILogoList.Width;
   LogoBitmap.Height := ILogoList.Height;
@@ -211,6 +223,7 @@ begin
   ILogo.Top := Height div 20;
   ILogo.Height := ILogo.Top;
   ILogo.Width := round(ILogo.Height * LogoRatio);
+  CheckLogoVisibility;
 end;
 
 
@@ -339,6 +352,14 @@ begin
       RUNING := false;
       Timer1.Enabled := true;
   end;
+end;
+
+procedure TFTimer.CheckLogoVisibility;
+Begin
+  if (Self.ILogo.Height > Self.LogoMinHeight) and FConfig.ChShowLogo.Checked then
+      Self.ILogo.visible := true
+  else
+      Self.ILogo.visible := false;
 end;
 
 end.

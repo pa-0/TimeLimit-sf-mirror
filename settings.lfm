@@ -1,7 +1,7 @@
 object FConfig: TFConfig
-  Left = 420
+  Left = 427
   Height = 337
-  Top = 406
+  Top = 386
   Width = 264
   BorderStyle = bsDialog
   Caption = 'Settings'
@@ -17,10 +17,10 @@ object FConfig: TFConfig
     Height = 316
     Top = 0
     Width = 233
-    ActivePage = TTab1
-    TabIndex = 0
+    ActivePage = TTabImage
+    TabIndex = 1
     TabOrder = 0
-    object TTab1: TTabSheet
+    object TTabBase: TTabSheet
       Caption = 'Appearance'
       ClientHeight = 287
       ClientWidth = 229
@@ -239,7 +239,43 @@ object FConfig: TFConfig
         Value = 0
       end
     end
-    object TTab2: TTabSheet
+    object TTabImage: TTabSheet
+      Caption = 'Image'
+      ClientHeight = 287
+      ClientWidth = 229
+      object LLogoHeight: TLabel
+        Left = 8
+        Height = 15
+        Top = 8
+        Width = 124
+        Caption = 'Minimal logo height'
+        ParentColor = False
+      end
+      object EMinLogoHeight: TSpinEdit
+        Left = 186
+        Height = 23
+        Hint = 'The minimal height (in pixels) of the logo.  If the resized logo is lower, it is not shown.'
+        Top = 4
+        Width = 40
+        MaxValue = 99
+        MinValue = 6
+        OnChange = EMinLogoHeightChange
+        TabOrder = 0
+        Value = 6
+      end
+      object ChShowLogo: TCheckBox
+        Left = 8
+        Height = 23
+        Top = 32
+        Width = 90
+        Caption = 'Show logo'
+        Checked = True
+        OnChange = ChShowLogoChange
+        State = cbChecked
+        TabOrder = 1
+      end
+    end
+    object TTabFiles: TTabSheet
       Caption = 'System'
       ClientHeight = 287
       ClientWidth = 229
@@ -278,13 +314,15 @@ object FConfig: TFConfig
       'ColorS=F0FBFF'
       'ColorT=A4A0A0'
     )
-    left = 177
+    left = 232
+    top = 96
   end
   object FontDialog1: TFontDialog
     MinFontSize = 0
     MaxFontSize = 0
     Options = [fdEffects, fdNoSizeSel]
     PreviewText = '42:00'
-    left = 203
+    left = 232
+    top = 32
   end
 end

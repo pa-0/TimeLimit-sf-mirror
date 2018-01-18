@@ -1,7 +1,13 @@
+00.05.01 - 2018.01.18. 05:09
+	Missing Unit for Windows added.
+	Minimal Logo height is defined.
+	Now it's posible to hide logo.
+
 00.05.00 - 2018.01.17. 14:22
 	HTML is used for HotKey list layout.
-	“About” tab is added.
+	"About" tab is added.
 	Logo is placed on the clock-face.
+		(http://lv100.lv/)
 
 00.04.01 - 2018.01.14. 10:55
 	The clock-face has been optimized.

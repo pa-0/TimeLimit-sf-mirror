@@ -5,7 +5,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2018-01-03 09:21+0300\n"
-"PO-Revision-Date: 2018-01-17 00:49+0300\n"
+"PO-Revision-Date: 2018-01-18 06:28+0300\n"
 "Last-Translator: Karlis Kalviskis <eko@lanet.lv>\n"
 "Language-Team: karlo\n"
 "Language: lv\n"
@@ -182,6 +182,11 @@ msgctxt "settings.tabappearance"
 msgid "Appearance"
 msgstr "Izskats"
 
+#: settings.tabimage
+msgctxt "settings.tabimage"
+msgid "Image"
+msgstr "Attēls"
+
 #: settings.tabsystem
 msgctxt "settings.tabsystem"
 msgid "System"
@@ -228,6 +233,19 @@ msgstr "Iestatījumi"
 msgid "Close on Apply"
 msgstr "Izmainot aizvērt šo logu"
 
+#: tfconfig.chshowlogo.caption
+msgid "Show logo"
+msgstr "Rādīt logo"
+
+#: tfconfig.eminlogoheight.hint
+#| msgid ""
+#| "The minimal height (in pixels) of the logo.\n"
+#| "If the resized logo is lower, it is not shown.\n"
+msgid "The minimal height (in pixels) of the logo.  If the resized logo is lower, it is not shown."
+msgstr ""
+"Mazākais pieļaujamais logo augstums pikseļos. Ja samazinātais logo ir "
+"mazāks, tas netiek rādīts."
+
 #: tfconfig.eminutes.hint
 msgid "Time for Presenter"
 msgstr "Atvēlētais laiks"
@@ -241,6 +259,10 @@ msgstr "Minūtes līdz beigām"
 msgctxt "tfconfig.ewarning3.hint"
 msgid "Minutes left"
 msgstr "Minūtes līdz beigām"
+
+#: tfconfig.llogoheight.caption
+msgid "Minimal logo height"
+msgstr "Mazākais logo augstums"
 
 #: tfconfig.lminutes.caption
 msgid "Minutes:"
@@ -262,15 +284,20 @@ msgstr "3. brīdinājums:"
 msgid "Halftime:"
 msgstr "Puse no laika:"
 
-#: tfconfig.ttab1.caption
-msgctxt "tfconfig.ttab1.caption"
+#: tfconfig.ttabbase.caption
+msgctxt "tfconfig.ttabbase.caption"
 msgid "Appearance"
 msgstr "Izskats"
 
-#: tfconfig.ttab2.caption
-msgctxt "tfconfig.ttab2.caption"
+#: tfconfig.ttabfiles.caption
+msgctxt "tfconfig.ttabfiles.caption"
 msgid "System"
 msgstr "Sistēmai"
+
+#: tfconfig.ttabimage.caption
+msgctxt "tfconfig.ttabimage.caption"
+msgid "Image"
+msgstr "Attēls"
 
 #: tfhelp.caption
 #| msgid "Hot keys"

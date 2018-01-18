@@ -1,6 +1,6 @@
 (*
- * Version: 00.05.00.
- * Author: Kārlis Kalviškis, 2018.01.17. 14:22
+ * Version: 00.05.01.
+ * Author: Kārlis Kalviškis, 2018.01.18. 05:09
  * License: GPLv3
  *)
 
@@ -25,12 +25,14 @@ type
     BChangeFont: TButton;
     BHotKeys: TButton;
     CCloseMe: TCheckBox;
+    ChShowLogo: TCheckBox;
     ColorDialog1: TColorDialog;
     EMinutes: TFloatSpinEdit;
     EWarning1: TFloatSpinEdit;
     EWarning2: TFloatSpinEdit;
     EWarning3: TFloatSpinEdit;
     FontDialog1: TFontDialog;
+    LLogoHeight: TLabel;
     LMinutes: TLabel;
     LMinutes1: TLabel;
     LMinutes2: TLabel;
@@ -38,6 +40,7 @@ type
     LMinutes4: TLabel;
     PTabs: TPageControl;
     SBMain: TShape;
+    EMinLogoHeight: TSpinEdit;
     STHalf: TShape;
     STMain: TShape;
     SBWarning1: TShape;
@@ -47,13 +50,16 @@ type
     SBWarning3: TShape;
     STWarning3: TShape;
     SBHalf: TShape;
-    TTab2: TTabSheet;
-    TTab1: TTabSheet;
+    TTabImage: TTabSheet;
+    TTabFiles: TTabSheet;
+    TTabBase: TTabSheet;
    procedure BChangeFontClick(Sender: TObject);
    procedure BHotKeysClick(Sender: TObject);
    procedure BSettingsAClick(Sender: TObject);
    procedure BSettingsARClick(Sender: TObject);
    procedure BSettingsARRClick(Sender: TObject);
+   procedure ChShowLogoChange(Sender: TObject);
+   procedure EMinLogoHeightChange(Sender: TObject);
    procedure FormCreate(Sender: TObject);
    procedure SBHalfMouseDown(Sender: TObject; Button: TMouseButton;
      Shift: TShiftState; X, Y: Integer);
@@ -105,6 +111,7 @@ resourcestring
   TextColourHint = 'Text colour. Click to change.';
   MinutesHint = 'Minutes left';
   TabAppearance = 'Appearance';
+  TabImage = 'Image';
   TabSystem = 'System';
 
 procedure TFConfig.FormCreate(Sender: TObject);
@@ -137,14 +144,17 @@ begin
     SBWarning3.Hint := BackgroudColourHint;
     STWarning3.Hint := TextColourHint;
     FontDialog1.Title :=  FontDialog;
-    PTabs.TabIndex := 0;
-    PTabs.Pages[0].Caption := TabAppearance;
-    PTabs.Pages[1].Caption := TabSystem;
+    EMinLogoHeight.Value :=  Ftimer.LogoMinHeight;
 
-    // Ajust the size of the window to fit all cotrols
+    PTabs.TabIndex := 0;
+    TTabBase.Caption := TabAppearance;
+    TTabImage.Caption := TabImage;
+    TTabFiles.Caption := TabSystem;
+
+    // Ajust the size of the window to fit all controls
     PTabs.Width := STMain.Left + STMain.Width + 12;
     Self.Width := PTabs.Width;
-    PTabs.Height := BSettingsARR.Top + BSettingsARR.Height + 3 + PTabs.Height - TTab1.Height;
+    PTabs.Height := BSettingsARR.Top + BSettingsARR.Height + 3 + PTabs.Height - TTabBase.Height;
     Self.Height := PTabs.Height;
 end;
 
@@ -236,6 +246,17 @@ procedure TFConfig.BSettingsARRClick(Sender: TObject);
 begin
      BSettingsAR.Click;
      FTimer.RUNING := true;
+end;
+
+procedure TFConfig.ChShowLogoChange(Sender: TObject);
+begin
+  FTimer.CheckLogoVisibility;
+end;
+
+procedure TFConfig.EMinLogoHeightChange(Sender: TObject);
+begin
+  Ftimer.LogoMinHeight :=  EMinLogoHeight.Value;
+  FTimer.CheckLogoVisibility;
 end;
 
 procedure TFConfig.BSettingsAClick(Sender: TObject);

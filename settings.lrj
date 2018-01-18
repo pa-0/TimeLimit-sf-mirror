@@ -1,6 +1,6 @@
 {"version":1,"strings":[
 {"hash":213582195,"name":"tfconfig.caption","sourcebytes":[83,101,116,116,105,110,103,115],"value":"Settings"},
-{"hash":193790965,"name":"tfconfig.ttab1.caption","sourcebytes":[65,112,112,101,97,114,97,110,99,101],"value":"Appearance"},
+{"hash":193790965,"name":"tfconfig.ttabbase.caption","sourcebytes":[65,112,112,101,97,114,97,110,99,101],"value":"Appearance"},
 {"hash":72570004,"name":"tfconfig.bsettingsarr.caption","sourcebytes":[65,112,112,108,121,44,32,114,101,115,101,116,32,97,110,100,32,114,101,115,116,97,114,116],"value":"Apply, reset and restart"},
 {"hash":21232116,"name":"tfconfig.bsettingsar.caption","sourcebytes":[65,112,112,108,121,32,97,110,100,32,114,101,115,101,116],"value":"Apply and reset"},
 {"hash":225364341,"name":"tfconfig.bsettingsa.hint","sourcebytes":[65,112,112,108,121,32,99,104,97,110,103,101,115,32,102,111,114,32,108,97,116,101,114,32,116,105,109,101],"value":"Apply changes for later time"},
@@ -16,6 +16,10 @@
 {"hash":105921058,"name":"tfconfig.eminutes.hint","sourcebytes":[84,105,109,101,32,102,111,114,32,80,114,101,115,101,110,116,101,114],"value":"Time for Presenter"},
 {"hash":152532852,"name":"tfconfig.ewarning2.hint","sourcebytes":[77,105,110,117,116,101,115,32,108,101,102,116],"value":"Minutes left"},
 {"hash":152532852,"name":"tfconfig.ewarning3.hint","sourcebytes":[77,105,110,117,116,101,115,32,108,101,102,116],"value":"Minutes left"},
-{"hash":95464125,"name":"tfconfig.ttab2.caption","sourcebytes":[83,121,115,116,101,109],"value":"System"},
+{"hash":5257173,"name":"tfconfig.ttabimage.caption","sourcebytes":[73,109,97,103,101],"value":"Image"},
+{"hash":211002052,"name":"tfconfig.llogoheight.caption","sourcebytes":[77,105,110,105,109,97,108,32,108,111,103,111,32,104,101,105,103,104,116],"value":"Minimal logo height"},
+{"hash":132233870,"name":"tfconfig.eminlogoheight.hint","sourcebytes":[84,104,101,32,109,105,110,105,109,97,108,32,104,101,105,103,104,116,32,40,105,110,32,112,105,120,101,108,115,41,32,111,102,32,116,104,101,32,108,111,103,111,46,32,32,73,102,32,116,104,101,32,114,101,115,105,122,101,100,32,108,111,103,111,32,105,115,32,108,111,119,101,114,44,32,105,116,32,105,115,32,110,111,116,32,115,104,111,119,110,46],"value":"The minimal height (in pixels) of the logo.  If the resized logo is lower, it is not shown."},
+{"hash":110595119,"name":"tfconfig.chshowlogo.caption","sourcebytes":[83,104,111,119,32,108,111,103,111],"value":"Show logo"},
+{"hash":95464125,"name":"tfconfig.ttabfiles.caption","sourcebytes":[83,121,115,116,101,109],"value":"System"},
 {"hash":91913155,"name":"tfconfig.bhotkeys.caption","sourcebytes":[76,105,115,116,32,104,111,116,45,107,101,121,115],"value":"List hot-keys"}
 ]}

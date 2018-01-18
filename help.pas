@@ -1,6 +1,6 @@
 (*
- * Version: 00.05.00.
- * Author: Kārlis Kalviškis, 2018.01.17. 14:22
+ * Version: 00.05.01.
+ * Author: Kārlis Kalviškis, 2018.01.18. 05:09
  * License: GPLv3
  *)
 
@@ -13,7 +13,7 @@ interface
 uses
   Classes, SysUtils, FileUtil, Ipfilebroker, IpHtml, Forms, Controls, Graphics
   , Dialogs, StdCtrls, DefaultTranslator, ComCtrls
-  , fileinfo, winpeimagereader, elfreader, machoreader, LCLVersion
+  , fileinfo, resource, winpeimagereader, elfreader, machoreader, LCLVersion
 ;
 
 type
@@ -89,15 +89,17 @@ resourcestring
   BInfo03 = 'Lazarus version';
   BInfo04 = 'Compiled on';
 procedure TFHelp.FormCreate(Sender: TObject);
-const
-  html_head = '<HTML>'
+var
+   html_head : String;
+   html_end  : String;
+begin
+  html_head := '<HTML>'
         +'<HEAD>'
         +'<meta content="text/html; charset=utf-8" http-equiv="Content-Type">'
         +'</HEAD>'
         +'<BODY BGCOLOR=#FFFFAA>';
-  html_end = '</BODY>'
+  html_end := '</BODY>'
         +'</HTML>';
-begin
 
   // List of Hot Keys
   HTMLHotKey.DefaultFontSize := Self.Font.Size;
@@ -203,13 +205,13 @@ Begin
   Result :=  CreateHTMLTable(ColName, ColValue, '<i>', '</i>', '', '');
 end;
 
-Function TFHelp.IsThereVersionInfo(Instance: THandle):boolean;
+function TFHelp.IsThereVersionInfo(Instance: THandle):boolean;
 Begin
   If FindResource(Instance, PChar(PtrInt(1)), PChar(RT_VERSION)) = 0 Then
     Result := false
   else
     Result := true;
-End;
+end;
 
 end.
 
