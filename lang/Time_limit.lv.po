@@ -4,8 +4,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-01-03 09:21+0300\n"
-"PO-Revision-Date: 2018-01-18 06:28+0300\n"
+"POT-Creation-Date: 2018-01-19 18:03+0300\n"
+"PO-Revision-Date: 2018-01-28 19:21+0300\n"
 "Last-Translator: Karlis Kalviskis <eko@lanet.lv>\n"
 "Language-Team: karlo\n"
 "Language: lv\n"
@@ -17,15 +17,15 @@ msgstr ""
 "X-Generator: Virtaal 0.7.1\n"
 
 #: basewindow.rstrstop
-msgid "STOP"
-msgstr "BEIGT"
+#| msgid "STOP"
+msgid "The time is over"
+msgstr "Atvēlētais laiks beidzies"
 
 #: help.binfo01
 msgid "Built for"
 msgstr "Mērķsistēma"
 
 #: help.binfo02
-#| msgid "FPC version"
 msgid "Free Pascal Compiler version"
 msgstr "„Free Pascal” kompilatora versija"
 
@@ -43,15 +43,11 @@ msgid "Be patient!"
 msgstr "Esi pacietīgs!"
 
 #: help.hkey01a
-#| msgid "Be patient!"
 msgctxt "help.hkey01a"
 msgid "Any interactive changes are carried out within 1 second interval."
 msgstr "Programma atsaucas uz izmaiņām tikai reizi sekundē."
 
 #: help.hkey02a
-#| msgid ""
-#| "[Space], [s],\n"
-#| "Mouse click\n"
 msgctxt "help.hkey02a"
 msgid "[Space], [s], Mouse click"
 msgstr "[Atstarpe], [s], peles klikšķis"
@@ -118,7 +114,6 @@ msgid "decrease time by 1 minute."
 msgstr "samazināt laiku par 1 minūti."
 
 #: help.hkey10b
-#| msgid "[Right], [Down] - Decrease time by 1 minute."
 msgctxt "help.hkey10b"
 msgid "You can change current time with the mouse wheel as well."
 msgstr "Patreizējo laiku iespējams mainīt ar peles ritenīti."
@@ -155,6 +150,18 @@ msgstr "Autors un licence"
 msgid "Comments"
 msgstr "Piezīmes"
 
+#: help.specialthanks
+msgid "Special thanks to:"
+msgstr "Savu laiku šai lietotnei ir atvēlējuši"
+
+#: help.thankstodevelopers
+msgid "The application “%0:s” is developed using “%1:s” IDE RAD."
+msgstr "Lietotne „%0:s” ir izveidota „%1:s” izstrādes vidē.  "
+
+#: help.thankstoforum
+msgid "A good starting point was “%0:s” forum and wiki pages."
+msgstr "Labs atspēriena punkts bija „%0:s” forums un wiki lapas."
+
 #: settings.backgroudcolourhint
 msgctxt "settings.backgroudcolourhint"
 msgid "Background colour. Click to change."
@@ -183,9 +190,10 @@ msgid "Appearance"
 msgstr "Izskats"
 
 #: settings.tabimage
+#| msgid "Image"
 msgctxt "settings.tabimage"
-msgid "Image"
-msgstr "Attēls"
+msgid "Additional"
+msgstr "Papildus"
 
 #: settings.tabsystem
 msgctxt "settings.tabsystem"
@@ -205,9 +213,18 @@ msgstr "Nomainīt fontu"
 msgid "Change name not size"
 msgstr "Maina izskatu, bet ne izmēru."
 
+#: tfconfig.bchangelogo.caption
+msgid "Change logo"
+msgstr "Nomaini logo"
+
 #: tfconfig.bhotkeys.caption
 msgid "List hot-keys"
 msgstr "Īsinājumtaustiņu saraksts"
+
+#: tfconfig.bquit.caption
+#| msgid "Quit the application"
+msgid "Quit the timer"
+msgstr "Aizvērt pulksteni"
 
 #: tfconfig.bsettingsa.caption
 msgid "Apply"
@@ -233,18 +250,38 @@ msgstr "Iestatījumi"
 msgid "Close on Apply"
 msgstr "Izmainot aizvērt šo logu"
 
+#: tfconfig.chdontclosetimer.caption
+msgid "Unclosable timer"
+msgstr "Neaizverams pulkstenis"
+
+#: tfconfig.chdontclosetimer.hint
+msgid "Enable/disable [Esc] for closing the application"
+msgstr "Atļaut/neļaut izmantot [Esc] programmas aizvēršanai"
+
+#: tfconfig.chfullscreen.caption
+msgid "Full screen"
+msgstr "Pa visu ekrānu"
+
 #: tfconfig.chshowlogo.caption
 msgid "Show logo"
 msgstr "Rādīt logo"
 
+#: tfconfig.chtransparent.caption
+#| msgid "Translucent"
+msgid "Opacity"
+msgstr "Necaurspīdība"
+
+#: tfconfig.chwindowsborders.caption
+msgid "Windows borders"
+msgstr "Loga apmales"
+
+#: tfconfig.ealphablend.hint
+msgid "255 means non-transparent"
+msgstr "Pilnīgi necaurspīdīgs ir ar vērtību 255"
+
 #: tfconfig.eminlogoheight.hint
-#| msgid ""
-#| "The minimal height (in pixels) of the logo.\n"
-#| "If the resized logo is lower, it is not shown.\n"
 msgid "The minimal height (in pixels) of the logo.  If the resized logo is lower, it is not shown."
-msgstr ""
-"Mazākais pieļaujamais logo augstums pikseļos. Ja samazinātais logo ir "
-"mazāks, tas netiek rādīts."
+msgstr "Mazākais pieļaujamais logo augstums pikseļos. Ja samazinātais logo ir mazāks, tas netiek rādīts."
 
 #: tfconfig.eminutes.hint
 msgid "Time for Presenter"
@@ -259,6 +296,10 @@ msgstr "Minūtes līdz beigām"
 msgctxt "tfconfig.ewarning3.hint"
 msgid "Minutes left"
 msgstr "Minūtes līdz beigām"
+
+#: tfconfig.lendnote.caption
+msgid "The End message:"
+msgstr "Beigu paziņojums:"
 
 #: tfconfig.llogoheight.caption
 msgid "Minimal logo height"
@@ -284,23 +325,27 @@ msgstr "3. brīdinājums:"
 msgid "Halftime:"
 msgstr "Puse no laika:"
 
-#: tfconfig.ttabbase.caption
-msgctxt "tfconfig.ttabbase.caption"
+#: tfconfig.ltransparent.caption
+msgid "May not work on some systems!"
+msgstr "Dažas sistēmas šo neatbalsta!"
+
+#: tfconfig.ptbase.caption
+msgctxt "tfconfig.ptbase.caption"
 msgid "Appearance"
 msgstr "Izskats"
 
-#: tfconfig.ttabfiles.caption
-msgctxt "tfconfig.ttabfiles.caption"
+#: tfconfig.ptfiles.caption
+msgctxt "tfconfig.ptfiles.caption"
 msgid "System"
 msgstr "Sistēmai"
 
-#: tfconfig.ttabimage.caption
-msgctxt "tfconfig.ttabimage.caption"
-msgid "Image"
-msgstr "Attēls"
+#: tfconfig.ptimage.caption
+#| msgid "Image"
+msgctxt "tfconfig.ptimage.caption"
+msgid "Additional"
+msgstr "Papildus"
 
 #: tfhelp.caption
-#| msgid "Hot keys"
 msgid "Help"
 msgstr "Palīgs"
 
@@ -312,22 +357,23 @@ msgstr "Par programmu"
 msgid "Hot Keys"
 msgstr "Īsinājumtaustiņi"
 
+#: tfhelp.ptthanks.caption
+msgid "Acknowledgements"
+msgstr "Pateicības"
+
 #: tftimer.caption
 msgid "Countdown Timer"
 msgstr "Laika atskaites pulkstenis"
 
 #: tftimer.lclock.caption
-#| msgid "LClock"
 msgid ":"
 msgstr ":"
 
 #: tftimer.lclockm.caption
-#| msgid "LClockM"
 msgid "42"
 msgstr "42"
 
 #: tftimer.lclocks.caption
-#| msgid "LClockS"
 msgid "00"
 msgstr "00"
 

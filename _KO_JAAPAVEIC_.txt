@@ -1,18 +1,15 @@
-Sakārto secību Iestatījumiem.(.TabStop un .TabOrder)
-
 Iespēja pilnekrānā redzēt pulksteni.
 
 Iespēja pievienot "progress bar".
 
-Iespēja pievienot/nominīt attēlu:
-	Kā logo vienā no stūriem;
-	Kā pamatnes attēlu.
-
-Iespēja mainīt beigu tekstu.
+Iespēja pievienot/nomainīt pamatnes attēlu.
 
 Lasīt paramaterus no komandrindas.
 
 Lasīt/rakstīt parametrus no faila.
 
-Iestatījumus  ielikt cilnēs
-	Otrā cilnē iespēja saglabāt, izvēlēties valodu
+Iestatījumu cilnē iespēja saglabāt, izvēlēties valodu
+
+Atkarībā no patērētā laika, mainās fonta izmērs.
+
+Redzēt tikai ciparus, pārējais caurspīdigs.

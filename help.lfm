@@ -16,9 +16,9 @@ object FHelp: TFHelp
     Height = 290
     Top = 0
     Width = 359
-    ActivePage = PTHotKey
+    ActivePage = PTThanks
     Align = alClient
-    TabIndex = 0
+    TabIndex = 2
     TabOrder = 0
     object PTHotKey: TTabSheet
       Caption = 'Hot Keys'
@@ -58,7 +58,7 @@ object FHelp: TFHelp
       ClientWidth = 355
       object HTMLSystem: TIpHtmlPanel
         Left = 0
-        Height = 278
+        Height = 261
         Top = 0
         Width = 355
         Align = alClient
@@ -74,6 +74,26 @@ object FHelp: TFHelp
         PrintSettings.Preview.Top = 270
         PrintSettings.Preview.Width = 1440
         PrintSettings.Preview.Height = 810
+        TabOrder = 0
+      end
+    end
+    object PTThanks: TTabSheet
+      Caption = 'Acknowledgements'
+      ClientHeight = 261
+      ClientWidth = 355
+      object MThanks: TMemo
+        Left = 9
+        Height = 243
+        Top = 9
+        Width = 337
+        Align = alClient
+        BorderSpacing.Around = 9
+        BorderStyle = bsNone
+        Lines.Strings = (
+          'MThanks'
+        )
+        ReadOnly = True
+        ScrollBars = ssAutoBoth
         TabOrder = 0
       end
     end

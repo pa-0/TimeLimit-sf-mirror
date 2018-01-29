@@ -1,6 +1,6 @@
 (*
- * Version: 00.05.01.
- * Author: Kārlis Kalviškis, 2018.01.18. 05:09
+ * Version: 00.05.02.
+ * Author: Kārlis Kalviškis, 2018.01.28. 08:01
  * License: GPLv3
  *)
 
@@ -61,17 +61,19 @@ type
       MousePos: TPoint; var Handled: Boolean);
     procedure Timer1Timer(Sender: TObject);
     procedure ChangeFullScreen;
+    procedure ChangeWindowsBorder;
     procedure ResetTimer;
     procedure CheckLogoVisibility;
+    procedure ResizeLogo;
    private
 
   public
-     START: integer;
-     DefTIME: integer;
-     Warning1 : integer;
-     Warning2 : integer;
-     Warning3 : integer;
-     RUNING: boolean;
+     TimeNow : Integer;
+     DefTIME: Integer;
+     Warning1 : Integer;
+     Warning2 : Integer;
+     Warning3 : Integer;
+     RUNING: Boolean;
      ColourB0 : TColor;
      ColourT0 : TColor;
      ColourB1 : TColor;
@@ -83,9 +85,10 @@ type
      ColourB4 : TColor;
      ColourT4 : TColor;
      MinWidth : integer;
-     MinHeight : integer;
+     MinHeight : Integer;
      LogoRatio : Real;
      LogoMinHeight : Integer;
+     StrSTOP  : String;
   end;
 
 var
@@ -104,8 +107,7 @@ implementation
 uses settings, help;
 
 resourcestring
-  RStrSTOP = 'STOP';
-
+  RStrSTOP = 'The time is over';
 
 procedure TFTimer.FormCreate(Sender: TObject);
 var
@@ -114,7 +116,7 @@ begin
   LClock.Caption := ':';
   LClock.Left := 0;
   DefTIME := 1200;
-  START := DefTIME;
+  TimeNow := DefTIME;
   Warning1 := 180;
   Warning2 := 120;
   Warning3 := 60;
@@ -136,6 +138,7 @@ begin
   ColourT4 := $0066EEFF;
   Self.Color := ColourB0;
   LClock.Font.Color := ColourT0;
+  StrSTOP := RStrSTOP;
   // Reads the included logo
   LogoMinHeight := 9;
   LogoBitmap := TBitmap.Create;
@@ -157,8 +160,8 @@ procedure TFTimer.FormKeyDown(Sender: TObject; var Key: Word; Shift: TShiftState
   );
 begin
     case Key of
-       VK_UP, VK_LEFT: START := START + 60;
-       VK_DOWN, VK_RIGHT: START := START - 60;
+       VK_UP, VK_LEFT: TimeNow := TimeNow + 60;
+       VK_DOWN, VK_RIGHT: TimeNow := TimeNow - 60;
        VK_F1: FHelp.Show;
        VK_F11: ChangeFullScreen;
   end;
@@ -174,24 +177,13 @@ begin
              else if WindowState = wsFullScreen then
                  WindowState := wsNormal
              else
-                 Application.Terminate;
+                 if not FConfig.ChDontCloseTimer.Checked then Application.Terminate;
        end;
        //[Space], [S]
        #32, 's': RUNING := not RUNING;
        'r': ResetTimer;
        'f': ChangeFullScreen;
-       'b': begin
-           if BorderStyle = bsSizeable then begin
-              Constraints.MinWidth := Width;
-              Constraints.MinHeight := Height;
-              BorderStyle :=  bsNone;
-           end
-           else begin
-              Constraints.MinWidth := MinWidth;
-              Constraints.MinHeight := MinHeight;
-              BorderStyle := bsSizeable;
-           end;
-       end;
+       'b': ChangeWindowsBorder;
        'h': FHelp.Show;
        'm': FConfig.Show;
   end;
@@ -221,9 +213,7 @@ begin
   // Logo size and placement
   ILogo.Left := Width div 10;
   ILogo.Top := Height div 20;
-  ILogo.Height := ILogo.Top;
-  ILogo.Width := round(ILogo.Height * LogoRatio);
-  CheckLogoVisibility;
+  ResizeLogo;
 end;
 
 
@@ -247,13 +237,13 @@ end;
 procedure TFTimer.LClockMMouseWheelDown(Sender: TObject; Shift: TShiftState;
   MousePos: TPoint; var Handled: Boolean);
 begin
-  START := START - 60;
+  TimeNow := TimeNow - 60;
 end;
 
 procedure TFTimer.LClockMMouseWheelUp(Sender: TObject; Shift: TShiftState;
   MousePos: TPoint; var Handled: Boolean);
 begin
-  START := START + 60;
+  TimeNow := TimeNow + 60;
 end;
 
 procedure TFTimer.LClockMouseDown(Sender: TObject; Button: TMouseButton;
@@ -276,13 +266,13 @@ end;
 procedure TFTimer.LClockSMouseWheelDown(Sender: TObject; Shift: TShiftState;
   MousePos: TPoint; var Handled: Boolean);
 begin
-  START := START - 10;
+  TimeNow := TimeNow - 10;
 end;
 
 procedure TFTimer.LClockSMouseWheelUp(Sender: TObject; Shift: TShiftState;
   MousePos: TPoint; var Handled: Boolean);
 begin
-  START := START + 10;
+  TimeNow := TimeNow + 10;
 end;
 
 
@@ -291,46 +281,50 @@ var
       minutes: integer;
       seconds: integer;
 begin
-  if RUNING then Dec(START);
-  if (START < 0) then begin
+  if RUNING then Dec(TimeNow);
+  if (TimeNow < 0) then begin
     Timer1.Enabled := False;
-    LClock.Caption := RStrSTOP;
     LClockM.Caption := '';
     LClockS.Caption := '';
-  end
+    LClock.AutoSize := false;
+    LClock.Width := Self.Width;
+    LClock.Height := Self.Height;
+    LClock.OptimalFill := true;
+    LClock.Caption := StrSTOP;
+    end
   else begin
-      if START <= Warning3 then begin
+      if TimeNow <= Warning3 then begin
         Self.Color := ColourB4;
         LClock.Font.Color := ColourT4;
         LClockM.Font.Color := ColourT4;
         LClockS.Font.Color := ColourT4;
-      end
-      else if START <= Warning2 then begin
+        end
+      else if TimeNow <= Warning2 then begin
         Self.Color := ColourB3;
         LClock.Font.Color := ColourT3;
         LClockM.Font.Color := ColourT3;
         LClockS.Font.Color := ColourT3;
-      end
-      else if START <= Warning1 then begin
+        end
+      else if TimeNow <= Warning1 then begin
         Self.Color := ColourB2;
         LClock.Font.Color := ColourT2;
         LClockM.Font.Color := ColourT2;
         LClockS.Font.Color := ColourT2;
-      end
-      else if START < (DefTIME / 2) then begin
+        end
+      else if TimeNow < (DefTIME / 2) then begin
         Self.Color := ColourB1;
         LClock.Font.Color := ColourT1;
         LClockM.Font.Color := ColourT1;
         LClockS.Font.Color := ColourT1;
-      end
+        end
       else begin
         Self.Color := ColourB0;
         LClock.Font.Color := ColourT0;
         LClockM.Font.Color := ColourT0;
         LClockS.Font.Color := ColourT0;
-      end;
-      minutes := START div 60;
-      seconds := START mod 60;
+        end;
+      minutes := TimeNow div 60;
+      seconds := TimeNow mod 60;
       LClockM.Caption := Format('%.2d', [minutes]);
       LClockS.Caption := Format('%.2d', [seconds]);
   end;
@@ -338,24 +332,60 @@ end;
 
 procedure TFTimer.ChangeFullScreen;
 begin
-     if WindowState = wsNormal then
-         WindowState:= wsFullScreen
-     else
+     FConfig.ChFullScreen.Enabled := false;
+     if WindowState = wsNormal then begin
+         WindowState:= wsFullScreen;
+         FConfig.ChFullScreen.Checked := true;
+         end
+     else begin
          WindowState := wsNormal;
+         FConfig.ChFullScreen.Checked := false;
+     end;
+     FConfig.ChFullScreen.Enabled := true;
+end;
+
+procedure TFTimer.ChangeWindowsBorder;
+begin
+    FConfig.ChWindowsBorders.Enabled := false;
+    if BorderStyle = bsNone then begin
+       Constraints.MinWidth := MinWidth;
+       Constraints.MinHeight := MinHeight;
+       BorderStyle := bsSizeable;
+       FConfig.ChWindowsBorders.Checked := true;
+       end
+    else begin
+       // On some systems the size of the boderless windows
+       // automaticaly is changed to Constraints.Min[size]
+       Constraints.MinWidth := Width;
+       Constraints.MinHeight := Height;
+       BorderStyle := bsNone;
+       FConfig.ChWindowsBorders.Checked := false;
+       end;
+    FConfig.ChWindowsBorders.Enabled := true;
 end;
 
 procedure TFTimer.ResetTimer;
 begin
-  START := DefTIME;
+  TimeNow := DefTIME;
+  LClock.OptimalFill := false;
+  LClock.AutoSize := true;
   LClock.Caption := ':';
+  LClock.Font.Size := round(LClockM.Font.Size * 0.75);
   if  not Timer1.Enabled then begin
       RUNING := false;
       Timer1.Enabled := true;
   end;
 end;
 
+procedure TFTimer.ResizeLogo;
+begin
+  ILogo.Height := ILogo.Top + ILogo.Top div 3;
+  ILogo.Width := round(ILogo.Height * LogoRatio);
+  CheckLogoVisibility;
+end;
+
 procedure TFTimer.CheckLogoVisibility;
-Begin
+begin
   if (Self.ILogo.Height > Self.LogoMinHeight) and FConfig.ChShowLogo.Checked then
       Self.ILogo.visible := true
   else

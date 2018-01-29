@@ -2,7 +2,7 @@ msgid ""
 msgstr "Content-Type: text/plain; charset=UTF-8"
 
 #: basewindow.rstrstop
-msgid "STOP"
+msgid "The time is over"
 msgstr ""
 
 #: help.binfo01
@@ -134,6 +134,18 @@ msgstr ""
 msgid "Comments"
 msgstr ""
 
+#: help.specialthanks
+msgid "Special thanks to:"
+msgstr ""
+
+#: help.thankstodevelopers
+msgid "The application “%0:s” is developed using “%1:s” IDE RAD."
+msgstr ""
+
+#: help.thankstoforum
+msgid "A good starting point was “%0:s” forum and wiki pages."
+msgstr ""
+
 #: settings.backgroudcolourhint
 msgctxt "settings.backgroudcolourhint"
 msgid "Background colour. Click to change."
@@ -163,7 +175,7 @@ msgstr ""
 
 #: settings.tabimage
 msgctxt "settings.tabimage"
-msgid "Image"
+msgid "Additional"
 msgstr ""
 
 #: settings.tabsystem
@@ -184,8 +196,16 @@ msgstr ""
 msgid "Change name not size"
 msgstr ""
 
+#: tfconfig.bchangelogo.caption
+msgid "Change logo"
+msgstr ""
+
 #: tfconfig.bhotkeys.caption
 msgid "List hot-keys"
+msgstr ""
+
+#: tfconfig.bquit.caption
+msgid "Quit the timer"
 msgstr ""
 
 #: tfconfig.bsettingsa.caption
@@ -212,8 +232,32 @@ msgstr ""
 msgid "Close on Apply"
 msgstr ""
 
+#: tfconfig.chdontclosetimer.caption
+msgid "Unclosable timer"
+msgstr ""
+
+#: tfconfig.chdontclosetimer.hint
+msgid "Enable/disable [Esc] for closing the application"
+msgstr ""
+
+#: tfconfig.chfullscreen.caption
+msgid "Full screen"
+msgstr ""
+
 #: tfconfig.chshowlogo.caption
 msgid "Show logo"
+msgstr ""
+
+#: tfconfig.chtransparent.caption
+msgid "Opacity"
+msgstr ""
+
+#: tfconfig.chwindowsborders.caption
+msgid "Windows borders"
+msgstr ""
+
+#: tfconfig.ealphablend.hint
+msgid "255 means non-transparent"
 msgstr ""
 
 #: tfconfig.eminlogoheight.hint
@@ -232,6 +276,10 @@ msgstr ""
 #: tfconfig.ewarning3.hint
 msgctxt "tfconfig.ewarning3.hint"
 msgid "Minutes left"
+msgstr ""
+
+#: tfconfig.lendnote.caption
+msgid "The End message:"
 msgstr ""
 
 #: tfconfig.llogoheight.caption
@@ -258,19 +306,23 @@ msgstr ""
 msgid "Halftime:"
 msgstr ""
 
-#: tfconfig.ttabbase.caption
-msgctxt "tfconfig.ttabbase.caption"
+#: tfconfig.ltransparent.caption
+msgid "May not work on some systems!"
+msgstr ""
+
+#: tfconfig.ptbase.caption
+msgctxt "tfconfig.ptbase.caption"
 msgid "Appearance"
 msgstr ""
 
-#: tfconfig.ttabfiles.caption
-msgctxt "tfconfig.ttabfiles.caption"
+#: tfconfig.ptfiles.caption
+msgctxt "tfconfig.ptfiles.caption"
 msgid "System"
 msgstr ""
 
-#: tfconfig.ttabimage.caption
-msgctxt "tfconfig.ttabimage.caption"
-msgid "Image"
+#: tfconfig.ptimage.caption
+msgctxt "tfconfig.ptimage.caption"
+msgid "Additional"
 msgstr ""
 
 #: tfhelp.caption
@@ -283,6 +335,10 @@ msgstr ""
 
 #: tfhelp.pthotkey.caption
 msgid "Hot Keys"
+msgstr ""
+
+#: tfhelp.ptthanks.caption
+msgid "Acknowledgements"
 msgstr ""
 
 #: tftimer.caption

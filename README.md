@@ -1,10 +1,11 @@
 #Time_limit
 
-A windowed/full-screen countdown timer.
-Colour changes are used as warnings.
+A windowed / full-screen countdown timer. Colour changes are used
+as warnings. Can be used for time-tracking  of your speech,
+lecture or presentation.
 
-Appearance Colour/font/time limits can be changed by
-setting window and hot-keys.
+Colour / font / time limits can be changed using
+settings window and hot-keys.
 
 Available hot-keys:
 -------------------
@@ -14,7 +15,7 @@ Available hot-keys:
 - [Esc] – Exit.
 - [b] – Border-less on/off.
 - [F1], [h] – This help.
-- [m], Mouse right click – Settings window.
+- [m], Mouse right click – Menu window.
 - [Left], [Up] – Increase time by 1 minute.
 - [Right], [Down] – Decrease time by 1 minute.
 - [r], Mouse middle click - reset timer.

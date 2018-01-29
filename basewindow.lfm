@@ -3,6 +3,7 @@ object FTimer: TFTimer
   Height = 242
   Top = 138
   Width = 494
+  AlphaBlendValue = 125
   Anchors = []
   Caption = 'Countdown Timer'
   ClientHeight = 242
@@ -34,6 +35,7 @@ object FTimer: TFTimer
     Layout = tlCenter
     ParentColor = False
     ParentFont = False
+    WordWrap = True
     OnDblClick = LClockDblClick
     OnMouseDown = LClockMouseDown
   end

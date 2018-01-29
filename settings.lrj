@@ -1,6 +1,6 @@
 {"version":1,"strings":[
 {"hash":213582195,"name":"tfconfig.caption","sourcebytes":[83,101,116,116,105,110,103,115],"value":"Settings"},
-{"hash":193790965,"name":"tfconfig.ttabbase.caption","sourcebytes":[65,112,112,101,97,114,97,110,99,101],"value":"Appearance"},
+{"hash":193790965,"name":"tfconfig.ptbase.caption","sourcebytes":[65,112,112,101,97,114,97,110,99,101],"value":"Appearance"},
 {"hash":72570004,"name":"tfconfig.bsettingsarr.caption","sourcebytes":[65,112,112,108,121,44,32,114,101,115,101,116,32,97,110,100,32,114,101,115,116,97,114,116],"value":"Apply, reset and restart"},
 {"hash":21232116,"name":"tfconfig.bsettingsar.caption","sourcebytes":[65,112,112,108,121,32,97,110,100,32,114,101,115,101,116],"value":"Apply and reset"},
 {"hash":225364341,"name":"tfconfig.bsettingsa.hint","sourcebytes":[65,112,112,108,121,32,99,104,97,110,103,101,115,32,102,111,114,32,108,97,116,101,114,32,116,105,109,101],"value":"Apply changes for later time"},
@@ -16,10 +16,20 @@
 {"hash":105921058,"name":"tfconfig.eminutes.hint","sourcebytes":[84,105,109,101,32,102,111,114,32,80,114,101,115,101,110,116,101,114],"value":"Time for Presenter"},
 {"hash":152532852,"name":"tfconfig.ewarning2.hint","sourcebytes":[77,105,110,117,116,101,115,32,108,101,102,116],"value":"Minutes left"},
 {"hash":152532852,"name":"tfconfig.ewarning3.hint","sourcebytes":[77,105,110,117,116,101,115,32,108,101,102,116],"value":"Minutes left"},
-{"hash":5257173,"name":"tfconfig.ttabimage.caption","sourcebytes":[73,109,97,103,101],"value":"Image"},
+{"hash":11288268,"name":"tfconfig.ptimage.caption","sourcebytes":[65,100,100,105,116,105,111,110,97,108],"value":"Additional"},
+{"hash":107454697,"name":"tfconfig.chtransparent.caption","sourcebytes":[79,112,97,99,105,116,121],"value":"Opacity"},
+{"hash":91063425,"name":"tfconfig.ltransparent.caption","sourcebytes":[77,97,121,32,110,111,116,32,119,111,114,107,32,111,110,32,115,111,109,101,32,115,121,115,116,101,109,115,33],"value":"May not work on some systems!"},
+{"hash":250690788,"name":"tfconfig.ealphablend.hint","sourcebytes":[50,53,53,32,109,101,97,110,115,32,110,111,110,45,116,114,97,110,115,112,97,114,101,110,116],"value":"255 means non-transparent"},
+{"hash":91913155,"name":"tfconfig.bhotkeys.caption","sourcebytes":[76,105,115,116,32,104,111,116,45,107,101,121,115],"value":"List hot-keys"},
 {"hash":211002052,"name":"tfconfig.llogoheight.caption","sourcebytes":[77,105,110,105,109,97,108,32,108,111,103,111,32,104,101,105,103,104,116],"value":"Minimal logo height"},
 {"hash":132233870,"name":"tfconfig.eminlogoheight.hint","sourcebytes":[84,104,101,32,109,105,110,105,109,97,108,32,104,101,105,103,104,116,32,40,105,110,32,112,105,120,101,108,115,41,32,111,102,32,116,104,101,32,108,111,103,111,46,32,32,73,102,32,116,104,101,32,114,101,115,105,122,101,100,32,108,111,103,111,32,105,115,32,108,111,119,101,114,44,32,105,116,32,105,115,32,110,111,116,32,115,104,111,119,110,46],"value":"The minimal height (in pixels) of the logo.  If the resized logo is lower, it is not shown."},
 {"hash":110595119,"name":"tfconfig.chshowlogo.caption","sourcebytes":[83,104,111,119,32,108,111,103,111],"value":"Show logo"},
-{"hash":95464125,"name":"tfconfig.ttabfiles.caption","sourcebytes":[83,121,115,116,101,109],"value":"System"},
-{"hash":91913155,"name":"tfconfig.bhotkeys.caption","sourcebytes":[76,105,115,116,32,104,111,116,45,107,101,121,115],"value":"List hot-keys"}
+{"hash":222354847,"name":"tfconfig.bchangelogo.caption","sourcebytes":[67,104,97,110,103,101,32,108,111,103,111],"value":"Change logo"},
+{"hash":141079754,"name":"tfconfig.lendnote.caption","sourcebytes":[84,104,101,32,69,110,100,32,109,101,115,115,97,103,101,58],"value":"The End message:"},
+{"hash":232658931,"name":"tfconfig.chwindowsborders.caption","sourcebytes":[87,105,110,100,111,119,115,32,98,111,114,100,101,114,115],"value":"Windows borders"},
+{"hash":131549534,"name":"tfconfig.chfullscreen.caption","sourcebytes":[70,117,108,108,32,115,99,114,101,101,110],"value":"Full screen"},
+{"hash":95464125,"name":"tfconfig.ptfiles.caption","sourcebytes":[83,121,115,116,101,109],"value":"System"},
+{"hash":149344750,"name":"tfconfig.chdontclosetimer.hint","sourcebytes":[69,110,97,98,108,101,47,100,105,115,97,98,108,101,32,91,69,115,99,93,32,102,111,114,32,99,108,111,115,105,110,103,32,116,104,101,32,97,112,112,108,105,99,97,116,105,111,110],"value":"Enable/disable [Esc] for closing the application"},
+{"hash":68574786,"name":"tfconfig.chdontclosetimer.caption","sourcebytes":[85,110,99,108,111,115,97,98,108,101,32,116,105,109,101,114],"value":"Unclosable timer"},
+{"hash":192715938,"name":"tfconfig.bquit.caption","sourcebytes":[81,117,105,116,32,116,104,101,32,116,105,109,101,114],"value":"Quit the timer"}
 ]}

@@ -1,6 +1,6 @@
 (*
- * Version: 00.05.01.
- * Author: Kārlis Kalviškis, 2018.01.18. 05:09
+ * Version: 00.05.02.
+ * Author: Kārlis Kalviškis, 2018.01.28. 08:01
  * License: GPLv3
  *)
 
@@ -24,9 +24,11 @@ type
     IpHtmlDataProvider1: TIpHtmlDataProvider;
     HTMLHotKey: TIpHtmlPanel;
     HTMLSystem: TIpHtmlPanel;
+    MThanks: TMemo;
     PHelp: TPageControl;
     PTHotKey: TTabSheet;
     PTAbout: TTabSheet;
+    PTThanks: TTabSheet;
     procedure FormCreate(Sender: TObject);
   private
     procedure ShowHotKey(HelpSrc: string; WhereToShow: TIpHtmlPanel);
@@ -88,6 +90,10 @@ resourcestring
   BInfo02 = 'Free Pascal Compiler version';
   BInfo03 = 'Lazarus version';
   BInfo04 = 'Compiled on';
+  ThanksToDevelopers = 'The application “%0:s” is developed using “%1:s” IDE RAD.';
+  ThanksToForum = 'A good starting point was “%0:s” forum and wiki pages.';
+  SpecialThanks = 'Special thanks to:';
+
 procedure TFHelp.FormCreate(Sender: TObject);
 var
    html_head : String;
@@ -120,6 +126,17 @@ begin
         + SystemInfo
         + html_end
         , HTMLSystem);
+
+  MThanks.Clear;
+  MThanks.Append(format(ThanksToDevelopers, [FTimer.Caption, 'FPC/Lazarus']));
+  MThanks.Append('   http://www.freepascal.org/');
+  MThanks.Append('   http://lazarus.freepascal.org/');
+  MThanks.Append(format (ThanksToForum, ['Lazrus']));
+  MThanks.Append('   http://forum.lazarus.freepascal.org/');
+  MThanks.Append('   http://wiki.freepascal.org/Main_Page');
+  MThanks.Append(SpecialThanks);
+  MThanks.Append('* Mike Thompson - mike.cornflake@gmail.com');
+  PHelp.TabIndex := 0;
 end;
 
 procedure TFHelp.ShowHotKey(HelpSrc: string; WhereToShow: TIpHtmlPanel);
