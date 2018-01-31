@@ -5,7 +5,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2018-01-19 18:03+0300\n"
-"PO-Revision-Date: 2018-01-28 19:21+0300\n"
+"PO-Revision-Date: 2018-01-31 05:07+0300\n"
 "Last-Translator: Karlis Kalviskis <eko@lanet.lv>\n"
 "Language-Team: karlo\n"
 "Language: lv\n"
@@ -94,8 +94,9 @@ msgid "[m], Mouse right click"
 msgstr "[m], peles „labā” poga"
 
 #: help.hkey07b
-msgid "settings window."
-msgstr "pulksteņa iestatījumi."
+#| msgid "settings window."
+msgid "settings and control window (menu)."
+msgstr "pulksteņa vadība un iestatījumi."
 
 #: help.hkey08a
 msgid "[Left], [Up]"
@@ -262,6 +263,18 @@ msgstr "Atļaut/neļaut izmantot [Esc] programmas aizvēršanai"
 msgid "Full screen"
 msgstr "Pa visu ekrānu"
 
+#: tfconfig.chincreasingfontsize.caption
+msgid "Increasing font size"
+msgstr "Pieaugošs izmērs"
+
+#: tfconfig.chincreasingfontsize.hint
+msgid "The decrease of time makes the size of numbers bigger"
+msgstr "Samazinoties atlikušajam laikam, palielinās ciparu izmēri"
+
+#: tfconfig.chprogressbar.caption
+msgid "Show progress bar"
+msgstr "Rādīt laika ritējumu"
+
 #: tfconfig.chshowlogo.caption
 msgid "Show logo"
 msgstr "Rādīt logo"
@@ -278,6 +291,14 @@ msgstr "Loga apmales"
 #: tfconfig.ealphablend.hint
 msgid "255 means non-transparent"
 msgstr "Pilnīgi necaurspīdīgs ir ar vērtību 255"
+
+#: tfconfig.echangeeditsize.hint
+msgid "Pixels to add"
+msgstr "Par cik pikseļiem palielināt"
+
+#: tfconfig.eincreasingfontsize.hint
+msgid "Starting size (%)"
+msgstr "Sākuma izmērs (%)"
 
 #: tfconfig.eminlogoheight.hint
 msgid "The minimal height (in pixels) of the logo.  If the resized logo is lower, it is not shown."
@@ -296,6 +317,10 @@ msgstr "Minūtes līdz beigām"
 msgctxt "tfconfig.ewarning3.hint"
 msgid "Minutes left"
 msgstr "Minūtes līdz beigām"
+
+#: tfconfig.lchangeeditsize.caption
+msgid "Resize edit-box on enter"
+msgstr "Palielināt skaitļu laukus"
 
 #: tfconfig.lendnote.caption
 msgid "The End message:"

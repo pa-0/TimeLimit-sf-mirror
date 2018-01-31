@@ -78,7 +78,7 @@ msgid "[m], Mouse right click"
 msgstr ""
 
 #: help.hkey07b
-msgid "settings window."
+msgid "settings and control window (menu)."
 msgstr ""
 
 #: help.hkey08a
@@ -244,6 +244,18 @@ msgstr ""
 msgid "Full screen"
 msgstr ""
 
+#: tfconfig.chincreasingfontsize.caption
+msgid "Increasing font size"
+msgstr ""
+
+#: tfconfig.chincreasingfontsize.hint
+msgid "The decrease of time makes the size of numbers bigger"
+msgstr ""
+
+#: tfconfig.chprogressbar.caption
+msgid "Show progress bar"
+msgstr ""
+
 #: tfconfig.chshowlogo.caption
 msgid "Show logo"
 msgstr ""
@@ -258,6 +270,14 @@ msgstr ""
 
 #: tfconfig.ealphablend.hint
 msgid "255 means non-transparent"
+msgstr ""
+
+#: tfconfig.echangeeditsize.hint
+msgid "Pixels to add"
+msgstr ""
+
+#: tfconfig.eincreasingfontsize.hint
+msgid "Starting size (%)"
 msgstr ""
 
 #: tfconfig.eminlogoheight.hint
@@ -276,6 +296,10 @@ msgstr ""
 #: tfconfig.ewarning3.hint
 msgctxt "tfconfig.ewarning3.hint"
 msgid "Minutes left"
+msgstr ""
+
+#: tfconfig.lchangeeditsize.caption
+msgid "Resize edit-box on enter"
 msgstr ""
 
 #: tfconfig.lendnote.caption

@@ -28,8 +28,14 @@
 {"hash":141079754,"name":"tfconfig.lendnote.caption","sourcebytes":[84,104,101,32,69,110,100,32,109,101,115,115,97,103,101,58],"value":"The End message:"},
 {"hash":232658931,"name":"tfconfig.chwindowsborders.caption","sourcebytes":[87,105,110,100,111,119,115,32,98,111,114,100,101,114,115],"value":"Windows borders"},
 {"hash":131549534,"name":"tfconfig.chfullscreen.caption","sourcebytes":[70,117,108,108,32,115,99,114,101,101,110],"value":"Full screen"},
+{"hash":193446034,"name":"tfconfig.chprogressbar.caption","sourcebytes":[83,104,111,119,32,112,114,111,103,114,101,115,115,32,98,97,114],"value":"Show progress bar"},
+{"hash":138215618,"name":"tfconfig.chincreasingfontsize.hint","sourcebytes":[84,104,101,32,100,101,99,114,101,97,115,101,32,111,102,32,116,105,109,101,32,109,97,107,101,115,32,116,104,101,32,115,105,122,101,32,111,102,32,110,117,109,98,101,114,115,32,98,105,103,103,101,114],"value":"The decrease of time makes the size of numbers bigger"},
+{"hash":159798229,"name":"tfconfig.chincreasingfontsize.caption","sourcebytes":[73,110,99,114,101,97,115,105,110,103,32,102,111,110,116,32,115,105,122,101],"value":"Increasing font size"},
+{"hash":196679017,"name":"tfconfig.eincreasingfontsize.hint","sourcebytes":[83,116,97,114,116,105,110,103,32,115,105,122,101,32,40,37,41],"value":"Starting size (%)"},
 {"hash":95464125,"name":"tfconfig.ptfiles.caption","sourcebytes":[83,121,115,116,101,109],"value":"System"},
 {"hash":149344750,"name":"tfconfig.chdontclosetimer.hint","sourcebytes":[69,110,97,98,108,101,47,100,105,115,97,98,108,101,32,91,69,115,99,93,32,102,111,114,32,99,108,111,115,105,110,103,32,116,104,101,32,97,112,112,108,105,99,97,116,105,111,110],"value":"Enable/disable [Esc] for closing the application"},
 {"hash":68574786,"name":"tfconfig.chdontclosetimer.caption","sourcebytes":[85,110,99,108,111,115,97,98,108,101,32,116,105,109,101,114],"value":"Unclosable timer"},
-{"hash":192715938,"name":"tfconfig.bquit.caption","sourcebytes":[81,117,105,116,32,116,104,101,32,116,105,109,101,114],"value":"Quit the timer"}
+{"hash":192715938,"name":"tfconfig.bquit.caption","sourcebytes":[81,117,105,116,32,116,104,101,32,116,105,109,101,114],"value":"Quit the timer"},
+{"hash":18604786,"name":"tfconfig.lchangeeditsize.caption","sourcebytes":[82,101,115,105,122,101,32,101,100,105,116,45,98,111,120,32,111,110,32,101,110,116,101,114],"value":"Resize edit-box on enter"},
+{"hash":12559524,"name":"tfconfig.echangeeditsize.hint","sourcebytes":[80,105,120,101,108,115,32,116,111,32,97,100,100],"value":"Pixels to add"}
 ]}

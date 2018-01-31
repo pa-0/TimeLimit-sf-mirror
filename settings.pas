@@ -1,6 +1,6 @@
 (*
- * Version: 00.05.02.
- * Author: Kārlis Kalviškis, 2018.01.28. 08:01
+ * Version: 00.06.00.
+ * Author: Kārlis Kalviškis, 2018.01.31 04.30
  * License: GPLv3
  *)
 
@@ -28,6 +28,8 @@ type
     BQuit: TButton;
     CCloseMe: TCheckBox;
     ChDontCloseTimer: TCheckBox;
+    ChIncreasingFontSize: TCheckBox;
+    ChProgressBar: TCheckBox;
     ChFullScreen: TCheckBox;
     ChWindowsBorders: TCheckBox;
     ChTransparent: TCheckBox;
@@ -39,6 +41,7 @@ type
     EWarning2: TFloatSpinEdit;
     EWarning3: TFloatSpinEdit;
     FontDialog1: TFontDialog;
+    LChangeEditSize: TLabel;
     LEndNote: TLabel;
     LTransparent: TLabel;
     LLogoHeight: TLabel;
@@ -59,6 +62,8 @@ type
     SBWarning1: TColorButton;
     SBWarning2: TColorButton;
     SBWarning3: TColorButton;
+    EChangeEditSize: TSpinEdit;
+    EIncreasingFontSize: TSpinEdit;
     STHalf: TColorButton;
     STMain: TColorButton;
     STWarning1: TColorButton;
@@ -75,12 +80,30 @@ type
    procedure BSettingsARClick(Sender: TObject);
    procedure BSettingsARRClick(Sender: TObject);
    procedure ChFullScreenChange(Sender: TObject);
+   procedure ChIncreasingFontSizeChange(Sender: TObject);
+   procedure ChProgressBarChange(Sender: TObject);
    procedure ChShowLogoChange(Sender: TObject);
    procedure ChTransparentChange(Sender: TObject);
    procedure ChWindowsBordersChange(Sender: TObject);
    procedure EAlphaBlendChange(Sender: TObject);
+   procedure EAlphaBlendEnter(Sender: TObject);
+   procedure EAlphaBlendExit(Sender: TObject);
+   procedure EChangeEditSizeEnter(Sender: TObject);
+   procedure EChangeEditSizeExit(Sender: TObject);
    procedure EEndNoteChange(Sender: TObject);
+   procedure EIncreasingFontSizeEnter(Sender: TObject);
+   procedure EIncreasingFontSizeExit(Sender: TObject);
    procedure EMinLogoHeightChange(Sender: TObject);
+   procedure EMinLogoHeightEnter(Sender: TObject);
+   procedure EMinLogoHeightExit(Sender: TObject);
+   procedure EMinutesEnter(Sender: TObject);
+   procedure EMinutesExit(Sender: TObject);
+   procedure EWarning1Enter(Sender: TObject);
+   procedure EWarning1Exit(Sender: TObject);
+   procedure EWarning2Enter(Sender: TObject);
+   procedure EWarning2Exit(Sender: TObject);
+   procedure EWarning3Enter(Sender: TObject);
+   procedure EWarning3Exit(Sender: TObject);
    procedure FormCreate(Sender: TObject);
    procedure SBHalfClick(Sender: TObject);
    procedure SBMainClick(Sender: TObject);
@@ -93,9 +116,10 @@ type
    procedure STWarning2Click(Sender: TObject);
    procedure STWarning3Click(Sender: TObject);
   private
-    { private declarations }
-  public
-    { public declarations }
+   procedure ResizeField(Sender: TCustomFloatSpinEdit);
+   procedure deResizeField(Sender: TCustomFloatSpinEdit);
+ public
+   BiggerFont : Integer;
   end;
 
 var
@@ -125,8 +149,12 @@ resourcestring
   TabImage = 'Additional';
   TabSystem = 'System';
 
+
 procedure TFConfig.FormCreate(Sender: TObject);
 begin
+    BiggerFont := 16;
+    EChangeEditSize.Value := BiggerFont;
+
     EMinutes.Value  := FTimer.DefTIME / 60;
     EWarning1.Value  := FTimer.Warning1 / 60;
     EWarning2.Value  := FTimer.Warning2 / 60;
@@ -172,7 +200,9 @@ begin
     else
        ChFullScreen.Checked := false;
     ChFullScreen.Enabled := true;
-
+    ChProgressBar.Enabled := false;
+    ChProgressBar.Checked := FTimer.PProgressBar.Visible;
+    ChProgressBar.Enabled := true;
     PTabs.TabIndex := 0;
     PTBase.Caption := TabAppearance;
     PTImage.Caption := TabImage;
@@ -246,6 +276,16 @@ begin
   If ChFullScreen.Enabled then FTimer.ChangeFullScreen;
 end;
 
+procedure TFConfig.ChIncreasingFontSizeChange(Sender: TObject);
+begin
+  Ftimer.TimerFontSize;
+end;
+
+procedure TFConfig.ChProgressBarChange(Sender: TObject);
+begin
+  if ChProgressBar.Enabled then FTimer.PProgressBar.Visible := ChProgressBar.Checked;
+end;
+
 procedure TFConfig.ChShowLogoChange(Sender: TObject);
 begin
   FTimer.CheckLogoVisibility;
@@ -266,15 +306,96 @@ begin
   Ftimer.AlphaBlendValue := EAlphaBlend.Value;
 end;
 
+procedure TFConfig.EAlphaBlendEnter(Sender: TObject);
+begin
+  ResizeField(EAlphaBlend);
+end;
+
+procedure TFConfig.EAlphaBlendExit(Sender: TObject);
+begin
+  deResizeField(EAlphaBlend);
+end;
+
+procedure TFConfig.EChangeEditSizeEnter(Sender: TObject);
+begin
+  ResizeField(EChangeEditSize);
+end;
+
+procedure TFConfig.EChangeEditSizeExit(Sender: TObject);
+begin
+  deResizeField(EChangeEditSize);
+  BiggerFont := EChangeEditSize.Value;
+end;
+
 procedure TFConfig.EEndNoteChange(Sender: TObject);
 begin
   Ftimer.StrSTOP :=  EEndNote.Text;
+end;
+
+procedure TFConfig.EIncreasingFontSizeEnter(Sender: TObject);
+begin
+  ResizeField(EIncreasingFontSize);
+end;
+
+procedure TFConfig.EIncreasingFontSizeExit(Sender: TObject);
+begin
+  deResizeField(EIncreasingFontSize);
 end;
 
 procedure TFConfig.EMinLogoHeightChange(Sender: TObject);
 begin
   Ftimer.LogoMinHeight :=  EMinLogoHeight.Value;
   FTimer.CheckLogoVisibility;
+end;
+
+procedure TFConfig.EMinLogoHeightEnter(Sender: TObject);
+begin
+  ResizeField(EMinLogoHeight);
+end;
+
+procedure TFConfig.EMinLogoHeightExit(Sender: TObject);
+begin
+  deResizeField(EMinLogoHeight);
+end;
+
+procedure TFConfig.EMinutesEnter(Sender: TObject);
+begin
+    ResizeField(EMinutes);
+end;
+
+procedure TFConfig.EMinutesExit(Sender: TObject);
+begin
+  deResizeField(EMinutes);
+end;
+
+procedure TFConfig.EWarning1Enter(Sender: TObject);
+begin
+  ResizeField(EWarning1);
+end;
+
+procedure TFConfig.EWarning1Exit(Sender: TObject);
+begin
+  deResizeField(EWarning1);
+end;
+
+procedure TFConfig.EWarning2Enter(Sender: TObject);
+begin
+  ResizeField(EWarning2);
+end;
+
+procedure TFConfig.EWarning2Exit(Sender: TObject);
+begin
+  deResizeField(EWarning2);
+end;
+
+procedure TFConfig.EWarning3Enter(Sender: TObject);
+begin
+  ResizeField(EWarning3);
+end;
+
+procedure TFConfig.EWarning3Exit(Sender: TObject);
+begin
+  deResizeField(EWarning3);
 end;
 
 procedure TFConfig.BSettingsAClick(Sender: TObject);
@@ -335,7 +456,23 @@ begin
        FTimer.ResetTimer;
 end;
 
+procedure TFConfig.ResizeField(Sender: TCustomFloatSpinEdit);
+var
+  Me : TCustomFloatSpinEdit;
+begin
+  Me := Sender;
+  Me.Width := Me.Width + 2 * FConfig.BiggerFont;
+  Me.Font.Size := Me.Font.Size + FConfig.BiggerFont;
+end;
 
+procedure TFConfig.deResizeField(Sender: TCustomFloatSpinEdit);
+var
+  Me : TCustomFloatSpinEdit;
+begin
+  Me := Sender;
+  Me.Width := Me.Width - 2 * FConfig.BiggerFont;
+  Me.Font.Size := Me.Font.Size - FConfig.BiggerFont;
+end;
 
 end.
 

@@ -80,9 +80,40 @@ object FTimer: TFTimer
     Height = 90
     Top = 8
     Width = 90
+    Enabled = False
     Stretch = True
   end
+  object PProgressBar: TPanel
+    AnchorSideLeft.Control = Owner
+    AnchorSideRight.Control = Owner
+    AnchorSideRight.Side = asrBottom
+    AnchorSideBottom.Control = Owner
+    AnchorSideBottom.Side = asrBottom
+    Left = 0
+    Height = 40
+    Top = 202
+    Width = 494
+    Anchors = [akLeft, akRight, akBottom]
+    ClientHeight = 40
+    ClientWidth = 494
+    Enabled = False
+    TabOrder = 0
+    object SProgressBar: TShape
+      AnchorSideTop.Control = PProgressBar
+      AnchorSideRight.Control = PProgressBar
+      AnchorSideRight.Side = asrBottom
+      AnchorSideBottom.Control = PProgressBar
+      AnchorSideBottom.Side = asrBottom
+      Left = 165
+      Height = 38
+      Top = 1
+      Width = 328
+      Anchors = [akTop, akRight, akBottom]
+      Shape = stRoundRect
+    end
+  end
   object Timer1: TTimer
+    Enabled = False
     OnTimer = Timer1Timer
     left = 8
     top = 208

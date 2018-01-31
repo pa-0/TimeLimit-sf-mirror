@@ -17,8 +17,8 @@ object FConfig: TFConfig
     Height = 360
     Top = 0
     Width = 233
-    ActivePage = PTBase
-    TabIndex = 0
+    ActivePage = PTImage
+    TabIndex = 1
     TabOrder = 0
     object PTBase: TTabSheet
       Caption = 'Appearance'
@@ -158,17 +158,21 @@ object FConfig: TFConfig
       object EMinutes: TFloatSpinEdit
         AnchorSideTop.Control = LMinutes
         AnchorSideTop.Side = asrCenter
-        Left = 105
+        AnchorSideRight.Control = SBMain
+        Left = 108
         Height = 23
         Hint = 'Time for Presenter'
         Top = 6
         Width = 57
         Alignment = taRightJustify
-        Anchors = [akTop]
+        Anchors = [akTop, akRight]
+        BorderSpacing.Right = 6
         DecimalPlaces = 1
         Increment = 1
         MaxValue = 100
         MinValue = 0
+        OnEnter = EMinutesEnter
+        OnExit = EMinutesExit
         TabOrder = 0
         Value = 0
       end
@@ -176,15 +180,20 @@ object FConfig: TFConfig
         AnchorSideLeft.Control = EMinutes
         AnchorSideTop.Control = LMinutes1
         AnchorSideTop.Side = asrCenter
-        Left = 105
+        AnchorSideRight.Control = EMinutes
+        AnchorSideRight.Side = asrBottom
+        Left = 107
         Height = 23
         Top = 70
         Width = 58
         Alignment = taRightJustify
+        Anchors = [akTop, akRight]
         DecimalPlaces = 1
         Increment = 1
         MaxValue = 100
         MinValue = 0
+        OnEnter = EWarning1Enter
+        OnExit = EWarning1Exit
         TabOrder = 1
         Value = 0
       end
@@ -192,16 +201,21 @@ object FConfig: TFConfig
         AnchorSideLeft.Control = EMinutes
         AnchorSideTop.Control = LMinutes2
         AnchorSideTop.Side = asrCenter
-        Left = 105
+        AnchorSideRight.Control = EMinutes
+        AnchorSideRight.Side = asrBottom
+        Left = 109
         Height = 23
         Hint = 'Minutes left'
         Top = 100
         Width = 56
         Alignment = taRightJustify
+        Anchors = [akTop, akRight]
         DecimalPlaces = 1
         Increment = 1
         MaxValue = 100
         MinValue = 0
+        OnEnter = EWarning2Enter
+        OnExit = EWarning2Exit
         TabOrder = 2
         Value = 0
       end
@@ -209,16 +223,21 @@ object FConfig: TFConfig
         AnchorSideLeft.Control = EMinutes
         AnchorSideTop.Control = LMinutes3
         AnchorSideTop.Side = asrCenter
-        Left = 105
+        AnchorSideRight.Control = EMinutes
+        AnchorSideRight.Side = asrBottom
+        Left = 108
         Height = 23
         Hint = 'Minutes left'
         Top = 129
         Width = 57
         Alignment = taRightJustify
+        Anchors = [akTop, akRight]
         DecimalPlaces = 1
         Increment = 1
         MaxValue = 100
         MinValue = 0
+        OnEnter = EWarning3Enter
+        OnExit = EWarning3Exit
         TabOrder = 3
         Value = 0
       end
@@ -387,12 +406,12 @@ object FConfig: TFConfig
         AnchorSideRight.Side = asrBottom
         AnchorSideBottom.Control = BHotKeys
         Left = 0
-        Height = 55
-        Top = 58
+        Height = 58
+        Top = 64
         Width = 229
         Anchors = [akTop, akLeft, akRight]
         AutoSize = True
-        ClientHeight = 55
+        ClientHeight = 58
         ClientWidth = 229
         ParentColor = False
         TabOrder = 1
@@ -401,9 +420,9 @@ object FConfig: TFConfig
           AnchorSideTop.Control = PTransparent
           Left = 1
           Height = 23
-          Top = 4
+          Top = 7
           Width = 73
-          BorderSpacing.Top = 3
+          BorderSpacing.Top = 6
           Caption = 'Opacity'
           OnChange = ChTransparentChange
           TabOrder = 0
@@ -418,7 +437,7 @@ object FConfig: TFConfig
           AnchorSideBottom.Side = asrBottom
           Left = 1
           Height = 15
-          Top = 33
+          Top = 36
           Width = 227
           Alignment = taCenter
           Anchors = [akTop, akLeft, akRight]
@@ -437,7 +456,7 @@ object FConfig: TFConfig
           Left = 168
           Height = 23
           Hint = '255 means non-transparent'
-          Top = 4
+          Top = 7
           Width = 60
           Anchors = [akTop, akRight]
           BorderSpacing.Left = 9
@@ -445,6 +464,8 @@ object FConfig: TFConfig
           MaxValue = 255
           MinValue = 75
           OnChange = EAlphaBlendChange
+          OnEnter = EAlphaBlendEnter
+          OnExit = EAlphaBlendExit
           TabOrder = 1
           Value = 93
         end
@@ -470,12 +491,12 @@ object FConfig: TFConfig
         AnchorSideRight.Control = PTImage
         AnchorSideRight.Side = asrBottom
         Left = 0
-        Height = 58
+        Height = 64
         Top = 0
         Width = 229
         Anchors = [akTop, akLeft, akRight]
         AutoSize = True
-        ClientHeight = 58
+        ClientHeight = 64
         ClientWidth = 229
         TabOrder = 0
         object LLogoHeight: TLabel
@@ -483,9 +504,9 @@ object FConfig: TFConfig
           AnchorSideTop.Control = PLogo
           Left = 1
           Height = 15
-          Top = 7
+          Top = 10
           Width = 124
-          BorderSpacing.Top = 6
+          BorderSpacing.Top = 9
           Caption = 'Minimal logo height'
           ParentColor = False
         end
@@ -497,24 +518,26 @@ object FConfig: TFConfig
           Left = 168
           Height = 23
           Hint = 'The minimal height (in pixels) of the logo.  If the resized logo is lower, it is not shown.'
-          Top = 3
+          Top = 6
           Width = 60
           Anchors = [akTop, akRight]
           MaxValue = 99
           MinValue = 6
           OnChange = EMinLogoHeightChange
+          OnEnter = EMinLogoHeightEnter
+          OnExit = EMinLogoHeightExit
           TabOrder = 0
           Value = 6
         end
         object ChShowLogo: TCheckBox
+          AnchorSideLeft.Control = PLogo
           AnchorSideTop.Control = LLogoHeight
           AnchorSideTop.Side = asrBottom
           Left = 1
           Height = 23
-          Top = 28
+          Top = 34
           Width = 90
-          Anchors = [akTop]
-          BorderSpacing.Top = 6
+          BorderSpacing.Top = 9
           BorderSpacing.Bottom = 6
           Caption = 'Show logo'
           Checked = True
@@ -529,7 +552,7 @@ object FConfig: TFConfig
           AnchorSideRight.Side = asrBottom
           Left = 138
           Height = 27
-          Top = 26
+          Top = 32
           Width = 90
           Anchors = [akTop, akRight]
           AutoSize = True
@@ -545,21 +568,21 @@ object FConfig: TFConfig
         AnchorSideRight.Control = PTImage
         AnchorSideRight.Side = asrBottom
         Left = 0
-        Height = 98
-        Top = 113
+        Height = 144
+        Top = 122
         Width = 229
         Anchors = [akTop, akLeft, akRight]
         AutoSize = True
-        ClientHeight = 98
+        ClientHeight = 144
         ClientWidth = 229
         TabOrder = 2
         object LEndNote: TLabel
           AnchorSideLeft.Control = PEndNote
-          AnchorSideTop.Control = ChFullScreen
+          AnchorSideTop.Control = ChIncreasingFontSize
           AnchorSideTop.Side = asrBottom
           Left = 1
           Height = 15
-          Top = 50
+          Top = 96
           Width = 118
           BorderSpacing.Top = 3
           Caption = 'The End message:'
@@ -573,7 +596,7 @@ object FConfig: TFConfig
           AnchorSideRight.Side = asrBottom
           Left = 1
           Height = 23
-          Top = 68
+          Top = 114
           Width = 227
           Anchors = [akTop, akLeft, akRight]
           BorderSpacing.Top = 3
@@ -606,6 +629,49 @@ object FConfig: TFConfig
           OnChange = ChFullScreenChange
           TabOrder = 1
         end
+        object ChProgressBar: TCheckBox
+          AnchorSideLeft.Control = PEndNote
+          AnchorSideTop.Control = ChFullScreen
+          AnchorSideTop.Side = asrBottom
+          Left = 1
+          Height = 23
+          Top = 47
+          Width = 144
+          Caption = 'Show progress bar'
+          OnChange = ChProgressBarChange
+          TabOrder = 3
+        end
+        object ChIncreasingFontSize: TCheckBox
+          AnchorSideLeft.Control = PEndNote
+          AnchorSideTop.Control = ChProgressBar
+          AnchorSideTop.Side = asrBottom
+          Left = 1
+          Height = 23
+          Hint = 'The decrease of time makes the size of numbers bigger'
+          Top = 70
+          Width = 148
+          Caption = 'Increasing font size'
+          OnChange = ChIncreasingFontSizeChange
+          TabOrder = 4
+        end
+        object EIncreasingFontSize: TSpinEdit
+          AnchorSideTop.Control = ChIncreasingFontSize
+          AnchorSideTop.Side = asrCenter
+          AnchorSideRight.Control = PEndNote
+          AnchorSideRight.Side = asrBottom
+          Left = 168
+          Height = 23
+          Hint = 'Starting size (%)'
+          Top = 70
+          Width = 60
+          Anchors = [akTop, akRight]
+          Increment = 5
+          MinValue = 5
+          OnEnter = EIncreasingFontSizeEnter
+          OnExit = EIncreasingFontSizeExit
+          TabOrder = 5
+          Value = 10
+        end
       end
     end
     object PTFiles: TTabSheet
@@ -637,6 +703,36 @@ object FConfig: TFConfig
         Caption = 'Quit the timer'
         OnClick = BQuitClick
         TabOrder = 1
+      end
+      object LChangeEditSize: TLabel
+        AnchorSideLeft.Control = PTFiles
+        AnchorSideTop.Control = ChDontCloseTimer
+        AnchorSideTop.Side = asrBottom
+        Left = 0
+        Height = 15
+        Top = 29
+        Width = 154
+        BorderSpacing.Top = 6
+        Caption = 'Resize edit-box on enter'
+        ParentColor = False
+      end
+      object EChangeEditSize: TSpinEdit
+        AnchorSideTop.Control = LChangeEditSize
+        AnchorSideTop.Side = asrCenter
+        AnchorSideRight.Control = PTFiles
+        AnchorSideRight.Side = asrBottom
+        Left = 183
+        Height = 23
+        Hint = 'Pixels to add'
+        Top = 25
+        Width = 46
+        Anchors = [akTop, akRight]
+        MaxValue = 21
+        MinValue = 6
+        OnEnter = EChangeEditSizeEnter
+        OnExit = EChangeEditSizeExit
+        TabOrder = 2
+        Value = 6
       end
     end
   end

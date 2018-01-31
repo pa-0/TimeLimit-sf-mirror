@@ -1,15 +1,11 @@
 Iespēja pilnekrānā redzēt pulksteni.
 
-Iespēja pievienot "progress bar".
-
 Iespēja pievienot/nomainīt pamatnes attēlu.
 
-Lasīt paramaterus no komandrindas.
+Lasīt parametrus no komandrindas.
 
 Lasīt/rakstīt parametrus no faila.
 
-Iestatījumu cilnē iespēja saglabāt, izvēlēties valodu
+Iespēja izvēlēties valodu.
 
-Atkarībā no patērētā laika, mainās fonta izmērs.
-
-Redzēt tikai ciparus, pārējais caurspīdigs.
+Redzēt tikai ciparus, pārējais caurspīdīgs.

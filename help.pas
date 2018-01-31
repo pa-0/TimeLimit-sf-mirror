@@ -1,6 +1,6 @@
 (*
- * Version: 00.05.02.
- * Author: Kārlis Kalviškis, 2018.01.28. 08:01
+ * Version: 00.06.00.
+ * Author: Kārlis Kalviškis, 2018.01.31 04.30
  * License: GPLv3
  *)
 
@@ -72,7 +72,7 @@ resourcestring
   HKey06A = '[F1], [h]';
   HKey06B = 'this help.';
   HKey07A = '[m], Mouse right click';
-  HKey07B = 'settings window.';
+  HKey07B = 'settings and control window (menu).';
   HKey08A = '[Left], [Up]';
   HKey08B = 'increase time by 1 minute.';
   HKey09A = '[Right], [Down]';

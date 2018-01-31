@@ -1,6 +1,6 @@
 (*
- * Version: 00.05.02.
- * Author: Kārlis Kalviškis, 2018.01.28. 08:01
+ * Version: 00.06.00.
+ * Author: Kārlis Kalviškis, 2018.01.31 04.30
  * License: GPLv3
  *)
 
@@ -34,6 +34,8 @@ type
      LClock: TLabel;
      LClockM: TLabel;
      LClockS: TLabel;
+     PProgressBar: TPanel;
+     SProgressBar: TShape;
     Timer1: TTimer;
     procedure FormCreate(Sender: TObject);
     procedure FormDblClick(Sender: TObject);
@@ -65,6 +67,9 @@ type
     procedure ResetTimer;
     procedure CheckLogoVisibility;
     procedure ResizeLogo;
+    procedure ChangeColor (BackgroundColour : TColor; TextColour : TColor);
+    procedure ShowTime (TimeToShow : Integer);
+    procedure TimerFontSize;
    private
 
   public
@@ -113,21 +118,14 @@ procedure TFTimer.FormCreate(Sender: TObject);
 var
    LogoBitmap: TBitmap;
 begin
-  LClock.Caption := ':';
-  LClock.Left := 0;
-  DefTIME := 1200;
-  TimeNow := DefTIME;
-  Warning1 := 180;
-  Warning2 := 120;
-  Warning3 := 60;
-  RUNING := false;
+  // For Borderless windows
   MinWidth := 99;
   MinHeight := 44;
   Self.Constraints.MinWidth := MinWidth;
   Self.Constraints.MinHeight := MinHeight;
   //Text and bacground colours
   ColourB0 := clBlack;
-  ColourT0 := $00DBDBEE;
+  ColourT0 := $009AABBC;
   ColourB1 := clBlack;
   ColourT1 := clWhite;
   ColourB2 := clBlack;
@@ -148,7 +146,15 @@ begin
   ILogoList.GetBitmap(0, LogoBitmap);
   ILogo.Picture.Bitmap := LogoBitmap;
   LogoBitmap.Free;
- {Timer1}
+  //Timer
+  LClock.Caption := ':';
+  LClock.Left := 0;
+  DefTIME := 1200;
+  Warning1 := 180;
+  Warning2 := 120;
+  Warning3 := 60;
+  RUNING := false;
+  ResetTimer;
 end;
 
 procedure TFTimer.FormDblClick(Sender: TObject);
@@ -165,6 +171,7 @@ begin
        VK_F1: FHelp.Show;
        VK_F11: ChangeFullScreen;
   end;
+  if  not RUNING then ShowTime (TimeNow);
 end;
 
 procedure TFTimer.FormKeyPress(Sender: TObject; var Key: char);
@@ -173,12 +180,12 @@ begin
        //[Esc]
        #27: begin
              if  BorderStyle =  bsNone then
-                 BorderStyle := bsSizeable
-             else if WindowState = wsFullScreen then
-                 WindowState := wsNormal
+                 ChangeWindowsBorder
+             else if FConfig.ChFullScreen.Checked then
+                 ChangeFullScreen
              else
                  if not FConfig.ChDontCloseTimer.Checked then Application.Terminate;
-       end;
+             end;
        //[Space], [S]
        #32, 's': RUNING := not RUNING;
        'r': ResetTimer;
@@ -200,20 +207,13 @@ begin
 end;
 
 procedure TFTimer.FormResize(Sender: TObject);
-    var
-      i: integer;
 begin
-  if Width / Height < 1.8 then
-      i := Width div 4
-  else
-      i := Height div 2;
-  LClock.Font.Size := round(i * 0.75);
-  LClockM.Font.Size := i;
-  LClockS.Font.Size := i;
+  TimerFontSize;
   // Logo size and placement
   ILogo.Left := Width div 10;
   ILogo.Top := Height div 20;
   ResizeLogo;
+  PProgressBar.Height := ILogo.Top;
 end;
 
 
@@ -238,12 +238,14 @@ procedure TFTimer.LClockMMouseWheelDown(Sender: TObject; Shift: TShiftState;
   MousePos: TPoint; var Handled: Boolean);
 begin
   TimeNow := TimeNow - 60;
+  if  not RUNING then ShowTime (TimeNow);
 end;
 
 procedure TFTimer.LClockMMouseWheelUp(Sender: TObject; Shift: TShiftState;
   MousePos: TPoint; var Handled: Boolean);
 begin
   TimeNow := TimeNow + 60;
+  if  not RUNING then ShowTime (TimeNow);
 end;
 
 procedure TFTimer.LClockMouseDown(Sender: TObject; Button: TMouseButton;
@@ -267,66 +269,46 @@ procedure TFTimer.LClockSMouseWheelDown(Sender: TObject; Shift: TShiftState;
   MousePos: TPoint; var Handled: Boolean);
 begin
   TimeNow := TimeNow - 10;
+  if  not RUNING then ShowTime (TimeNow);
 end;
 
 procedure TFTimer.LClockSMouseWheelUp(Sender: TObject; Shift: TShiftState;
   MousePos: TPoint; var Handled: Boolean);
 begin
   TimeNow := TimeNow + 10;
+  if  not RUNING then ShowTime (TimeNow);
 end;
 
 
 procedure TFTimer.Timer1Timer(Sender: TObject);
-var
-      minutes: integer;
-      seconds: integer;
 begin
-  if RUNING then Dec(TimeNow);
-  if (TimeNow < 0) then begin
-    Timer1.Enabled := False;
-    LClockM.Caption := '';
-    LClockS.Caption := '';
-    LClock.AutoSize := false;
-    LClock.Width := Self.Width;
-    LClock.Height := Self.Height;
-    LClock.OptimalFill := true;
-    LClock.Caption := StrSTOP;
-    end
-  else begin
-      if TimeNow <= Warning3 then begin
-        Self.Color := ColourB4;
-        LClock.Font.Color := ColourT4;
-        LClockM.Font.Color := ColourT4;
-        LClockS.Font.Color := ColourT4;
-        end
-      else if TimeNow <= Warning2 then begin
-        Self.Color := ColourB3;
-        LClock.Font.Color := ColourT3;
-        LClockM.Font.Color := ColourT3;
-        LClockS.Font.Color := ColourT3;
-        end
-      else if TimeNow <= Warning1 then begin
-        Self.Color := ColourB2;
-        LClock.Font.Color := ColourT2;
-        LClockM.Font.Color := ColourT2;
-        LClockS.Font.Color := ColourT2;
-        end
-      else if TimeNow < (DefTIME / 2) then begin
-        Self.Color := ColourB1;
-        LClock.Font.Color := ColourT1;
-        LClockM.Font.Color := ColourT1;
-        LClockS.Font.Color := ColourT1;
-        end
-      else begin
-        Self.Color := ColourB0;
-        LClock.Font.Color := ColourT0;
-        LClockM.Font.Color := ColourT0;
-        LClockS.Font.Color := ColourT0;
-        end;
-      minutes := TimeNow div 60;
-      seconds := TimeNow mod 60;
-      LClockM.Caption := Format('%.2d', [minutes]);
-      LClockS.Caption := Format('%.2d', [seconds]);
+  if RUNING then  begin
+    Dec(TimeNow);
+    SProgressBar.Width := round(TimeNow / DefTime * PProgressBar.Width);
+    if (TimeNow < 0) then begin
+      Timer1.Enabled := False;
+      LClockM.Caption := '';
+      LClockS.Caption := '';
+      LClock.AutoSize := false;
+      LClock.Width := Self.Width;
+      LClock.Height := Self.Height;
+      LClock.OptimalFill := true;
+      LClock.Caption := StrSTOP;
+      end
+    else begin
+        if FConfig.ChIncreasingFontSize.Checked then TimerFontSize;
+        if TimeNow <= Warning3 then
+          ChangeColor(ColourB4, ColourT4)
+        else if TimeNow <= Warning2 then
+          ChangeColor(ColourB3, ColourT3)
+        else if TimeNow <= Warning1 then
+          ChangeColor(ColourB2, ColourT2)
+        else if TimeNow < (DefTIME / 2) then
+          ChangeColor(ColourB1, ColourT1)
+        else
+          ChangeColor(ColourB0, ColourT0);
+        ShowTime (TimeNow);
+    end;
   end;
 end;
 
@@ -347,6 +329,8 @@ end;
 procedure TFTimer.ChangeWindowsBorder;
 begin
     FConfig.ChWindowsBorders.Enabled := false;
+   // On some systems the size of the boderless windows
+   // automaticaly is changed to Constraints.Min[size]
     if BorderStyle = bsNone then begin
        Constraints.MinWidth := MinWidth;
        Constraints.MinHeight := MinHeight;
@@ -354,8 +338,6 @@ begin
        FConfig.ChWindowsBorders.Checked := true;
        end
     else begin
-       // On some systems the size of the boderless windows
-       // automaticaly is changed to Constraints.Min[size]
        Constraints.MinWidth := Width;
        Constraints.MinHeight := Height;
        BorderStyle := bsNone;
@@ -371,8 +353,11 @@ begin
   LClock.AutoSize := true;
   LClock.Caption := ':';
   LClock.Font.Size := round(LClockM.Font.Size * 0.75);
-  if  not Timer1.Enabled then begin
+  SProgressBar.Width := PProgressBar.Width;
+  if  not Timer1.Enabled or not RUNING then begin
       RUNING := false;
+      ChangeColor(ColourB0, ColourT0);
+      ShowTime (TimeNow);
       Timer1.Enabled := true;
   end;
 end;
@@ -390,6 +375,44 @@ begin
       Self.ILogo.visible := true
   else
       Self.ILogo.visible := false;
+end;
+
+procedure TFtimer.ChangeColor (BackgroundColour : TColor; TextColour : TColor);
+begin
+  Self.Color := BackgroundColour;
+  LClock.Font.Color := TextColour;
+  LClockM.Font.Color := TextColour;
+  LClockS.Font.Color := TextColour;
+  SProgressBar.Brush.Color := TextColour;
+end;
+
+procedure TFtimer.ShowTime (TimeToShow : Integer);
+var
+      minutes: integer;
+      seconds: integer;
+begin
+  minutes := TimeToShow div 60;
+  seconds := TimeToShow mod 60;
+  LClockM.Caption := Format('%.2d', [minutes]);
+  LClockS.Caption := Format('%.2d', [seconds]);
+end;
+
+procedure TFtimer.TimerFontSize;
+var
+      fontsize : integer;
+begin
+  if Width / Height < 1.8 then
+      fontsize := Width div 4
+  else
+      fontsize := Height div 2;
+  if FConfig.ChIncreasingFontSize.Checked then
+      fontsize := round(fontsize / 100 *
+         (FConfig.EIncreasingFontSize.Value +
+          (100 - FConfig.EIncreasingFontSize.Value) *
+          (1 - TimeNow / DefTime )));
+  LClock.Font.Size := round(fontsize * 0.75);
+  LClockM.Font.Size := fontsize;
+  LClockS.Font.Size := fontsize;
 end;
 
 end.
