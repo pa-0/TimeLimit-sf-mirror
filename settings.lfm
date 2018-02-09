@@ -3,12 +3,14 @@ object FConfig: TFConfig
   Height = 391
   Top = 352
   Width = 270
+  AutoSize = True
   BorderStyle = bsDialog
   Caption = 'Settings'
   ClientHeight = 391
   ClientWidth = 270
   FormStyle = fsStayOnTop
   OnCreate = FormCreate
+  SessionProperties = 'BChangeFont.Font;ChDontCloseTimer.Checked;ChIncreasingFontSize.Checked;ChShowLogo.Checked;ChTransparent.Checked;ChWindowsBorders.Checked;EAlphaBlend.Value;EChangeEditSize.Value;EEndNote.Text;EIncreasingFontSize.Value;EMinLogoHeight.Value;EMinutes.Value;EWarning1.Value;EWarning2.Value;EWarning3.Value;FontDialog1.Font;Left;OpenPictureDialog.FileName;SBHalf.ButtonColor;SBMain.ButtonColor;SBWarning1.ButtonColor;SBWarning2.ButtonColor;SBWarning3.ButtonColor;STHalf.ButtonColor;STMain.ButtonColor;STWarning1.ButtonColor;STWarning2.ButtonColor;STWarning3.ButtonColor;Top;CCloseMe.Checked'
   ShowHint = True
   ShowInTaskBar = stNever
   LCLVersion = '1.8.0.6'
@@ -20,6 +22,7 @@ object FConfig: TFConfig
     ActivePage = PTImage
     TabIndex = 1
     TabOrder = 0
+    OnChange = PTabsChange
     object PTBase: TTabSheet
       Caption = 'Appearance'
       ClientHeight = 331
@@ -30,11 +33,13 @@ object FConfig: TFConfig
         AnchorSideTop.Side = asrBottom
         AnchorSideRight.Control = PTBase
         AnchorSideRight.Side = asrBottom
+        AnchorSideBottom.Control = PTBase
+        AnchorSideBottom.Side = asrBottom
         Left = 0
         Height = 27
-        Top = 276
+        Top = 304
         Width = 229
-        Anchors = [akTop, akLeft, akRight]
+        Anchors = [akLeft, akRight, akBottom]
         AutoSize = True
         Caption = 'Apply, reset and restart'
         OnClick = BSettingsARRClick
@@ -46,11 +51,12 @@ object FConfig: TFConfig
         AnchorSideTop.Side = asrBottom
         AnchorSideRight.Control = PTBase
         AnchorSideRight.Side = asrBottom
+        AnchorSideBottom.Control = BSettingsARR
         Left = 0
         Height = 27
-        Top = 249
+        Top = 277
         Width = 229
-        Anchors = [akTop, akLeft, akRight]
+        Anchors = [akLeft, akRight, akBottom]
         AutoSize = True
         Caption = 'Apply and reset'
         OnClick = BSettingsARClick
@@ -62,12 +68,13 @@ object FConfig: TFConfig
         AnchorSideTop.Side = asrBottom
         AnchorSideRight.Control = PTBase
         AnchorSideRight.Side = asrBottom
+        AnchorSideBottom.Control = BSettingsAR
         Left = 0
         Height = 27
         Hint = 'Apply changes for later time'
-        Top = 222
+        Top = 250
         Width = 229
-        Anchors = [akTop, akLeft, akRight]
+        Anchors = [akLeft, akRight, akBottom]
         AutoSize = True
         Caption = 'Apply'
         OnClick = BSettingsAClick
@@ -76,11 +83,13 @@ object FConfig: TFConfig
       object CCloseMe: TCheckBox
         AnchorSideTop.Control = BChangeFont
         AnchorSideTop.Side = asrBottom
+        AnchorSideBottom.Control = BSettingsA
         Left = 6
         Height = 23
-        Top = 196
+        Top = 224
         Width = 119
         Alignment = taLeftJustify
+        Anchors = [akLeft, akBottom]
         BorderSpacing.Top = 3
         BorderSpacing.Bottom = 3
         Caption = 'Close on Apply'
@@ -140,17 +149,18 @@ object FConfig: TFConfig
       end
       object BChangeFont: TButton
         AnchorSideLeft.Control = PTBase
+        AnchorSideTop.Control = LMinutes3
         AnchorSideTop.Side = asrBottom
         AnchorSideRight.Control = PTBase
         AnchorSideRight.Side = asrBottom
         Left = 0
         Height = 27
         Hint = 'Change name not size'
-        Top = 166
+        Top = 172
         Width = 229
         Anchors = [akTop, akLeft, akRight]
         AutoSize = True
-        BorderSpacing.Top = 9
+        BorderSpacing.Top = 24
         Caption = 'Change font'
         OnClick = BChangeFontClick
         TabOrder = 4
@@ -253,7 +263,7 @@ object FConfig: TFConfig
         ButtonColorAutoSize = False
         ButtonColorSize = 23
         ButtonColor = clCream
-        ColorDialog = ColorDialog1
+        ColorDialog = ColorDialog
         Color = clDefault
         Layout = blGlyphTop
         OnClick = SBMainClick
@@ -270,7 +280,7 @@ object FConfig: TFConfig
         ButtonColorAutoSize = False
         ButtonColorSize = 23
         ButtonColor = clBlack
-        ColorDialog = ColorDialog1
+        ColorDialog = ColorDialog
         OnClick = STMainClick
       end
       object SBHalf: TColorButton
@@ -285,7 +295,7 @@ object FConfig: TFConfig
         ButtonColorAutoSize = False
         ButtonColorSize = 23
         ButtonColor = clCream
-        ColorDialog = ColorDialog1
+        ColorDialog = ColorDialog
         OnClick = SBHalfClick
       end
       object STHalf: TColorButton
@@ -300,7 +310,7 @@ object FConfig: TFConfig
         ButtonColorAutoSize = False
         ButtonColorSize = 23
         ButtonColor = clBlack
-        ColorDialog = ColorDialog1
+        ColorDialog = ColorDialog
         OnClick = STHalfClick
       end
       object SBWarning1: TColorButton
@@ -315,7 +325,7 @@ object FConfig: TFConfig
         ButtonColorAutoSize = False
         ButtonColorSize = 23
         ButtonColor = clCream
-        ColorDialog = ColorDialog1
+        ColorDialog = ColorDialog
         OnClick = SBWarning1Click
       end
       object STWarning1: TColorButton
@@ -330,7 +340,7 @@ object FConfig: TFConfig
         ButtonColorAutoSize = False
         ButtonColorSize = 23
         ButtonColor = clBlack
-        ColorDialog = ColorDialog1
+        ColorDialog = ColorDialog
         OnClick = STWarning1Click
       end
       object SBWarning2: TColorButton
@@ -345,7 +355,7 @@ object FConfig: TFConfig
         ButtonColorAutoSize = False
         ButtonColorSize = 23
         ButtonColor = clCream
-        ColorDialog = ColorDialog1
+        ColorDialog = ColorDialog
         OnClick = SBWarning2Click
       end
       object STWarning2: TColorButton
@@ -360,7 +370,7 @@ object FConfig: TFConfig
         ButtonColorAutoSize = False
         ButtonColorSize = 23
         ButtonColor = clBlack
-        ColorDialog = ColorDialog1
+        ColorDialog = ColorDialog
         OnClick = STWarning2Click
       end
       object SBWarning3: TColorButton
@@ -375,7 +385,7 @@ object FConfig: TFConfig
         ButtonColorAutoSize = False
         ButtonColorSize = 23
         ButtonColor = clCream
-        ColorDialog = ColorDialog1
+        ColorDialog = ColorDialog
         OnClick = SBWarning3Click
       end
       object STWarning3: TColorButton
@@ -390,7 +400,7 @@ object FConfig: TFConfig
         ButtonColorAutoSize = False
         ButtonColorSize = 23
         ButtonColor = clBlack
-        ColorDialog = ColorDialog1
+        ColorDialog = ColorDialog
         OnClick = STWarning3Click
       end
     end
@@ -429,18 +439,17 @@ object FConfig: TFConfig
         end
         object LTransparent: TLabel
           AnchorSideLeft.Control = PTransparent
+          AnchorSideLeft.Side = asrCenter
           AnchorSideTop.Control = ChTransparent
           AnchorSideTop.Side = asrBottom
-          AnchorSideRight.Control = PTransparent
           AnchorSideRight.Side = asrBottom
           AnchorSideBottom.Control = PTransparent
           AnchorSideBottom.Side = asrBottom
-          Left = 1
+          Left = 11
           Height = 15
           Top = 36
-          Width = 227
+          Width = 207
           Alignment = taCenter
-          Anchors = [akTop, akLeft, akRight]
           BorderSpacing.Top = 6
           BorderSpacing.Bottom = 6
           Caption = 'May not work on some systems!'
@@ -472,6 +481,8 @@ object FConfig: TFConfig
       end
       object BHotKeys: TButton
         AnchorSideLeft.Control = PTImage
+        AnchorSideTop.Control = PEndNote
+        AnchorSideTop.Side = asrBottom
         AnchorSideRight.Control = PTImage
         AnchorSideRight.Side = asrBottom
         AnchorSideBottom.Control = PTImage
@@ -601,8 +612,8 @@ object FConfig: TFConfig
           Anchors = [akTop, akLeft, akRight]
           BorderSpacing.Top = 3
           BorderSpacing.Bottom = 6
-          OnChange = EEndNoteChange
           TabOrder = 2
+          Text = 'The time is over'
         end
         object ChWindowsBorders: TCheckBox
           AnchorSideLeft.Control = PEndNote
@@ -734,9 +745,40 @@ object FConfig: TFConfig
         TabOrder = 2
         Value = 6
       end
+      object BOpenINI: TButton
+        AnchorSideLeft.Control = PTFiles
+        AnchorSideTop.Control = LChangeEditSize
+        AnchorSideTop.Side = asrBottom
+        AnchorSideRight.Control = PTFiles
+        AnchorSideRight.Side = asrBottom
+        Left = 0
+        Height = 25
+        Top = 56
+        Width = 229
+        Anchors = [akTop, akLeft, akRight]
+        BorderSpacing.Top = 12
+        Caption = 'Open configuration'
+        OnClick = BOpenINIClick
+        TabOrder = 3
+      end
+      object BSaveINI: TButton
+        AnchorSideLeft.Control = PTFiles
+        AnchorSideTop.Control = BOpenINI
+        AnchorSideTop.Side = asrBottom
+        AnchorSideRight.Control = PTFiles
+        AnchorSideRight.Side = asrBottom
+        Left = 0
+        Height = 25
+        Top = 81
+        Width = 229
+        Anchors = [akTop, akLeft, akRight]
+        Caption = 'Save configuration'
+        OnClick = BSaveINIClick
+        TabOrder = 4
+      end
     end
   end
-  object ColorDialog1: TColorDialog
+  object ColorDialog: TColorDialog
     Color = clBlack
     CustomColors.Strings = (
       'ColorA=000000'
@@ -761,9 +803,9 @@ object FConfig: TFConfig
       'ColorT=A4A0A0'
     )
     left = 232
-    top = 83
+    top = 72
   end
-  object FontDialog1: TFontDialog
+  object FontDialog: TFontDialog
     MinFontSize = 0
     MaxFontSize = 0
     Options = [fdEffects, fdNoSizeSel]
@@ -771,8 +813,21 @@ object FConfig: TFConfig
     left = 232
     top = 20
   end
-  object OpenPictureDialog1: TOpenPictureDialog
+  object OpenPictureDialog: TOpenPictureDialog
     left = 232
-    top = 150
+    top = 128
+  end
+  object RememberSetings: TIniPropStorage
+    StoredValues = <>
+    left = 232
+    top = 184
+  end
+  object OpenFile: TOpenDialog
+    left = 232
+    top = 240
+  end
+  object SaveFile: TSaveDialog
+    left = 232
+    top = 296
   end
 end

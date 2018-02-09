@@ -1,3 +1,7 @@
+00.07.00 - 2018.02.09 14:44
+	Some code optimizations.
+	Now it's possible to save and read timer configuration.
+
 00.06.00 - 2018.01.31 04.30
 	Spin-boxes "zoom-in" on enter (useful for touch-screens).
 	Progress bar added.

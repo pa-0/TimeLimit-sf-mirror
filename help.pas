@@ -1,6 +1,6 @@
 (*
- * Version: 00.06.00.
- * Author: Kārlis Kalviškis, 2018.01.31 04.30
+ * Version: 00.07.00.
+ * Author: Kārlis Kalviškis, 2018.02.09 14:44
  * License: GPLv3
  *)
 
@@ -11,9 +11,9 @@ unit help;
 interface
 
 uses
-  Classes, SysUtils, FileUtil, Ipfilebroker, IpHtml, Forms, Controls, Graphics
-  , Dialogs, StdCtrls, DefaultTranslator, ComCtrls
-  , fileinfo, resource, winpeimagereader, elfreader, machoreader, LCLVersion
+  Classes, SysUtils, FileUtil, Ipfilebroker, IpHtml, Forms, Controls, Graphics,
+  Dialogs, StdCtrls, DefaultTranslator, ComCtrls, fileinfo, resource,
+  winpeimagereader, elfreader, machoreader, LCLVersion, IniPropStorage
 ;
 
 type
@@ -21,6 +21,7 @@ type
   { TFHelp }
 
   TFHelp = class(TForm)
+    RememberSetings: TIniPropStorage;
     IpHtmlDataProvider1: TIpHtmlDataProvider;
     HTMLHotKey: TIpHtmlPanel;
     HTMLSystem: TIpHtmlPanel;

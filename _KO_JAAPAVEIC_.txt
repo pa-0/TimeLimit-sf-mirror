@@ -1,11 +1,5 @@
 Iespēja pilnekrānā redzēt pulksteni.
 
-Iespēja pievienot/nomainīt pamatnes attēlu.
-
 Lasīt parametrus no komandrindas.
 
-Lasīt/rakstīt parametrus no faila.
-
 Iespēja izvēlēties valodu.
-
-Redzēt tikai ciparus, pārējais caurspīdīgs.

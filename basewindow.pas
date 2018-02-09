@@ -1,6 +1,6 @@
 (*
- * Version: 00.06.00.
- * Author: Kārlis Kalviškis, 2018.01.31 04.30
+ * Version: 00.07.00.
+ * Author: Kārlis Kalviškis, 2018.02.09 14:44
  * License: GPLv3
  *)
 
@@ -11,8 +11,8 @@ unit BaseWindow;
 interface
 
 uses
-  Classes, SysUtils, FileUtil, Forms, Controls, Graphics,
-  LCLType, Dialogs, StdCtrls, ExtCtrls, DateUtils, DefaultTranslator, types
+  Classes, SysUtils, FileUtil, Forms, Controls, Graphics, LCLType, Dialogs,
+  StdCtrls, ExtCtrls, DateUtils, DefaultTranslator, IniPropStorage, types
 ;
 
 (* Default logo.
@@ -31,6 +31,7 @@ type
   TFTimer = class(TForm)
      ILogo: TImage;
      ILogoList: TImageList;
+     RememberSetings: TIniPropStorage;
      LClock: TLabel;
      LClockM: TLabel;
      LClockS: TLabel;
@@ -44,19 +45,10 @@ type
     procedure FormMouseDown(Sender: TObject; Button: TMouseButton;
       Shift: TShiftState; X, Y: Integer);
     procedure FormResize(Sender: TObject);
-    procedure LClockDblClick(Sender: TObject);
-    procedure LClockMDblClick(Sender: TObject);
-    procedure LClockMMouseDown(Sender: TObject; Button: TMouseButton;
-      Shift: TShiftState; X, Y: Integer);
     procedure LClockMMouseWheelDown(Sender: TObject; Shift: TShiftState;
       MousePos: TPoint; var Handled: Boolean);
     procedure LClockMMouseWheelUp(Sender: TObject; Shift: TShiftState;
       MousePos: TPoint; var Handled: Boolean);
-    procedure LClockMouseDown(Sender: TObject; Button: TMouseButton;
-      Shift: TShiftState; X, Y: Integer);
-    procedure LClockSDblClick(Sender: TObject);
-    procedure LClockSMouseDown(Sender: TObject; Button: TMouseButton;
-      Shift: TShiftState; X, Y: Integer);
     procedure LClockSMouseWheelDown(Sender: TObject; Shift: TShiftState;
       MousePos: TPoint; var Handled: Boolean);
     procedure LClockSMouseWheelUp(Sender: TObject; Shift: TShiftState;
@@ -93,7 +85,6 @@ type
      MinHeight : Integer;
      LogoRatio : Real;
      LogoMinHeight : Integer;
-     StrSTOP  : String;
   end;
 
 var
@@ -110,9 +101,6 @@ implementation
   Should be placed here not to run in circular refernce.
 }
 uses settings, help;
-
-resourcestring
-  RStrSTOP = 'The time is over';
 
 procedure TFTimer.FormCreate(Sender: TObject);
 var
@@ -136,7 +124,7 @@ begin
   ColourT4 := $0066EEFF;
   Self.Color := ColourB0;
   LClock.Font.Color := ColourT0;
-  StrSTOP := RStrSTOP;
+
   // Reads the included logo
   LogoMinHeight := 9;
   LogoBitmap := TBitmap.Create;
@@ -216,24 +204,6 @@ begin
   PProgressBar.Height := ILogo.Top;
 end;
 
-
-
-procedure TFTimer.LClockDblClick(Sender: TObject);
-begin
-  FTimer.OnDblClick (Sender);
-end;
-
-procedure TFTimer.LClockMDblClick(Sender: TObject);
-begin
-    FTimer.OnDblClick (Sender);
-end;
-
-procedure TFTimer.LClockMMouseDown(Sender: TObject; Button: TMouseButton;
-  Shift: TShiftState; X, Y: Integer);
-begin
-  FTimer.OnMouseDown (Sender, Button, Shift, X, Y);
-end;
-
 procedure TFTimer.LClockMMouseWheelDown(Sender: TObject; Shift: TShiftState;
   MousePos: TPoint; var Handled: Boolean);
 begin
@@ -246,23 +216,6 @@ procedure TFTimer.LClockMMouseWheelUp(Sender: TObject; Shift: TShiftState;
 begin
   TimeNow := TimeNow + 60;
   if  not RUNING then ShowTime (TimeNow);
-end;
-
-procedure TFTimer.LClockMouseDown(Sender: TObject; Button: TMouseButton;
-  Shift: TShiftState; X, Y: Integer);
-begin
-   FTimer.OnMouseDown (Sender, Button, Shift, X, Y);
-end;
-
-procedure TFTimer.LClockSDblClick(Sender: TObject);
-begin
-    FTimer.OnDblClick (Sender);
-end;
-
-procedure TFTimer.LClockSMouseDown(Sender: TObject; Button: TMouseButton;
-  Shift: TShiftState; X, Y: Integer);
-begin
-  FTimer.OnMouseDown (Sender, Button, Shift, X, Y);
 end;
 
 procedure TFTimer.LClockSMouseWheelDown(Sender: TObject; Shift: TShiftState;
@@ -293,7 +246,7 @@ begin
       LClock.Width := Self.Width;
       LClock.Height := Self.Height;
       LClock.OptimalFill := true;
-      LClock.Caption := StrSTOP;
+      LClock.Caption := FConfig.EEndNote.Text;
       end
     else begin
         if FConfig.ChIncreasingFontSize.Checked then TimerFontSize;

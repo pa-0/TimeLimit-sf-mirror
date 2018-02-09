@@ -1,6 +1,6 @@
 (*
- * Version: 00.06.00.
- * Author: Kārlis Kalviškis, 2018.01.31 04.30
+ * Version: 00.07.00.
+ * Author: Kārlis Kalviškis, 2018.02.09 14:44
  * License: GPLv3
  *)
 program TimeLimit;
@@ -12,8 +12,7 @@ uses
   cthreads,
   {$ENDIF}{$ENDIF}
   Interfaces, // this includes the LCL widgetset
-  Forms, basewindow, settings, help
-;
+  Forms, basewindow, settings, help;
 
 {$R *.res}
 

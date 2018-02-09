@@ -1,6 +1,6 @@
 (*
- * Version: 00.06.00.
- * Author: Kārlis Kalviškis, 2018.01.31 04.30
+ * Version: 00.07.00.
+ * Author: Kārlis Kalviškis, 2018.02.09 14:44
  * License: GPLv3
  *)
 
@@ -12,13 +12,13 @@ interface
 
 uses
   Classes, SysUtils, FileUtil, Forms, Controls, Graphics, Dialogs, StdCtrls,
-  ExtCtrls, DefaultTranslator, ComCtrls, Spin, ExtDlgs;
+  ExtCtrls, DefaultTranslator, ComCtrls, Spin, ExtDlgs, IniPropStorage;
 
 type
 
   { TFConfig }
 
-  TFConfig = class(TForm)
+ TFConfig = class(TForm)
     BHotKeys: TButton;
     BSettingsARR: TButton;
     BSettingsAR: TButton;
@@ -26,6 +26,8 @@ type
     BChangeFont: TButton;
     BChangeLogo: TButton;
     BQuit: TButton;
+    BOpenINI: TButton;
+    BSaveINI: TButton;
     CCloseMe: TCheckBox;
     ChDontCloseTimer: TCheckBox;
     ChIncreasingFontSize: TCheckBox;
@@ -34,13 +36,15 @@ type
     ChWindowsBorders: TCheckBox;
     ChTransparent: TCheckBox;
     ChShowLogo: TCheckBox;
-    ColorDialog1: TColorDialog;
+    ColorDialog: TColorDialog;
     EEndNote: TEdit;
     EMinutes: TFloatSpinEdit;
     EWarning1: TFloatSpinEdit;
     EWarning2: TFloatSpinEdit;
     EWarning3: TFloatSpinEdit;
-    FontDialog1: TFontDialog;
+    FontDialog: TFontDialog;
+    OpenFile: TOpenDialog;
+    RememberSetings: TIniPropStorage;
     LChangeEditSize: TLabel;
     LEndNote: TLabel;
     LTransparent: TLabel;
@@ -50,13 +54,14 @@ type
     LMinutes2: TLabel;
     LMinutes3: TLabel;
     LMinutes4: TLabel;
-    OpenPictureDialog1: TOpenPictureDialog;
+    OpenPictureDialog: TOpenPictureDialog;
     PEndNote: TPanel;
     PLogo: TPanel;
     PTransparent: TPanel;
     PTabs: TPageControl;
     EMinLogoHeight: TSpinEdit;
     EAlphaBlend: TSpinEdit;
+    SaveFile: TSaveDialog;
     SBHalf: TColorButton;
     SBMain: TColorButton;
     SBWarning1: TColorButton;
@@ -75,7 +80,9 @@ type
    procedure BChangeFontClick(Sender: TObject);
    procedure BChangeLogoClick(Sender: TObject);
    procedure BHotKeysClick(Sender: TObject);
+   procedure BOpenINIClick(Sender: TObject);
    procedure BQuitClick(Sender: TObject);
+   procedure BSaveINIClick(Sender: TObject);
    procedure BSettingsAClick(Sender: TObject);
    procedure BSettingsARClick(Sender: TObject);
    procedure BSettingsARRClick(Sender: TObject);
@@ -90,7 +97,6 @@ type
    procedure EAlphaBlendExit(Sender: TObject);
    procedure EChangeEditSizeEnter(Sender: TObject);
    procedure EChangeEditSizeExit(Sender: TObject);
-   procedure EEndNoteChange(Sender: TObject);
    procedure EIncreasingFontSizeEnter(Sender: TObject);
    procedure EIncreasingFontSizeExit(Sender: TObject);
    procedure EMinLogoHeightChange(Sender: TObject);
@@ -105,6 +111,7 @@ type
    procedure EWarning3Enter(Sender: TObject);
    procedure EWarning3Exit(Sender: TObject);
    procedure FormCreate(Sender: TObject);
+   procedure PTabsChange(Sender: TObject);
    procedure SBHalfClick(Sender: TObject);
    procedure SBMainClick(Sender: TObject);
    procedure SBWarning1Click(Sender: TObject);
@@ -115,12 +122,15 @@ type
    procedure STWarning1Click(Sender: TObject);
    procedure STWarning2Click(Sender: TObject);
    procedure STWarning3Click(Sender: TObject);
+   procedure LoadIcon;
+   procedure SaveINIFile;
   private
    procedure ResizeField(Sender: TCustomFloatSpinEdit);
    procedure deResizeField(Sender: TCustomFloatSpinEdit);
- public
+  public
    BiggerFont : Integer;
-  end;
+end;
+
 
 var
   FConfig: TFConfig;
@@ -139,16 +149,19 @@ uses basewindow, help;
 
 resourcestring
 
-  FontDialog = 'Select a font (the size is ignored)';
-  ColourDialogB = 'Select background colour';
-  ColourDialogT = 'Select text colour';
-  BackgroudColourHint = 'Background colour. Click to change.';
-  TextColourHint = 'Text colour. Click to change.';
-  MinutesHint = 'Minutes left';
-  TabAppearance = 'Appearance';
-  TabImage = 'Additional';
-  TabSystem = 'System';
-
+  RStrFontDialog = 'Select a font (the size is ignored)';
+  RStrColourDialogB = 'Select background colour';
+  RStrColourDialogT = 'Select text colour';
+  RStrBackgroudColourHint = 'Background colour. Click to change.';
+  RStrTextColourHint = 'Text colour. Click to change.';
+  RStrMinutesHint = 'Minutes left';
+  RStrTabAppearance = 'Appearance';
+  RStrTabImage = 'Additional';
+  RStrTabSystem = 'System';
+  RStrCancel = 'Cancel';
+  RStOvewrite = 'Ovewrite';
+  RStWarning = 'Warning';
+  RStrFileExists = 'The file “%0:s” exists!';
 
 procedure TFConfig.FormCreate(Sender: TObject);
 begin
@@ -159,9 +172,9 @@ begin
     EWarning1.Value  := FTimer.Warning1 / 60;
     EWarning2.Value  := FTimer.Warning2 / 60;
     EWarning3.Value  := FTimer.Warning3 / 60;
-    EWarning1.Hint  := MinutesHint;
-    EWarning2.Hint  := MinutesHint;
-    EWarning3.Hint  := MinutesHint;
+    EWarning1.Hint  := RStrMinutesHint;
+    EWarning2.Hint  := RStrMinutesHint;
+    EWarning3.Hint  := RStrMinutesHint;
     SBMain.ButtonColor := Ftimer.ColourB0;
     STMain.ButtonColor := Ftimer.ColourT0;
     SBHalf.ButtonColor := Ftimer.ColourB1;
@@ -172,21 +185,21 @@ begin
     STWarning2.ButtonColor := Ftimer.ColourT3;
     SBWarning3.ButtonColor := Ftimer.ColourB4;
     STWarning3.ButtonColor := Ftimer.ColourT4;
-    SBMain.Hint := BackgroudColourHint;
-    STMain.Hint := TextColourHint;
-    SBHalf.Hint := BackgroudColourHint;
-    STHalf.Hint := TextColourHint;
-    SBWarning1.Hint := BackgroudColourHint;
-    STWarning1.Hint := TextColourHint;
-    SBWarning2.Hint := BackgroudColourHint;
-    STWarning2.Hint := TextColourHint;
-    SBWarning3.Hint := BackgroudColourHint;
-    STWarning3.Hint := TextColourHint;
-    FontDialog1.Title :=  FontDialog;
+    SBMain.Hint := RStrBackgroudColourHint;
+    STMain.Hint := RStrTextColourHint;
+    SBHalf.Hint := RStrBackgroudColourHint;
+    STHalf.Hint := RStrTextColourHint;
+    SBWarning1.Hint := RStrBackgroudColourHint;
+    STWarning1.Hint := RStrTextColourHint;
+    SBWarning2.Hint := RStrBackgroudColourHint;
+    STWarning2.Hint := RStrTextColourHint;
+    SBWarning3.Hint := RStrBackgroudColourHint;
+    STWarning3.Hint := RStrTextColourHint;
+    FontDialog.Title :=  RStrFontDialog;
 
     EMinLogoHeight.Value :=  Ftimer.LogoMinHeight;
     EAlphaBlend.Value := Ftimer.AlphaBlendValue;
-    EEndNote.Text := Ftimer.StrSTOP;
+
     // Programmatic changes must be done when the control is disabled
     ChWindowsBorders.Enabled := false;
     if Ftimer.BorderStyle = bsNone then
@@ -204,65 +217,78 @@ begin
     ChProgressBar.Checked := FTimer.PProgressBar.Visible;
     ChProgressBar.Enabled := true;
     PTabs.TabIndex := 0;
-    PTBase.Caption := TabAppearance;
-    PTImage.Caption := TabImage;
-    PTFiles.Caption := TabSystem;
+    PTBase.Caption := RStrTabAppearance;
+    PTImage.Caption := RStrTabImage;
+    PTFiles.Caption := RStrTabSystem;
 
-    // Ajust the size of the window to fit all controls
-    PTabs.Width := STMain.Left + STMain.Width + 12;
-    Self.Width := PTabs.Width;
-    PTabs.Height := BSettingsARR.Top + 2 * BSettingsARR.Height +3;
-    Self.Height := PTabs.Height;
+    // Adjust the size of the window to fit all controls.
+    // Additional Settings tab is the largest one.
+    PTabs.Width := LTransparent.Width + LTransparent.Width div 4;
+    PTabs.Height := PEndNote.Top + PEndNote.Height + 2 * BHotKeys.Height + 9;
+
+    // Data for INI files
+    SaveFile.DefaultExt := 'ini';
+    SaveFile.FileName := ApplicationName;
+    SaveFile.InitialDir := GetAppConfigFile(False);
+    OpenFile.DefaultExt := 'ini';
+    OpenFile.FileName := ApplicationName;
+    OpenFile.InitialDir := GetAppConfigFile(False);
+
+end;
+
+procedure TFConfig.PTabsChange(Sender: TObject);
+begin
+
 end;
 
 procedure TFConfig.SBHalfClick(Sender: TObject);
 begin
-    ColorDialog1.Title := ColourDialogB;
+    ColorDialog.Title := RStrColourDialogB;
 end;
 
 procedure TFConfig.SBMainClick(Sender: TObject);
 begin
-    ColorDialog1.Title := ColourDialogB;
+    ColorDialog.Title := RStrColourDialogB;
 end;
 
 procedure TFConfig.SBWarning1Click(Sender: TObject);
 begin
-  ColorDialog1.Title := ColourDialogB;
+  ColorDialog.Title := RStrColourDialogB;
 end;
 
 procedure TFConfig.SBWarning2Click(Sender: TObject);
 begin
-  ColorDialog1.Title := ColourDialogB;
+  ColorDialog.Title := RStrColourDialogB;
 end;
 
 procedure TFConfig.SBWarning3Click(Sender: TObject);
 begin
-  ColorDialog1.Title := ColourDialogB;
+  ColorDialog.Title := RStrColourDialogB;
 end;
 
 procedure TFConfig.STHalfClick(Sender: TObject);
 begin
-  ColorDialog1.Title := ColourDialogT;
+  ColorDialog.Title := RStrColourDialogT;
 end;
 
 procedure TFConfig.STMainClick(Sender: TObject);
 begin
-    ColorDialog1.Title := ColourDialogT;
+    ColorDialog.Title := RStrColourDialogT;
 end;
 
 procedure TFConfig.STWarning1Click(Sender: TObject);
 begin
-  ColorDialog1.Title := ColourDialogT;
+  ColorDialog.Title := RStrColourDialogT;
 end;
 
 procedure TFConfig.STWarning2Click(Sender: TObject);
 begin
-  ColorDialog1.Title := ColourDialogT;
+  ColorDialog.Title := RStrColourDialogT;
 end;
 
 procedure TFConfig.STWarning3Click(Sender: TObject);
 begin
-  ColorDialog1.Title := ColourDialogT;
+  ColorDialog.Title := RStrColourDialogT;
 end;
 
 procedure TFConfig.BSettingsARRClick(Sender: TObject);
@@ -325,11 +351,6 @@ procedure TFConfig.EChangeEditSizeExit(Sender: TObject);
 begin
   deResizeField(EChangeEditSize);
   BiggerFont := EChangeEditSize.Value;
-end;
-
-procedure TFConfig.EEndNoteChange(Sender: TObject);
-begin
-  Ftimer.StrSTOP :=  EEndNote.Text;
 end;
 
 procedure TFConfig.EIncreasingFontSizeEnter(Sender: TObject);
@@ -426,18 +447,13 @@ end;
 
 procedure TFConfig.BChangeFontClick(Sender: TObject);
 begin
-   if FontDialog1.Execute then
-      BChangeFont.Font :=  FontDialog1.Font;
+   if FontDialog.Execute then
+      BChangeFont.Font :=  FontDialog.Font;
 end;
 
 procedure TFConfig.BChangeLogoClick(Sender: TObject);
 begin
-  if OpenPictureDialog1.Execute then
-     begin
-          FTimer.ILogo.Picture.LoadFromFile(OpenPictureDialog1.FileName);
-          FTimer.LogoRatio := FTimer.ILogo.Picture.Width / FTimer.ILogo.Picture.Height;
-          FTimer.ResizeLogo;
-     end;
+  if OpenPictureDialog.Execute then LoadIcon;
 end;
 
 procedure TFConfig.BHotKeysClick(Sender: TObject);
@@ -445,9 +461,38 @@ begin
   FHelp.Show;
 end;
 
+procedure TFConfig.BOpenINIClick(Sender: TObject);
+begin
+  // Set the values to be restored using SessionProperties of each form.
+  if OpenFile.Execute then begin
+     Ftimer.RememberSetings.IniFileName:=OpenFile.FileName;
+     Ftimer.RememberSetings.Restore;
+     FHelp.RememberSetings.IniFileName:=OpenFile.FileName;
+     FHelp.RememberSetings.Restore;
+     RememberSetings.IniFileName:=OpenFile.FileName;
+     RememberSetings.Restore;
+     BSettingsAR.Click;
+     if OpenPictureDialog.FileName <> '' then LoadIcon;
+     end;
+end;
+
 procedure TFConfig.BQuitClick(Sender: TObject);
 begin
   Application.Terminate;
+end;
+
+procedure TFConfig.BSaveINIClick(Sender: TObject);
+begin
+  // Set the values to be saved using SessionProperties of each form.
+  if SaveFile.Execute then
+     if FileExists (SaveFile.FileName) then
+        case QuestionDlg (RstWarning, format (RStrFileExists, [SaveFile.FileName]),
+          mtCustom,[mrYes, RstOvewrite, mrNo, RStrCancel, 'IsDefault'],'') of
+             mrYes: SaveINIFile;
+             mrNo: ;
+             mrCancel: ;
+        end
+     else SaveINIFile;
 end;
 
 procedure TFConfig.BSettingsARClick(Sender: TObject);
@@ -472,6 +517,24 @@ begin
   Me := Sender;
   Me.Width := Me.Width - 2 * FConfig.BiggerFont;
   Me.Font.Size := Me.Font.Size - FConfig.BiggerFont;
+end;
+
+procedure TFConfig.LoadIcon;
+begin
+  FTimer.ILogo.Picture.LoadFromFile(OpenPictureDialog.FileName);
+  FTimer.LogoRatio := FTimer.ILogo.Picture.Width / FTimer.ILogo.Picture.Height;
+  FTimer.ResizeLogo;
+end;
+
+procedure TFConfig.SaveINIFile;
+begin
+       RememberSetings.IniFileName := SaveFile.FileName;
+       RememberSetings.Save;
+       FTimer.RememberSetings.IniFileName := SaveFile.FileName;
+       Ftimer.RememberSetings.Save;
+       FHelp.RememberSetings.IniFileName := SaveFile.FileName;
+       FHelp.RememberSetings.Save;
+       Self.Visible := true;
 end;
 
 end.

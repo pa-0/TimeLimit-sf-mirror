@@ -17,6 +17,7 @@ object FTimer: TFTimer
   OnKeyPress = FormKeyPress
   OnMouseDown = FormMouseDown
   OnResize = FormResize
+  SessionProperties = 'Height;Left;Top;Width;WindowState'
   LCLVersion = '1.8.0.6'
   object LClock: TLabel
     AnchorSideLeft.Control = Owner
@@ -36,8 +37,8 @@ object FTimer: TFTimer
     ParentColor = False
     ParentFont = False
     WordWrap = True
-    OnDblClick = LClockDblClick
-    OnMouseDown = LClockMouseDown
+    OnDblClick = FormDblClick
+    OnMouseDown = FormMouseDown
   end
   object LClockM: TLabel
     AnchorSideTop.Control = Owner
@@ -52,8 +53,8 @@ object FTimer: TFTimer
     Caption = '42'
     Layout = tlCenter
     ParentColor = False
-    OnDblClick = LClockMDblClick
-    OnMouseDown = LClockMMouseDown
+    OnDblClick = FormDblClick
+    OnMouseDown = FormMouseDown
     OnMouseWheelDown = LClockMMouseWheelDown
     OnMouseWheelUp = LClockMMouseWheelUp
   end
@@ -70,8 +71,8 @@ object FTimer: TFTimer
     Caption = '00'
     Layout = tlCenter
     ParentColor = False
-    OnDblClick = LClockSDblClick
-    OnMouseDown = LClockSMouseDown
+    OnDblClick = FormDblClick
+    OnMouseDown = FormMouseDown
     OnMouseWheelDown = LClockSMouseWheelDown
     OnMouseWheelUp = LClockSMouseWheelUp
   end
@@ -81,6 +82,8 @@ object FTimer: TFTimer
     Top = 8
     Width = 90
     Enabled = False
+    OnDblClick = FormDblClick
+    OnMouseDown = FormMouseDown
     Stretch = True
   end
   object PProgressBar: TPanel
@@ -98,6 +101,8 @@ object FTimer: TFTimer
     ClientWidth = 494
     Enabled = False
     TabOrder = 0
+    OnDblClick = FormDblClick
+    OnMouseDown = FormMouseDown
     object SProgressBar: TShape
       AnchorSideTop.Control = PProgressBar
       AnchorSideRight.Control = PProgressBar
@@ -109,6 +114,7 @@ object FTimer: TFTimer
       Top = 1
       Width = 328
       Anchors = [akTop, akRight, akBottom]
+      OnMouseDown = FormMouseDown
       Shape = stRoundRect
     end
   end
@@ -9366,5 +9372,10 @@ object FTimer: TFTimer
       0900000009000000090000000900000009000000090000000900000009000000
       0900000009000000090000000900
     }
+  end
+  object RememberSetings: TIniPropStorage
+    StoredValues = <>
+    left = 416
+    top = 16
   end
 end

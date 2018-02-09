@@ -1,10 +1,6 @@
 msgid ""
 msgstr "Content-Type: text/plain; charset=UTF-8"
 
-#: basewindow.rstrstop
-msgid "The time is over"
-msgstr ""
-
 #: help.binfo01
 msgid "Built for"
 msgstr ""
@@ -146,46 +142,65 @@ msgstr ""
 msgid "A good starting point was “%0:s” forum and wiki pages."
 msgstr ""
 
-#: settings.backgroudcolourhint
-msgctxt "settings.backgroudcolourhint"
+#: settings.rstovewrite
+msgid "Ovewrite"
+msgstr ""
+
+#: settings.rstrbackgroudcolourhint
+msgctxt "settings.rstrbackgroudcolourhint"
 msgid "Background colour. Click to change."
 msgstr ""
 
-#: settings.colourdialogb
+#: settings.rstrcancel
+msgid "Cancel"
+msgstr ""
+
+#: settings.rstrcolourdialogb
+msgctxt "settings.rstrcolourdialogb"
 msgid "Select background colour"
 msgstr ""
 
-#: settings.colourdialogt
+#: settings.rstrcolourdialogt
+msgctxt "settings.rstrcolourdialogt"
 msgid "Select text colour"
 msgstr ""
 
-#: settings.fontdialog
+#: settings.rstrfileexists
+msgid "The file “%0:s” exists!"
+msgstr ""
+
+#: settings.rstrfontdialog
+msgctxt "settings.rstrfontdialog"
 msgid "Select a font (the size is ignored)"
 msgstr ""
 
-#: settings.minuteshint
-msgctxt "settings.minuteshint"
+#: settings.rstrminuteshint
+msgctxt "settings.rstrminuteshint"
 msgid "Minutes left"
 msgstr ""
 
-#: settings.tabappearance
-msgctxt "settings.tabappearance"
+#: settings.rstrtabappearance
+msgctxt "settings.rstrtabappearance"
 msgid "Appearance"
 msgstr ""
 
-#: settings.tabimage
-msgctxt "settings.tabimage"
+#: settings.rstrtabimage
+msgctxt "settings.rstrtabimage"
 msgid "Additional"
 msgstr ""
 
-#: settings.tabsystem
-msgctxt "settings.tabsystem"
+#: settings.rstrtabsystem
+msgctxt "settings.rstrtabsystem"
 msgid "System"
 msgstr ""
 
-#: settings.textcolourhint
-msgctxt "settings.textcolourhint"
+#: settings.rstrtextcolourhint
+msgctxt "settings.rstrtextcolourhint"
 msgid "Text colour. Click to change."
+msgstr ""
+
+#: settings.rstwarning
+msgid "Warning"
 msgstr ""
 
 #: tfconfig.bchangefont.caption
@@ -204,8 +219,16 @@ msgstr ""
 msgid "List hot-keys"
 msgstr ""
 
+#: tfconfig.bopenini.caption
+msgid "Open configuration"
+msgstr ""
+
 #: tfconfig.bquit.caption
 msgid "Quit the timer"
+msgstr ""
+
+#: tfconfig.bsaveini.caption
+msgid "Save configuration"
 msgstr ""
 
 #: tfconfig.bsettingsa.caption
@@ -274,6 +297,10 @@ msgstr ""
 
 #: tfconfig.echangeeditsize.hint
 msgid "Pixels to add"
+msgstr ""
+
+#: tfconfig.eendnote.text
+msgid "The time is over"
 msgstr ""
 
 #: tfconfig.eincreasingfontsize.hint

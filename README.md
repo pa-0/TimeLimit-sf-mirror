@@ -1,7 +1,7 @@
 #Time_limit
 
 A windowed / full-screen countdown timer. Colour and font size changes
-are used as warnings. Progress-bar gives a glance at time stream.
+are used as warnings. Progress-bar gives a glance at the time stream.
 
 Useful for time-tracking  of your speech, lecture or presentation.
 

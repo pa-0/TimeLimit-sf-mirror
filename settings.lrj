@@ -26,6 +26,7 @@
 {"hash":110595119,"name":"tfconfig.chshowlogo.caption","sourcebytes":[83,104,111,119,32,108,111,103,111],"value":"Show logo"},
 {"hash":222354847,"name":"tfconfig.bchangelogo.caption","sourcebytes":[67,104,97,110,103,101,32,108,111,103,111],"value":"Change logo"},
 {"hash":141079754,"name":"tfconfig.lendnote.caption","sourcebytes":[84,104,101,32,69,110,100,32,109,101,115,115,97,103,101,58],"value":"The End message:"},
+{"hash":134149602,"name":"tfconfig.eendnote.text","sourcebytes":[84,104,101,32,116,105,109,101,32,105,115,32,111,118,101,114],"value":"The time is over"},
 {"hash":232658931,"name":"tfconfig.chwindowsborders.caption","sourcebytes":[87,105,110,100,111,119,115,32,98,111,114,100,101,114,115],"value":"Windows borders"},
 {"hash":131549534,"name":"tfconfig.chfullscreen.caption","sourcebytes":[70,117,108,108,32,115,99,114,101,101,110],"value":"Full screen"},
 {"hash":193446034,"name":"tfconfig.chprogressbar.caption","sourcebytes":[83,104,111,119,32,112,114,111,103,114,101,115,115,32,98,97,114],"value":"Show progress bar"},
@@ -37,5 +38,7 @@
 {"hash":68574786,"name":"tfconfig.chdontclosetimer.caption","sourcebytes":[85,110,99,108,111,115,97,98,108,101,32,116,105,109,101,114],"value":"Unclosable timer"},
 {"hash":192715938,"name":"tfconfig.bquit.caption","sourcebytes":[81,117,105,116,32,116,104,101,32,116,105,109,101,114],"value":"Quit the timer"},
 {"hash":18604786,"name":"tfconfig.lchangeeditsize.caption","sourcebytes":[82,101,115,105,122,101,32,101,100,105,116,45,98,111,120,32,111,110,32,101,110,116,101,114],"value":"Resize edit-box on enter"},
-{"hash":12559524,"name":"tfconfig.echangeeditsize.hint","sourcebytes":[80,105,120,101,108,115,32,116,111,32,97,100,100],"value":"Pixels to add"}
+{"hash":12559524,"name":"tfconfig.echangeeditsize.hint","sourcebytes":[80,105,120,101,108,115,32,116,111,32,97,100,100],"value":"Pixels to add"},
+{"hash":30056926,"name":"tfconfig.bopenini.caption","sourcebytes":[79,112,101,110,32,99,111,110,102,105,103,117,114,97,116,105,111,110],"value":"Open configuration"},
+{"hash":22325470,"name":"tfconfig.bsaveini.caption","sourcebytes":[83,97,118,101,32,99,111,110,102,105,103,117,114,97,116,105,111,110],"value":"Save configuration"}
 ]}

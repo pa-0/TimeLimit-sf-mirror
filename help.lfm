@@ -9,6 +9,7 @@ object FHelp: TFHelp
   Constraints.MinHeight = 242
   Constraints.MinWidth = 180
   OnCreate = FormCreate
+  SessionProperties = 'Height;Left;Top;Width;Visible'
   ShowInTaskBar = stNever
   LCLVersion = '1.8.0.6'
   object PHelp: TPageControl
@@ -101,5 +102,10 @@ object FHelp: TFHelp
   object IpHtmlDataProvider1: TIpHtmlDataProvider
     left = 91
     top = 104
+  end
+  object RememberSetings: TIniPropStorage
+    StoredValues = <>
+    left = 88
+    top = 192
   end
 end

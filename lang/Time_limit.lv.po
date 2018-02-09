@@ -4,8 +4,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-01-19 18:03+0300\n"
-"PO-Revision-Date: 2018-01-31 05:07+0300\n"
+"POT-Creation-Date: 2018-02-08 22:10+0300\n"
+"PO-Revision-Date: 2018-02-08 22:36+0300\n"
 "Last-Translator: Karlis Kalviskis <eko@lanet.lv>\n"
 "Language-Team: karlo\n"
 "Language: lv\n"
@@ -15,11 +15,6 @@ msgstr ""
 "Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n != 0 ? 1 : 2);"
 "\n"
 "X-Generator: Virtaal 0.7.1\n"
-
-#: basewindow.rstrstop
-#| msgid "STOP"
-msgid "The time is over"
-msgstr "Atvēlētais laiks beidzies"
 
 #: help.binfo01
 msgid "Built for"
@@ -94,7 +89,6 @@ msgid "[m], Mouse right click"
 msgstr "[m], peles „labā” poga"
 
 #: help.hkey07b
-#| msgid "settings window."
 msgid "settings and control window (menu)."
 msgstr "pulksteņa vadība un iestatījumi."
 
@@ -163,48 +157,66 @@ msgstr "Lietotne „%0:s” ir izveidota „%1:s” izstrādes vidē.  "
 msgid "A good starting point was “%0:s” forum and wiki pages."
 msgstr "Labs atspēriena punkts bija „%0:s” forums un wiki lapas."
 
-#: settings.backgroudcolourhint
-msgctxt "settings.backgroudcolourhint"
+#: settings.rstovewrite
+msgid "Ovewrite"
+msgstr "Pārrakstīt"
+
+#: settings.rstrbackgroudcolourhint
+msgctxt "settings.rstrbackgroudcolourhint"
 msgid "Background colour. Click to change."
 msgstr "Pamatnes krāsa. Uzklikšķini, lai izmainītu."
 
-#: settings.colourdialogb
+#: settings.rstrcancel
+msgid "Cancel"
+msgstr "Atcelt"
+
+#: settings.rstrcolourdialogb
+msgctxt "settings.rstrcolourdialogb"
 msgid "Select background colour"
 msgstr "Izvēlies pamatnes krāsu"
 
-#: settings.colourdialogt
+#: settings.rstrcolourdialogt
+msgctxt "settings.rstrcolourdialogt"
 msgid "Select text colour"
 msgstr "Izvēlies ciparu krāsu"
 
-#: settings.fontdialog
+#: settings.rstrfileexists
+msgid "The file “%0:s” exists!"
+msgstr "Fails „%0:s” jau ir!"
+
+#: settings.rstrfontdialog
+msgctxt "settings.rstrfontdialog"
 msgid "Select a font (the size is ignored)"
 msgstr "Izvēlies fontu (izmērs netiek ņemt vērā)"
 
-#: settings.minuteshint
-msgctxt "settings.minuteshint"
+#: settings.rstrminuteshint
+msgctxt "settings.rstrminuteshint"
 msgid "Minutes left"
 msgstr "Minūtes līdz beigām"
 
-#: settings.tabappearance
-msgctxt "settings.tabappearance"
+#: settings.rstrtabappearance
+msgctxt "settings.rstrtabappearance"
 msgid "Appearance"
 msgstr "Izskats"
 
-#: settings.tabimage
-#| msgid "Image"
-msgctxt "settings.tabimage"
+#: settings.rstrtabimage
+msgctxt "settings.rstrtabimage"
 msgid "Additional"
 msgstr "Papildus"
 
-#: settings.tabsystem
-msgctxt "settings.tabsystem"
+#: settings.rstrtabsystem
+msgctxt "settings.rstrtabsystem"
 msgid "System"
 msgstr "Sistēmai"
 
-#: settings.textcolourhint
-msgctxt "settings.textcolourhint"
+#: settings.rstrtextcolourhint
+msgctxt "settings.rstrtextcolourhint"
 msgid "Text colour. Click to change."
 msgstr "Teksta krāsa. Uzklikšķini, lai izmainītu."
+
+#: settings.rstwarning
+msgid "Warning"
+msgstr "Brīdinājums"
 
 #: tfconfig.bchangefont.caption
 msgid "Change font"
@@ -222,10 +234,17 @@ msgstr "Nomaini logo"
 msgid "List hot-keys"
 msgstr "Īsinājumtaustiņu saraksts"
 
+#: tfconfig.bopenini.caption
+msgid "Open configuration"
+msgstr "Ielasīt iestījumus"
+
 #: tfconfig.bquit.caption
-#| msgid "Quit the application"
 msgid "Quit the timer"
 msgstr "Aizvērt pulksteni"
+
+#: tfconfig.bsaveini.caption
+msgid "Save configuration"
+msgstr "Saglabāt iestatījumus"
 
 #: tfconfig.bsettingsa.caption
 msgid "Apply"
@@ -280,7 +299,6 @@ msgid "Show logo"
 msgstr "Rādīt logo"
 
 #: tfconfig.chtransparent.caption
-#| msgid "Translucent"
 msgid "Opacity"
 msgstr "Necaurspīdība"
 
@@ -295,6 +313,10 @@ msgstr "Pilnīgi necaurspīdīgs ir ar vērtību 255"
 #: tfconfig.echangeeditsize.hint
 msgid "Pixels to add"
 msgstr "Par cik pikseļiem palielināt"
+
+#: tfconfig.eendnote.text
+msgid "The time is over"
+msgstr "Atvēlētais laiks beidzies"
 
 #: tfconfig.eincreasingfontsize.hint
 msgid "Starting size (%)"
@@ -365,7 +387,6 @@ msgid "System"
 msgstr "Sistēmai"
 
 #: tfconfig.ptimage.caption
-#| msgid "Image"
 msgctxt "tfconfig.ptimage.caption"
 msgid "Additional"
 msgstr "Papildus"
