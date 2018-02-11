@@ -1,3 +1,7 @@
+00.07.02 - 2018.02.11 17:55
+	Now the time limits are respected: you can't make the showed time
+		to be less then 0 or more then the time in due.
+
 00.07.01 - 2018.02.11 15:00
 	Default INI file (e.g. in Linux: ~/.Time_limit) now is separated
 		from saved INI file.

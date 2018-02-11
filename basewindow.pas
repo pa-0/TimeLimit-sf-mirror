@@ -1,6 +1,6 @@
 (*
- * Version: 00.07.01.
- * Author: Kārlis Kalviškis, 2018.02.11 15:00
+ * Version: 00.07.02.
+ * Author: Kārlis Kalviškis, 2018.02.11 17:55
  * License: GPLv3
  *)
 
@@ -154,8 +154,14 @@ procedure TFTimer.FormKeyDown(Sender: TObject; var Key: Word; Shift: TShiftState
   );
 begin
     case Key of
-       VK_UP, VK_LEFT: TimeNow := TimeNow + 60;
-       VK_DOWN, VK_RIGHT: TimeNow := TimeNow - 60;
+       VK_UP, VK_LEFT: begin
+             TimeNow := TimeNow + 60;
+             if TimeNow > DefTIME then TimeNow := DefTIME;
+             end;
+       VK_DOWN, VK_RIGHT: begin
+             TimeNow := TimeNow - 60;
+             if TimeNow < 0 then TimeNow := 0;
+             end;
        VK_F1: FHelp.Show;
        VK_F11: ChangeFullScreen;
   end;
@@ -208,6 +214,7 @@ procedure TFTimer.LClockMMouseWheelDown(Sender: TObject; Shift: TShiftState;
   MousePos: TPoint; var Handled: Boolean);
 begin
   TimeNow := TimeNow - 60;
+  if TimeNow < 0 then TimeNow := 0;
   if  not RUNING then ShowTime (TimeNow);
 end;
 
@@ -215,6 +222,7 @@ procedure TFTimer.LClockMMouseWheelUp(Sender: TObject; Shift: TShiftState;
   MousePos: TPoint; var Handled: Boolean);
 begin
   TimeNow := TimeNow + 60;
+  if TimeNow > DefTIME then TimeNow := DefTIME;
   if  not RUNING then ShowTime (TimeNow);
 end;
 
@@ -222,6 +230,7 @@ procedure TFTimer.LClockSMouseWheelDown(Sender: TObject; Shift: TShiftState;
   MousePos: TPoint; var Handled: Boolean);
 begin
   TimeNow := TimeNow - 10;
+  if TimeNow < 0 then TimeNow := 0;
   if  not RUNING then ShowTime (TimeNow);
 end;
 
@@ -229,6 +238,7 @@ procedure TFTimer.LClockSMouseWheelUp(Sender: TObject; Shift: TShiftState;
   MousePos: TPoint; var Handled: Boolean);
 begin
   TimeNow := TimeNow + 10;
+  if TimeNow > DefTIME then TimeNow := DefTIME;
   if  not RUNING then ShowTime (TimeNow);
 end;
 

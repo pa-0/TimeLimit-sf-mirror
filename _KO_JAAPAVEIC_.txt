@@ -4,7 +4,6 @@ Lasīt parametrus no komandrindas.
 
 Iespēja izvēlēties valodu.
 
-################### Kļūdas:
+Iespēja sinhronizēt laiku ar patieso pulksteni.
 
-Ja ieslēgts ciparu izmēru maiņu un laiku regulē ar peles rulli/bultiņām,
-tad, ja laiks kļūst lielāks par pilnu laiku, ciparu izmēri sāk pieaugt.
+################### Kļūdas:

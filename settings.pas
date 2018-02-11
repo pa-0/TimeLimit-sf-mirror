@@ -1,6 +1,6 @@
 (*
- * Version: 00.07.01.
- * Author: Kārlis Kalviškis, 2018.02.11 15:00
+ * Version: 00.07.02.
+ * Author: Kārlis Kalviškis, 2018.02.11 17:55
  * License: GPLv3
  *)
 
@@ -422,6 +422,7 @@ procedure TFConfig.BSettingsAClick(Sender: TObject);
 begin
     // Apply all settings
      FTimer.DefTIME := round(EMinutes.Value * 60);
+     if FTimer.TimeNow > FTimer.DefTIME then FTimer.TimeNow := FTimer.DefTIME;
      FTimer.Warning1 := round(EWarning1.Value * 60);
      FTimer.Warning2 := round(EWarning2.Value * 60);
      FTimer.Warning3 := round(EWarning3.Value * 60);
