@@ -1,3 +1,7 @@
+00.07.01 - 2018.02.11 15:00
+	Default INI file (e.g. in Linux: ~/.Time_limit) now is separated
+		from saved INI file.
+
 00.07.00 - 2018.02.09 14:44
 	Some code optimizations.
 	Now it's possible to save and read timer configuration.

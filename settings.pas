@@ -1,6 +1,6 @@
 (*
- * Version: 00.07.00.
- * Author: Kārlis Kalviškis, 2018.02.09 14:44
+ * Version: 00.07.01.
+ * Author: Kārlis Kalviškis, 2018.02.11 15:00
  * License: GPLv3
  *)
 
@@ -233,7 +233,6 @@ begin
     OpenFile.DefaultExt := 'ini';
     OpenFile.FileName := ApplicationName;
     OpenFile.InitialDir := GetAppConfigFile(False);
-
 end;
 
 procedure TFConfig.PTabsChange(Sender: TObject);
@@ -465,14 +464,16 @@ procedure TFConfig.BOpenINIClick(Sender: TObject);
 begin
   // Set the values to be restored using SessionProperties of each form.
   if OpenFile.Execute then begin
-     Ftimer.RememberSetings.IniFileName:=OpenFile.FileName;
+     Ftimer.RememberSetings.IniFileName := OpenFile.FileName;
      Ftimer.RememberSetings.Restore;
-     FHelp.RememberSetings.IniFileName:=OpenFile.FileName;
+     Ftimer.RememberSetings.IniFileName := '';
+     FHelp.RememberSetings.IniFileName := OpenFile.FileName;
      FHelp.RememberSetings.Restore;
-     RememberSetings.IniFileName:=OpenFile.FileName;
+     FHelp.RememberSetings.IniFileName := '';
+     RememberSetings.IniFileName := OpenFile.FileName;
      RememberSetings.Restore;
-     BSettingsAR.Click;
      if OpenPictureDialog.FileName <> '' then LoadIcon;
+     RememberSetings.IniFileName := '';
      end;
 end;
 

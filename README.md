@@ -5,8 +5,8 @@ are used as warnings. Progress-bar gives a glance at the time stream.
 
 Useful for time-tracking  of your speech, lecture or presentation.
 
-Colour / font / time limits can be changed using
-settings window and hot-keys.
+Colour / font / time limits can be changed using settings window and
+hot-keys. It's possible to save and restore several configurations.
 
 Available hot-keys:
 -------------------

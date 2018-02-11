@@ -3,3 +3,8 @@ Iespēja pilnekrānā redzēt pulksteni.
 Lasīt parametrus no komandrindas.
 
 Iespēja izvēlēties valodu.
+
+################### Kļūdas:
+
+Ja ieslēgts ciparu izmēru maiņu un laiku regulē ar peles rulli/bultiņām,
+tad, ja laiks kļūst lielāks par pilnu laiku, ciparu izmēri sāk pieaugt.
