@@ -1,6 +1,6 @@
 (*
- * Version: 00.07.02.
- * Author: Kārlis Kalviškis, 2018.02.11 17:55
+ * Version: 00.07.03.
+ * Author: Kārlis Kalviškis, 2018.02.11 21:08
  * License: GPLv3
  *)
 
@@ -94,6 +94,7 @@ resourcestring
   ThanksToDevelopers = 'The application “%0:s” is developed using “%1:s” IDE RAD.';
   ThanksToForum = 'A good starting point was “%0:s” forum and wiki pages.';
   SpecialThanks = 'Special thanks to:';
+  CommandlineOptions = 'For command-line options use:';
 
 procedure TFHelp.FormCreate(Sender: TObject);
 var
@@ -117,6 +118,8 @@ begin
         ,
         TStringArray.Create(HKey02B, HKey03B, HKey04B, HKey05B, HKey06B, HKey07B, HKey08B, HKey09B, HKey10B, HKey11B)
         , '<B><TT>', '</TT></B>', '', '')
+        + '<HR><P><I>' + CommandlineOptions + '</I><BR><TT>'
+        + Application.Params[0] + '&nbsp;--help</TT></P>'
         + html_end
         , HTMLHotKey);
 
@@ -143,18 +146,18 @@ end;
 procedure TFHelp.ShowHotKey(HelpSrc: string; WhereToShow: TIpHtmlPanel);
 // Creates a html page
 var
-  ss: TStringStream;
+  HTMLtext: TStringStream;
   NewHTML: TIpHtml;
   ThisPanel: TIpHtmlPanel;
 begin
-  ss := TStringStream.Create(HelpSrc);
+  HTMLtext := TStringStream.Create(HelpSrc);
   ThisPanel := WhereToShow;
   try
     NewHTML := TIpHtml.Create;
     ThisPanel.SetHtml(NewHTML);
-    NewHTML.LoadFromStream(ss);
+    NewHTML.LoadFromStream(HTMLtext);
   finally
-    ss.Free;
+    HTMLtext.Free;
   end;
 end;
 

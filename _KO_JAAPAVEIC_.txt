@@ -1,7 +1,5 @@
 Iespēja pilnekrānā redzēt pulksteni.
 
-Lasīt parametrus no komandrindas.
-
 Iespēja izvēlēties valodu.
 
 Iespēja sinhronizēt laiku ar patieso pulksteni.

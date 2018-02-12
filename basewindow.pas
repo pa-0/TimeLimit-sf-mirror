@@ -1,6 +1,6 @@
 (*
- * Version: 00.07.02.
- * Author: Kārlis Kalviškis, 2018.02.11 17:55
+ * Version: 00.07.03.
+ * Author: Kārlis Kalviškis, 2018.02.11 21:08
  * License: GPLv3
  *)
 
@@ -45,6 +45,7 @@ type
     procedure FormMouseDown(Sender: TObject; Button: TMouseButton;
       Shift: TShiftState; X, Y: Integer);
     procedure FormResize(Sender: TObject);
+    procedure FormShow(Sender: TObject);
     procedure LClockMMouseWheelDown(Sender: TObject; Shift: TShiftState;
       MousePos: TPoint; var Handled: Boolean);
     procedure LClockMMouseWheelUp(Sender: TObject; Shift: TShiftState;
@@ -142,7 +143,6 @@ begin
   Warning2 := 120;
   Warning3 := 60;
   RUNING := false;
-  ResetTimer;
 end;
 
 procedure TFTimer.FormDblClick(Sender: TObject);
@@ -208,6 +208,11 @@ begin
   ILogo.Top := Height div 20;
   ResizeLogo;
   PProgressBar.Height := ILogo.Top;
+end;
+
+procedure TFTimer.FormShow(Sender: TObject);
+begin
+      ResetTimer;
 end;
 
 procedure TFTimer.LClockMMouseWheelDown(Sender: TObject; Shift: TShiftState;
@@ -299,7 +304,7 @@ begin
        Constraints.MinHeight := MinHeight;
        BorderStyle := bsSizeable;
        FConfig.ChWindowsBorders.Checked := true;
-       end
+      end
     else begin
        Constraints.MinWidth := Width;
        Constraints.MinHeight := Height;

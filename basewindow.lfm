@@ -17,6 +17,7 @@ object FTimer: TFTimer
   OnKeyPress = FormKeyPress
   OnMouseDown = FormMouseDown
   OnResize = FormResize
+  OnShow = FormShow
   SessionProperties = 'Height;Left;Top;Width;WindowState'
   LCLVersion = '1.8.0.6'
   object LClock: TLabel

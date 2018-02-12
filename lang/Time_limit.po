@@ -17,6 +17,10 @@ msgstr ""
 msgid "Compiled on"
 msgstr ""
 
+#: help.commandlineoptions
+msgid "For command-line options use:"
+msgstr ""
+
 #: help.hkey00a
 msgctxt "help.hkey00a"
 msgid "Be patient!"

@@ -1,3 +1,11 @@
+00.07.03 - 2018.02.11 21:08
+	The input configuration file may be specified from command-line
+		using
+			-c file.ini
+		or
+			--config=file.ini
+		options.
+
 00.07.02 - 2018.02.11 17:55
 	Now the time limits are respected: you can't make the showed time
 		to be less then 0 or more then the time in due.

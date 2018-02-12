@@ -8,6 +8,7 @@ object FHelp: TFHelp
   ClientWidth = 359
   Constraints.MinHeight = 242
   Constraints.MinWidth = 180
+  FormStyle = fsStayOnTop
   OnCreate = FormCreate
   SessionProperties = 'Height;Left;Top;Width;Visible'
   ShowInTaskBar = stNever

@@ -5,7 +5,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2018-02-08 22:10+0300\n"
-"PO-Revision-Date: 2018-02-08 22:36+0300\n"
+"PO-Revision-Date: 2018-02-12 11:09+0300\n"
 "Last-Translator: Karlis Kalviskis <eko@lanet.lv>\n"
 "Language-Team: karlo\n"
 "Language: lv\n"
@@ -31,6 +31,10 @@ msgstr "„Lazarus” versija"
 #: help.binfo04
 msgid "Compiled on"
 msgstr "Izveides datums"
+
+#: help.commandlineoptions
+msgid "For command-line options use:"
+msgstr "Pieejamie komandrindas parametri apskatāmi ar komandu:"
 
 #: help.hkey00a
 msgctxt "help.hkey00a"

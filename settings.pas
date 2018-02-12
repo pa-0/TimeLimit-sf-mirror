@@ -1,6 +1,6 @@
 (*
- * Version: 00.07.02.
- * Author: Kārlis Kalviškis, 2018.02.11 17:55
+ * Version: 00.07.03.
+ * Author: Kārlis Kalviškis, 2018.02.11 21:08
  * License: GPLv3
  *)
 
@@ -124,6 +124,7 @@ type
    procedure STWarning3Click(Sender: TObject);
    procedure LoadIcon;
    procedure SaveINIFile;
+   procedure LoadConfiguration (INIFileName : String);
   private
    procedure ResizeField(Sender: TCustomFloatSpinEdit);
    procedure deResizeField(Sender: TCustomFloatSpinEdit);
@@ -227,11 +228,11 @@ begin
     PTabs.Height := PEndNote.Top + PEndNote.Height + 2 * BHotKeys.Height + 9;
 
     // Data for INI files
-    SaveFile.DefaultExt := 'ini';
     SaveFile.FileName := ApplicationName;
+    SaveFile.DefaultExt := 'ini';
     SaveFile.InitialDir := GetAppConfigFile(False);
-    OpenFile.DefaultExt := 'ini';
     OpenFile.FileName := ApplicationName;
+    OpenFile.DefaultExt := 'ini';
     OpenFile.InitialDir := GetAppConfigFile(False);
 end;
 
@@ -459,23 +460,13 @@ end;
 procedure TFConfig.BHotKeysClick(Sender: TObject);
 begin
   FHelp.Show;
+  FHelp.SetFocus;
 end;
 
 procedure TFConfig.BOpenINIClick(Sender: TObject);
 begin
   // Set the values to be restored using SessionProperties of each form.
-  if OpenFile.Execute then begin
-     Ftimer.RememberSetings.IniFileName := OpenFile.FileName;
-     Ftimer.RememberSetings.Restore;
-     Ftimer.RememberSetings.IniFileName := '';
-     FHelp.RememberSetings.IniFileName := OpenFile.FileName;
-     FHelp.RememberSetings.Restore;
-     FHelp.RememberSetings.IniFileName := '';
-     RememberSetings.IniFileName := OpenFile.FileName;
-     RememberSetings.Restore;
-     if OpenPictureDialog.FileName <> '' then LoadIcon;
-     RememberSetings.IniFileName := '';
-     end;
+  if OpenFile.Execute then LoadConfiguration(OpenFile.FileName);
 end;
 
 procedure TFConfig.BQuitClick(Sender: TObject);
@@ -499,8 +490,9 @@ end;
 
 procedure TFConfig.BSettingsARClick(Sender: TObject);
 begin
-       BSettingsA.Click;
-       FTimer.ResetTimer;
+  BSettingsA.Click;
+  if OpenPictureDialog.FileName <> '' then LoadIcon;
+  FTimer.ResetTimer;
 end;
 
 procedure TFConfig.ResizeField(Sender: TCustomFloatSpinEdit);
@@ -537,6 +529,20 @@ begin
        FHelp.RememberSetings.IniFileName := SaveFile.FileName;
        FHelp.RememberSetings.Save;
        Self.Visible := true;
+end;
+
+procedure TFConfig.LoadConfiguration (INIFileName : String);
+begin
+     Ftimer.RememberSetings.IniFileName := INIFileName;
+     Ftimer.RememberSetings.Restore;
+     Ftimer.RememberSetings.IniFileName := '';
+     FHelp.RememberSetings.IniFileName := INIFileName;
+     FHelp.RememberSetings.Restore;
+     FHelp.RememberSetings.IniFileName := '';
+     RememberSetings.IniFileName := INIFileName;
+     RememberSetings.Restore;
+     if OpenPictureDialog.FileName <> '' then LoadIcon;
+     RememberSetings.IniFileName := '';
 end;
 
 end.
