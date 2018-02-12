@@ -5,7 +5,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2018-02-08 22:10+0300\n"
-"PO-Revision-Date: 2018-02-12 11:09+0300\n"
+"PO-Revision-Date: 2018-02-12 15:09+0300\n"
 "Last-Translator: Karlis Kalviskis <eko@lanet.lv>\n"
 "Language-Team: karlo\n"
 "Language: lv\n"
@@ -192,6 +192,10 @@ msgstr "Fails „%0:s” jau ir!"
 msgctxt "settings.rstrfontdialog"
 msgid "Select a font (the size is ignored)"
 msgstr "Izvēlies fontu (izmērs netiek ņemt vērā)"
+
+#: settings.rstriconfilemissing
+msgid "The logo file “%0:s” is missing!"
+msgstr "Attēls „%0:s” nav atrodams!"
 
 #: settings.rstrminuteshint
 msgctxt "settings.rstrminuteshint"

@@ -178,6 +178,10 @@ msgctxt "settings.rstrfontdialog"
 msgid "Select a font (the size is ignored)"
 msgstr ""
 
+#: settings.rstriconfilemissing
+msgid "The logo file “%0:s” is missing!"
+msgstr ""
+
 #: settings.rstrminuteshint
 msgctxt "settings.rstrminuteshint"
 msgid "Minutes left"

@@ -1,6 +1,6 @@
 (*
  * Version: 00.07.03.
- * Author: Kārlis Kalviškis, 2018.02.11 21:08
+ * Author: Kārlis Kalviškis, 2018.02.12 15:11
  * License: GPLv3
  *)
 
@@ -122,7 +122,7 @@ type
    procedure STWarning1Click(Sender: TObject);
    procedure STWarning2Click(Sender: TObject);
    procedure STWarning3Click(Sender: TObject);
-   procedure LoadIcon;
+   procedure LoadIcon(IconFile: String);
    procedure SaveINIFile;
    procedure LoadConfiguration (INIFileName : String);
   private
@@ -163,6 +163,7 @@ resourcestring
   RStOvewrite = 'Ovewrite';
   RStWarning = 'Warning';
   RStrFileExists = 'The file “%0:s” exists!';
+  RStrIconFileMissing = 'The logo file “%0:s” is missing!';
 
 procedure TFConfig.FormCreate(Sender: TObject);
 begin
@@ -454,7 +455,7 @@ end;
 
 procedure TFConfig.BChangeLogoClick(Sender: TObject);
 begin
-  if OpenPictureDialog.Execute then LoadIcon;
+  if OpenPictureDialog.Execute then LoadIcon(OpenPictureDialog.FileName);
 end;
 
 procedure TFConfig.BHotKeysClick(Sender: TObject);
@@ -491,7 +492,7 @@ end;
 procedure TFConfig.BSettingsARClick(Sender: TObject);
 begin
   BSettingsA.Click;
-  if OpenPictureDialog.FileName <> '' then LoadIcon;
+  LoadIcon (OpenPictureDialog.FileName);
   FTimer.ResetTimer;
 end;
 
@@ -513,11 +514,15 @@ begin
   Me.Font.Size := Me.Font.Size - FConfig.BiggerFont;
 end;
 
-procedure TFConfig.LoadIcon;
+procedure TFConfig.LoadIcon (IconFile: String);
 begin
-  FTimer.ILogo.Picture.LoadFromFile(OpenPictureDialog.FileName);
-  FTimer.LogoRatio := FTimer.ILogo.Picture.Width / FTimer.ILogo.Picture.Height;
-  FTimer.ResizeLogo;
+  if IconFile <> '' then
+        if FileExists (IconFile) then begin
+          FTimer.ILogo.Picture.LoadFromFile(IconFile);
+          FTimer.LogoRatio := FTimer.ILogo.Picture.Width / FTimer.ILogo.Picture.Height;
+          FTimer.ResizeLogo;
+          end
+        else ShowMessage(format(RStrIconFileMissing, [IconFile]));
 end;
 
 procedure TFConfig.SaveINIFile;
@@ -541,7 +546,6 @@ begin
      FHelp.RememberSetings.IniFileName := '';
      RememberSetings.IniFileName := INIFileName;
      RememberSetings.Restore;
-     if OpenPictureDialog.FileName <> '' then LoadIcon;
      RememberSetings.IniFileName := '';
 end;
 
