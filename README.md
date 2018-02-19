@@ -24,6 +24,18 @@ Available hot-keys:
 - You can change current time with the mouse wheel as well.
 
 
+Available command-line parameters:
+----------------------------------
+
+- --config=file.ini      Read the specified configuration file.
+- -s or --start          Starts the countdown.
+- --run=command          At the end of countdown launches another program.
+- -e --exit              Exit at the end of countdown.
+- -l nn or --lang nn     Set the interface language (nn is the language code).
+- -h or --help           Show command-line help.
+
+
+
 The binary files are kept in Sourceforge:
 https://sourceforge.net/projects/time-limit/
 

@@ -22,22 +22,18 @@ msgid "For command-line options use:"
 msgstr ""
 
 #: help.hkey00a
-msgctxt "help.hkey00a"
 msgid "Be patient!"
 msgstr ""
 
 #: help.hkey01a
-msgctxt "help.hkey01a"
 msgid "Any interactive changes are carried out within 1 second interval."
 msgstr ""
 
 #: help.hkey02a
-msgctxt "help.hkey02a"
 msgid "[Space], [s], Mouse click"
 msgstr ""
 
 #: help.hkey02b
-msgctxt "help.hkey02b"
 msgid "start/stop the timer."
 msgstr ""
 
@@ -98,7 +94,6 @@ msgid "decrease time by 1 minute."
 msgstr ""
 
 #: help.hkey10b
-msgctxt "help.hkey10b"
 msgid "You can change current time with the mouse wheel as well."
 msgstr ""
 
@@ -151,7 +146,6 @@ msgid "Ovewrite"
 msgstr ""
 
 #: settings.rstrbackgroudcolourhint
-msgctxt "settings.rstrbackgroudcolourhint"
 msgid "Background colour. Click to change."
 msgstr ""
 
@@ -160,22 +154,19 @@ msgid "Cancel"
 msgstr ""
 
 #: settings.rstrcolourdialogb
-msgctxt "settings.rstrcolourdialogb"
 msgid "Select background colour"
 msgstr ""
 
 #: settings.rstrcolourdialogt
-msgctxt "settings.rstrcolourdialogt"
 msgid "Select text colour"
+msgstr ""
+
+#: settings.rstrconfigfilter
+msgid "Configuration files|*.ini|All files|*.*"
 msgstr ""
 
 #: settings.rstrfileexists
 msgid "The file “%0:s” exists!"
-msgstr ""
-
-#: settings.rstrfontdialog
-msgctxt "settings.rstrfontdialog"
-msgid "Select a font (the size is ignored)"
 msgstr ""
 
 #: settings.rstriconfilemissing
@@ -187,23 +178,7 @@ msgctxt "settings.rstrminuteshint"
 msgid "Minutes left"
 msgstr ""
 
-#: settings.rstrtabappearance
-msgctxt "settings.rstrtabappearance"
-msgid "Appearance"
-msgstr ""
-
-#: settings.rstrtabimage
-msgctxt "settings.rstrtabimage"
-msgid "Additional"
-msgstr ""
-
-#: settings.rstrtabsystem
-msgctxt "settings.rstrtabsystem"
-msgid "System"
-msgstr ""
-
 #: settings.rstrtextcolourhint
-msgctxt "settings.rstrtextcolourhint"
 msgid "Text colour. Click to change."
 msgstr ""
 
@@ -271,6 +246,14 @@ msgstr ""
 msgid "Enable/disable [Esc] for closing the application"
 msgstr ""
 
+#: tfconfig.chexit.caption
+msgid "Exit"
+msgstr ""
+
+#: tfconfig.chexit.hint
+msgid "When the time is over, closes the count-down timer."
+msgstr ""
+
 #: tfconfig.chfullscreen.caption
 msgid "Full screen"
 msgstr ""
@@ -281,6 +264,14 @@ msgstr ""
 
 #: tfconfig.chincreasingfontsize.hint
 msgid "The decrease of time makes the size of numbers bigger"
+msgstr ""
+
+#: tfconfig.chlaunch.caption
+msgid "Launch"
+msgstr ""
+
+#: tfconfig.chlaunch.hint
+msgid "When the time is over, launches another application."
 msgstr ""
 
 #: tfconfig.chprogressbar.caption
@@ -307,6 +298,10 @@ msgstr ""
 msgid "Pixels to add"
 msgstr ""
 
+#: tfconfig.ecmdtorun.hint
+msgid "Command to execute at the end of the time."
+msgstr ""
+
 #: tfconfig.eendnote.text
 msgid "The time is over"
 msgstr ""
@@ -331,6 +326,10 @@ msgstr ""
 #: tfconfig.ewarning3.hint
 msgctxt "tfconfig.ewarning3.hint"
 msgid "Minutes left"
+msgstr ""
+
+#: tfconfig.fontdialog.title
+msgid "Select a font (the size is ignored)"
 msgstr ""
 
 #: tfconfig.lchangeeditsize.caption
@@ -369,19 +368,28 @@ msgstr ""
 msgid "May not work on some systems!"
 msgstr ""
 
+#: tfconfig.openfile.title
+msgid "Open the configuration file"
+msgstr ""
+
+#: tfconfig.openpicturedialog.title
+msgid "Open an image as the logo"
+msgstr ""
+
 #: tfconfig.ptbase.caption
-msgctxt "tfconfig.ptbase.caption"
 msgid "Appearance"
 msgstr ""
 
 #: tfconfig.ptfiles.caption
-msgctxt "tfconfig.ptfiles.caption"
 msgid "System"
 msgstr ""
 
 #: tfconfig.ptimage.caption
-msgctxt "tfconfig.ptimage.caption"
 msgid "Additional"
+msgstr ""
+
+#: tfconfig.savefile.title
+msgid "Save the current configuration"
 msgstr ""
 
 #: tfhelp.caption
@@ -414,6 +422,42 @@ msgstr ""
 
 #: tftimer.lclocks.caption
 msgid "00"
+msgstr ""
+
+#: timelimit.rstexit
+msgid "Exit at the end of countdown."
+msgstr ""
+
+#: timelimit.rstlang
+msgid "Set the interface language (nn is the language code)."
+msgstr ""
+
+#: timelimit.rstoption
+msgid "OPTIONS"
+msgstr ""
+
+#: timelimit.rstoptions
+msgid "Options"
+msgstr ""
+
+#: timelimit.rstpause
+msgid "Hit [Enter] to continue ..."
+msgstr ""
+
+#: timelimit.rstreadini
+msgid "Read the specified configuration file."
+msgstr ""
+
+#: timelimit.rstrun
+msgid "At the end of countdown launches another program."
+msgstr ""
+
+#: timelimit.rststart
+msgid "Starts the countdown."
+msgstr ""
+
+#: timelimit.rstusage
+msgid "Usage"
 msgstr ""
 
 #: versionsupport.missinginfo

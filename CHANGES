@@ -1,5 +1,19 @@
+00.08.00 - 2018.02.19 05:22
+	Following command-line parameters are available:
+	 --config=file.ini   read the specified configuration file;
+	 -s or --start       starts the countdown;
+	 --run=command       at the end of countdown starts another program;
+	 -e --exit           exit at the end of countdown;
+	 -l nn or --lang nn  interface language (nn - the language code);
+	 -h or --help        show command-line help.
+	Possibility to set to exit at the end of countdown.
+	Possibility to set to start another program at the end of countdown.
+	Opened/saved configuration files are separated from default
+		configuration file.
+	Some code optimization.
+
 00.07.04 - 2018.02.12 15:11
-	The  existence check of logo file added.
+	The existence check of logo file added.
 
 00.07.03 - 2018.02.11 21:08
 	The input configuration file may be specified from command-line

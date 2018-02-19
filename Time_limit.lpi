@@ -20,10 +20,9 @@
     </i18n>
     <VersionInfo>
       <UseVersionInfo Value="True"/>
-      <MinorVersionNr Value="7"/>
-      <RevisionNr Value="4"/>
+      <MinorVersionNr Value="8"/>
       <Language Value="0809"/>
-      <StringTable Comments="A windowed/full-screen countdown timer." FileDescription="A countdown timer." LegalCopyright="Kārlis Kalviškis, GPLv3" LegalTrademarks="Kārlis Kalviškis  &lt;eko@lanet.lv>" OriginalFilename="Time_limit" ProductName="Time limit (Countdown timer)" ProductVersion="0.7"/>
+      <StringTable Comments="A windowed/full-screen countdown timer." FileDescription="A countdown timer." LegalCopyright="Kārlis Kalviškis, GPLv3" LegalTrademarks="Kārlis Kalviškis  &lt;eko@lanet.lv>" OriginalFilename="Time_limit" ProductName="Time limit (Countdown timer)" ProductVersion="0.8"/>
     </VersionInfo>
     <BuildModes Count="1">
       <Item1 Name="Default" Default="True"/>

@@ -1,6 +1,6 @@
 (*
- * Version: 00.07.03.
- * Author: Kārlis Kalviškis, 2018.02.12 15:11
+ * Version: 00.08.00.
+ * Author: Kārlis Kalviškis, 2018.02.19 05:22
  * License: GPLv3
  *)
 

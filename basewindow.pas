@@ -1,6 +1,6 @@
 (*
- * Version: 00.07.03.
- * Author: Kārlis Kalviškis, 2018.02.12 15:11
+ * Version: 00.08.00.
+ * Author: Kārlis Kalviškis, 2018.02.19 05:22
  * License: GPLv3
  *)
 
@@ -11,8 +11,8 @@ unit BaseWindow;
 interface
 
 uses
-  Classes, SysUtils, FileUtil, Forms, Controls, Graphics, LCLType, Dialogs,
-  StdCtrls, ExtCtrls, DateUtils, DefaultTranslator, IniPropStorage, types
+  Classes, SysUtils, FileUtil, Forms, Controls, Graphics, LCLType, Dialogs, StdCtrls
+  , ExtCtrls, DateUtils, DefaultTranslator, IniPropStorage, types, process
 ;
 
 (* Default logo.
@@ -97,10 +97,10 @@ implementation
 
 { TFTimer }
 
-{
+(*
   To use 'settings' and 'help' window's objects.
   Should be placed here not to run in circular refernce.
-}
+*)
 uses settings, help;
 
 procedure TFTimer.FormCreate(Sender: TObject);
@@ -185,7 +185,7 @@ begin
        'r': ResetTimer;
        'f': ChangeFullScreen;
        'b': ChangeWindowsBorder;
-       'h': FHelp.Show;
+       'h': FConfig.ShowFHelp;
        'm': FConfig.Show;
   end;
 end;
@@ -249,6 +249,8 @@ end;
 
 
 procedure TFTimer.Timer1Timer(Sender: TObject);
+var
+   CMDtoRun: TProcess;
 begin
   if RUNING then  begin
     Dec(TimeNow);
@@ -262,6 +264,13 @@ begin
       LClock.Height := Self.Height;
       LClock.OptimalFill := true;
       LClock.Caption := FConfig.EEndNote.Text;
+      if FConfig.ChLaunch.Checked then begin
+         CMDtoRun := TProcess.Create(nil);
+         CMDtoRun.CommandLine := FConfig.ECMDtoRun.Text;
+         CMDtoRun.Execute;
+         CMDtoRun.Free;
+      end;
+      if FConfig.ChExit.Checked then Application.Terminate;
       end
     else begin
         if FConfig.ChIncreasingFontSize.Checked then TimerFontSize;

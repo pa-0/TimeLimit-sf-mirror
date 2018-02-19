@@ -2,10 +2,10 @@
 # Karlis Kalviskis <eko@lanet.lv>, 2018.
 msgid ""
 msgstr ""
-"Project-Id-Version: PACKAGE VERSION\n"
+"Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2018-02-08 22:10+0300\n"
-"PO-Revision-Date: 2018-02-12 15:09+0300\n"
+"PO-Revision-Date: 2018-02-19 05:21+0300\n"
 "Last-Translator: Karlis Kalviskis <eko@lanet.lv>\n"
 "Language-Team: karlo\n"
 "Language: lv\n"
@@ -37,22 +37,18 @@ msgid "For command-line options use:"
 msgstr "Pieejamie komandrindas parametri apskatāmi ar komandu:"
 
 #: help.hkey00a
-msgctxt "help.hkey00a"
 msgid "Be patient!"
 msgstr "Esi pacietīgs!"
 
 #: help.hkey01a
-msgctxt "help.hkey01a"
 msgid "Any interactive changes are carried out within 1 second interval."
 msgstr "Programma atsaucas uz izmaiņām tikai reizi sekundē."
 
 #: help.hkey02a
-msgctxt "help.hkey02a"
 msgid "[Space], [s], Mouse click"
 msgstr "[Atstarpe], [s], peles klikšķis"
 
 #: help.hkey02b
-msgctxt "help.hkey02b"
 msgid "start/stop the timer."
 msgstr "sākt/apstādināt laika atskaiti."
 
@@ -113,7 +109,6 @@ msgid "decrease time by 1 minute."
 msgstr "samazināt laiku par 1 minūti."
 
 #: help.hkey10b
-msgctxt "help.hkey10b"
 msgid "You can change current time with the mouse wheel as well."
 msgstr "Patreizējo laiku iespējams mainīt ar peles ritenīti."
 
@@ -166,7 +161,6 @@ msgid "Ovewrite"
 msgstr "Pārrakstīt"
 
 #: settings.rstrbackgroudcolourhint
-msgctxt "settings.rstrbackgroudcolourhint"
 msgid "Background colour. Click to change."
 msgstr "Pamatnes krāsa. Uzklikšķini, lai izmainītu."
 
@@ -175,23 +169,20 @@ msgid "Cancel"
 msgstr "Atcelt"
 
 #: settings.rstrcolourdialogb
-msgctxt "settings.rstrcolourdialogb"
 msgid "Select background colour"
 msgstr "Izvēlies pamatnes krāsu"
 
 #: settings.rstrcolourdialogt
-msgctxt "settings.rstrcolourdialogt"
 msgid "Select text colour"
 msgstr "Izvēlies ciparu krāsu"
+
+#: settings.rstrconfigfilter
+msgid "Configuration files|*.ini|All files|*.*"
+msgstr "Iestatījumu datnes|*.ini|Visas datnes|*.*"
 
 #: settings.rstrfileexists
 msgid "The file “%0:s” exists!"
 msgstr "Fails „%0:s” jau ir!"
-
-#: settings.rstrfontdialog
-msgctxt "settings.rstrfontdialog"
-msgid "Select a font (the size is ignored)"
-msgstr "Izvēlies fontu (izmērs netiek ņemt vērā)"
 
 #: settings.rstriconfilemissing
 msgid "The logo file “%0:s” is missing!"
@@ -202,23 +193,7 @@ msgctxt "settings.rstrminuteshint"
 msgid "Minutes left"
 msgstr "Minūtes līdz beigām"
 
-#: settings.rstrtabappearance
-msgctxt "settings.rstrtabappearance"
-msgid "Appearance"
-msgstr "Izskats"
-
-#: settings.rstrtabimage
-msgctxt "settings.rstrtabimage"
-msgid "Additional"
-msgstr "Papildus"
-
-#: settings.rstrtabsystem
-msgctxt "settings.rstrtabsystem"
-msgid "System"
-msgstr "Sistēmai"
-
 #: settings.rstrtextcolourhint
-msgctxt "settings.rstrtextcolourhint"
 msgid "Text colour. Click to change."
 msgstr "Teksta krāsa. Uzklikšķini, lai izmainītu."
 
@@ -286,6 +261,14 @@ msgstr "Neaizverams pulkstenis"
 msgid "Enable/disable [Esc] for closing the application"
 msgstr "Atļaut/neļaut izmantot [Esc] programmas aizvēršanai"
 
+#: tfconfig.chexit.caption
+msgid "Exit"
+msgstr "Beigt darbu"
+
+#: tfconfig.chexit.hint
+msgid "When the time is over, closes the count-down timer."
+msgstr "Kad beidzas atvēlētais laiks, aizver šo programmu."
+
 #: tfconfig.chfullscreen.caption
 msgid "Full screen"
 msgstr "Pa visu ekrānu"
@@ -297,6 +280,14 @@ msgstr "Pieaugošs izmērs"
 #: tfconfig.chincreasingfontsize.hint
 msgid "The decrease of time makes the size of numbers bigger"
 msgstr "Samazinoties atlikušajam laikam, palielinās ciparu izmēri"
+
+#: tfconfig.chlaunch.caption
+msgid "Launch"
+msgstr "Palaist"
+
+#: tfconfig.chlaunch.hint
+msgid "When the time is over, launches another application."
+msgstr "Kad beidzas atvēlētais laiks, palaiž citu programmu."
 
 #: tfconfig.chprogressbar.caption
 msgid "Show progress bar"
@@ -321,6 +312,10 @@ msgstr "Pilnīgi necaurspīdīgs ir ar vērtību 255"
 #: tfconfig.echangeeditsize.hint
 msgid "Pixels to add"
 msgstr "Par cik pikseļiem palielināt"
+
+#: tfconfig.ecmdtorun.hint
+msgid "Command to execute at the end of the time."
+msgstr "Komanda, kas jāizpilda, kad beidzas atvēlētais laiks."
 
 #: tfconfig.eendnote.text
 msgid "The time is over"
@@ -347,6 +342,10 @@ msgstr "Minūtes līdz beigām"
 msgctxt "tfconfig.ewarning3.hint"
 msgid "Minutes left"
 msgstr "Minūtes līdz beigām"
+
+#: tfconfig.fontdialog.title
+msgid "Select a font (the size is ignored)"
+msgstr "Izvēlies fontu (izmērs netiek ņemts vērā)"
 
 #: tfconfig.lchangeeditsize.caption
 msgid "Resize edit-box on enter"
@@ -384,20 +383,30 @@ msgstr "Puse no laika:"
 msgid "May not work on some systems!"
 msgstr "Dažas sistēmas šo neatbalsta!"
 
+#: tfconfig.openfile.title
+msgid "Open the configuration file"
+msgstr "Atvērt iestatījumu datni"
+
+#: tfconfig.openpicturedialog.title
+#| msgid "Open a image as the logo"
+msgid "Open an image as the logo"
+msgstr "Atver attēlu, kurā ir logo"
+
 #: tfconfig.ptbase.caption
-msgctxt "tfconfig.ptbase.caption"
 msgid "Appearance"
 msgstr "Izskats"
 
 #: tfconfig.ptfiles.caption
-msgctxt "tfconfig.ptfiles.caption"
 msgid "System"
 msgstr "Sistēmai"
 
 #: tfconfig.ptimage.caption
-msgctxt "tfconfig.ptimage.caption"
 msgid "Additional"
 msgstr "Papildus"
+
+#: tfconfig.savefile.title
+msgid "Save the current configuration"
+msgstr "Saglabāt patreizējos iestatījumus datnē"
 
 #: tfhelp.caption
 msgid "Help"
@@ -430,6 +439,43 @@ msgstr "42"
 #: tftimer.lclocks.caption
 msgid "00"
 msgstr "00"
+
+#: timelimit.rstexit
+msgid "Exit at the end of countdown."
+msgstr "Kad laiks iztecējis, aizvērt šo programmu."
+
+#: timelimit.rstlang
+msgid "Set the interface language (nn is the language code)."
+msgstr "Saskarnes valoda (nn – valodas kods)."
+
+#: timelimit.rstoption
+msgid "OPTIONS"
+msgstr "NORĀDE"
+
+#: timelimit.rstoptions
+msgid "Options"
+msgstr "Norādes"
+
+#: timelimit.rstpause
+msgid "Hit [Enter] to continue ..."
+msgstr "Nospied [Ievade]-s tautiņu lai turpinātu..."
+
+#: timelimit.rstreadini
+msgid "Read the specified configuration file."
+msgstr "Ielasa uzrādīto iestatījumu datni."
+
+#: timelimit.rstrun
+#| msgid "At the end of countdown launches another programm."
+msgid "At the end of countdown launches another program."
+msgstr "Kad laiks iztecējis, palaist citu programmu."
+
+#: timelimit.rststart
+msgid "Starts the countdown."
+msgstr "Palaižot programmu, sākt laika atskaiti."
+
+#: timelimit.rstusage
+msgid "Usage"
+msgstr "Lietošana"
 
 #: versionsupport.missinginfo
 msgid "No build information available"

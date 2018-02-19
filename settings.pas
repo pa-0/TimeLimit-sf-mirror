@@ -1,6 +1,6 @@
 (*
- * Version: 00.07.03.
- * Author: Kārlis Kalviškis, 2018.02.12 15:11
+ * Version: 00.08.00.
+ * Author: Kārlis Kalviškis, 2018.02.19 05:22
  * License: GPLv3
  *)
 
@@ -11,8 +11,9 @@ unit settings;
 interface
 
 uses
-  Classes, SysUtils, FileUtil, Forms, Controls, Graphics, Dialogs, StdCtrls,
-  ExtCtrls, DefaultTranslator, ComCtrls, Spin, ExtDlgs, IniPropStorage;
+  Classes, SysUtils, FileUtil, Forms, Controls, Graphics, Dialogs, StdCtrls
+  , ExtCtrls, DefaultTranslator, ComCtrls, Spin, ExtDlgs, IniPropStorage, EditBtn
+  ;
 
 type
 
@@ -30,6 +31,8 @@ type
     BSaveINI: TButton;
     CCloseMe: TCheckBox;
     ChDontCloseTimer: TCheckBox;
+    ChLaunch: TCheckBox;
+    ChExit: TCheckBox;
     ChIncreasingFontSize: TCheckBox;
     ChProgressBar: TCheckBox;
     ChFullScreen: TCheckBox;
@@ -42,6 +45,7 @@ type
     EWarning1: TFloatSpinEdit;
     EWarning2: TFloatSpinEdit;
     EWarning3: TFloatSpinEdit;
+    ECMDtoRun: TFileNameEdit;
     FontDialog: TFontDialog;
     OpenFile: TOpenDialog;
     RememberSetings: TIniPropStorage;
@@ -110,8 +114,8 @@ type
    procedure EWarning2Exit(Sender: TObject);
    procedure EWarning3Enter(Sender: TObject);
    procedure EWarning3Exit(Sender: TObject);
+   procedure ECMDtoRunEditingDone(Sender: TObject);
    procedure FormCreate(Sender: TObject);
-   procedure PTabsChange(Sender: TObject);
    procedure SBHalfClick(Sender: TObject);
    procedure SBMainClick(Sender: TObject);
    procedure SBWarning1Click(Sender: TObject);
@@ -125,6 +129,8 @@ type
    procedure LoadIcon(IconFile: String);
    procedure SaveINIFile;
    procedure LoadConfiguration (INIFileName : String);
+   procedure CreateFHelp;
+   procedure ShowFHelp;
   private
    procedure ResizeField(Sender: TCustomFloatSpinEdit);
    procedure deResizeField(Sender: TCustomFloatSpinEdit);
@@ -150,20 +156,17 @@ uses basewindow, help;
 
 resourcestring
 
-  RStrFontDialog = 'Select a font (the size is ignored)';
   RStrColourDialogB = 'Select background colour';
   RStrColourDialogT = 'Select text colour';
   RStrBackgroudColourHint = 'Background colour. Click to change.';
   RStrTextColourHint = 'Text colour. Click to change.';
   RStrMinutesHint = 'Minutes left';
-  RStrTabAppearance = 'Appearance';
-  RStrTabImage = 'Additional';
-  RStrTabSystem = 'System';
   RStrCancel = 'Cancel';
   RStOvewrite = 'Ovewrite';
   RStWarning = 'Warning';
   RStrFileExists = 'The file “%0:s” exists!';
   RStrIconFileMissing = 'The logo file “%0:s” is missing!';
+  RStrConfigFilter = 'Configuration files|*.ini|All files|*.*';
 
 procedure TFConfig.FormCreate(Sender: TObject);
 begin
@@ -197,7 +200,6 @@ begin
     STWarning2.Hint := RStrTextColourHint;
     SBWarning3.Hint := RStrBackgroudColourHint;
     STWarning3.Hint := RStrTextColourHint;
-    FontDialog.Title :=  RStrFontDialog;
 
     EMinLogoHeight.Value :=  Ftimer.LogoMinHeight;
     EAlphaBlend.Value := Ftimer.AlphaBlendValue;
@@ -219,9 +221,6 @@ begin
     ChProgressBar.Checked := FTimer.PProgressBar.Visible;
     ChProgressBar.Enabled := true;
     PTabs.TabIndex := 0;
-    PTBase.Caption := RStrTabAppearance;
-    PTImage.Caption := RStrTabImage;
-    PTFiles.Caption := RStrTabSystem;
 
     // Adjust the size of the window to fit all controls.
     // Additional Settings tab is the largest one.
@@ -235,12 +234,10 @@ begin
     OpenFile.FileName := ApplicationName;
     OpenFile.DefaultExt := 'ini';
     OpenFile.InitialDir := GetAppConfigFile(False);
+    SaveFile.Filter := RStrConfigFilter;
+    OpenFile.Filter := RStrConfigFilter;
 end;
 
-procedure TFConfig.PTabsChange(Sender: TObject);
-begin
-
-end;
 
 procedure TFConfig.SBHalfClick(Sender: TObject);
 begin
@@ -420,6 +417,17 @@ begin
   deResizeField(EWarning3);
 end;
 
+procedure TFConfig.ECMDtoRunEditingDone(Sender: TObject);
+begin
+  ECMDtoRun.Text := Trim(ECMDtoRun.Text);
+  If ECMDtoRun.Text <> '' then
+    ChLaunch.Enabled := true
+  else begin
+     ChLaunch.Enabled := false;
+     ChLaunch.Checked := false;
+  end;
+end;
+
 procedure TFConfig.BSettingsAClick(Sender: TObject);
 begin
     // Apply all settings
@@ -449,7 +457,8 @@ end;
 
 procedure TFConfig.BChangeFontClick(Sender: TObject);
 begin
-   if FontDialog.Execute then
+  FontDialog.Font := BChangeFont.Font;
+  if FontDialog.Execute then
       BChangeFont.Font :=  FontDialog.Font;
 end;
 
@@ -460,7 +469,7 @@ end;
 
 procedure TFConfig.BHotKeysClick(Sender: TObject);
 begin
-  FHelp.Show;
+  ShowFHelp;
   FHelp.SetFocus;
 end;
 
@@ -529,10 +538,15 @@ procedure TFConfig.SaveINIFile;
 begin
        RememberSetings.IniFileName := SaveFile.FileName;
        RememberSetings.Save;
+       RememberSetings.IniFileName := '';
        FTimer.RememberSetings.IniFileName := SaveFile.FileName;
        Ftimer.RememberSetings.Save;
-       FHelp.RememberSetings.IniFileName := SaveFile.FileName;
-       FHelp.RememberSetings.Save;
+       Ftimer.RememberSetings.IniFileName := '';
+       if Assigned(FHelp) then begin
+         FHelp.RememberSetings.IniFileName := SaveFile.FileName;
+         FHelp.RememberSetings.Save;
+         FHelp.RememberSetings.IniFileName := '';
+       end;
        Self.Visible := true;
 end;
 
@@ -541,12 +555,26 @@ begin
      Ftimer.RememberSetings.IniFileName := INIFileName;
      Ftimer.RememberSetings.Restore;
      Ftimer.RememberSetings.IniFileName := '';
-     FHelp.RememberSetings.IniFileName := INIFileName;
-     FHelp.RememberSetings.Restore;
-     FHelp.RememberSetings.IniFileName := '';
+     if Assigned(FHelp) then begin
+       FHelp.RememberSetings.IniFileName := INIFileName;
+       FHelp.RememberSetings.Restore;
+       FHelp.RememberSetings.IniFileName := '';
+     end;
      RememberSetings.IniFileName := INIFileName;
      RememberSetings.Restore;
      RememberSetings.IniFileName := '';
+end;
+
+procedure TFConfig.CreateFHelp;
+// Create this form only if needed
+begin
+  if not Assigned(FHelp) then Application.CreateForm(TFHelp, FHelp);
+end;
+
+procedure TFConfig.ShowFHelp;
+begin
+  CreateFHelp;
+  FHelp.Show;
 end;
 
 end.

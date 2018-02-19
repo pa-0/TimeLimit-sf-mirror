@@ -1,4 +1,4 @@
-Iespēja pilnekrānā redzēt pulksteni.
+Iespēja pilnekrānā redzēt pulksteni un/vai patērēto laiku.
 
 Iespēja izvēlēties valodu.
 
