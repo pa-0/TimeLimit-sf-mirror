@@ -18,9 +18,9 @@ object FHelp: TFHelp
     Height = 290
     Top = 0
     Width = 359
-    ActivePage = PTThanks
+    ActivePage = PTAbout
     Align = alClient
-    TabIndex = 2
+    TabIndex = 1
     TabOrder = 0
     object PTHotKey: TTabSheet
       Caption = 'Hot Keys'

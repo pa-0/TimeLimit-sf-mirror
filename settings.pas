@@ -1,6 +1,6 @@
 (*
- * Version: 00.08.00.
- * Author: Kārlis Kalviškis, 2018.02.19 05:22
+ * Version: 00.08.01.
+ * Author: Kārlis Kalviškis, 2018.02.28 18:28
  * License: GPLv3
  *)
 
@@ -224,8 +224,8 @@ begin
 
     // Adjust the size of the window to fit all controls.
     // Additional Settings tab is the largest one.
-    PTabs.Width := LTransparent.Width + LTransparent.Width div 4;
-    PTabs.Height := PEndNote.Top + PEndNote.Height + 2 * BHotKeys.Height + 9;
+    FConfig.Width := LTransparent.Width + LTransparent.Width div 4;
+    Fconfig.Height := PTabs.Height - PTImage.Height + PEndNote.Top + PEndNote.Height + BChangeLogo.Height + 4;
 
     // Data for INI files
     SaveFile.FileName := ApplicationName;
