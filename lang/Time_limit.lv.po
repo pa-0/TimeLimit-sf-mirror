@@ -5,7 +5,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2018-02-08 22:10+0300\n"
-"PO-Revision-Date: 2018-02-19 05:21+0300\n"
+"PO-Revision-Date: 2018-03-05 19:30+0300\n"
 "Last-Translator: Karlis Kalviskis <eko@lanet.lv>\n"
 "Language-Team: karlo\n"
 "Language: lv\n"
@@ -212,6 +212,10 @@ msgstr "Maina izskatu, bet ne izmēru."
 #: tfconfig.bchangelogo.caption
 msgid "Change logo"
 msgstr "Nomaini logo"
+
+#: tfconfig.bclockmode.caption
+msgid "Clock mode (HH:MM)"
+msgstr "Lietot kā pulksteni (St.:Min.)"
 
 #: tfconfig.bhotkeys.caption
 msgid "List hot-keys"

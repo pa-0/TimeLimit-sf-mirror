@@ -1,6 +1,6 @@
 (*
- * Version: 00.08.01.
- * Author: Kārlis Kalviškis, 2018.02.28 18:28
+ * Version: 00.08.02.
+ * Author: Kārlis Kalviškis, 2018.03.05 19:28
  * License: GPLv3
  *)
 
@@ -81,8 +81,10 @@ type
     PTFiles: TTabSheet;
     PTBase: TTabSheet;
     STWarning3: TColorButton;
+    BClockMode: TToggleBox;
    procedure BChangeFontClick(Sender: TObject);
    procedure BChangeLogoClick(Sender: TObject);
+   procedure BClockModeChange(Sender: TObject);
    procedure BHotKeysClick(Sender: TObject);
    procedure BOpenINIClick(Sender: TObject);
    procedure BQuitClick(Sender: TObject);
@@ -465,6 +467,13 @@ end;
 procedure TFConfig.BChangeLogoClick(Sender: TObject);
 begin
   if OpenPictureDialog.Execute then LoadIcon(OpenPictureDialog.FileName);
+end;
+
+procedure TFConfig.BClockModeChange(Sender: TObject);
+begin
+     PTBase.Enabled := not BClockMode.Checked;
+     PEndNote.Enabled := not BClockMode.Checked;
+     Ftimer.TimerFontSize;
 end;
 
 procedure TFConfig.BHotKeysClick(Sender: TObject);

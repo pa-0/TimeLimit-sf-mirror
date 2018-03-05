@@ -198,6 +198,10 @@ msgstr ""
 msgid "Change logo"
 msgstr ""
 
+#: tfconfig.bclockmode.caption
+msgid "Clock mode (HH:MM)"
+msgstr ""
+
 #: tfconfig.bhotkeys.caption
 msgid "List hot-keys"
 msgstr ""

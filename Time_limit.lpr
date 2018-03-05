@@ -1,6 +1,6 @@
 (*
- * Version: 00.08.01.
- * Author: Kārlis Kalviškis, 2018.02.28 18:28
+ * Version: 00.08.02.
+ * Author: Kārlis Kalviškis, 2018.03.05 19:28
  * License: GPLv3
  *)
 program TimeLimit;
