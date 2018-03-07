@@ -1,6 +1,6 @@
 (*
- * Version: 00.08.02.
- * Author: Kārlis Kalviškis, 2018.03.05 19:28
+ * Version: 00.08.03.
+ * Author: Kārlis Kalviškis, 2018.03.07 10:28
  * License: GPLv3
  *)
 program TimeLimit;
@@ -41,12 +41,14 @@ resourcestring
   RstExit = 'Exit at the end of countdown.';
   RstLang = 'Set the interface language (nn is the language code).';
   RstPause = 'Hit [Enter] to continue ...';
+  RstClock = 'Start as an ordinary digital clock.';
 var
   ConfigurationFile: String;
   StartCounter: Boolean;
   AllParameters: Integer;
   CmdToRun: String;
   ExitCounter: Boolean;
+  ClockMode: Boolean;
 begin
   If ParamCount > 0 then begin
        AllParameters := ParamCount;
@@ -71,6 +73,10 @@ begin
          // The language code is summed up as a separate parameter.
          AllParameters := AllParameters - 2;
         end;
+       if Application.HasOption('clock') then begin
+         ClockMode := true;
+         Dec(AllParameters);
+        end;
        if (AllParameters > 0) or Application.HasOption('h', 'help') then begin
           // In Windows a new CMD window is opened to display commandline options
           {$IFDEF WINDOWS}
@@ -83,15 +89,17 @@ begin
            WriteLn('');
            WriteLn(RstOptions, ':');
            WriteLn('');
+           WriteLn('--clock             ', RstClock);
+           WriteLn('');
            WriteLn('--config=file.ini   ', RstReadINI);
-           WriteLn('');
-           WriteLn('-s or --start       ', RstStart);
-           WriteLn('');
-           WriteLn('--run=command       ', RstRun);
            WriteLn('');
            WriteLn('-e or --exit        ', RstExit);
            WriteLn('');
            WriteLn('--lang nn or -l nn  ', RstLang);
+           WriteLn('');
+           WriteLn('--run=command       ', RstRun);
+           WriteLn('');
+           WriteLn('-s or --start       ', RstStart);
            WriteLn('');
            WriteLn('');
           {$IFDEF WINDOWS}
@@ -113,6 +121,7 @@ begin
     end;
     FConfig.ChExit.Checked := ExitCounter;
     FTimer.RUNING := StartCounter;
+    FConfig.BClockMode.Checked := ClockMode;
     Application.Run;
 end.
 

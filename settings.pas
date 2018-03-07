@@ -1,6 +1,6 @@
 (*
- * Version: 00.08.02.
- * Author: Kārlis Kalviškis, 2018.03.05 19:28
+ * Version: 00.08.03.
+ * Author: Kārlis Kalviškis, 2018.03.07 10:28
  * License: GPLv3
  *)
 
@@ -48,6 +48,7 @@ type
     ECMDtoRun: TFileNameEdit;
     FontDialog: TFontDialog;
     OpenFile: TOpenDialog;
+    PHotKeys: TPanel;
     RememberSetings: TIniPropStorage;
     LChangeEditSize: TLabel;
     LEndNote: TLabel;
@@ -227,7 +228,7 @@ begin
     // Adjust the size of the window to fit all controls.
     // Additional Settings tab is the largest one.
     FConfig.Width := LTransparent.Width + LTransparent.Width div 4;
-    Fconfig.Height := PTabs.Height - PTImage.Height + PEndNote.Top + PEndNote.Height + BChangeLogo.Height + 4;
+    Fconfig.Height := PTabs.Height - PTImage.Height + PHotKeys.Top + PHotKeys.Height;
 
     // Data for INI files
     SaveFile.FileName := ApplicationName;

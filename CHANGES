@@ -1,5 +1,8 @@
+00.08.03 - 2018.03.07 10:28
+	The clock mode may be initialized from a command line.
+
 00.08.02 - 2018.03.05 19:28
-	Now it's possible to use timer as an ordinary digital clock (HH:MM).
+	Now it's possible to use the timer as an ordinary digital clock (HH:MM).
 
 00.08.01 - 2018.02.28 18:28
 	The size of the settings windows should be correct for any system.

@@ -1,6 +1,6 @@
 (*
- * Version: 00.08.02.
- * Author: Kārlis Kalviškis, 2018.03.05 19:28
+ * Version: 00.08.03.
+ * Author: Kārlis Kalviškis, 2018.03.07 10:28
  * License: GPLv3
  *)
 
@@ -261,6 +261,7 @@ end;
 
 
 procedure TFTimer.Timer1Timer(Sender: TObject);
+// This procedure is called once per Timer1.Interval miliseconds.
 var
    CMDtoRun: TProcess;
    Hour, Minute, Second, MilliSecond: Word;
