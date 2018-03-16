@@ -589,6 +589,7 @@ object FConfig: TFConfig
           Anchors = [akTop, akRight]
           AutoSize = True
           Caption = 'Change logo'
+          OnChangeBounds = BChangeLogoChangeBounds
           OnClick = BChangeLogoClick
           TabOrder = 2
         end

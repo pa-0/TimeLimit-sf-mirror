@@ -1,6 +1,6 @@
 (*
- * Version: 00.08.03.
- * Author: Kārlis Kalviškis, 2018.03.07 10:28
+ * Version: 00.08.04.
+ * Author: Kārlis Kalviškis, 2018.03.14 13:14
  * License: GPLv3
  *)
 
@@ -86,6 +86,8 @@ type
      MinHeight : Integer;
      LogoRatio : Real;
      LogoMinHeight : Integer;
+     oldTop : Integer;
+     oldLeft : Integer;
   end;
 
 var
@@ -110,8 +112,10 @@ begin
   // For Borderless windows
   MinWidth := 99;
   MinHeight := 44;
-  Self.Constraints.MinWidth := MinWidth;
-  Self.Constraints.MinHeight := MinHeight;
+  Constraints.MinWidth := MinWidth;
+  Constraints.MinHeight := MinHeight;
+  oldTop := Top;
+  oldLeft := Left;
   //Text and bacground colours
   ColourB0 := clBlack;
   ColourT0 := $009AABBC;
@@ -333,8 +337,12 @@ begin
        Constraints.MinHeight := MinHeight;
        BorderStyle := bsSizeable;
        FConfig.ChWindowsBorders.Checked := true;
+       Top := oldTop;
+       Left := oldLeft;
       end
     else begin
+       oldTop := Top;
+       oldLeft := Left;
        Constraints.MinWidth := Width;
        Constraints.MinHeight := Height;
        BorderStyle := bsNone;

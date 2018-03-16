@@ -1,6 +1,6 @@
 (*
- * Version: 00.08.03.
- * Author: Kārlis Kalviškis, 2018.03.07 10:28
+ * Version: 00.08.04.
+ * Author: Kārlis Kalviškis, 2018.03.14 13:14
  * License: GPLv3
  *)
 program TimeLimit;
@@ -50,6 +50,9 @@ var
   ExitCounter: Boolean;
   ClockMode: Boolean;
 begin
+  ExitCounter := false;
+  StartCounter := false;
+  ClockMode := false;
   If ParamCount > 0 then begin
        AllParameters := ParamCount;
        if Application.HasOption('config') then begin

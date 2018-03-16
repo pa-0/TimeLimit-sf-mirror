@@ -1,6 +1,6 @@
 (*
- * Version: 00.08.03.
- * Author: Kārlis Kalviškis, 2018.03.07 10:28
+ * Version: 00.08.04.
+ * Author: Kārlis Kalviškis, 2018.03.14 13:14
  * License: GPLv3
  *)
 
@@ -84,6 +84,7 @@ type
     STWarning3: TColorButton;
     BClockMode: TToggleBox;
    procedure BChangeFontClick(Sender: TObject);
+   procedure BChangeLogoChangeBounds(Sender: TObject);
    procedure BChangeLogoClick(Sender: TObject);
    procedure BClockModeChange(Sender: TObject);
    procedure BHotKeysClick(Sender: TObject);
@@ -134,6 +135,7 @@ type
    procedure LoadConfiguration (INIFileName : String);
    procedure CreateFHelp;
    procedure ShowFHelp;
+   procedure SetFormSize;
   private
    procedure ResizeField(Sender: TCustomFloatSpinEdit);
    procedure deResizeField(Sender: TCustomFloatSpinEdit);
@@ -223,12 +225,6 @@ begin
     ChProgressBar.Enabled := false;
     ChProgressBar.Checked := FTimer.PProgressBar.Visible;
     ChProgressBar.Enabled := true;
-    PTabs.TabIndex := 0;
-
-    // Adjust the size of the window to fit all controls.
-    // Additional Settings tab is the largest one.
-    FConfig.Width := LTransparent.Width + LTransparent.Width div 4;
-    Fconfig.Height := PTabs.Height - PTImage.Height + PHotKeys.Top + PHotKeys.Height;
 
     // Data for INI files
     SaveFile.FileName := ApplicationName;
@@ -239,6 +235,9 @@ begin
     OpenFile.InitialDir := GetAppConfigFile(False);
     SaveFile.Filter := RStrConfigFilter;
     OpenFile.Filter := RStrConfigFilter;
+
+    SetFormSize;
+    PTabs.TabIndex := 0;
 end;
 
 
@@ -465,6 +464,11 @@ begin
       BChangeFont.Font :=  FontDialog.Font;
 end;
 
+procedure TFConfig.BChangeLogoChangeBounds(Sender: TObject);
+begin
+  SetFormSize;
+end;
+
 procedure TFConfig.BChangeLogoClick(Sender: TObject);
 begin
   if OpenPictureDialog.Execute then LoadIcon(OpenPictureDialog.FileName);
@@ -585,6 +589,14 @@ procedure TFConfig.ShowFHelp;
 begin
   CreateFHelp;
   FHelp.Show;
+end;
+
+procedure TFConfig.SetFormSize;
+begin
+  // Adjust the size of the settings window to fit all controls.
+  // Additional Settings tab is the largest one.
+  FConfig.Width := FConfig.LTransparent.Width + FConfig.LTransparent.Width div 3;
+  Fconfig.Height := FConfig.PTabs.Height - FConfig.PTImage.Height + FConfig.PHotKeys.Top + FConfig.PHotKeys.Height;
 end;
 
 end.
