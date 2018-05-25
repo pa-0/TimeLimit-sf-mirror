@@ -1,6 +1,6 @@
 (*
- * Version: 00.08.04.
- * Author: Kārlis Kalviškis, 2018.03.14 13:14
+ * Version: 00.08.05.
+ * Author: Kārlis Kalviškis, 2018.05.25 11:20
  * License: GPLv3
  *)
 
@@ -83,6 +83,7 @@ type
     PTBase: TTabSheet;
     STWarning3: TColorButton;
     BClockMode: TToggleBox;
+    BShowClock: TToggleBox;
    procedure BChangeFontClick(Sender: TObject);
    procedure BChangeLogoChangeBounds(Sender: TObject);
    procedure BChangeLogoClick(Sender: TObject);
@@ -94,6 +95,8 @@ type
    procedure BSettingsAClick(Sender: TObject);
    procedure BSettingsARClick(Sender: TObject);
    procedure BSettingsARRClick(Sender: TObject);
+   procedure BShowClockCaption;
+   procedure BShowClockChange(Sender: TObject);
    procedure ChFullScreenChange(Sender: TObject);
    procedure ChIncreasingFontSizeChange(Sender: TObject);
    procedure ChProgressBarChange(Sender: TObject);
@@ -119,6 +122,8 @@ type
    procedure EWarning3Enter(Sender: TObject);
    procedure EWarning3Exit(Sender: TObject);
    procedure ECMDtoRunEditingDone(Sender: TObject);
+   procedure FormActivate(Sender: TObject);
+   procedure FormClose(Sender: TObject; var CloseAction: TCloseAction);
    procedure FormCreate(Sender: TObject);
    procedure SBHalfClick(Sender: TObject);
    procedure SBMainClick(Sender: TObject);
@@ -172,6 +177,12 @@ resourcestring
   RStrFileExists = 'The file “%0:s” exists!';
   RStrIconFileMissing = 'The logo file “%0:s” is missing!';
   RStrConfigFilter = 'Configuration files|*.ini|All files|*.*';
+  RStrWindow = '%0:s %1:s window';
+  RStrClock = 'the clock';
+  RStrTimer = 'the timer';
+  RStrHide = 'Hide';
+  RStrShow = 'Show';
+
 
 procedure TFConfig.FormCreate(Sender: TObject);
 begin
@@ -205,6 +216,7 @@ begin
     STWarning2.Hint := RStrTextColourHint;
     SBWarning3.Hint := RStrBackgroudColourHint;
     STWarning3.Hint := RStrTextColourHint;
+    BShowClockCaption;
 
     EMinLogoHeight.Value :=  Ftimer.LogoMinHeight;
     EAlphaBlend.Value := Ftimer.AlphaBlendValue;
@@ -239,7 +251,6 @@ begin
     SetFormSize;
     PTabs.TabIndex := 0;
 end;
-
 
 procedure TFConfig.SBHalfClick(Sender: TObject);
 begin
@@ -430,6 +441,16 @@ begin
   end;
 end;
 
+procedure TFConfig.FormActivate(Sender: TObject);
+begin
+   BSettingsA.Enabled := (FTimer.RUNING or BClockMode.Checked);
+end;
+
+procedure TFConfig.FormClose(Sender: TObject; var CloseAction: TCloseAction);
+begin
+  FTimer.Visible := true;
+end;
+
 procedure TFConfig.BSettingsAClick(Sender: TObject);
 begin
     // Apply all settings
@@ -455,6 +476,7 @@ begin
      Ftimer.LClockS.Font.Name := BChangeFont.Font.Name;
      Ftimer.LClockS.Font.Style := BChangeFont.Font.Style;
      if CCloseMe.Checked then Self.Visible := false;
+     if BClockMode.Checked then Ftimer.TimerFontSize;
 end;
 
 procedure TFConfig.BChangeFontClick(Sender: TObject);
@@ -476,9 +498,12 @@ end;
 
 procedure TFConfig.BClockModeChange(Sender: TObject);
 begin
-     PTBase.Enabled := not BClockMode.Checked;
+     BSettingsA.Enabled := (FTimer.RUNING or BClockMode.Checked);
+     BSettingsAR.Enabled := not BClockMode.Checked;
+     BSettingsARR.Enabled := not BClockMode.Checked;
      PEndNote.Enabled := not BClockMode.Checked;
      Ftimer.TimerFontSize;
+     BShowClockCaption;
 end;
 
 procedure TFConfig.BHotKeysClick(Sender: TObject);
@@ -597,6 +622,28 @@ begin
   // Additional Settings tab is the largest one.
   FConfig.Width := FConfig.LTransparent.Width + FConfig.LTransparent.Width div 3;
   Fconfig.Height := FConfig.PTabs.Height - FConfig.PTImage.Height + FConfig.PHotKeys.Top + FConfig.PHotKeys.Height;
+end;
+
+procedure TFConfig.BShowClockCaption;
+var
+  WhatToDo : string;
+  WindowContent : string;
+begin
+  if BShowClock.Checked then
+     WhatToDo := RStrShow
+  else
+     WhatToDo := RStrHide;
+  if BClockMode.Checked then
+     WindowContent := RStrClock
+  else
+     WindowContent := RStrTimer;
+  BShowClock.Caption := format (RStrWindow, [WhatToDo, WindowContent]);
+end;
+
+procedure TFConfig.BShowClockChange(Sender: TObject);
+begin
+  BShowClockCaption;
+  FTimer.Visible := not FTimer.Visible;
 end;
 
 end.

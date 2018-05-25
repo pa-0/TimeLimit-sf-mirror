@@ -1,7 +1,1 @@
-Iespēja pilnekrānā redzēt pulksteni un/vai patērēto laiku.
 
-Iespēja izvēlēties valodu.
-
-Iespēja sinhronizēt laiku ar patieso pulksteni.
-
-################### Kļūdas:

@@ -153,6 +153,10 @@ msgstr ""
 msgid "Cancel"
 msgstr ""
 
+#: settings.rstrclock
+msgid "the clock"
+msgstr ""
+
 #: settings.rstrcolourdialogb
 msgid "Select background colour"
 msgstr ""
@@ -169,6 +173,10 @@ msgstr ""
 msgid "The file “%0:s” exists!"
 msgstr ""
 
+#: settings.rstrhide
+msgid "Hide"
+msgstr ""
+
 #: settings.rstriconfilemissing
 msgid "The logo file “%0:s” is missing!"
 msgstr ""
@@ -178,8 +186,20 @@ msgctxt "settings.rstrminuteshint"
 msgid "Minutes left"
 msgstr ""
 
+#: settings.rstrshow
+msgid "Show"
+msgstr ""
+
 #: settings.rstrtextcolourhint
 msgid "Text colour. Click to change."
+msgstr ""
+
+#: settings.rstrtimer
+msgid "the timer"
+msgstr ""
+
+#: settings.rstrwindow
+msgid "%0:s %1:s window"
 msgstr ""
 
 #: settings.rstwarning
@@ -232,6 +252,10 @@ msgstr ""
 
 #: tfconfig.bsettingsarr.caption
 msgid "Apply, reset and restart"
+msgstr ""
+
+#: tfconfig.bshowclock.caption
+msgid "Clock window"
 msgstr ""
 
 #: tfconfig.caption

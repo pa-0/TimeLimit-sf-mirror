@@ -1,13 +1,15 @@
 object FConfig: TFConfig
-  Left = 441
+  Left = 427
   Height = 625
-  Top = 86
+  Top = 138
   Width = 322
   BorderStyle = bsDialog
   Caption = 'Settings'
   ClientHeight = 625
   ClientWidth = 322
   FormStyle = fsStayOnTop
+  OnActivate = FormActivate
+  OnClose = FormClose
   OnCreate = FormCreate
   SessionProperties = 'BChangeFont.Font;CCloseMe.Checked;ChDontCloseTimer.Checked;ChIncreasingFontSize.Checked;ChShowLogo.Checked;ChTransparent.Checked;ChWindowsBorders.Checked;EAlphaBlend.Value;EChangeEditSize.Value;EEndNote.Text;EIncreasingFontSize.Value;EMinLogoHeight.Value;EMinutes.Value;EWarning1.Value;EWarning2.Value;EWarning3.Value;FontDialog1.Font;Left;OpenPictureDialog.FileName;SBHalf.ButtonColor;SBMain.ButtonColor;SBWarning1.ButtonColor;SBWarning2.ButtonColor;SBWarning3.ButtonColor;STHalf.ButtonColor;STMain.ButtonColor;STWarning1.ButtonColor;STWarning2.ButtonColor;STWarning3.ButtonColor;Top;Visible'
   ShowHint = True
@@ -24,9 +26,9 @@ object FConfig: TFConfig
     Height = 625
     Top = 0
     Width = 322
-    ActivePage = PTBase
+    ActivePage = PTImage
     Anchors = [akTop, akLeft, akRight, akBottom]
-    TabIndex = 0
+    TabIndex = 1
     TabOrder = 0
     object PTBase: TTabSheet
       Caption = 'Appearance'
@@ -870,6 +872,22 @@ object FConfig: TFConfig
         Caption = 'Clock mode (HH:MM)'
         OnChange = BClockModeChange
         TabOrder = 4
+      end
+      object BShowClock: TToggleBox
+        AnchorSideLeft.Control = PTFiles
+        AnchorSideTop.Control = BClockMode
+        AnchorSideTop.Side = asrBottom
+        AnchorSideRight.Control = PTFiles
+        AnchorSideRight.Side = asrBottom
+        Left = 0
+        Height = 27
+        Top = 151
+        Width = 318
+        Anchors = [akTop, akLeft, akRight]
+        BorderSpacing.Top = 9
+        Caption = 'Clock window'
+        OnChange = BShowClockChange
+        TabOrder = 6
       end
     end
   end

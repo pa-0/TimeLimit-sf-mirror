@@ -47,6 +47,7 @@
 {"hash":30056926,"name":"tfconfig.bopenini.caption","sourcebytes":[79,112,101,110,32,99,111,110,102,105,103,117,114,97,116,105,111,110],"value":"Open configuration"},
 {"hash":22325470,"name":"tfconfig.bsaveini.caption","sourcebytes":[83,97,118,101,32,99,111,110,102,105,103,117,114,97,116,105,111,110],"value":"Save configuration"},
 {"hash":258813705,"name":"tfconfig.bclockmode.caption","sourcebytes":[67,108,111,99,107,32,109,111,100,101,32,40,72,72,58,77,77,41],"value":"Clock mode (HH:MM)"},
+{"hash":58528951,"name":"tfconfig.bshowclock.caption","sourcebytes":[67,108,111,99,107,32,119,105,110,100,111,119],"value":"Clock window"},
 {"hash":98075049,"name":"tfconfig.fontdialog.title","sourcebytes":[83,101,108,101,99,116,32,97,32,102,111,110,116,32,40,116,104,101,32,115,105,122,101,32,105,115,32,105,103,110,111,114,101,100,41],"value":"Select a font (the size is ignored)"},
 {"hash":253449119,"name":"tfconfig.openpicturedialog.title","sourcebytes":[79,112,101,110,32,97,110,32,105,109,97,103,101,32,97,115,32,116,104,101,32,108,111,103,111],"value":"Open an image as the logo"},
 {"hash":40759813,"name":"tfconfig.openfile.title","sourcebytes":[79,112,101,110,32,116,104,101,32,99,111,110,102,105,103,117,114,97,116,105,111,110,32,102,105,108,101],"value":"Open the configuration file"},

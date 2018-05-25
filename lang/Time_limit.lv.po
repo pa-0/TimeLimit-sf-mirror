@@ -5,7 +5,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2018-02-08 22:10+0300\n"
-"PO-Revision-Date: 2018-03-07 10:34+0300\n"
+"PO-Revision-Date: 2018-05-24 16:51+0300\n"
 "Last-Translator: Karlis Kalviskis <eko@lanet.lv>\n"
 "Language-Team: karlo\n"
 "Language: lv\n"
@@ -168,6 +168,10 @@ msgstr "Pamatnes krāsa. Uzklikšķini, lai izmainītu."
 msgid "Cancel"
 msgstr "Atcelt"
 
+#: settings.rstrclock
+msgid "the clock"
+msgstr "pulksteņa"
+
 #: settings.rstrcolourdialogb
 msgid "Select background colour"
 msgstr "Izvēlies pamatnes krāsu"
@@ -184,6 +188,10 @@ msgstr "Iestatījumu datnes|*.ini|Visas datnes|*.*"
 msgid "The file “%0:s” exists!"
 msgstr "Fails „%0:s” jau ir!"
 
+#: settings.rstrhide
+msgid "Hide"
+msgstr "Paslēpt"
+
 #: settings.rstriconfilemissing
 msgid "The logo file “%0:s” is missing!"
 msgstr "Attēls „%0:s” nav atrodams!"
@@ -193,9 +201,21 @@ msgctxt "settings.rstrminuteshint"
 msgid "Minutes left"
 msgstr "Minūtes līdz beigām"
 
+#: settings.rstrshow
+msgid "Show"
+msgstr "Parādīt"
+
 #: settings.rstrtextcolourhint
 msgid "Text colour. Click to change."
 msgstr "Teksta krāsa. Uzklikšķini, lai izmainītu."
+
+#: settings.rstrtimer
+msgid "the timer"
+msgstr "laika atskaites"
+
+#: settings.rstrwindow
+msgid "%0:s %1:s window"
+msgstr "%0:s %1:s logu"
 
 #: settings.rstwarning
 msgid "Warning"
@@ -248,6 +268,10 @@ msgstr "Izmainīt izskatu un laiku"
 #: tfconfig.bsettingsarr.caption
 msgid "Apply, reset and restart"
 msgstr "Izmainīt un sākt atskaiti"
+
+#: tfconfig.bshowclock.caption
+msgid "Clock window"
+msgstr "Laika logs"
 
 #: tfconfig.caption
 msgid "Settings"
