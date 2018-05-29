@@ -1,6 +1,6 @@
 (*
- * Version: 00.08.05.
- * Author: Kārlis Kalviškis, 2018.05.25 11:20
+ * Version: 00.08.06.
+ * Author: Kārlis Kalviškis, 2018.05.26 01:32
  * License: GPLv3
  *)
 
@@ -11,8 +11,9 @@ unit settings;
 interface
 
 uses
-  Classes, SysUtils, FileUtil, Forms, Controls, Graphics, Dialogs, StdCtrls
-  , ExtCtrls, DefaultTranslator, ComCtrls, Spin, ExtDlgs, IniPropStorage, EditBtn
+  Classes, SysUtils, FileUtil, Forms, Controls, Graphics, Dialogs, StdCtrls,
+  ExtCtrls, DefaultTranslator, ComCtrls, Spin, ExtDlgs, IniPropStorage, EditBtn,
+  Buttons
   ;
 
 type
@@ -448,7 +449,7 @@ end;
 
 procedure TFConfig.FormClose(Sender: TObject; var CloseAction: TCloseAction);
 begin
-  FTimer.Visible := true;
+  BShowClock.Checked := false;
 end;
 
 procedure TFConfig.BSettingsAClick(Sender: TObject);

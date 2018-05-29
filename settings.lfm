@@ -1,7 +1,7 @@
 object FConfig: TFConfig
   Left = 427
   Height = 625
-  Top = 138
+  Top = 118
   Width = 322
   BorderStyle = bsDialog
   Caption = 'Settings'
@@ -26,9 +26,9 @@ object FConfig: TFConfig
     Height = 625
     Top = 0
     Width = 322
-    ActivePage = PTImage
+    ActivePage = PTFiles
     Anchors = [akTop, akLeft, akRight, akBottom]
-    TabIndex = 1
+    TabIndex = 2
     TabOrder = 0
     object PTBase: TTabSheet
       Caption = 'Appearance'

@@ -1,3 +1,7 @@
+00.08.06 - 2018.05.26 01:32
+	Closing the settings window makes the timer window visibility button
+		to be unchecked.
+
 00.08.05 - 2018.05.25 11:20
 	An easy configuration of the appearance of the clock-mode is added.
 	Now it's possible to hide the timer's window.
