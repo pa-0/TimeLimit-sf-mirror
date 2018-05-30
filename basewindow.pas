@@ -1,6 +1,6 @@
 (*
- * Version: 00.08.05.
- * Author: Kārlis Kalviškis, 2018.05.25 11:20
+ * Version: 00.08.07.
+ * Author: Kārlis Kalviškis, 2018.05.30 22:14
  * License: GPLv3
  *)
 
@@ -170,7 +170,7 @@ begin
                  if TimeNow < 0 then TimeNow := 0;
                end;
              end;
-       VK_F1: FHelp.Show;
+       VK_F1:  FConfig.ShowFHelp;
        VK_F11: ChangeFullScreen;
   end;
   if  not RUNING then ShowTime (TimeNow);
