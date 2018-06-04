@@ -1,3 +1,9 @@
+00.08.08 - 2018.05.31 21:47
+	Smarter usage of [Enter] key in the Appearance tab of the Settings window:
+		in minutes field the [Enter] will apply changes and reset timer;
+		in warning fields the [Enter] will apply changes and the next
+			field gets the focus.
+
 00.08.07 - 2018.05.30 22:14
 	Error corection: [F1] works again.
 

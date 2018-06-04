@@ -13,7 +13,7 @@
 {"hash":6072618,"name":"tfconfig.lminutes.caption","sourcebytes":[77,105,110,117,116,101,115,58],"value":"Minutes:"},
 {"hash":224412757,"name":"tfconfig.bchangefont.hint","sourcebytes":[67,104,97,110,103,101,32,110,97,109,101,32,110,111,116,32,115,105,122,101],"value":"Change name not size"},
 {"hash":222248468,"name":"tfconfig.bchangefont.caption","sourcebytes":[67,104,97,110,103,101,32,102,111,110,116],"value":"Change font"},
-{"hash":105921058,"name":"tfconfig.eminutes.hint","sourcebytes":[84,105,109,101,32,102,111,114,32,80,114,101,115,101,110,116,101,114],"value":"Time for Presenter"},
+{"hash":91902638,"name":"tfconfig.eminutes.hint","sourcebytes":[84,105,109,101,32,102,111,114,32,80,114,101,115,101,110,116,101,114,46,32,85,115,101,32,91,69,110,116,101,114,93,32,116,111,32,97,112,112,108,121,32,99,104,97,110,103,101,115,32,97,110,100,32,114,101,115,101,116,32,116,105,109,101,114,46],"value":"Time for Presenter. Use [Enter] to apply changes and reset timer."},
 {"hash":152532852,"name":"tfconfig.ewarning2.hint","sourcebytes":[77,105,110,117,116,101,115,32,108,101,102,116],"value":"Minutes left"},
 {"hash":152532852,"name":"tfconfig.ewarning3.hint","sourcebytes":[77,105,110,117,116,101,115,32,108,101,102,116],"value":"Minutes left"},
 {"hash":11288268,"name":"tfconfig.ptimage.caption","sourcebytes":[65,100,100,105,116,105,111,110,97,108],"value":"Additional"},

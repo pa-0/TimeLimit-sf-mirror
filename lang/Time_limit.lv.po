@@ -5,7 +5,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2018-02-08 22:10+0300\n"
-"PO-Revision-Date: 2018-05-24 16:51+0300\n"
+"PO-Revision-Date: 2018-05-31 21:32+0300\n"
 "Last-Translator: Karlis Kalviskis <eko@lanet.lv>\n"
 "Language-Team: karlo\n"
 "Language: lv\n"
@@ -197,9 +197,11 @@ msgid "The logo file “%0:s” is missing!"
 msgstr "Attēls „%0:s” nav atrodams!"
 
 #: settings.rstrminuteshint
+#| msgid "Minutes left"
 msgctxt "settings.rstrminuteshint"
-msgid "Minutes left"
-msgstr "Minūtes līdz beigām"
+msgid "Minutes left. Use [Enter] to apply changes."
+msgstr ""
+"Minūtes līdz beigām. Lieto [Ievad]-taustiņu, lai pielietotu izmaiņas uzreiz."
 
 #: settings.rstrshow
 msgid "Show"
@@ -358,8 +360,11 @@ msgid "The minimal height (in pixels) of the logo.  If the resized logo is lower
 msgstr "Mazākais pieļaujamais logo augstums pikseļos. Ja samazinātais logo ir mazāks, tas netiek rādīts."
 
 #: tfconfig.eminutes.hint
-msgid "Time for Presenter"
-msgstr "Atvēlētais laiks"
+#| msgid "Time for Presenter"
+msgid "Time for Presenter. Use [Enter] to apply changes and reset timer."
+msgstr ""
+"Atvēlētais laiks. Lieto [Ievad]-taustiņu, lai pielietotu izmaiņas un "
+"palaistu laika atskaiti."
 
 #: tfconfig.ewarning2.hint
 msgctxt "tfconfig.ewarning2.hint"

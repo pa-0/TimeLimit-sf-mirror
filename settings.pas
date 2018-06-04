@@ -1,6 +1,6 @@
 (*
- * Version: 00.08.06.
- * Author: Kārlis Kalviškis, 2018.05.26 01:32
+ * Version: 00.08.08.
+ * Author: Kārlis Kalviškis, 2018.05.31 21:47
  * License: GPLv3
  *)
 
@@ -116,13 +116,17 @@ type
    procedure EMinLogoHeightExit(Sender: TObject);
    procedure EMinutesEnter(Sender: TObject);
    procedure EMinutesExit(Sender: TObject);
+   procedure EMinutesKeyPress(Sender: TObject; var Key: char);
    procedure EWarning1Enter(Sender: TObject);
    procedure EWarning1Exit(Sender: TObject);
+   procedure EWarning1KeyPress(Sender: TObject; var Key: char);
    procedure EWarning2Enter(Sender: TObject);
    procedure EWarning2Exit(Sender: TObject);
+   procedure EWarning2KeyPress(Sender: TObject; var Key: char);
    procedure EWarning3Enter(Sender: TObject);
    procedure EWarning3Exit(Sender: TObject);
    procedure ECMDtoRunEditingDone(Sender: TObject);
+   procedure EWarning3KeyPress(Sender: TObject; var Key: char);
    procedure FormActivate(Sender: TObject);
    procedure FormClose(Sender: TObject; var CloseAction: TCloseAction);
    procedure FormCreate(Sender: TObject);
@@ -171,7 +175,7 @@ resourcestring
   RStrColourDialogT = 'Select text colour';
   RStrBackgroudColourHint = 'Background colour. Click to change.';
   RStrTextColourHint = 'Text colour. Click to change.';
-  RStrMinutesHint = 'Minutes left';
+  RStrMinutesHint = 'Minutes left. Use [Enter] to apply changes.';
   RStrCancel = 'Cancel';
   RStOvewrite = 'Ovewrite';
   RStWarning = 'Warning';
@@ -401,6 +405,15 @@ begin
   deResizeField(EMinutes);
 end;
 
+procedure TFConfig.EMinutesKeyPress(Sender: TObject; var Key: char);
+begin
+     case Key of
+       //[Enter]
+       #13:
+             BSettingsARR.Click;
+     end;
+end;
+
 procedure TFConfig.EWarning1Enter(Sender: TObject);
 begin
   ResizeField(EWarning1);
@@ -411,6 +424,19 @@ begin
   deResizeField(EWarning1);
 end;
 
+procedure TFConfig.EWarning1KeyPress(Sender: TObject; var Key: char);
+begin
+       case Key of
+       //[Enter]
+       #13:
+             begin
+                  BSettingsA.Click;
+                  EWarning2.SetFocus;
+             end;
+     end;
+
+end;
+
 procedure TFConfig.EWarning2Enter(Sender: TObject);
 begin
   ResizeField(EWarning2);
@@ -419,6 +445,18 @@ end;
 procedure TFConfig.EWarning2Exit(Sender: TObject);
 begin
   deResizeField(EWarning2);
+end;
+
+procedure TFConfig.EWarning2KeyPress(Sender: TObject; var Key: char);
+begin
+  case Key of
+  //[Enter]
+  #13:
+        begin
+             BSettingsA.Click;
+             EWarning3.SetFocus;
+        end;
+  end;
 end;
 
 procedure TFConfig.EWarning3Enter(Sender: TObject);
@@ -440,6 +478,18 @@ begin
      ChLaunch.Enabled := false;
      ChLaunch.Checked := false;
   end;
+end;
+
+procedure TFConfig.EWarning3KeyPress(Sender: TObject; var Key: char);
+begin
+     case Key of
+       //[Enter]
+       #13:
+             begin
+                  BSettingsA.Click;
+                  BChangeFont.SetFocus;
+             end;
+     end;
 end;
 
 procedure TFConfig.FormActivate(Sender: TObject);
@@ -476,7 +526,11 @@ begin
      Ftimer.LClockM.Font.Style := BChangeFont.Font.Style;
      Ftimer.LClockS.Font.Name := BChangeFont.Font.Name;
      Ftimer.LClockS.Font.Style := BChangeFont.Font.Style;
-     if CCloseMe.Checked then Self.Visible := false;
+     if CCloseMe.Checked then
+        begin
+          Self.Visible := false;
+          Ftimer.Show;
+        end;
      if BClockMode.Checked then Ftimer.TimerFontSize;
 end;
 
@@ -621,7 +675,7 @@ procedure TFConfig.SetFormSize;
 begin
   // Adjust the size of the settings window to fit all controls.
   // Additional Settings tab is the largest one.
-  FConfig.Width := FConfig.LTransparent.Width + FConfig.LTransparent.Width div 3;
+  FConfig.Width := FConfig.LTransparent.Width + FConfig.LTransparent.Width div 3 + FConfig.LTransparent.Width div 5;
   Fconfig.Height := FConfig.PTabs.Height - FConfig.PTImage.Height + FConfig.PHotKeys.Top + FConfig.PHotKeys.Height;
 end;
 

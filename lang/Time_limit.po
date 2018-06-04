@@ -183,7 +183,7 @@ msgstr ""
 
 #: settings.rstrminuteshint
 msgctxt "settings.rstrminuteshint"
-msgid "Minutes left"
+msgid "Minutes left. Use [Enter] to apply changes."
 msgstr ""
 
 #: settings.rstrshow
@@ -343,7 +343,7 @@ msgid "The minimal height (in pixels) of the logo.  If the resized logo is lower
 msgstr ""
 
 #: tfconfig.eminutes.hint
-msgid "Time for Presenter"
+msgid "Time for Presenter. Use [Enter] to apply changes and reset timer."
 msgstr ""
 
 #: tfconfig.ewarning2.hint

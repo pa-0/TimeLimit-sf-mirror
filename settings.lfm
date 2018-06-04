@@ -1,7 +1,7 @@
 object FConfig: TFConfig
   Left = 427
   Height = 625
-  Top = 118
+  Top = 114
   Width = 322
   BorderStyle = bsDialog
   Caption = 'Settings'
@@ -178,7 +178,7 @@ object FConfig: TFConfig
         AnchorSideRight.Control = SBMain
         Left = 197
         Height = 23
-        Hint = 'Time for Presenter'
+        Hint = 'Time for Presenter. Use [Enter] to apply changes and reset timer.'
         Top = 19
         Width = 57
         Alignment = taRightJustify
@@ -190,6 +190,7 @@ object FConfig: TFConfig
         MinValue = 0.1
         OnEnter = EMinutesEnter
         OnExit = EMinutesExit
+        OnKeyPress = EMinutesKeyPress
         TabOrder = 0
         Value = 1
       end
@@ -211,6 +212,7 @@ object FConfig: TFConfig
         MinValue = 0
         OnEnter = EWarning1Enter
         OnExit = EWarning1Exit
+        OnKeyPress = EWarning1KeyPress
         TabOrder = 1
         Value = 0
       end
@@ -233,6 +235,7 @@ object FConfig: TFConfig
         MinValue = 0
         OnEnter = EWarning2Enter
         OnExit = EWarning2Exit
+        OnKeyPress = EWarning2KeyPress
         TabOrder = 2
         Value = 0
       end
@@ -255,6 +258,7 @@ object FConfig: TFConfig
         MinValue = 0
         OnEnter = EWarning3Enter
         OnExit = EWarning3Exit
+        OnKeyPress = EWarning3KeyPress
         TabOrder = 3
         Value = 0
       end
@@ -636,7 +640,7 @@ object FConfig: TFConfig
           Anchors = [akTop, akLeft, akRight]
           BorderSpacing.Top = 3
           BorderSpacing.Bottom = 6
-          TabOrder = 0
+          TabOrder = 3
           Text = 'The time is over'
         end
         object ECMDtoRun: TFileNameEdit
@@ -657,7 +661,7 @@ object FConfig: TFConfig
           Anchors = [akTop, akLeft, akRight]
           BorderSpacing.Bottom = 6
           MaxLength = 0
-          TabOrder = 3
+          TabOrder = 6
           OnEditingDone = ECMDtoRunEditingDone
         end
         object ChExit: TCheckBox
@@ -673,7 +677,7 @@ object FConfig: TFConfig
           Top = 97
           Width = 48
           Caption = 'Exit'
-          TabOrder = 2
+          TabOrder = 5
         end
         object ChLaunch: TCheckBox
           AnchorSideLeft.Control = PEndNote
@@ -686,7 +690,7 @@ object FConfig: TFConfig
           Width = 71
           Caption = 'Launch'
           Enabled = False
-          TabOrder = 1
+          TabOrder = 4
         end
         object ChProgressBar: TCheckBox
           AnchorSideLeft.Control = PEndNote
@@ -697,7 +701,7 @@ object FConfig: TFConfig
           Width = 144
           Caption = 'Show progress bar'
           OnChange = ChProgressBarChange
-          TabOrder = 4
+          TabOrder = 0
         end
         object ChIncreasingFontSize: TCheckBox
           AnchorSideLeft.Control = PEndNote
@@ -710,7 +714,7 @@ object FConfig: TFConfig
           Width = 148
           Caption = 'Increasing font size'
           OnChange = ChIncreasingFontSizeChange
-          TabOrder = 5
+          TabOrder = 1
         end
         object EIncreasingFontSize: TSpinEdit
           AnchorSideTop.Control = ChIncreasingFontSize
@@ -727,7 +731,7 @@ object FConfig: TFConfig
           MinValue = 5
           OnEnter = EIncreasingFontSizeEnter
           OnExit = EIncreasingFontSizeExit
-          TabOrder = 6
+          TabOrder = 2
           Value = 10
         end
       end
@@ -793,7 +797,7 @@ object FConfig: TFConfig
         Anchors = [akLeft, akRight, akBottom]
         Caption = 'Quit the timer'
         OnClick = BQuitClick
-        TabOrder = 5
+        TabOrder = 6
       end
       object LChangeEditSize: TLabel
         AnchorSideLeft.Control = PTFiles
@@ -887,7 +891,7 @@ object FConfig: TFConfig
         BorderSpacing.Top = 9
         Caption = 'Clock window'
         OnChange = BShowClockChange
-        TabOrder = 6
+        TabOrder = 5
       end
     end
   end
