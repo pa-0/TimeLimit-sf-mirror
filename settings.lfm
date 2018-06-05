@@ -26,9 +26,9 @@ object FConfig: TFConfig
     Height = 625
     Top = 0
     Width = 322
-    ActivePage = PTFiles
+    ActivePage = PTImage
     Anchors = [akTop, akLeft, akRight, akBottom]
-    TabIndex = 2
+    TabIndex = 1
     TabOrder = 0
     object PTBase: TTabSheet
       Caption = 'Appearance'
@@ -492,7 +492,7 @@ object FConfig: TFConfig
           OnEnter = EAlphaBlendEnter
           OnExit = EAlphaBlendExit
           TabOrder = 1
-          Value = 93
+          Value = 125
         end
         object ChWindowsBorders: TCheckBox
           AnchorSideLeft.Control = PTransparent

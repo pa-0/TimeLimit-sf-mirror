@@ -1,3 +1,6 @@
+00.08.09 - 2018.06.05 17:37
+	Error correction:  The correct opacity value is loaded at start-up now.
+
 00.08.08 - 2018.05.31 21:47
 	Smarter usage of [Enter] key in the Appearance tab of the Settings window:
 		in minutes field the [Enter] will apply changes and reset timer;

@@ -1,6 +1,6 @@
 (*
  * Version: 00.08.07.
- * Author: Kārlis Kalviškis, 2018.05.30 22:14
+ * Author: Kārlis Kalviškis, 2018.06.05 17:37
  * License: GPLv3
  *)
 
@@ -221,6 +221,7 @@ end;
 procedure TFTimer.FormShow(Sender: TObject);
 begin
       ResetTimer;
+      Ftimer.AlphaBlendValue := FConfig.EAlphaBlend.Value;
 end;
 
 procedure TFTimer.LClockMMouseWheelDown(Sender: TObject; Shift: TShiftState;

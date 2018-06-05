@@ -1,6 +1,6 @@
 (*
- * Version: 00.08.08.
- * Author: Kārlis Kalviškis, 2018.05.31 21:47
+ * Version: 00.08.09.
+ * Author: Kārlis Kalviškis, 2018.06.05 17:37
  * License: GPLv3
  *)
 
@@ -224,7 +224,6 @@ begin
     BShowClockCaption;
 
     EMinLogoHeight.Value :=  Ftimer.LogoMinHeight;
-    EAlphaBlend.Value := Ftimer.AlphaBlendValue;
 
     // Programmatic changes must be done when the control is disabled
     ChWindowsBorders.Enabled := false;
