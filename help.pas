@@ -95,6 +95,7 @@ resourcestring
   ThanksToForum = 'A good starting point was “%0:s” forum and wiki pages.';
   SpecialThanks = 'Special thanks to:';
   CommandlineOptions = 'For command-line options use:';
+  LogoSorce = 'Sorce of the logo:';
 
 procedure TFHelp.FormCreate(Sender: TObject);
 var
@@ -139,7 +140,10 @@ begin
   MThanks.Append('   http://forum.lazarus.freepascal.org/');
   MThanks.Append('   http://wiki.freepascal.org/Main_Page');
   MThanks.Append(SpecialThanks);
-  MThanks.Append('* Mike Thompson - mike.cornflake@gmail.com');
+  MThanks.Append('   * Mike Thompson - mike.cornflake@gmail.com');
+  MThanks.Append(LogoSorce);
+  MThanks.Append('   https://openclipart.org/detail/287267/latvia-flag-stamp');
+  MThanks.Append('         Firkin, 2017.09.20');
   PHelp.TabIndex := 0;
 end;
 

@@ -105,6 +105,10 @@ msgstr ""
 msgid "reset timer."
 msgstr ""
 
+#: help.logosorce
+msgid "Sorce of the logo:"
+msgstr ""
+
 #: help.sinfo01
 msgid "Product name"
 msgstr ""
@@ -204,6 +208,14 @@ msgstr ""
 
 #: settings.rstwarning
 msgid "Warning"
+msgstr ""
+
+#: tfconfig.babout.caption
+msgid "About the timer"
+msgstr ""
+
+#: tfconfig.babout.hint
+msgid "Technical and legal information"
 msgstr ""
 
 #: tfconfig.bchangefont.caption
@@ -338,6 +350,11 @@ msgstr ""
 msgid "Starting size (%)"
 msgstr ""
 
+#: tfconfig.elogoproportion.hint
+msgctxt "tfconfig.elogoproportion.hint"
+msgid "The proportional size of the logo."
+msgstr ""
+
 #: tfconfig.eminlogoheight.hint
 msgid "The minimal height (in pixels) of the logo.  If the resized logo is lower, it is not shown."
 msgstr ""
@@ -370,6 +387,10 @@ msgstr ""
 
 #: tfconfig.llogoheight.caption
 msgid "Minimal logo height"
+msgstr ""
+
+#: tfconfig.llogoproportion.caption
+msgid "Proportional size"
 msgstr ""
 
 #: tfconfig.lminutes.caption
@@ -490,9 +511,5 @@ msgstr ""
 
 #: timelimit.rstusage
 msgid "Usage"
-msgstr ""
-
-#: versionsupport.missinginfo
-msgid "No build information available"
 msgstr ""
 

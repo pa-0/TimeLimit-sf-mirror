@@ -1,6 +1,6 @@
 (*
- * Version: 00.08.07.
- * Author: Kārlis Kalviškis, 2018.06.05 17:37
+ * Version: 00.08.10.
+ * Author: Kārlis Kalviškis, 2020.06.19 06:20
  * License: GPLv3
  *)
 
@@ -372,7 +372,7 @@ end;
 
 procedure TFTimer.ResizeLogo;
 begin
-  ILogo.Height := ILogo.Top + ILogo.Top div 3;
+  ILogo.Height := ILogo.Top + round ( ILogo.Top *  FConfig.ELogoProportion.Value );
   ILogo.Width := round(ILogo.Height * LogoRatio);
   CheckLogoVisibility;
 end;

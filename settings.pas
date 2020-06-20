@@ -1,6 +1,6 @@
 (*
- * Version: 00.08.09.
- * Author: Kārlis Kalviškis, 2018.06.05 17:37
+ * Version: 00.08.10.
+ * Author: Kārlis Kalviškis, 2020.06.19 05:44
  * License: GPLv3
  *)
 
@@ -30,6 +30,7 @@ type
     BQuit: TButton;
     BOpenINI: TButton;
     BSaveINI: TButton;
+    BAbout: TButton;
     CCloseMe: TCheckBox;
     ChDontCloseTimer: TCheckBox;
     ChLaunch: TCheckBox;
@@ -48,6 +49,7 @@ type
     EWarning3: TFloatSpinEdit;
     ECMDtoRun: TFileNameEdit;
     FontDialog: TFontDialog;
+    LLogoProportion: TLabel;
     OpenFile: TOpenDialog;
     PHotKeys: TPanel;
     RememberSetings: TIniPropStorage;
@@ -75,6 +77,7 @@ type
     SBWarning3: TColorButton;
     EChangeEditSize: TSpinEdit;
     EIncreasingFontSize: TSpinEdit;
+    ELogoProportion: TFloatSpinEdit;
     STHalf: TColorButton;
     STMain: TColorButton;
     STWarning1: TColorButton;
@@ -85,6 +88,7 @@ type
     STWarning3: TColorButton;
     BClockMode: TToggleBox;
     BShowClock: TToggleBox;
+   procedure BAboutClick(Sender: TObject);
    procedure BChangeFontClick(Sender: TObject);
    procedure BChangeLogoChangeBounds(Sender: TObject);
    procedure BChangeLogoClick(Sender: TObject);
@@ -111,6 +115,9 @@ type
    procedure EChangeEditSizeExit(Sender: TObject);
    procedure EIncreasingFontSizeEnter(Sender: TObject);
    procedure EIncreasingFontSizeExit(Sender: TObject);
+   procedure ELogoProportionChange(Sender: TObject);
+   procedure ELogoProportionEnter(Sender: TObject);
+   procedure ELogoProportionExit(Sender: TObject);
    procedure EMinLogoHeightChange(Sender: TObject);
    procedure EMinLogoHeightEnter(Sender: TObject);
    procedure EMinLogoHeightExit(Sender: TObject);
@@ -378,6 +385,21 @@ begin
   deResizeField(EIncreasingFontSize);
 end;
 
+procedure TFConfig.ELogoProportionChange(Sender: TObject);
+begin
+  FTimer.ResizeLogo;
+end;
+
+procedure TFConfig.ELogoProportionEnter(Sender: TObject);
+begin
+  ResizeField(ELogoProportion);
+end;
+
+procedure TFConfig.ELogoProportionExit(Sender: TObject);
+begin
+  deResizeField(ELogoProportion);
+end;
+
 procedure TFConfig.EMinLogoHeightChange(Sender: TObject);
 begin
   Ftimer.LogoMinHeight :=  EMinLogoHeight.Value;
@@ -540,6 +562,12 @@ begin
       BChangeFont.Font :=  FontDialog.Font;
 end;
 
+procedure TFConfig.BAboutClick(Sender: TObject);
+begin
+  ShowFHelp;
+  FHelp.PTAbout.Show;
+end;
+
 procedure TFConfig.BChangeLogoChangeBounds(Sender: TObject);
 begin
   SetFormSize;
@@ -563,7 +591,7 @@ end;
 procedure TFConfig.BHotKeysClick(Sender: TObject);
 begin
   ShowFHelp;
-  FHelp.SetFocus;
+  FHelp.PTHotkey.Show;
 end;
 
 procedure TFConfig.BOpenINIClick(Sender: TObject);

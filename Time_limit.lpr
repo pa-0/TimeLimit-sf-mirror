@@ -112,7 +112,7 @@ begin
            Halt;
        end;
   end;
-    Application.Title:='Time limit (Countdown timer)';
+  Application.Title:='Time limit (Countdown timer)';
     RequireDerivedFormResource := True;
     Application.Initialize;
     Application.CreateForm(TFTimer, FTimer);
