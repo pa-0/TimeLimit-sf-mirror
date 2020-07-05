@@ -18,8 +18,8 @@ object FTimer: TFTimer
   OnMouseDown = FormMouseDown
   OnResize = FormResize
   OnShow = FormShow
-  SessionProperties = 'Height;Left;Top;Width;WindowState'
-  LCLVersion = '2.0.6.0'
+  SessionProperties = 'Height;Left;Top;Width;WindowState;ILogo.Anchors'
+  LCLVersion = '2.0.8.0'
   object LClock: TLabel
     AnchorSideLeft.Control = Owner
     AnchorSideLeft.Side = asrCenter
@@ -78,10 +78,20 @@ object FTimer: TFTimer
     OnMouseWheelUp = LClockSMouseWheelUp
   end
   object ILogo: TImage
-    Left = 8
-    Height = 90
-    Top = 8
+    AnchorSideLeft.Control = Owner
+    AnchorSideTop.Control = Owner
+    AnchorSideRight.Control = Owner
+    AnchorSideRight.Side = asrBottom
+    AnchorSideBottom.Control = Owner
+    AnchorSideBottom.Side = asrBottom
+    Left = 9
+    Height = 88
+    Top = 9
     Width = 90
+    BorderSpacing.Left = 9
+    BorderSpacing.Top = 9
+    BorderSpacing.Right = 9
+    BorderSpacing.Bottom = 47
     Enabled = False
     OnDblClick = FormDblClick
     OnMouseDown = FormMouseDown
@@ -122,14 +132,14 @@ object FTimer: TFTimer
   object Timer1: TTimer
     Enabled = False
     OnTimer = Timer1Timer
-    left = 8
-    top = 208
+    Left = 8
+    Top = 208
   end
   object ILogoList: TImageList
     Height = 224
     Width = 400
-    left = 120
-    top = 16
+    Left = 120
+    Top = 16
     Bitmap = {
       4C690100000090010000E0000000000000000000000000000000000000000000
       0000000000000000000000000000000000000000000000000000000000000000
@@ -11336,7 +11346,7 @@ object FTimer: TFTimer
   end
   object RememberSetings: TIniPropStorage
     StoredValues = <>
-    left = 416
-    top = 16
+    Left = 416
+    Top = 16
   end
 end

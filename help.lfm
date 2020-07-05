@@ -12,7 +12,7 @@ object FHelp: TFHelp
   OnCreate = FormCreate
   SessionProperties = 'Height;Left;Top;Width;Visible'
   ShowInTaskBar = stNever
-  LCLVersion = '2.0.6.0'
+  LCLVersion = '2.0.8.0'
   object PHelp: TPageControl
     Left = 0
     Height = 290
@@ -85,9 +85,9 @@ object FHelp: TFHelp
       ClientWidth = 353
       object MThanks: TMemo
         Left = 9
-        Height = 243
+        Height = 237
         Top = 9
-        Width = 337
+        Width = 335
         Align = alClient
         BorderSpacing.Around = 9
         BorderStyle = bsNone
@@ -101,12 +101,12 @@ object FHelp: TFHelp
     end
   end
   object IpHtmlDataProvider1: TIpHtmlDataProvider
-    left = 91
-    top = 104
+    Left = 91
+    Top = 104
   end
   object RememberSetings: TIniPropStorage
     StoredValues = <>
-    left = 88
-    top = 192
+    Left = 88
+    Top = 192
   end
 end

@@ -1,7 +1,12 @@
 (*
- * Version: 00.08.10.
- * Author: Kārlis Kalviškis, 2020.06.19 05:44
+ * Version: 00.08.11.
+ * Author: Kārlis Kalviškis, 2020.07.04 07:42
  * License: GPLv3
+ *)
+
+(*
+ * Any setting to remember are registered in each form's property
+ * SessionProperties .
  *)
 
 unit settings;
@@ -11,9 +16,9 @@ unit settings;
 interface
 
 uses
-  Classes, SysUtils, FileUtil, Forms, Controls, Graphics, Dialogs, StdCtrls,
-  ExtCtrls, DefaultTranslator, ComCtrls, Spin, ExtDlgs, IniPropStorage, EditBtn,
-  Buttons
+  Classes, SysUtils, FileUtil, RTTICtrls, Forms, Controls, Graphics, Dialogs,
+  StdCtrls, ExtCtrls, DefaultTranslator, ComCtrls, Spin, ExtDlgs,
+  IniPropStorage, EditBtn, Buttons
   ;
 
 type
@@ -49,6 +54,12 @@ type
     EWarning3: TFloatSpinEdit;
     ECMDtoRun: TFileNameEdit;
     FontDialog: TFontDialog;
+    LTimerSection: TLabel;
+    LTimerWSection: TLabel;
+    LLogoSection: TLabel;
+    RGrLogoPlacement: TRadioGroup;
+    LLogoHArrow: TLabel;
+    LLogoVArrow: TLabel;
     LLogoProportion: TLabel;
     OpenFile: TOpenDialog;
     PHotKeys: TPanel;
@@ -78,6 +89,8 @@ type
     EChangeEditSize: TSpinEdit;
     EIncreasingFontSize: TSpinEdit;
     ELogoProportion: TFloatSpinEdit;
+    ELogoPlHorizontal: TSpinEdit;
+    ELogoPlVertical: TSpinEdit;
     STHalf: TColorButton;
     STMain: TColorButton;
     STWarning1: TColorButton;
@@ -137,11 +150,18 @@ type
    procedure FormActivate(Sender: TObject);
    procedure FormClose(Sender: TObject; var CloseAction: TCloseAction);
    procedure FormCreate(Sender: TObject);
+   procedure RGrLogoPlacementSelectionChanged(Sender: TObject);
    procedure SBHalfClick(Sender: TObject);
    procedure SBMainClick(Sender: TObject);
    procedure SBWarning1Click(Sender: TObject);
    procedure SBWarning2Click(Sender: TObject);
    procedure SBWarning3Click(Sender: TObject);
+   procedure ELogoPlHorizontalChange(Sender: TObject);
+   procedure ELogoPlHorizontalEnter(Sender: TObject);
+   procedure ELogoPlHorizontalExit(Sender: TObject);
+   procedure ELogoPlVerticalChange(Sender: TObject);
+   procedure ELogoPlVerticalEnter(Sender: TObject);
+   procedure ELogoPlVerticalExit(Sender: TObject);
    procedure STHalfClick(Sender: TObject);
    procedure STMainClick(Sender: TObject);
    procedure STWarning1Click(Sender: TObject);
@@ -263,6 +283,57 @@ begin
     PTabs.TabIndex := 0;
 end;
 
+procedure TFConfig.RGrLogoPlacementSelectionChanged(Sender: TObject);
+begin
+  case RGrLogoPlacement.ItemIndex of
+       0: Begin
+             FTimer.ILogo.Anchors := [akTop,akLeft];
+             FTimer.ILogo.AnchorSide[akLeft].Side := asrLeft;
+             FTimer.ILogo.AnchorSide[akTop].Side := asrTop;
+       end;
+       1: Begin
+             FTimer.ILogo.Anchors := [akTop,akLeft];
+             FTimer.ILogo.AnchorSide[akLeft].Side := asrCenter;
+             FTimer.ILogo.AnchorSide[akTop].Side := asrTop;
+       end;
+       2: Begin
+             FTimer.ILogo.Anchors := [akTop,akRight];
+             FTimer.ILogo.AnchorSide[akRight].Side := asrRight;
+             FTimer.ILogo.AnchorSide[akTop].Side := asrTop;
+       end;
+       3: Begin
+             FTimer.ILogo.Anchors := [akTop,akLeft];
+             FTimer.ILogo.AnchorSide[akLeft].Side := asrLeft;
+             FTimer.ILogo.AnchorSide[akTop].Side := asrCenter;
+      end;
+       4: Begin
+             FTimer.ILogo.Anchors := [akTop,akLeft];
+             FTimer.ILogo.AnchorSide[akLeft].Side := asrCenter;
+             FTimer.ILogo.AnchorSide[akTop].Side := asrCenter;
+       end;
+       5: Begin
+             FTimer.ILogo.Anchors := [akTop,akRight];
+             FTimer.ILogo.AnchorSide[akRight].Side := asrRight;
+             FTimer.ILogo.AnchorSide[akTop].Side := asrCenter;
+       end;
+       6: Begin
+             FTimer.ILogo.Anchors := [akBottom,akLeft];
+             FTimer.ILogo.AnchorSide[akLeft].Side := asrLeft;
+             FTimer.ILogo.AnchorSide[akTop].Side := asrBottom;
+       end;
+       7: Begin
+            FTimer.ILogo.Anchors := [akBottom,akLeft];
+            FTimer.ILogo.AnchorSide[akLeft].Side := asrCenter;
+            FTimer.ILogo.AnchorSide[akTop].Side := asrBottom;
+       end;
+       8: Begin
+             FTimer.ILogo.Anchors := [akBottom,akRight];
+             FTimer.ILogo.AnchorSide[akLeft].Side := asrRight;
+             FTimer.ILogo.AnchorSide[akTop].Side := asrBottom;
+       end;
+  end;
+end;
+
 procedure TFConfig.SBHalfClick(Sender: TObject);
 begin
     ColorDialog.Title := RStrColourDialogB;
@@ -286,6 +357,38 @@ end;
 procedure TFConfig.SBWarning3Click(Sender: TObject);
 begin
   ColorDialog.Title := RStrColourDialogB;
+end;
+
+procedure TFConfig.ELogoPlHorizontalChange(Sender: TObject);
+begin
+  FTimer.ILogo.BorderSpacing.Left:=ELogoPlHorizontal.Value;
+  FTimer.ILogo.BorderSpacing.Right:=ELogoPlHorizontal.Value;
+end;
+
+procedure TFConfig.ELogoPlHorizontalEnter(Sender: TObject);
+begin
+  ResizeField (ELogoPlHorizontal)
+end;
+
+procedure TFConfig.ELogoPlHorizontalExit(Sender: TObject);
+begin
+  deResizeField(ELogoPlHorizontal)
+end;
+
+procedure TFConfig.ELogoPlVerticalChange(Sender: TObject);
+begin
+  FTimer.ILogo.BorderSpacing.Top:=ELogoPlVertical.Value;
+  FTimer.LogoBottom;
+end;
+
+procedure TFConfig.ELogoPlVerticalEnter(Sender: TObject);
+begin
+  ResizeField(ELogoPlVertical)
+end;
+
+procedure TFConfig.ELogoPlVerticalExit(Sender: TObject);
+begin
+  deResizeField(ELogoPlVertical)
 end;
 
 procedure TFConfig.STHalfClick(Sender: TObject);
@@ -332,6 +435,7 @@ end;
 procedure TFConfig.ChProgressBarChange(Sender: TObject);
 begin
   if ChProgressBar.Enabled then FTimer.PProgressBar.Visible := ChProgressBar.Checked;
+  Ftimer.LogoBottom;
 end;
 
 procedure TFConfig.ChShowLogoChange(Sender: TObject);

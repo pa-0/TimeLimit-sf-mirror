@@ -5,7 +5,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2018-02-08 22:10+0300\n"
-"PO-Revision-Date: 2020-06-20 07:07+0300\n"
+"PO-Revision-Date: 2020-07-05 10:40+0300\n"
 "Last-Translator: Kārlis Kalviškis <karlo@lu.lv>\n"
 "Language-Team: karlo\n"
 "Language: lv\n"
@@ -365,6 +365,16 @@ msgstr "Atvēlētais laiks beidzies"
 msgid "Starting size (%)"
 msgstr "Sākuma izmērs (%)"
 
+#: tfconfig.elogoplhorizontal.hint
+msgctxt "tfconfig.elogoplhorizontal.hint"
+msgid "Horizontal spacing"
+msgstr "Attālums no sānu malām"
+
+#: tfconfig.elogoplvertical.hint
+msgctxt "tfconfig.elogoplvertical.hint"
+msgid "Vertical spacing"
+msgstr "Attālums no augšas un apakšas"
+
 #: tfconfig.elogoproportion.hint
 msgctxt "tfconfig.elogoproportion.hint"
 msgid "The proportional size of the logo."
@@ -397,9 +407,21 @@ msgstr "Izvēlies fontu (izmērs netiek ņemts vērā)"
 msgid "Resize edit-box on enter"
 msgstr "Palielināt skaitļu laukus"
 
+#: tfconfig.lchangeeditsize.hint
+msgid "When the number input is entered, it is magnified."
+msgstr "Labojot skaitļu laukus, palielinās ciparu izmērs."
+
 #: tfconfig.lendnote.caption
 msgid "The End message:"
 msgstr "Beigu paziņojums:"
+
+#: tfconfig.llogoharrow.caption
+msgid "↔"
+msgstr "↔"
+
+#: tfconfig.llogoharrow.hint
+msgid "The border spacing (left or right)"
+msgstr "Attālums no labās vai kreisās malas"
 
 #: tfconfig.llogoheight.caption
 msgid "Minimal logo height"
@@ -408,6 +430,18 @@ msgstr "Mazākais logo augstums"
 #: tfconfig.llogoproportion.caption
 msgid "Proportional size"
 msgstr "Izmēru attiecība"
+
+#: tfconfig.llogosection.caption
+msgid "Logo"
+msgstr "Logo"
+
+#: tfconfig.llogovarrow.caption
+msgid "↕"
+msgstr "↕"
+
+#: tfconfig.llogovarrow.hint
+msgid "The border spacing (top or bottom)"
+msgstr "Attālums no augšas vai apakšas"
 
 #: tfconfig.lminutes.caption
 msgid "Minutes:"
@@ -428,6 +462,14 @@ msgstr "3. brīdinājums:"
 #: tfconfig.lminutes4.caption
 msgid "Halftime:"
 msgstr "Puse no laika:"
+
+#: tfconfig.ltimersection.caption
+msgid "The timer operation"
+msgstr "Skaitītāja darbība"
+
+#: tfconfig.ltimerwsection.caption
+msgid "The timer window"
+msgstr "Skaitītāja logs"
 
 #: tfconfig.ltransparent.caption
 msgid "May not work on some systems!"
@@ -453,6 +495,10 @@ msgstr "Sistēmai"
 #: tfconfig.ptimage.caption
 msgid "Additional"
 msgstr "Papildus"
+
+#: tfconfig.rgrlogoplacement.hint
+msgid "The placement of the logo"
+msgstr "Logo novietojums"
 
 #: tfconfig.savefile.title
 msgid "Save the current configuration"

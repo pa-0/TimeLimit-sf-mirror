@@ -1,6 +1,6 @@
 (*
- * Version: 00.08.05.
- * Author: Kārlis Kalviškis, 2018.05.25 11:20
+ * Version: 00.08.11.
+ * Author: Kārlis Kalviškis, 2020.07.04 07:42
  * License: GPLv3
  *)
 program TimeLimit;
@@ -17,7 +17,7 @@ uses
   {$ENDIF}
   DefaultTranslator, //to enable translation
   Interfaces, // this includes the LCL widgetset
-  Forms, basewindow, settings, help;
+  Forms, runtimetypeinfocontrols, basewindow, settings, help;
 {$R *.res}
 
 (*

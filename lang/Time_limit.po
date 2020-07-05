@@ -350,6 +350,16 @@ msgstr ""
 msgid "Starting size (%)"
 msgstr ""
 
+#: tfconfig.elogoplhorizontal.hint
+msgctxt "tfconfig.elogoplhorizontal.hint"
+msgid "Horizontal spacing"
+msgstr ""
+
+#: tfconfig.elogoplvertical.hint
+msgctxt "tfconfig.elogoplvertical.hint"
+msgid "Vertical spacing"
+msgstr ""
+
 #: tfconfig.elogoproportion.hint
 msgctxt "tfconfig.elogoproportion.hint"
 msgid "The proportional size of the logo."
@@ -381,8 +391,20 @@ msgstr ""
 msgid "Resize edit-box on enter"
 msgstr ""
 
+#: tfconfig.lchangeeditsize.hint
+msgid "When the number input is entered, it is magnified."
+msgstr ""
+
 #: tfconfig.lendnote.caption
 msgid "The End message:"
+msgstr ""
+
+#: tfconfig.llogoharrow.caption
+msgid "↔"
+msgstr ""
+
+#: tfconfig.llogoharrow.hint
+msgid "The border spacing (left or right)"
 msgstr ""
 
 #: tfconfig.llogoheight.caption
@@ -391,6 +413,18 @@ msgstr ""
 
 #: tfconfig.llogoproportion.caption
 msgid "Proportional size"
+msgstr ""
+
+#: tfconfig.llogosection.caption
+msgid "Logo"
+msgstr ""
+
+#: tfconfig.llogovarrow.caption
+msgid "↕"
+msgstr ""
+
+#: tfconfig.llogovarrow.hint
+msgid "The border spacing (top or bottom)"
 msgstr ""
 
 #: tfconfig.lminutes.caption
@@ -411,6 +445,14 @@ msgstr ""
 
 #: tfconfig.lminutes4.caption
 msgid "Halftime:"
+msgstr ""
+
+#: tfconfig.ltimersection.caption
+msgid "The timer operation"
+msgstr ""
+
+#: tfconfig.ltimerwsection.caption
+msgid "The timer window"
 msgstr ""
 
 #: tfconfig.ltransparent.caption
@@ -435,6 +477,10 @@ msgstr ""
 
 #: tfconfig.ptimage.caption
 msgid "Additional"
+msgstr ""
+
+#: tfconfig.rgrlogoplacement.hint
+msgid "The placement of the logo"
 msgstr ""
 
 #: tfconfig.savefile.title

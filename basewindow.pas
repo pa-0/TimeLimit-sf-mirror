@@ -1,6 +1,6 @@
 (*
- * Version: 00.08.10.
- * Author: Kārlis Kalviškis, 2020.06.19 06:20
+ * Version: 00.08.11.
+ * Author: Kārlis Kalviškis, 2020.07.04 09:11
  * License: GPLv3
  *)
 
@@ -60,6 +60,7 @@ type
     procedure ResetTimer;
     procedure CheckLogoVisibility;
     procedure ResizeLogo;
+    procedure LogoBottom;
     procedure ChangeColor (BackgroundColour : TColor; TextColour : TColor);
     procedure ShowTime (TimeToShow : Integer);
     procedure TimerFontSize;
@@ -211,11 +212,9 @@ end;
 procedure TFTimer.FormResize(Sender: TObject);
 begin
   TimerFontSize;
-  // Logo size and placement
-  ILogo.Left := Width div 10;
-  ILogo.Top := Height div 20;
+  PProgressBar.Height := Round(FTimer.Height * 0.06) ;
+  LogoBottom;
   ResizeLogo;
-  PProgressBar.Height := ILogo.Top;
 end;
 
 procedure TFTimer.FormShow(Sender: TObject);
@@ -372,7 +371,7 @@ end;
 
 procedure TFTimer.ResizeLogo;
 begin
-  ILogo.Height := ILogo.Top + round ( ILogo.Top *  FConfig.ELogoProportion.Value );
+  ILogo.Height := round (PProgressBar.Height * FConfig.ELogoProportion.Value);
   ILogo.Width := round(ILogo.Height * LogoRatio);
   CheckLogoVisibility;
 end;
@@ -422,6 +421,14 @@ begin
   LClockM.Font.Size := fontsize;
   LClockS.Font.Size := fontsize;
   if FConfig.BClockMode.Checked then ChangeColor (ColourB0, ColourT0);
+end;
+
+procedure TFtimer.LogoBottom;
+begin
+    if PProgressBar.Visible = true then
+      ILogo.BorderSpacing.Bottom := PProgressBar.Height + FConfig.ELogoPlVertical.Value
+  else
+      ILogo.BorderSpacing.Bottom := FConfig.ELogoPlVertical.Value;
 end;
 
 end.
