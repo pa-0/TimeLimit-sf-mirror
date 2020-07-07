@@ -21,6 +21,10 @@ Available hot-keys:
 - [Left], [Up] – Increase time by 1 minute.
 - [Right], [Down] – Decrease time by 1 minute.
 - [r], Mouse middle click - reset timer.
+- [c] - Clock mode.
+- [e] - Elapsed time mode.
+- [l] - Remaining time mode.
+
 - You can change current time with the mouse wheel as well.
 
 
