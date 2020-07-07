@@ -5,7 +5,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2018-02-08 22:10+0300\n"
-"PO-Revision-Date: 2020-07-05 10:40+0300\n"
+"PO-Revision-Date: 2020-07-07 08:06+0300\n"
 "Last-Translator: Kārlis Kalviškis <karlo@lu.lv>\n"
 "Language-Team: karlo\n"
 "Language: lv\n"
@@ -118,6 +118,30 @@ msgstr "[r], Peles vidējā poga"
 #: help.hkey11b
 msgid "reset timer."
 msgstr "palaists laika atskaiti no jauna."
+
+#: help.hkey12a
+msgid "[l]"
+msgstr "[l]"
+
+#: help.hkey12b
+msgid "remaining time"
+msgstr "atlikušais laiks"
+
+#: help.hkey13a
+msgid "[e]"
+msgstr "[e]"
+
+#: help.hkey13b
+msgid "elapsed time"
+msgstr "iztērētais laiks"
+
+#: help.hkey14a
+msgid "[c]"
+msgstr "[c]"
+
+#: help.hkey14b
+msgid "clock mode"
+msgstr "pulkstenis"
 
 #: help.logosorce
 msgid "Sorce of the logo:"
@@ -245,9 +269,14 @@ msgstr "Maina izskatu, bet ne izmēru"
 msgid "Change logo"
 msgstr "Nomaini logo"
 
-#: tfconfig.bclockmode.caption
+#: tfconfig.bclock.caption
+msgctxt "tfconfig.bclock.caption"
 msgid "Clock mode (HH:MM)"
 msgstr "Parasts pulkstenis (St.:Min.)"
+
+#: tfconfig.bcountdown.caption
+msgid "Remaining time (MM:SS)"
+msgstr "Atlikušais laiks (Min.:Sek.)"
 
 #: tfconfig.bhotkeys.caption
 msgid "List hot-keys"
@@ -285,6 +314,10 @@ msgstr "Izmainīt un sākt atskaiti"
 msgid "Clock window"
 msgstr "Laika logs"
 
+#: tfconfig.btimer.caption
+msgid "Time elapsed (MM:SS)"
+msgstr "Iztērētais laiks (Min.:Sek.)"
+
 #: tfconfig.caption
 msgid "Settings"
 msgstr "Iestatījumi"
@@ -294,8 +327,8 @@ msgid "Close on Apply"
 msgstr "Izmainot aizvērt šo logu"
 
 #: tfconfig.chdontclosetimer.caption
-msgid "Unclosable timer"
-msgstr "Neaizverams pulkstenis"
+msgid "Disable [Esc]"
+msgstr "Neļaut izmantot [Esc] "
 
 #: tfconfig.chdontclosetimer.hint
 msgid "Enable/disable [Esc] for closing the application"
@@ -402,6 +435,10 @@ msgstr "Minūtes līdz beigām"
 #: tfconfig.fontdialog.title
 msgid "Select a font (the size is ignored)"
 msgstr "Izvēlies fontu (izmērs netiek ņemts vērā)"
+
+#: tfconfig.grtimermode.caption
+msgid "Modes"
+msgstr "Ko rādīt"
 
 #: tfconfig.lchangeeditsize.caption
 msgid "Resize edit-box on enter"

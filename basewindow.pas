@@ -1,6 +1,6 @@
 (*
- * Version: 00.08.11.
- * Author: Kārlis Kalviškis, 2020.07.04 09:11
+ * Version: 00.09.01.
+ * Author: Kārlis Kalviškis, 2020.07.07 04:04
  * License: GPLv3
  *)
 
@@ -54,6 +54,8 @@ type
       MousePos: TPoint; var Handled: Boolean);
     procedure LClockSMouseWheelUp(Sender: TObject; Shift: TShiftState;
       MousePos: TPoint; var Handled: Boolean);
+    procedure SProgressBarMouseDown(Sender: TObject; Button: TMouseButton;
+      Shift: TShiftState; X, Y: Integer);
     procedure Timer1Timer(Sender: TObject);
     procedure ChangeFullScreen;
     procedure ChangeWindowsBorder;
@@ -64,11 +66,12 @@ type
     procedure ChangeColor (BackgroundColour : TColor; TextColour : TColor);
     procedure ShowTime (TimeToShow : Integer);
     procedure TimerFontSize;
+    procedure ToggleMode;
    private
 
   public
-     TimeNow : Integer;
-     DefTIME: Integer;
+     TimeNow : Integer;         // The remaining time
+     DefTIME: Integer;          // The time limit
      Warning1 : Integer;
      Warning2 : Integer;
      Warning3 : Integer;
@@ -160,13 +163,13 @@ procedure TFTimer.FormKeyDown(Sender: TObject; var Key: Word; Shift: TShiftState
 begin
     case Key of
        VK_UP, VK_LEFT: begin
-             if not FConfig.BClockMode.Checked then begin
+             if not FConfig.BClock.Checked then begin
                  TimeNow := TimeNow + 60;
                  if TimeNow > DefTIME then TimeNow := DefTIME;
                end;
              end;
        VK_DOWN, VK_RIGHT: begin
-             if not FConfig.BClockMode.Checked then begin
+             if not FConfig.BClock.Checked then begin
                  TimeNow := TimeNow - 60;
                  if TimeNow < 0 then TimeNow := 0;
                end;
@@ -190,12 +193,15 @@ begin
                  if not FConfig.ChDontCloseTimer.Checked then Application.Terminate;
              end;
        //[Space], [S]
-       #32, 's': if not FConfig.BClockMode.Checked then RUNING := not RUNING;
+       #32, 's': if not FConfig.BClock.Checked then RUNING := not RUNING;
        'r': ResetTimer;
        'f': ChangeFullScreen;
        'b': ChangeWindowsBorder;
        'h': FConfig.ShowFHelp;
        'm': FConfig.Show;
+       'c': FConfig.BClock.Checked:=true;
+       'e': FConfig.BTimer.Checked:=true;
+       'l': FConfig.BCountDown.Checked:=true;
   end;
 end;
 
@@ -203,7 +209,7 @@ procedure TFTimer.FormMouseDown(Sender: TObject; Button: TMouseButton;
   Shift: TShiftState; X, Y: Integer);
 begin
   case Button of
-       mbLeft: if not FConfig.BClockMode.Checked then RUNING := not RUNING;
+       mbLeft: if not FConfig.BClock.Checked then RUNING := not RUNING;
        mbRight: FConfig.Show;
        mbMiddle: ResetTimer;
   end;
@@ -226,7 +232,7 @@ end;
 procedure TFTimer.LClockMMouseWheelDown(Sender: TObject; Shift: TShiftState;
   MousePos: TPoint; var Handled: Boolean);
 begin
-  if not FConfig.BClockMode.Checked then begin
+  if not FConfig.BClock.Checked then begin
     TimeNow := TimeNow - 60;
     if TimeNow < 0 then TimeNow := 0;
     if  not RUNING then ShowTime (TimeNow);
@@ -236,7 +242,7 @@ end;
 procedure TFTimer.LClockMMouseWheelUp(Sender: TObject; Shift: TShiftState;
   MousePos: TPoint; var Handled: Boolean);
 begin
-  if not FConfig.BClockMode.Checked then begin
+  if not FConfig.BClock.Checked then begin
     TimeNow := TimeNow + 60;
     if TimeNow > DefTIME then TimeNow := DefTIME;
     if  not RUNING then ShowTime (TimeNow);
@@ -246,7 +252,7 @@ end;
 procedure TFTimer.LClockSMouseWheelDown(Sender: TObject; Shift: TShiftState;
   MousePos: TPoint; var Handled: Boolean);
 begin
-  if not FConfig.BClockMode.Checked then begin
+  if not FConfig.BClock.Checked then begin
     TimeNow := TimeNow - 10;
     if TimeNow < 0 then TimeNow := 0;
     if  not RUNING then ShowTime (TimeNow);
@@ -256,11 +262,17 @@ end;
 procedure TFTimer.LClockSMouseWheelUp(Sender: TObject; Shift: TShiftState;
   MousePos: TPoint; var Handled: Boolean);
 begin
-  if not FConfig.BClockMode.Checked then begin
+  if not FConfig.BClock.Checked then begin
     TimeNow := TimeNow + 10;
     if TimeNow > DefTIME then TimeNow := DefTIME;
     if  not RUNING then ShowTime (TimeNow);
   end;
+end;
+
+procedure TFTimer.SProgressBarMouseDown(Sender: TObject; Button: TMouseButton;
+  Shift: TShiftState; X, Y: Integer);
+begin
+  ToggleMode;
 end;
 
 
@@ -269,47 +281,69 @@ procedure TFTimer.Timer1Timer(Sender: TObject);
 var
    CMDtoRun: TProcess;
    Hour, Minute, Second, MilliSecond: Word;
+
 begin
-  if FConfig.BClockMode.Checked then begin
-         DecodeTime(Time, Hour, Minute, Second, MilliSecond);
-         SProgressBar.Width := PProgressBar.Width - round(Second / 60 * PProgressBar.Width);
-         LClockM.Caption := Format('%.2d', [Hour]);
-         LClockS.Caption := Format('%.2d', [Minute]);
+  if FConfig.BClock.Checked then begin
+     DecodeTime(Time, Hour, Minute, Second, MilliSecond);
+     SProgressBar.Width := Round(PProgressBar.Width * 0.03);
+     SProgressBar.Anchors := [akTop,akBottom];
+     SProgressBar.Left := round(
+                       Second / 60 * (
+                       PProgressBar.Width - SProgressBar.Width
+                       )
+                       );
+     LClockM.Caption := Format('%.2d', [Hour]);
+     LClockS.Caption := Format('%.2d', [Minute]);
   end
-  else if RUNING then  begin
-    Dec(TimeNow);
-    SProgressBar.Width := round(TimeNow / DefTime * PProgressBar.Width);
-    if (TimeNow < 0) then begin
-      Timer1.Enabled := False;
-      LClockM.Caption := '';
-      LClockS.Caption := '';
-      LClock.AutoSize := false;
-      LClock.Width := Self.Width;
-      LClock.Height := Self.Height;
-      LClock.OptimalFill := true;
-      LClock.Caption := FConfig.EEndNote.Text;
-      if FConfig.ChLaunch.Checked then begin
-         CMDtoRun := TProcess.Create(nil);
-         CMDtoRun.CommandLine := FConfig.ECMDtoRun.Text;
-         CMDtoRun.Execute;
-         CMDtoRun.Free;
-      end;
-      if FConfig.ChExit.Checked then Application.Terminate;
+  else begin
+    SProgressBar.Left :=  0;
+    if FConfig.BCountDown.Checked then begin
+      SProgressBar.Anchors := [akTop,akBottom,akRight];
+      SProgressBar.AnchorSide[akRight].Side := asrRight;
+      SProgressBar.Width := round(TimeNow / DefTime * PProgressBar.Width);
       end
-    else begin
-        if FConfig.ChIncreasingFontSize.Checked then TimerFontSize;
-        if TimeNow <= Warning3 then
-          ChangeColor(ColourB4, ColourT4)
-        else if TimeNow <= Warning2 then
-          ChangeColor(ColourB3, ColourT3)
-        else if TimeNow <= Warning1 then
-          ChangeColor(ColourB2, ColourT2)
-        else if TimeNow < (DefTIME / 2) then
-          ChangeColor(ColourB1, ColourT1)
-        else
-          ChangeColor(ColourB0, ColourT0);
-        ShowTime (TimeNow);
+    else Begin
+      SProgressBar.Anchors := [akTop,akBottom,akLeft];
+      SProgressBar.AnchorSide[akLeft].Side := asrLeft;
+      SProgressBar.Width := PProgressBar.Width - trunc(TimeNow / DefTime * PProgressBar.Width);
+      end;
+    if RUNING then begin
+      Dec(TimeNow);
+      if (TimeNow < 0) then begin
+        Timer1.Enabled := False;
+        LClockM.Caption := '';
+        LClockS.Caption := '';
+        LClock.AutoSize := false;
+        LClock.Width := Self.Width;
+        LClock.Height := Self.Height;
+        LClock.OptimalFill := true;
+        LClock.Caption := FConfig.EEndNote.Text;
+        if FConfig.ChLaunch.Checked then begin
+           CMDtoRun := TProcess.Create(nil);
+           CMDtoRun.CommandLine := FConfig.ECMDtoRun.Text;
+           CMDtoRun.Execute;
+           CMDtoRun.Free;
+        end;
+        if FConfig.ChExit.Checked then Application.Terminate;
+      end
+      else begin
+          if FConfig.ChIncreasingFontSize.Checked then TimerFontSize;
+          if TimeNow <= Warning3 then
+            ChangeColor(ColourB4, ColourT4)
+          else if TimeNow <= Warning2 then
+            ChangeColor(ColourB3, ColourT3)
+          else if TimeNow <= Warning1 then
+            ChangeColor(ColourB2, ColourT2)
+          else if TimeNow < (DefTIME / 2) then
+            ChangeColor(ColourB1, ColourT1)
+          else
+            ChangeColor(ColourB0, ColourT0);
+      end;
     end;
+    if FConfig.BCountDown.Checked then
+      ShowTime (TimeNow)
+    else
+      ShowTime (DefTIME - TimeNow);
   end;
 end;
 
@@ -353,20 +387,20 @@ end;
 
 procedure TFTimer.ResetTimer;
 begin
-  if not FConfig.BClockMode.Checked then begin
-    TimeNow := DefTIME;
-    LClock.OptimalFill := false;
-    LClock.AutoSize := true;
-    LClock.Caption := ':';
-    LClock.Font.Size := round(LClockM.Font.Size * 0.75);
+  TimeNow := DefTIME;
+  LClock.OptimalFill := false;
+  LClock.AutoSize := true;
+  LClock.Caption := ':';
+  LClock.Font.Size := round(LClockM.Font.Size * 0.75);
+  if not FConfig.BClock.Checked then begin
     SProgressBar.Width := PProgressBar.Width;
     if  not Timer1.Enabled or not RUNING then begin
         RUNING := false;
         ChangeColor(ColourB0, ColourT0);
         ShowTime (TimeNow);
-        Timer1.Enabled := true;
     end;
   end;
+  Timer1.Enabled := true;
 end;
 
 procedure TFTimer.ResizeLogo;
@@ -384,7 +418,7 @@ begin
       Self.ILogo.visible := false;
 end;
 
-procedure TFtimer.ChangeColor (BackgroundColour : TColor; TextColour : TColor);
+procedure TFTimer.ChangeColor (BackgroundColour : TColor; TextColour : TColor);
 begin
   Self.Color := BackgroundColour;
   LClock.Font.Color := TextColour;
@@ -393,7 +427,7 @@ begin
   SProgressBar.Brush.Color := TextColour;
 end;
 
-procedure TFtimer.ShowTime (TimeToShow : Integer);
+procedure TFTimer.ShowTime (TimeToShow : Integer);
 var
       minutes: integer;
       seconds: integer;
@@ -404,7 +438,7 @@ begin
   LClockS.Caption := Format('%.2d', [seconds]);
 end;
 
-procedure TFtimer.TimerFontSize;
+procedure TFTimer.TimerFontSize;
 var
       fontsize : integer;
 begin
@@ -412,7 +446,7 @@ begin
       fontsize := Width div 4
   else
       fontsize := Height div 2;
-  if FConfig.ChIncreasingFontSize.Checked and not FConfig.BClockMode.Checked then
+  if FConfig.ChIncreasingFontSize.Checked and not FConfig.BClock.Checked then
       fontsize := round(fontsize / 100 *
          (FConfig.EIncreasingFontSize.Value +
           (100 - FConfig.EIncreasingFontSize.Value) *
@@ -420,15 +454,23 @@ begin
   LClock.Font.Size := round(fontsize * 0.75);
   LClockM.Font.Size := fontsize;
   LClockS.Font.Size := fontsize;
-  if FConfig.BClockMode.Checked then ChangeColor (ColourB0, ColourT0);
+  if FConfig.BClock.Checked then ChangeColor (ColourB0, ColourT0);
 end;
 
-procedure TFtimer.LogoBottom;
+procedure TFTimer.LogoBottom;
 begin
     if PProgressBar.Visible = true then
       ILogo.BorderSpacing.Bottom := PProgressBar.Height + FConfig.ELogoPlVertical.Value
   else
       ILogo.BorderSpacing.Bottom := FConfig.ELogoPlVertical.Value;
+end;
+
+procedure TFTimer.ToggleMode;
+begin
+  if FConfig.BTimer.Checked then
+    FConfig.BCountDown.Checked:=true
+  else
+    FConfig.BTimer.Checked:=true;
 end;
 
 end.

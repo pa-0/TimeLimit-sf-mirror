@@ -1,6 +1,6 @@
 (*
- * Version: 00.08.05.
- * Author: Kārlis Kalviškis, 2018.05.25 11:20
+ * Version: 00.09.01.
+ * Author: Kārlis Kalviškis, 2020.07.07 04:04
  * License: GPLv3
  *)
 
@@ -81,6 +81,12 @@ resourcestring
   HKey10B = 'You can change current time with the mouse wheel as well.';
   HKey11A = '[r], Mouse middle click';
   HKey11B = 'reset timer.';
+  HKey12A = '[l]';
+  HKey12B = 'remaining time';
+  HKey13A = '[e]';
+  HKey13B = 'elapsed time';
+  HKey14A = '[c]';
+  HKey14B = 'clock mode';
   SInfo01 = 'Product name';
   SInfo02 = 'Original filename';
   SInfo03 = 'File version';
@@ -115,9 +121,9 @@ begin
   ShowHotKey(html_head
         + '<I><B>' + HKey00A + '</B><BR>' + HKey01A + '</I>'
         + CreateHTMLTable(
-        TStringArray.Create(HKey02A, HKey03A, HKey04A, HKey05A, HKey06A, HKey07A, HKey08A, HKey09A, '', HKey11A)
+        TStringArray.Create(HKey02A, HKey03A, HKey04A, HKey05A, HKey06A, HKey07A, HKey08A, HKey09A, '', HKey11A, HKey12A, HKey13A, HKey14A)
         ,
-        TStringArray.Create(HKey02B, HKey03B, HKey04B, HKey05B, HKey06B, HKey07B, HKey08B, HKey09B, HKey10B, HKey11B)
+        TStringArray.Create(HKey02B, HKey03B, HKey04B, HKey05B, HKey06B, HKey07B, HKey08B, HKey09B, HKey10B, HKey11B, HKey12B, HKey13B, HKey14B)
         , '<B><TT>', '</TT></B>', '', '')
         + '<HR><P><I>' + CommandlineOptions + '</I><BR><TT>'
         + Application.Params[0] + '&nbsp;--help</TT></P>'
@@ -142,8 +148,8 @@ begin
   MThanks.Append(SpecialThanks);
   MThanks.Append('   * Mike Thompson - mike.cornflake@gmail.com');
   MThanks.Append(LogoSorce);
-  MThanks.Append('   https://openclipart.org/detail/287267/latvia-flag-stamp');
-  MThanks.Append('         Firkin, 2017.09.20');
+  MThanks.Append('   https://openclipart.org/detail/263439/latvia-map-flag-with-stroke-and-coat-of-arms');
+  MThanks.Append('         GDJ, 2016.10.05');
   PHelp.TabIndex := 0;
 end;
 

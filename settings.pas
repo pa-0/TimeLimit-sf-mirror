@@ -1,6 +1,6 @@
 (*
- * Version: 00.08.11.
- * Author: Kārlis Kalviškis, 2020.07.04 07:42
+ * Version: 00.09.01.
+ * Author: Kārlis Kalviškis, 2020.07.07 04:04
  * License: GPLv3
  *)
 
@@ -26,6 +26,8 @@ type
   { TFConfig }
 
  TFConfig = class(TForm)
+    BClock: TToggleBox;
+    BCountDown: TToggleBox;
     BHotKeys: TButton;
     BSettingsARR: TButton;
     BSettingsAR: TButton;
@@ -36,6 +38,7 @@ type
     BOpenINI: TButton;
     BSaveINI: TButton;
     BAbout: TButton;
+    BTimer: TToggleBox;
     CCloseMe: TCheckBox;
     ChDontCloseTimer: TCheckBox;
     ChLaunch: TCheckBox;
@@ -54,6 +57,7 @@ type
     EWarning3: TFloatSpinEdit;
     ECMDtoRun: TFileNameEdit;
     FontDialog: TFontDialog;
+    GrTimerMode: TGroupBox;
     LTimerSection: TLabel;
     LTimerWSection: TLabel;
     LLogoSection: TLabel;
@@ -99,13 +103,14 @@ type
     PTFiles: TTabSheet;
     PTBase: TTabSheet;
     STWarning3: TColorButton;
-    BClockMode: TToggleBox;
     BShowClock: TToggleBox;
    procedure BAboutClick(Sender: TObject);
    procedure BChangeFontClick(Sender: TObject);
    procedure BChangeLogoChangeBounds(Sender: TObject);
    procedure BChangeLogoClick(Sender: TObject);
-   procedure BClockModeChange(Sender: TObject);
+   procedure BClockClick(Sender: TObject);
+   procedure BCountDownChange(Sender: TObject);
+   procedure BCountDownClick(Sender: TObject);
    procedure BHotKeysClick(Sender: TObject);
    procedure BOpenINIClick(Sender: TObject);
    procedure BQuitClick(Sender: TObject);
@@ -115,6 +120,7 @@ type
    procedure BSettingsARRClick(Sender: TObject);
    procedure BShowClockCaption;
    procedure BShowClockChange(Sender: TObject);
+   procedure BTimerClick(Sender: TObject);
    procedure ChFullScreenChange(Sender: TObject);
    procedure ChIncreasingFontSizeChange(Sender: TObject);
    procedure ChProgressBarChange(Sender: TObject);
@@ -173,6 +179,7 @@ type
    procedure CreateFHelp;
    procedure ShowFHelp;
    procedure SetFormSize;
+   procedure ChangeMode;
   private
    procedure ResizeField(Sender: TCustomFloatSpinEdit);
    procedure deResizeField(Sender: TCustomFloatSpinEdit);
@@ -619,7 +626,7 @@ end;
 
 procedure TFConfig.FormActivate(Sender: TObject);
 begin
-   BSettingsA.Enabled := (FTimer.RUNING or BClockMode.Checked);
+   BSettingsA.Enabled := (FTimer.RUNING or BClock.Checked);
 end;
 
 procedure TFConfig.FormClose(Sender: TObject; var CloseAction: TCloseAction);
@@ -656,7 +663,7 @@ begin
           Self.Visible := false;
           Ftimer.Show;
         end;
-     if BClockMode.Checked then Ftimer.TimerFontSize;
+     if BClock.Checked then Ftimer.TimerFontSize;
 end;
 
 procedure TFConfig.BChangeFontClick(Sender: TObject);
@@ -682,14 +689,44 @@ begin
   if OpenPictureDialog.Execute then LoadIcon(OpenPictureDialog.FileName);
 end;
 
-procedure TFConfig.BClockModeChange(Sender: TObject);
+procedure TFConfig.BClockClick(Sender: TObject);
 begin
-     BSettingsA.Enabled := (FTimer.RUNING or BClockMode.Checked);
-     BSettingsAR.Enabled := not BClockMode.Checked;
-     BSettingsARR.Enabled := not BClockMode.Checked;
-     PEndNote.Enabled := not BClockMode.Checked;
-     Ftimer.TimerFontSize;
+  if  BClock.State = cbChecked then
+  Begin
+    BCountDown.State := cbUnchecked;
+    BTimer.State := cbUnchecked;
+    if not FTimer.Timer1.Enabled then FTimer.ResetTimer;
+  end
+  else
+    BCountDown.State := cbChecked;
+  ChangeMode;
+end;
+
+procedure TFConfig.ChangeMode;
+begin
+     BSettingsA.Enabled := (FTimer.RUNING or BClock.Checked);
+     BSettingsAR.Enabled := not BClock.Checked;
+     BSettingsARR.Enabled := not BClock.Checked;
+     PEndNote.Enabled := not BClock.Checked;
+     FTimer.TimerFontSize;
      BShowClockCaption;
+end;
+
+procedure TFConfig.BCountDownChange(Sender: TObject);
+begin
+
+end;
+
+procedure TFConfig.BCountDownClick(Sender: TObject);
+begin
+  if  BCountDown.State = cbChecked then
+   Begin
+        BTimer.State := cbUnchecked;
+        BClock.State := cbUnchecked;
+   end
+  else
+    BTimer.State := cbChecked;
+    ChangeMode;
 end;
 
 procedure TFConfig.BHotKeysClick(Sender: TObject);
@@ -819,7 +856,7 @@ begin
      WhatToDo := RStrShow
   else
      WhatToDo := RStrHide;
-  if BClockMode.Checked then
+  if BClock.Checked then
      WindowContent := RStrClock
   else
      WindowContent := RStrTimer;
@@ -830,6 +867,18 @@ procedure TFConfig.BShowClockChange(Sender: TObject);
 begin
   BShowClockCaption;
   FTimer.Visible := not FTimer.Visible;
+end;
+
+procedure TFConfig.BTimerClick(Sender: TObject);
+begin
+  if  BTimer.State = cbChecked then
+  Begin
+    BClock.State := cbUnchecked;
+    BCountDown.State := cbUnchecked;
+  end
+  else
+    BCountDown.State := cbChecked;
+  ChangeMode;
 end;
 
 end.

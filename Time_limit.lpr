@@ -1,6 +1,6 @@
 (*
- * Version: 00.08.11.
- * Author: Kārlis Kalviškis, 2020.07.04 07:42
+ * Version: 00.09.00.
+ * Author: Kārlis Kalviškis, 2020.07.06 10:22
  * License: GPLv3
  *)
 program TimeLimit;
@@ -17,7 +17,8 @@ uses
   {$ENDIF}
   DefaultTranslator, //to enable translation
   Interfaces, // this includes the LCL widgetset
-  Forms, runtimetypeinfocontrols, basewindow, settings, help;
+  fileinfo, Forms, runtimetypeinfocontrols,
+  basewindow, settings, help;
 {$R *.res}
 
 (*
@@ -87,6 +88,16 @@ begin
             IsConsole := True; // in System unit
             SysInitStdIO;      // in System unit
           {$ENDIF}
+          FileVerInfo:=TFileVersionInfo.Create(nil);
+          FileVerInfo.ReadFileInfo;
+          with FileVerInfo.VersionStrings do
+               WriteLn(
+               Values['ProductName'], ' - '
+               , Values['FileVersion'], sLineBreak
+               , Values['FileDescription'], ' '
+               , Values['LegalCopyright'], sLineBreak
+               , Values['Comments']
+               );
            WriteLn('');
            WriteLn(RstUsage, ': ', ExtractFileName(ParamStr(0)), ' [', RstOption, '] [..]');
            WriteLn('');
@@ -124,7 +135,7 @@ begin
     end;
     FConfig.ChExit.Checked := ExitCounter;
     FTimer.RUNING := StartCounter;
-    FConfig.BClockMode.Checked := ClockMode;
+    FConfig.BClock.Checked := ClockMode;
     Application.Run;
 end.
 

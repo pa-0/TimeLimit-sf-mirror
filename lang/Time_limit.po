@@ -105,6 +105,30 @@ msgstr ""
 msgid "reset timer."
 msgstr ""
 
+#: help.hkey12a
+msgid "[l]"
+msgstr ""
+
+#: help.hkey12b
+msgid "remaining time"
+msgstr ""
+
+#: help.hkey13a
+msgid "[e]"
+msgstr ""
+
+#: help.hkey13b
+msgid "elapsed time"
+msgstr ""
+
+#: help.hkey14a
+msgid "[c]"
+msgstr ""
+
+#: help.hkey14b
+msgid "clock mode"
+msgstr ""
+
 #: help.logosorce
 msgid "Sorce of the logo:"
 msgstr ""
@@ -230,8 +254,13 @@ msgstr ""
 msgid "Change logo"
 msgstr ""
 
-#: tfconfig.bclockmode.caption
+#: tfconfig.bclock.caption
+msgctxt "tfconfig.bclock.caption"
 msgid "Clock mode (HH:MM)"
+msgstr ""
+
+#: tfconfig.bcountdown.caption
+msgid "Remaining time (MM:SS)"
 msgstr ""
 
 #: tfconfig.bhotkeys.caption
@@ -270,6 +299,10 @@ msgstr ""
 msgid "Clock window"
 msgstr ""
 
+#: tfconfig.btimer.caption
+msgid "Time elapsed (MM:SS)"
+msgstr ""
+
 #: tfconfig.caption
 msgid "Settings"
 msgstr ""
@@ -279,7 +312,7 @@ msgid "Close on Apply"
 msgstr ""
 
 #: tfconfig.chdontclosetimer.caption
-msgid "Unclosable timer"
+msgid "Disable [Esc]"
 msgstr ""
 
 #: tfconfig.chdontclosetimer.hint
@@ -385,6 +418,10 @@ msgstr ""
 
 #: tfconfig.fontdialog.title
 msgid "Select a font (the size is ignored)"
+msgstr ""
+
+#: tfconfig.grtimermode.caption
+msgid "Modes"
 msgstr ""
 
 #: tfconfig.lchangeeditsize.caption
