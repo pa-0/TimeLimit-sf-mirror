@@ -26,7 +26,7 @@ Available hot-keys:
 - [l] - Remaining time mode.
 
 - You can change current time with the mouse wheel as well.
-
+- By clicking on progress-bar, the timer mode is toggled.
 
 Available command-line parameters:
 ----------------------------------

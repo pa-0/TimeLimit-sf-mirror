@@ -1,6 +1,6 @@
 (*
- * Version: 00.09.00.
- * Author: Kārlis Kalviškis, 2020.07.06 10:22
+ * Version: 00.09.03.
+ * Author: Kārlis Kalviškis, 2020.07.13 02:42
  * License: GPLv3
  *)
 program TimeLimit;
@@ -28,10 +28,8 @@ The *.po files should be in "lang" directory. Use application like
 directory. The main template file is "lang/Time_limit.po". Language is
 determined by the suffix of a file name,e.g., "Time_limit.lv.po" is for Latvian
 translation. Translate and export the file as "Time_limit.lv.mo" respectively.
-
-Lazarus bug?  – *.po files should not contain 'msgctxt' strings!!!  Delete these
-lines before exporting to *.mo file.
 *)
+
 resourcestring
   RstUsage = 'Usage';
   RstOption = 'OPTIONS';

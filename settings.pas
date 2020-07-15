@@ -1,6 +1,6 @@
 (*
- * Version: 00.09.01.
- * Author: Kārlis Kalviškis, 2020.07.07 04:04
+ * Version: 00.09.03.
+ * Author: Kārlis Kalviškis, 2020.07.13 02:41
  * License: GPLv3
  *)
 
@@ -39,6 +39,7 @@ type
     BSaveINI: TButton;
     BAbout: TButton;
     BTimer: TToggleBox;
+    BRestart: TButton;
     CCloseMe: TCheckBox;
     ChDontCloseTimer: TCheckBox;
     ChLaunch: TCheckBox;
@@ -57,10 +58,13 @@ type
     EWarning3: TFloatSpinEdit;
     ECMDtoRun: TFileNameEdit;
     FontDialog: TFontDialog;
+    GrConsole: TGroupBox;
     GrTimerMode: TGroupBox;
+    LPClock: TLabel;
     LTimerSection: TLabel;
     LTimerWSection: TLabel;
     LLogoSection: TLabel;
+    PPClock: TPanel;
     RGrLogoPlacement: TRadioGroup;
     LLogoHArrow: TLabel;
     LLogoVArrow: TLabel;
@@ -104,6 +108,7 @@ type
     PTBase: TTabSheet;
     STWarning3: TColorButton;
     BShowClock: TToggleBox;
+    BStart: TToggleBox;
    procedure BAboutClick(Sender: TObject);
    procedure BChangeFontClick(Sender: TObject);
    procedure BChangeLogoChangeBounds(Sender: TObject);
@@ -114,12 +119,14 @@ type
    procedure BHotKeysClick(Sender: TObject);
    procedure BOpenINIClick(Sender: TObject);
    procedure BQuitClick(Sender: TObject);
+   procedure BRestartClick(Sender: TObject);
    procedure BSaveINIClick(Sender: TObject);
    procedure BSettingsAClick(Sender: TObject);
    procedure BSettingsARClick(Sender: TObject);
    procedure BSettingsARRClick(Sender: TObject);
    procedure BShowClockCaption;
    procedure BShowClockChange(Sender: TObject);
+   procedure BStartClick(Sender: TObject);
    procedure BTimerClick(Sender: TObject);
    procedure ChFullScreenChange(Sender: TObject);
    procedure ChIncreasingFontSizeChange(Sender: TObject);
@@ -156,6 +163,7 @@ type
    procedure FormActivate(Sender: TObject);
    procedure FormClose(Sender: TObject; var CloseAction: TCloseAction);
    procedure FormCreate(Sender: TObject);
+   procedure GrConsoleResize(Sender: TObject);
    procedure RGrLogoPlacementSelectionChanged(Sender: TObject);
    procedure SBHalfClick(Sender: TObject);
    procedure SBMainClick(Sender: TObject);
@@ -221,6 +229,7 @@ resourcestring
   RStrTimer = 'the timer';
   RStrHide = 'Hide';
   RStrShow = 'Show';
+  RStrInvisible = 'Clock is invisible';
 
 
 procedure TFConfig.FormCreate(Sender: TObject);
@@ -288,6 +297,12 @@ begin
 
     SetFormSize;
     PTabs.TabIndex := 0;
+end;
+
+procedure TFConfig.GrConsoleResize(Sender: TObject);
+begin
+  BStart.Width := trunc(Self.Width / 2);
+  BRestart.Width:=trunc(Self.Width / 4);
 end;
 
 procedure TFConfig.RGrLogoPlacementSelectionChanged(Sender: TObject);
@@ -746,6 +761,11 @@ begin
   Application.Terminate;
 end;
 
+procedure TFConfig.BRestartClick(Sender: TObject);
+begin
+  FTimer.ResetTimer;
+end;
+
 procedure TFConfig.BSaveINIClick(Sender: TObject);
 begin
   // Set the values to be saved using SessionProperties of each form.
@@ -853,7 +873,10 @@ var
   WindowContent : string;
 begin
   if BShowClock.Checked then
-     WhatToDo := RStrShow
+     Begin
+        WhatToDo := RStrShow;
+        LPClock.Caption :=   RStrInvisible;
+     end
   else
      WhatToDo := RStrHide;
   if BClock.Checked then
@@ -868,6 +891,19 @@ begin
   BShowClockCaption;
   FTimer.Visible := not FTimer.Visible;
 end;
+
+procedure TFConfig.BStartClick(Sender: TObject);
+begin
+  if  BStart.State = cbChecked then
+    Begin
+      FTimer.RUNING := true;
+    end
+  else
+      Begin
+           FTimer.RUNING := false;
+       end;
+end;
+
 
 procedure TFConfig.BTimerClick(Sender: TObject);
 begin

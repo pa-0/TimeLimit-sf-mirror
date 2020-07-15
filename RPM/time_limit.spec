@@ -2,7 +2,7 @@ Name:           time_limit
 %define projectname Time_limit
 %define breed -no_debug
 %define debug_package %{nil}
-Version:        00.09.01
+Version:        00.09.03
 Release:        K01%{?dist}
 Summary:        A windowed/full-screen countdown timer.
 License:        GPLv3+
@@ -78,32 +78,5 @@ rm -rf ${RPM_BUILD_ROOT}
 %{_datadir}/icons
 
 %changelog
-* Tue Jun 05 2018 Karlis Kalviskis <eko@lanet.lv> - 00.08.08 - K01
-- Update to 00.08.08
-
-* Tue May 29 2018 Karlis Kalviskis <eko@lanet.lv> - 00.08.06 - K01
-- Update to 00.08.06
-
-* Fri May 25 2018 Karlis Kalviskis <eko@lanet.lv> - 00.08.05 - K01
-- Update to 00.08.05
-
-* Fri Mar 16 2018 Karlis Kalviskis <eko@lanet.lv> - 00.08.04 - K01
-- Update to 00.08.04
-
-* Wed Mar 07 2018 Karlis Kalviskis <eko@lanet.lv> - 00.08.03 - K01
-- Update to 00.08.03
-
-* Mon Feb 19 2018 Karlis Kalviskis <eko@lanet.lv> - 00.08.00 - K01
-- Update to 00.08.00
-
-* Fri Feb 09 2018 Karlis Kalviskis <eko@lanet.lv> - 00.07.00 - K01
-- Update to 00.07.00
-
-* Wed Jan 31 2018 Karlis Kalviskis <eko@lanet.lv> - 00.06.00 - K01
-- Update to 00.06.00
-
-* Mon Jan 29 2018 Karlis Kalviskis <eko@lanet.lv> - 00.05.02 - K01
-- Update to 00.05.02
-
 * Wed Jan 03 2018 Karlis Kalviskis <eko@lanet.lv> - 00.04
 - Initial build.

@@ -26,9 +26,9 @@ object FConfig: TFConfig
     Height = 699
     Top = 0
     Width = 322
-    ActivePage = PTImage
+    ActivePage = PTFiles
     Anchors = [akTop, akLeft, akRight, akBottom]
-    TabIndex = 1
+    TabIndex = 2
     TabOrder = 0
     object PTBase: TTabSheet
       Caption = 'Appearance'
@@ -732,7 +732,7 @@ object FConfig: TFConfig
           ChildSizing.ShrinkVertical = crsScaleChilds
           ChildSizing.Layout = cclLeftToRightThenTopToBottom
           ChildSizing.ControlsPerLine = 3
-          ClientHeight = 66
+          ClientHeight = 51
           ClientWidth = 78
           Columns = 3
           ItemIndex = 0
@@ -1029,16 +1029,16 @@ object FConfig: TFConfig
       end
       object BShowClock: TToggleBox
         AnchorSideLeft.Control = PTFiles
-        AnchorSideTop.Control = GrTimerMode
+        AnchorSideTop.Control = GrConsole
         AnchorSideTop.Side = asrBottom
         AnchorSideRight.Control = PTFiles
         AnchorSideRight.Side = asrBottom
         Left = 0
-        Height = 27
-        Top = 219
+        Height = 29
+        Top = 251
         Width = 316
         Anchors = [akTop, akLeft, akRight]
-        BorderSpacing.Top = 9
+        AutoSize = True
         Caption = 'Clock window'
         OnChange = BShowClockChange
         TabOrder = 5
@@ -1122,6 +1122,98 @@ object FConfig: TFConfig
           Caption = 'Clock mode (HH:MM)'
           OnClick = BClockClick
           TabOrder = 2
+        end
+      end
+      object GrConsole: TGroupBox
+        AnchorSideLeft.Control = PTFiles
+        AnchorSideTop.Control = GrTimerMode
+        AnchorSideTop.Side = asrBottom
+        AnchorSideRight.Control = PTFiles
+        AnchorSideRight.Side = asrBottom
+        Left = 0
+        Height = 41
+        Top = 210
+        Width = 316
+        Anchors = [akTop, akLeft, akRight]
+        AutoSize = True
+        ClientHeight = 37
+        ClientWidth = 312
+        TabOrder = 8
+        OnResize = GrConsoleResize
+        object BStart: TToggleBox
+          AnchorSideLeft.Control = GrConsole
+          Left = 6
+          Height = 25
+          Hint = 'Start / Stop the timer'
+          Top = 6
+          Width = 75
+          BorderSpacing.Left = 6
+          BorderSpacing.Top = 6
+          BorderSpacing.Bottom = 6
+          Caption = '▶ ||'
+          OnClick = BStartClick
+          TabOrder = 0
+        end
+        object BRestart: TButton
+          AnchorSideTop.Control = BStart
+          AnchorSideTop.Side = asrCenter
+          AnchorSideRight.Control = GrConsole
+          AnchorSideRight.Side = asrBottom
+          Left = 218
+          Height = 25
+          Hint = 'Reset the timer'
+          Top = 6
+          Width = 88
+          Anchors = [akTop, akRight]
+          BorderSpacing.Right = 6
+          Caption = '↻'
+          OnClick = BRestartClick
+          TabOrder = 1
+        end
+      end
+      object PPClock: TPanel
+        AnchorSideLeft.Control = PTFiles
+        AnchorSideTop.Control = BShowClock
+        AnchorSideTop.Side = asrBottom
+        AnchorSideRight.Control = PTFiles
+        AnchorSideRight.Side = asrBottom
+        Left = 3
+        Height = 67
+        Top = 283
+        Width = 310
+        Anchors = [akTop, akLeft, akRight]
+        BorderSpacing.Left = 3
+        BorderSpacing.Top = 3
+        BorderSpacing.Right = 3
+        ClientHeight = 67
+        ClientWidth = 310
+        TabOrder = 9
+        object LPClock: TLabel
+          AnchorSideLeft.Control = PPClock
+          AnchorSideTop.Control = PPClock
+          AnchorSideRight.Control = PPClock
+          AnchorSideRight.Side = asrBottom
+          AnchorSideBottom.Control = PPClock
+          AnchorSideBottom.Side = asrBottom
+          Left = 3
+          Height = 61
+          Hint = 'The preview of clock''s digits. The font-face and size are system defaults. Only colour corresponds.'
+          Top = 3
+          Width = 303
+          Alignment = taCenter
+          Anchors = [akTop, akLeft, akRight, akBottom]
+          AutoSize = False
+          BorderSpacing.Left = 2
+          BorderSpacing.Top = 2
+          BorderSpacing.Right = 3
+          BorderSpacing.Bottom = 2
+          Caption = '42'
+          Font.Height = 51
+          Font.Quality = fqCleartypeNatural
+          ParentColor = False
+          ParentFont = False
+          WordWrap = True
+          OptimalFill = True
         end
       end
     end

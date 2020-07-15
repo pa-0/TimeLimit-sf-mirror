@@ -209,6 +209,10 @@ msgstr ""
 msgid "The logo file “%0:s” is missing!"
 msgstr ""
 
+#: settings.rstrinvisible
+msgid "Clock is invisible"
+msgstr ""
+
 #: settings.rstrminuteshint
 msgctxt "settings.rstrminuteshint"
 msgid "Minutes left. Use [Enter] to apply changes."
@@ -275,6 +279,14 @@ msgstr ""
 msgid "Quit the timer"
 msgstr ""
 
+#: tfconfig.brestart.caption
+msgid "↻"
+msgstr ""
+
+#: tfconfig.brestart.hint
+msgid "Reset the timer"
+msgstr ""
+
 #: tfconfig.bsaveini.caption
 msgid "Save configuration"
 msgstr ""
@@ -297,6 +309,15 @@ msgstr ""
 
 #: tfconfig.bshowclock.caption
 msgid "Clock window"
+msgstr ""
+
+#: tfconfig.bstart.caption
+msgctxt "tfconfig.bstart.caption"
+msgid "▶ ||"
+msgstr ""
+
+#: tfconfig.bstart.hint
+msgid "Start / Stop the timer"
 msgstr ""
 
 #: tfconfig.btimer.caption
@@ -484,6 +505,15 @@ msgstr ""
 msgid "Halftime:"
 msgstr ""
 
+#: tfconfig.lpclock.caption
+msgctxt "tfconfig.lpclock.caption"
+msgid "42"
+msgstr ""
+
+#: tfconfig.lpclock.hint
+msgid "The preview of clock's digits. The font-face and size are system defaults. Only colour corresponds."
+msgstr ""
+
 #: tfconfig.ltimersection.caption
 msgid "The timer operation"
 msgstr ""
@@ -545,14 +575,17 @@ msgid "Countdown Timer"
 msgstr ""
 
 #: tftimer.lclock.caption
+msgctxt "tftimer.lclock.caption"
 msgid ":"
 msgstr ""
 
 #: tftimer.lclockm.caption
+msgctxt "tftimer.lclockm.caption"
 msgid "42"
 msgstr ""
 
 #: tftimer.lclocks.caption
+msgctxt "tftimer.lclocks.caption"
 msgid "00"
 msgstr ""
 

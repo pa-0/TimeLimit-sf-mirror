@@ -1,6 +1,6 @@
 (*
- * Version: 00.09.01.
- * Author: Kārlis Kalviškis, 2020.07.07 04:04
+ * Version: 00.09.02.
+ * Author: Kārlis Kalviškis, 2020.07.13 01:40
  * License: GPLv3
  *)
 
@@ -308,6 +308,7 @@ begin
       SProgressBar.Width := PProgressBar.Width - trunc(TimeNow / DefTime * PProgressBar.Width);
       end;
     if RUNING then begin
+      FConfig.BStart.State := cbChecked;
       Dec(TimeNow);
       if (TimeNow < 0) then begin
         Timer1.Enabled := False;
@@ -339,12 +340,23 @@ begin
           else
             ChangeColor(ColourB0, ColourT0);
       end;
-    end;
+    end
+    else
+        FConfig.BStart.State := cbUnchecked;
     if FConfig.BCountDown.Checked then
       ShowTime (TimeNow)
     else
       ShowTime (DefTIME - TimeNow);
   end;
+  if FTimer.Visible then
+    Begin
+      if LClock.Caption = ':' then
+         FConfig.LPClock.Caption := LClockM.Caption + LClock.Caption + LClockS.Caption
+      else
+         FConfig.LPClock.Caption := LClock.Caption;
+      FConfig.LPClock.Font.Color:=LClock.Font.Color;
+      FConfig.PPClock.Color:=FTimer.Color;
+    end;
 end;
 
 procedure TFTimer.ChangeFullScreen;

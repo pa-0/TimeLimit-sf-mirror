@@ -1,5 +1,9 @@
+00.09.02 - 2020.07.13 01:54
+	Start/stop/reset console added.
+	The preview of clock's digits added.
+
 00.09.01 - 2020.07.07 04:04
-	Available three modes: the remaining time, the elapsed time an digital clock.
+	Available three modes: the remaining and the elapsed time as well as a digital clock.
 	New hot keys.
 
 00.09.00 - 2020.07.06 10:22
