@@ -1,7 +1,7 @@
 object FTimer: TFTimer
-  Left = 441
+  Left = 461
   Height = 242
-  Top = 140
+  Top = 141
   Width = 494
   AlphaBlendValue = 125
   Anchors = []

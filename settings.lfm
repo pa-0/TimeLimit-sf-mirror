@@ -1,12 +1,12 @@
 object FConfig: TFConfig
   Left = 441
   Height = 699
-  Top = 48
-  Width = 322
+  Top = 47
+  Width = 346
   BorderStyle = bsDialog
   Caption = 'Settings'
   ClientHeight = 699
-  ClientWidth = 322
+  ClientWidth = 346
   FormStyle = fsStayOnTop
   OnActivate = FormActivate
   OnClose = FormClose
@@ -25,15 +25,15 @@ object FConfig: TFConfig
     Left = 0
     Height = 699
     Top = 0
-    Width = 322
-    ActivePage = PTFiles
+    Width = 346
+    ActivePage = PTImage
     Anchors = [akTop, akLeft, akRight, akBottom]
-    TabIndex = 2
+    TabIndex = 1
     TabOrder = 0
     object PTBase: TTabSheet
       Caption = 'Appearance'
       ClientHeight = 664
-      ClientWidth = 316
+      ClientWidth = 340
       object BSettingsARR: TButton
         AnchorSideLeft.Control = PTBase
         AnchorSideTop.Control = BSettingsAR
@@ -45,7 +45,7 @@ object FConfig: TFConfig
         Left = 0
         Height = 29
         Top = 635
-        Width = 316
+        Width = 340
         Anchors = [akLeft, akRight, akBottom]
         AutoSize = True
         Caption = 'Apply, reset and restart'
@@ -62,7 +62,7 @@ object FConfig: TFConfig
         Left = 0
         Height = 29
         Top = 606
-        Width = 316
+        Width = 340
         Anchors = [akLeft, akRight, akBottom]
         AutoSize = True
         Caption = 'Apply and reset'
@@ -80,7 +80,7 @@ object FConfig: TFConfig
         Height = 29
         Hint = 'Apply changes for later time'
         Top = 577
-        Width = 316
+        Width = 340
         Anchors = [akLeft, akRight, akBottom]
         AutoSize = True
         Caption = 'Apply'
@@ -164,7 +164,7 @@ object FConfig: TFConfig
         Height = 29
         Hint = 'Change name not size'
         Top = 301
-        Width = 316
+        Width = 340
         Anchors = [akTop, akLeft, akRight]
         AutoSize = True
         BorderSpacing.Top = 24
@@ -176,7 +176,7 @@ object FConfig: TFConfig
         AnchorSideTop.Control = LMinutes
         AnchorSideTop.Side = asrCenter
         AnchorSideRight.Control = SBMain
-        Left = 195
+        Left = 219
         Height = 27
         Hint = 'Time for Presenter. Use [Enter] to apply changes and reset timer.'
         Top = 19
@@ -199,7 +199,7 @@ object FConfig: TFConfig
         AnchorSideTop.Side = asrCenter
         AnchorSideRight.Control = EMinutes
         AnchorSideRight.Side = asrBottom
-        Left = 194
+        Left = 218
         Height = 27
         Top = 142
         Width = 58
@@ -217,7 +217,7 @@ object FConfig: TFConfig
         AnchorSideTop.Side = asrCenter
         AnchorSideRight.Control = EMinutes
         AnchorSideRight.Side = asrBottom
-        Left = 196
+        Left = 220
         Height = 27
         Hint = 'Minutes left'
         Top = 199
@@ -236,7 +236,7 @@ object FConfig: TFConfig
         AnchorSideTop.Side = asrCenter
         AnchorSideRight.Control = EMinutes
         AnchorSideRight.Side = asrBottom
-        Left = 195
+        Left = 219
         Height = 27
         Hint = 'Minutes left'
         Top = 255
@@ -254,7 +254,7 @@ object FConfig: TFConfig
         AnchorSideTop.Control = LMinutes
         AnchorSideTop.Side = asrCenter
         AnchorSideRight.Control = STMain
-        Left = 258
+        Left = 282
         Height = 23
         Top = 21
         Width = 23
@@ -274,7 +274,7 @@ object FConfig: TFConfig
         AnchorSideTop.Side = asrCenter
         AnchorSideRight.Control = PTBase
         AnchorSideRight.Side = asrBottom
-        Left = 290
+        Left = 314
         Height = 23
         Top = 21
         Width = 23
@@ -291,7 +291,7 @@ object FConfig: TFConfig
         AnchorSideLeft.Control = SBMain
         AnchorSideTop.Control = LMinutes4
         AnchorSideTop.Side = asrCenter
-        Left = 258
+        Left = 282
         Height = 23
         Top = 83
         Width = 23
@@ -306,7 +306,7 @@ object FConfig: TFConfig
         AnchorSideLeft.Control = STMain
         AnchorSideTop.Control = LMinutes4
         AnchorSideTop.Side = asrCenter
-        Left = 290
+        Left = 314
         Height = 23
         Top = 83
         Width = 23
@@ -321,7 +321,7 @@ object FConfig: TFConfig
         AnchorSideLeft.Control = SBMain
         AnchorSideTop.Control = LMinutes1
         AnchorSideTop.Side = asrCenter
-        Left = 258
+        Left = 282
         Height = 23
         Top = 144
         Width = 23
@@ -336,7 +336,7 @@ object FConfig: TFConfig
         AnchorSideLeft.Control = STMain
         AnchorSideTop.Control = LMinutes1
         AnchorSideTop.Side = asrCenter
-        Left = 290
+        Left = 314
         Height = 23
         Top = 144
         Width = 23
@@ -351,7 +351,7 @@ object FConfig: TFConfig
         AnchorSideLeft.Control = SBMain
         AnchorSideTop.Control = LMinutes2
         AnchorSideTop.Side = asrCenter
-        Left = 258
+        Left = 282
         Height = 23
         Top = 201
         Width = 23
@@ -366,7 +366,7 @@ object FConfig: TFConfig
         AnchorSideLeft.Control = STMain
         AnchorSideTop.Control = LMinutes2
         AnchorSideTop.Side = asrCenter
-        Left = 290
+        Left = 314
         Height = 23
         Top = 201
         Width = 23
@@ -381,7 +381,7 @@ object FConfig: TFConfig
         AnchorSideLeft.Control = SBMain
         AnchorSideTop.Control = LMinutes3
         AnchorSideTop.Side = asrCenter
-        Left = 258
+        Left = 282
         Height = 23
         Top = 257
         Width = 23
@@ -396,7 +396,7 @@ object FConfig: TFConfig
         AnchorSideLeft.Control = STMain
         AnchorSideTop.Control = LMinutes3
         AnchorSideTop.Side = asrCenter
-        Left = 290
+        Left = 314
         Height = 23
         Top = 257
         Width = 23
@@ -411,7 +411,7 @@ object FConfig: TFConfig
     object PTImage: TTabSheet
       Caption = 'Additional'
       ClientHeight = 664
-      ClientWidth = 316
+      ClientWidth = 340
       object PTransparent: TPanel
         AnchorSideLeft.Control = PTImage
         AnchorSideTop.Control = PLogo
@@ -420,13 +420,13 @@ object FConfig: TFConfig
         AnchorSideRight.Side = asrBottom
         AnchorSideBottom.Control = BHotKeys
         Left = 0
-        Height = 146
+        Height = 168
         Top = 142
-        Width = 316
+        Width = 340
         Anchors = [akTop, akLeft, akRight]
         AutoSize = True
-        ClientHeight = 146
-        ClientWidth = 316
+        ClientHeight = 168
+        ClientWidth = 340
         ParentColor = False
         TabOrder = 1
         object ChTransparent: TCheckBox
@@ -449,7 +449,7 @@ object FConfig: TFConfig
           AnchorSideRight.Side = asrBottom
           AnchorSideBottom.Control = PTransparent
           AnchorSideBottom.Side = asrBottom
-          Left = 52
+          Left = 64
           Height = 17
           Top = 50
           Width = 212
@@ -466,7 +466,7 @@ object FConfig: TFConfig
           AnchorSideTop.Side = asrCenter
           AnchorSideRight.Control = PTransparent
           AnchorSideRight.Side = asrBottom
-          Left = 255
+          Left = 279
           Height = 27
           Hint = '255 means non-transparent'
           Top = 20
@@ -503,7 +503,6 @@ object FConfig: TFConfig
           Height = 22
           Top = 117
           Width = 93
-          BorderSpacing.Bottom = 6
           Caption = 'Full screen'
           Enabled = False
           OnChange = ChFullScreenChange
@@ -513,7 +512,7 @@ object FConfig: TFConfig
           AnchorSideLeft.Control = PTransparent
           AnchorSideLeft.Side = asrCenter
           AnchorSideTop.Control = PTransparent
-          Left = 93
+          Left = 105
           Height = 17
           Top = 1
           Width = 131
@@ -534,6 +533,22 @@ object FConfig: TFConfig
           OnChange = ChProgressBarChange
           TabOrder = 3
         end
+        object ChWindowsPosition: TCheckBox
+          AnchorSideLeft.Control = ChFullScreen
+          AnchorSideTop.Control = ChFullScreen
+          AnchorSideTop.Side = asrBottom
+          Left = 1
+          Height = 22
+          Top = 139
+          Width = 341
+          BorderSpacing.Right = 3
+          BorderSpacing.Bottom = 6
+          Caption = 'The Timer is always on the top of other windows'
+          Checked = True
+          OnChange = ChWindowsPositionChange
+          State = cbChecked
+          TabOrder = 5
+        end
       end
       object PLogo: TPanel
         AnchorSideLeft.Control = PTImage
@@ -543,17 +558,17 @@ object FConfig: TFConfig
         Left = 0
         Height = 142
         Top = 0
-        Width = 316
+        Width = 340
         Anchors = [akTop, akLeft, akRight]
         AutoSize = True
         ClientHeight = 142
-        ClientWidth = 316
+        ClientWidth = 340
         TabOrder = 0
         object LLogoHeight: TLabel
           AnchorSideTop.Control = EMinLogoHeight
           AnchorSideTop.Side = asrCenter
           AnchorSideRight.Control = EMinLogoHeight
-          Left = 117
+          Left = 141
           Height = 17
           Top = 119
           Width = 129
@@ -569,7 +584,7 @@ object FConfig: TFConfig
           AnchorSideTop.Side = asrBottom
           AnchorSideRight.Control = PLogo
           AnchorSideRight.Side = asrBottom
-          Left = 255
+          Left = 279
           Height = 27
           Hint = 'The minimal height (in pixels) of the logo.  If the resized logo is lower, it is not shown.'
           Top = 114
@@ -604,7 +619,7 @@ object FConfig: TFConfig
           AnchorSideTop.Side = asrCenter
           AnchorSideRight.Control = PLogo
           AnchorSideRight.Side = asrBottom
-          Left = 222
+          Left = 246
           Height = 29
           Top = 7
           Width = 93
@@ -621,7 +636,7 @@ object FConfig: TFConfig
           AnchorSideRight.Control = ELogoProportion
           AnchorSideBottom.Control = RGrLogoPlacement
           AnchorSideBottom.Side = asrBottom
-          Left = 137
+          Left = 161
           Height = 17
           Top = 94
           Width = 109
@@ -636,7 +651,7 @@ object FConfig: TFConfig
           AnchorSideRight.Side = asrBottom
           AnchorSideBottom.Control = RGrLogoPlacement
           AnchorSideBottom.Side = asrBottom
-          Left = 255
+          Left = 279
           Height = 27
           Hint = 'The proportional size of the logo.'
           Top = 84
@@ -732,7 +747,7 @@ object FConfig: TFConfig
           ChildSizing.ShrinkVertical = crsScaleChilds
           ChildSizing.Layout = cclLeftToRightThenTopToBottom
           ChildSizing.ControlsPerLine = 3
-          ClientHeight = 51
+          ClientHeight = 66
           ClientWidth = 78
           Columns = 3
           ItemIndex = 0
@@ -754,7 +769,7 @@ object FConfig: TFConfig
           AnchorSideLeft.Control = PLogo
           AnchorSideLeft.Side = asrCenter
           AnchorSideTop.Control = PLogo
-          Left = 141
+          Left = 153
           Height = 17
           Top = 1
           Width = 35
@@ -772,12 +787,12 @@ object FConfig: TFConfig
         AnchorSideRight.Side = asrBottom
         Left = 0
         Height = 153
-        Top = 288
-        Width = 316
+        Top = 310
+        Width = 340
         Anchors = [akTop, akLeft, akRight]
         AutoSize = True
         ClientHeight = 153
-        ClientWidth = 316
+        ClientWidth = 340
         TabOrder = 2
         object LEndNote: TLabel
           AnchorSideLeft.Control = PEndNote
@@ -800,7 +815,7 @@ object FConfig: TFConfig
           Left = 1
           Height = 27
           Top = 64
-          Width = 314
+          Width = 338
           Anchors = [akTop, akLeft, akRight]
           BorderSpacing.Top = 3
           BorderSpacing.Bottom = 6
@@ -817,7 +832,7 @@ object FConfig: TFConfig
           Height = 27
           Hint = 'Command to execute at the end of the time.'
           Top = 119
-          Width = 314
+          Width = 338
           FilterIndex = 0
           HideDirectories = False
           ButtonWidth = 23
@@ -874,7 +889,7 @@ object FConfig: TFConfig
           AnchorSideTop.Side = asrCenter
           AnchorSideRight.Control = PEndNote
           AnchorSideRight.Side = asrBottom
-          Left = 255
+          Left = 279
           Height = 27
           Hint = 'Starting size (%)'
           Top = 17
@@ -891,7 +906,7 @@ object FConfig: TFConfig
           AnchorSideLeft.Control = PEndNote
           AnchorSideLeft.Side = asrCenter
           AnchorSideTop.Control = PEndNote
-          Left = 85
+          Left = 97
           Height = 17
           Top = 1
           Width = 146
@@ -909,12 +924,12 @@ object FConfig: TFConfig
         AnchorSideRight.Side = asrBottom
         Left = 0
         Height = 31
-        Top = 441
-        Width = 316
+        Top = 463
+        Width = 340
         Anchors = [akTop, akLeft, akRight]
         AutoSize = True
         ClientHeight = 31
-        ClientWidth = 316
+        ClientWidth = 340
         TabOrder = 3
         object BHotKeys: TButton
           AnchorSideLeft.Control = PHotKeys
@@ -926,7 +941,7 @@ object FConfig: TFConfig
           Left = 1
           Height = 29
           Top = 1
-          Width = 314
+          Width = 338
           Anchors = [akLeft, akRight, akBottom]
           AutoSize = True
           Caption = 'List hot-keys'
@@ -938,7 +953,7 @@ object FConfig: TFConfig
     object PTFiles: TTabSheet
       Caption = 'System'
       ClientHeight = 664
-      ClientWidth = 316
+      ClientWidth = 340
       object ChDontCloseTimer: TCheckBox
         AnchorSideLeft.Control = PTFiles
         AnchorSideTop.Control = LChangeEditSize

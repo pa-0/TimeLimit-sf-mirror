@@ -110,7 +110,7 @@ msgid "[l]"
 msgstr ""
 
 #: help.hkey12b
-msgid "remaining time"
+msgid "remaining time."
 msgstr ""
 
 #: help.hkey13a
@@ -118,7 +118,7 @@ msgid "[e]"
 msgstr ""
 
 #: help.hkey13b
-msgid "elapsed time"
+msgid "elapsed time."
 msgstr ""
 
 #: help.hkey14a
@@ -126,7 +126,15 @@ msgid "[c]"
 msgstr ""
 
 #: help.hkey14b
-msgid "clock mode"
+msgid "clock mode."
+msgstr ""
+
+#: help.hkey15a
+msgid "[t]"
+msgstr ""
+
+#: help.hkey15b
+msgid "toggles overlapping of clock’s window."
 msgstr ""
 
 #: help.logosorce
@@ -382,6 +390,10 @@ msgstr ""
 
 #: tfconfig.chwindowsborders.caption
 msgid "Windows borders"
+msgstr ""
+
+#: tfconfig.chwindowsposition.caption
+msgid "The Timer is always on the top of other windows"
 msgstr ""
 
 #: tfconfig.ealphablend.hint

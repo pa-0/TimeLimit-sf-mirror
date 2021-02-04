@@ -5,7 +5,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2018-02-08 22:10+0300\n"
-"PO-Revision-Date: 2020-07-13 02:46+0300\n"
+"PO-Revision-Date: 2021-02-04 07:39+0200\n"
 "Last-Translator: Kārlis Kalviškis <karlo@lu.lv>\n"
 "Language-Team: karlo\n"
 "Language: lv\n"
@@ -124,24 +124,32 @@ msgid "[l]"
 msgstr "[l]"
 
 #: help.hkey12b
-msgid "remaining time"
-msgstr "atlikušais laiks"
+msgid "remaining time."
+msgstr "atlikušais laiks."
 
 #: help.hkey13a
 msgid "[e]"
 msgstr "[e]"
 
 #: help.hkey13b
-msgid "elapsed time"
-msgstr "iztērētais laiks"
+msgid "elapsed time."
+msgstr "iztērētais laiks."
 
 #: help.hkey14a
 msgid "[c]"
 msgstr "[c]"
 
 #: help.hkey14b
-msgid "clock mode"
-msgstr "pulkstenis"
+msgid "clock mode."
+msgstr "pulkstenis."
+
+#: help.hkey15a
+msgid "[t]"
+msgstr "[t]"
+
+#: help.hkey15b
+msgid "toggles overlapping of clock’s window."
+msgstr "maina to, vai pulksteņa logs nosedz citus logus."
 
 #: help.logosorce
 msgid "Sorce of the logo:"
@@ -398,6 +406,10 @@ msgstr "Necaurspīdība"
 #: tfconfig.chwindowsborders.caption
 msgid "Windows borders"
 msgstr "Loga apmales"
+
+#: tfconfig.chwindowsposition.caption
+msgid "The Timer is always on the top of other windows"
+msgstr "Pulksteņa logs vienmēr pārklāj citus logus"
 
 #: tfconfig.ealphablend.hint
 msgid "255 means non-transparent"

@@ -1,6 +1,6 @@
 (*
- * Version: 00.09.01.
- * Author: Kārlis Kalviškis, 2020.07.07 04:04
+ * Version: 00.09.04.
+ * Author: Kārlis Kalviškis, 2021.02.04 07:37
  * License: GPLv3
  *)
 
@@ -82,11 +82,13 @@ resourcestring
   HKey11A = '[r], Mouse middle click';
   HKey11B = 'reset timer.';
   HKey12A = '[l]';
-  HKey12B = 'remaining time';
+  HKey12B = 'remaining time.';
   HKey13A = '[e]';
-  HKey13B = 'elapsed time';
+  HKey13B = 'elapsed time.';
   HKey14A = '[c]';
-  HKey14B = 'clock mode';
+  HKey14B = 'clock mode.';
+  HKey15A = '[t]';
+  HKey15B = 'toggles overlapping of clock’s window.';
   SInfo01 = 'Product name';
   SInfo02 = 'Original filename';
   SInfo03 = 'File version';
@@ -121,9 +123,9 @@ begin
   ShowHotKey(html_head
         + '<I><B>' + HKey00A + '</B><BR>' + HKey01A + '</I>'
         + CreateHTMLTable(
-        TStringArray.Create(HKey02A, HKey03A, HKey04A, HKey05A, HKey06A, HKey07A, HKey08A, HKey09A, '', HKey11A, HKey12A, HKey13A, HKey14A)
+        TStringArray.Create(HKey02A, HKey03A, HKey04A, HKey05A, HKey06A, HKey07A, HKey08A, HKey09A, '', HKey11A, HKey12A, HKey13A, HKey14A, HKey15A)
         ,
-        TStringArray.Create(HKey02B, HKey03B, HKey04B, HKey05B, HKey06B, HKey07B, HKey08B, HKey09B, HKey10B, HKey11B, HKey12B, HKey13B, HKey14B)
+        TStringArray.Create(HKey02B, HKey03B, HKey04B, HKey05B, HKey06B, HKey07B, HKey08B, HKey09B, HKey10B, HKey11B, HKey12B, HKey13B, HKey14B, HKey15B)
         , '<B><TT>', '</TT></B>', '', '')
         + '<HR><P><I>' + CommandlineOptions + '</I><BR><TT>'
         + Application.Params[0] + '&nbsp;--help</TT></P>'

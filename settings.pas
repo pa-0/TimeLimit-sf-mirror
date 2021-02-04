@@ -1,6 +1,6 @@
 (*
- * Version: 00.09.03.
- * Author: Kārlis Kalviškis, 2020.07.13 02:41
+ * Version: 00.09.04.
+ * Author: Kārlis Kalviškis, 2021.02.03 15:52
  * License: GPLv3
  *)
 
@@ -50,6 +50,7 @@ type
     ChWindowsBorders: TCheckBox;
     ChTransparent: TCheckBox;
     ChShowLogo: TCheckBox;
+    ChWindowsPosition: TCheckBox;
     ColorDialog: TColorDialog;
     EEndNote: TEdit;
     EMinutes: TFloatSpinEdit;
@@ -134,6 +135,7 @@ type
    procedure ChShowLogoChange(Sender: TObject);
    procedure ChTransparentChange(Sender: TObject);
    procedure ChWindowsBordersChange(Sender: TObject);
+   procedure ChWindowsPositionChange(Sender: TObject);
    procedure EAlphaBlendChange(Sender: TObject);
    procedure EAlphaBlendEnter(Sender: TObject);
    procedure EAlphaBlendExit(Sender: TObject);
@@ -473,6 +475,14 @@ end;
 procedure TFConfig.ChWindowsBordersChange(Sender: TObject);
 begin
   if ChWindowsBorders.Enabled then FTimer.ChangeWindowsBorder;
+end;
+
+procedure TFConfig.ChWindowsPositionChange(Sender: TObject);
+begin
+  if ChWindowsPosition.Checked then
+     FTimer.FormStyle:=fsSystemStayOnTop
+  else
+     FTimer.FormStyle:=fsNormal;
 end;
 
 procedure TFConfig.EAlphaBlendChange(Sender: TObject);
@@ -863,7 +873,8 @@ procedure TFConfig.SetFormSize;
 begin
   // Adjust the size of the settings window to fit all controls.
   // Additional Settings tab is the largest one.
-  FConfig.Width := FConfig.LTransparent.Width + FConfig.LTransparent.Width div 3 + FConfig.LTransparent.Width div 5;
+  //FConfig.Width := FConfig.LTransparent.Width + FConfig.LTransparent.Width div 3 + FConfig.LTransparent.Width div 5;
+  FConfig.Width:= FConfig.ChWindowsPosition.Width + FConfig.ChWindowsPosition.Left * 3 + FConfig.PTransparent.Left * 3;
   Fconfig.Height := FConfig.PTabs.Height - FConfig.PTImage.Height + FConfig.PHotKeys.Top + FConfig.PHotKeys.Height;
 end;
 

@@ -1,6 +1,6 @@
 (*
- * Version: 00.09.02.
- * Author: Kārlis Kalviškis, 2020.07.13 01:40
+ * Version: 00.09.04.
+ * Author: Kārlis Kalviškis, 2021.02.13 15:42
  * License: GPLv3
  *)
 
@@ -199,9 +199,10 @@ begin
        'b': ChangeWindowsBorder;
        'h': FConfig.ShowFHelp;
        'm': FConfig.Show;
-       'c': FConfig.BClock.Checked:=true;
-       'e': FConfig.BTimer.Checked:=true;
-       'l': FConfig.BCountDown.Checked:=true;
+       'c': FConfig.BClock.Checked := true;
+       'e': FConfig.BTimer.Checked := true;
+       'l': FConfig.BCountDown.Checked := true;
+       't': FConfig.ChWindowsPosition.Checked := not FConfig.ChWindowsPosition.Checked;
   end;
 end;
 
