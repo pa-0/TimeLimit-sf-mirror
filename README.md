@@ -44,7 +44,7 @@ Parameter | Purpose
 `-s` or `--start` | Starts the countdown.
 `--run=`command | At the end of countdown launches another program.
 `-e` or `--exit` | Exit at the end of countdown.
-- `-l` nn or `--lang` nn     Set the interface language (nn is the language code).
+`-l` nn or `--lang` nn |Set the interface language (nn is the language code).
 `-h` or `--help` | Show command-line help.
 
 Availability:
