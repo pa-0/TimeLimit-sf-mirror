@@ -1,6 +1,6 @@
 (*
  * Version: 00.09.04.
- * Author: Kārlis Kalviškis, 2021.02.13 15:42
+ * Author: Kārlis Kalviškis, 2021.03.03 09:06
  * License: GPLv3
  *)
 
@@ -67,11 +67,16 @@ type
     procedure ShowTime (TimeToShow : Integer);
     procedure TimerFontSize;
     procedure ToggleMode;
-   private
+    procedure BackgroundVisibility;
+
+  private
+    MyColour : TColor;
+    MyTColour : TColor;
 
   public
      TimeNow : Integer;         // The remaining time
      DefTIME: Integer;          // The time limit
+     LogoBitmap: TBitmap;       // The built-in logo
      Warning1 : Integer;
      Warning2 : Integer;
      Warning3 : Integer;
@@ -110,8 +115,6 @@ implementation
 uses settings, help;
 
 procedure TFTimer.FormCreate(Sender: TObject);
-var
-   LogoBitmap: TBitmap;
 begin
   // For Borderless windows
   MinWidth := 99;
@@ -132,6 +135,7 @@ begin
   ColourB4 := $00220099;
   ColourT4 := $0066EEFF;
   Self.Color := ColourB0;
+  MyColour :=  Self.Color;
   LClock.Font.Color := ColourT0;
 
   // Reads the included logo
@@ -142,7 +146,9 @@ begin
   LogoRatio := ILogoList.Width/ILogoList.Height;
   ILogoList.GetBitmap(0, LogoBitmap);
   ILogo.Picture.Bitmap := LogoBitmap;
-  LogoBitmap.Free;
+  // To use "restore logo", don't disassemble  LogoBitmap
+  // LogoBitmap.Free;
+
   //Timer
   LClock.Caption := ':';
   LClock.Left := 0;
@@ -433,11 +439,15 @@ end;
 
 procedure TFTimer.ChangeColor (BackgroundColour : TColor; TextColour : TColor);
 begin
-  Self.Color := BackgroundColour;
-  LClock.Font.Color := TextColour;
-  LClockM.Font.Color := TextColour;
-  LClockS.Font.Color := TextColour;
-  SProgressBar.Brush.Color := TextColour;
+  if not FConfig.ChNoBacground.Checked then begin
+      Self.Color := BackgroundColour;
+      LClock.Font.Color := TextColour;
+      LClockM.Font.Color := TextColour;
+      LClockS.Font.Color := TextColour;
+      SProgressBar.Brush.Color := TextColour;
+  end;
+  MyColour :=  BackgroundColour;
+  MyTColour :=  TextColour;
 end;
 
 procedure TFTimer.ShowTime (TimeToShow : Integer);
@@ -485,5 +495,24 @@ begin
   else
     FConfig.BTimer.Checked:=true;
 end;
+
+procedure TFTimer.BackgroundVisibility;
+begin
+  if FConfig.ChNoBacground.Checked then  begin
+     Color := clDefault;
+     LClock.Font.Color := clDefault;
+     LClockM.Font.Color := clDefault;
+     LClockS.Font.Color := clDefault;
+     SProgressBar.Brush.Color := clDefault;
+  end
+  else begin
+     Color := MyColour;
+     LClock.Font.Color := MyTColour;
+     LClockM.Font.Color := MyTColour;
+     LClockS.Font.Color := MyTColour;
+     SProgressBar.Brush.Color := MyTColour;
+  end;
+end;
+
 
 end.

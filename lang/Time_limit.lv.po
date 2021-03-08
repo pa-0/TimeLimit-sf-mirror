@@ -5,7 +5,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2018-02-08 22:10+0300\n"
-"PO-Revision-Date: 2021-02-04 07:39+0200\n"
+"PO-Revision-Date: 2021-03-07 22:50+0200\n"
 "Last-Translator: Kārlis Kalviškis <karlo@lu.lv>\n"
 "Language-Team: karlo\n"
 "Language: lv\n"
@@ -281,6 +281,10 @@ msgstr "Maina izskatu, bet ne izmēru"
 msgid "Change logo"
 msgstr "Nomaini logo"
 
+#: tfconfig.bchangelogo.hint
+msgid "Browse for a new image"
+msgstr "Sameklē jaunu attēlu"
+
 #: tfconfig.bclock.caption
 msgctxt "tfconfig.bclock.caption"
 msgid "Clock mode (HH:MM)"
@@ -309,6 +313,14 @@ msgstr "↻"
 #: tfconfig.brestart.hint
 msgid "Reset the timer"
 msgstr "Atlikt uz sākumu"
+
+#: tfconfig.brestorelogo.caption
+msgid "Restore"
+msgstr "Iebūvētais"
+
+#: tfconfig.brestorelogo.hint
+msgid "Restore built-in logo"
+msgstr "Ievieto programmai līdzi nākošo logo"
 
 #: tfconfig.bsaveini.caption
 msgid "Save configuration"
@@ -390,6 +402,14 @@ msgstr "Palaist"
 #: tfconfig.chlaunch.hint
 msgid "When the time is over, launches another application."
 msgstr "Kad beidzas atvēlētais laiks, palaiž citu programmu."
+
+#: tfconfig.chnobacground.caption
+msgid "System colours"
+msgstr "Sistēmas krāsas"
+
+#: tfconfig.chnobacground.hint
+msgid "Use system colours"
+msgstr "Pārslēdz uz sistēmas krāsām"
 
 #: tfconfig.chprogressbar.caption
 msgid "Show progress bar"

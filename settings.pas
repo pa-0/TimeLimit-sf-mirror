@@ -1,6 +1,6 @@
 (*
- * Version: 00.09.04.
- * Author: Kārlis Kalviškis, 2021.02.03 15:52
+ * Version: 00.09.05.
+ * Author: Kārlis Kalviškis, 2021.03.03 09:06
  * License: GPLv3
  *)
 
@@ -40,8 +40,10 @@ type
     BAbout: TButton;
     BTimer: TToggleBox;
     BRestart: TButton;
+    BRestoreLogo: TButton;
     CCloseMe: TCheckBox;
     ChDontCloseTimer: TCheckBox;
+    ChNoBacground: TCheckBox;
     ChLaunch: TCheckBox;
     ChExit: TCheckBox;
     ChIncreasingFontSize: TCheckBox;
@@ -121,6 +123,7 @@ type
    procedure BOpenINIClick(Sender: TObject);
    procedure BQuitClick(Sender: TObject);
    procedure BRestartClick(Sender: TObject);
+   procedure BRestoreLogoClick(Sender: TObject);
    procedure BSaveINIClick(Sender: TObject);
    procedure BSettingsAClick(Sender: TObject);
    procedure BSettingsARClick(Sender: TObject);
@@ -131,6 +134,7 @@ type
    procedure BTimerClick(Sender: TObject);
    procedure ChFullScreenChange(Sender: TObject);
    procedure ChIncreasingFontSizeChange(Sender: TObject);
+   procedure ChNoBacgroundChange(Sender: TObject);
    procedure ChProgressBarChange(Sender: TObject);
    procedure ChShowLogoChange(Sender: TObject);
    procedure ChTransparentChange(Sender: TObject);
@@ -456,6 +460,11 @@ begin
   Ftimer.TimerFontSize;
 end;
 
+procedure TFConfig.ChNoBacgroundChange(Sender: TObject);
+begin
+   FTimer.BackgroundVisibility;
+end;
+
 procedure TFConfig.ChProgressBarChange(Sender: TObject);
 begin
   if ChProgressBar.Enabled then FTimer.PProgressBar.Visible := ChProgressBar.Checked;
@@ -776,6 +785,13 @@ begin
   FTimer.ResetTimer;
 end;
 
+procedure TFConfig.BRestoreLogoClick(Sender: TObject);
+begin
+  FTimer.ILogo.Picture.Bitmap := FTimer.LogoBitmap;
+  FTimer.LogoRatio := FTimer.LogoBitmap.Width / FTimer.LogoBitmap.Height;
+  FTimer.ResizeLogo;
+end;
+
 procedure TFConfig.BSaveINIClick(Sender: TObject);
 begin
   // Set the values to be saved using SessionProperties of each form.
@@ -873,8 +889,7 @@ procedure TFConfig.SetFormSize;
 begin
   // Adjust the size of the settings window to fit all controls.
   // Additional Settings tab is the largest one.
-  //FConfig.Width := FConfig.LTransparent.Width + FConfig.LTransparent.Width div 3 + FConfig.LTransparent.Width div 5;
-  FConfig.Width:= FConfig.ChWindowsPosition.Width + FConfig.ChWindowsPosition.Left * 3 + FConfig.PTransparent.Left * 3;
+  FConfig.Width:= FConfig.ChWindowsPosition.Width + FConfig.ChWindowsPosition.Left * 3 + FConfig.PTransparent.Left * 3 + 3;
   Fconfig.Height := FConfig.PTabs.Height - FConfig.PTImage.Height + FConfig.PHotKeys.Top + FConfig.PHotKeys.Height;
 end;
 

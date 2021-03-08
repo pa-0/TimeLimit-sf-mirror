@@ -266,6 +266,10 @@ msgstr ""
 msgid "Change logo"
 msgstr ""
 
+#: tfconfig.bchangelogo.hint
+msgid "Browse for a new image"
+msgstr ""
+
 #: tfconfig.bclock.caption
 msgctxt "tfconfig.bclock.caption"
 msgid "Clock mode (HH:MM)"
@@ -293,6 +297,14 @@ msgstr ""
 
 #: tfconfig.brestart.hint
 msgid "Reset the timer"
+msgstr ""
+
+#: tfconfig.brestorelogo.caption
+msgid "Restore"
+msgstr ""
+
+#: tfconfig.brestorelogo.hint
+msgid "Restore built-in logo"
 msgstr ""
 
 #: tfconfig.bsaveini.caption
@@ -374,6 +386,14 @@ msgstr ""
 
 #: tfconfig.chlaunch.hint
 msgid "When the time is over, launches another application."
+msgstr ""
+
+#: tfconfig.chnobacground.caption
+msgid "System colours"
+msgstr ""
+
+#: tfconfig.chnobacground.hint
+msgid "Use system colours"
 msgstr ""
 
 #: tfconfig.chprogressbar.caption

@@ -21,7 +21,7 @@
     <VersionInfo>
       <UseVersionInfo Value="True"/>
       <MinorVersionNr Value="9"/>
-      <RevisionNr Value="4"/>
+      <RevisionNr Value="5"/>
       <Language Value="0809"/>
       <StringTable Comments="A windowed/full-screen countdown timer." FileDescription="A countdown timer." LegalCopyright="Kārlis Kalviškis, GPLv3" LegalTrademarks="Kārlis Kalviškis  &lt;eko@lanet.lv>" OriginalFilename="Time_limit" ProductName="Time limit (Countdown timer)" ProductVersion="0.8"/>
     </VersionInfo>
@@ -95,7 +95,20 @@
       <IncludeFiles Value="$(ProjOutDir)"/>
       <UnitOutputDirectory Value="lib/$(TargetCPU)-$(TargetOS)"/>
     </SearchPaths>
+    <CodeGeneration>
+      <SmartLinkUnit Value="True"/>
+      <Optimizations>
+        <OptimizationLevel Value="3"/>
+      </Optimizations>
+      <SmallerCode Value="True"/>
+    </CodeGeneration>
     <Linking>
+      <Debugging>
+        <GenerateDebugInfo Value="False"/>
+        <UseLineInfoUnit Value="False"/>
+        <StripSymbols Value="True"/>
+      </Debugging>
+      <LinkSmart Value="True"/>
       <Options>
         <Win32>
           <GraphicApplication Value="True"/>
