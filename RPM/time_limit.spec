@@ -2,14 +2,14 @@ Name:           time_limit
 %define projectname Time_limit
 %define breed -no_debug
 %define debug_package %{nil}
-Version:        00.09.03
+Version:        00.09.06
 Release:        K01%{?dist}
 Summary:        A windowed/full-screen countdown timer.
 License:        GPLv3+
 URL:            https://time-limit.sourceforge.io/
 Source0:        https://sourceforge.net/projects/time-limit/files/SRC/%{name}-%{version}-src%{breed}.7z
 Group:     Applications/Presentation
-BuildRequires:  fpc >= 3.0.0, lazarus >= 1.8.0, glib2-devel, gtk2-devel, p7zip, ImageMagick
+BuildRequires:  fpc >= 3.2.2, lazarus >= 2.0.12, glib2-devel, gtk2-devel, p7zip, ImageMagick
 
 %description
 A windowed/full-screen countdown timer.
@@ -78,5 +78,8 @@ rm -rf ${RPM_BUILD_ROOT}
 %{_datadir}/icons
 
 %changelog
+* Mon Dec 20 2021 Karlis Kalviskis <karlo@lu.lv> - 00.09.06 - K01
+- Update to 00.09.06
+
 * Wed Jan 03 2018 Karlis Kalviskis <eko@lanet.lv> - 00.04
 - Initial build.
