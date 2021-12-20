@@ -1,6 +1,6 @@
 (*
- * Version: 00.09.05.
- * Author: Kārlis Kalviškis, 2021.03.03 09:06
+ * Version: 00.09.06.
+ * Author: Kārlis Kalviškis, 2021.12.20
  * License: GPLv3
  *)
 
@@ -889,7 +889,7 @@ procedure TFConfig.SetFormSize;
 begin
   // Adjust the size of the settings window to fit all controls.
   // Additional Settings tab is the largest one.
-  FConfig.Width:= FConfig.ChWindowsPosition.Width + FConfig.ChWindowsPosition.Left * 3 + FConfig.PTransparent.Left * 3 + 3;
+  FConfig.Width:= FConfig.ChWindowsPosition.Width + FConfig.ChWindowsPosition.Left + FConfig.EAlphaBlend.Width;
   Fconfig.Height := FConfig.PTabs.Height - FConfig.PTImage.Height + FConfig.PHotKeys.Top + FConfig.PHotKeys.Height;
 end;
 

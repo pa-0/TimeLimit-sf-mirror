@@ -12,7 +12,7 @@ object FHelp: TFHelp
   OnCreate = FormCreate
   SessionProperties = 'Height;Left;Top;Width;Visible'
   ShowInTaskBar = stNever
-  LCLVersion = '2.0.8.0'
+  LCLVersion = '2.0.12.0'
   object PHelp: TPageControl
     Left = 0
     Height = 290
@@ -24,8 +24,8 @@ object FHelp: TFHelp
     TabOrder = 0
     object PTHotKey: TTabSheet
       Caption = 'Hot Keys'
-      ClientHeight = 255
-      ClientWidth = 353
+      ClientHeight = 259
+      ClientWidth = 349
       object HTMLHotKey: TIpHtmlPanel
         AnchorSideLeft.Control = PTHotKey
         AnchorSideTop.Control = PTHotKey
@@ -34,9 +34,9 @@ object FHelp: TFHelp
         AnchorSideBottom.Control = PTHotKey
         AnchorSideBottom.Side = asrBottom
         Left = 0
-        Height = 255
+        Height = 259
         Top = 0
-        Width = 353
+        Width = 349
         Anchors = [akTop, akLeft, akRight, akBottom]
         FixedTypeface = 'Courier New'
         DefaultTypeFace = 'default'
@@ -56,8 +56,8 @@ object FHelp: TFHelp
     end
     object PTAbout: TTabSheet
       Caption = 'About'
-      ClientHeight = 255
-      ClientWidth = 353
+      ClientHeight = 259
+      ClientWidth = 349
       object HTMLSystem: TIpHtmlPanel
         Left = 0
         Height = 255
@@ -81,8 +81,8 @@ object FHelp: TFHelp
     end
     object PTThanks: TTabSheet
       Caption = 'Acknowledgements'
-      ClientHeight = 255
-      ClientWidth = 353
+      ClientHeight = 259
+      ClientWidth = 349
       object MThanks: TMemo
         Left = 9
         Height = 237

@@ -1,6 +1,10 @@
+00.09.06 - 2021.12.20
+	Progress bar visibility is saved in configuration file.
+	Parameter 'Custom colours/System colours' is saved in configuration file.
+
 00.09.05 - 2021.03.08 15.26
-	Check-box to toggles Custom colours/System colours.
-	Button to reset logo image.
+	Check-box to toggle Custom colours/System colours.
+	Button to reset the logo image.
 
 00.09.04 - 2021.02.04 07.44
 	Check-box to toggles „Always on top” and normal windows modes.

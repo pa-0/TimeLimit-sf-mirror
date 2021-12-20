@@ -1,6 +1,6 @@
 (*
  * Version: 00.09.04.
- * Author: Kārlis Kalviškis, 2021.02.04 07:37
+ * Author: Kārlis Kalviškis, 2021.12.20
  * License: GPLv3
  *)
 
@@ -150,8 +150,8 @@ begin
   MThanks.Append(SpecialThanks);
   MThanks.Append('   * Mike Thompson - mike.cornflake@gmail.com');
   MThanks.Append(LogoSorce);
-  MThanks.Append('   https://openclipart.org/detail/263439/latvia-map-flag-with-stroke-and-coat-of-arms');
-  MThanks.Append('         GDJ, 2016.10.05');
+  MThanks.Append('   https://https://lv.wikipedia.org/wiki/Attēls:Limbazi_gerb.png');
+  MThanks.Append('         Avala, 2008.01.02');
   PHelp.TabIndex := 0;
 end;
 
@@ -175,15 +175,17 @@ end;
 
 function TFHelp.CreateHTMLTable (FirstColumn: TStringArray; SecondColumn : TStringArray;
   ColTag1B: String; ColTag1E: String; ColTag2B: String; ColTag2E: String) : String;
-// Creates 2 column HTML table
+// Creates 2 column HTML table.
 var
   htmlcode, bgcolour : String;
   i : Integer;
 begin
      htmlcode := '<TABLE WIDTH=100% BORDER=0>'
         ;
+   bgcolour := '';
    for i := 0 to Length(FirstColumn) - 1 do
    begin
+      // Different colour for odd and even rows.
       if bgcolour = '' then
          bgcolour := ' BGCOLOR=#FFFFDD'
       else
@@ -212,16 +214,13 @@ Begin
   if IsThereVersionInfo(HINSTANCE) then
      Begin
        FileVerInfo.ReadFileInfo;
-       ColName := ColName.Create(SInfo01, SInfo02, SInfo03, SInfo04, SInfo05, SInfo06);
-        with FileVerInfo.VersionStrings do
-             ColValue := ColValue.Create(
-             Values['ProductName']
-             , Values['OriginalFilename']
-             , Values['FileVersion']
-             , Values['FileDescription']
-             , Values['LegalCopyright']
-             , Values['Comments']
-             );
+       ColName := [SInfo01, SInfo02, SInfo03, SInfo04, SInfo05, SInfo06];
+       ColValue := [FileVerInfo.VersionStrings.Values['ProductName'],
+         FileVerInfo.VersionStrings.Values['OriginalFilename'],
+         FileVerInfo.VersionStrings.Values['FileVersion'],
+         FileVerInfo.VersionStrings.Values['FileDescription'],
+         FileVerInfo.VersionStrings.Values['LegalCopyright'],
+         FileVerInfo.VersionStrings.Values['Comments']];
      end;
   ColLen :=  Length(ColName);
   SetLength(ColName, ColLen + 4);

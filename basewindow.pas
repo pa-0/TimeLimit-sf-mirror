@@ -1,6 +1,6 @@
 (*
- * Version: 00.09.04.
- * Author: Kārlis Kalviškis, 2021.03.03 09:06
+ * Version: 00.09.06.
+ * Author: Kārlis Kalviškis, 2021.12.20
  * License: GPLv3
  *)
 
