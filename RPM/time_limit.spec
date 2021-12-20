@@ -9,7 +9,7 @@ License:        GPLv3+
 URL:            https://time-limit.sourceforge.io/
 Source0:        https://sourceforge.net/projects/time-limit/files/SRC/%{name}-%{version}-src%{breed}.7z
 Group:     Applications/Presentation
-BuildRequires:  fpc >= 3.2.2, lazarus >= 2.0.12, glib2-devel, gtk2-devel, p7zip, ImageMagick
+BuildRequires:  fpc >= 3.2.0, lazarus >= 2.0.8, glib2-devel, gtk2-devel, p7zip, ImageMagick
 
 %description
 A windowed/full-screen countdown timer.
