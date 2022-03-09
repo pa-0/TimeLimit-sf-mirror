@@ -3,16 +3,28 @@
 Version:
 --------
 
-0.9.6
+0.9.7
 
 In short:
 ---------
 
-A windowed / full-screen countdown timer. Colour and font size changes are used as warnings. Progress-bar gives a glance at the time stream.
+A windowed / full-screen countdown timer.
+Colour and font size changes are used as warnings.
+Progress-bar gives a glance at the time stream.
+A logo can be added.
+The logo can be used as a background as well.
 
-Useful for time-tracking  of your speech, lecture or presentation.
+Three different modes are available:
 
-Colour / font / time limits can be changed using settings window and hot-keys. It's possible to save and restore several configurations. The input configuration file may be specified from command-line.
+- time left;
+- time passed;
+- ordinary clock.
+
+Useful for time tracking  of your speech, lecture or presentation.
+
+Colour / font / time limits can be changed using settings window and hot-keys.
+It's possible to save and restore several configurations.
+The input configuration file may be specified from command-line.
 
 Available hot-keys:
 -------------------

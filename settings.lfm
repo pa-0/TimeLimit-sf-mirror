@@ -11,7 +11,7 @@ object FConfig: TFConfig
   OnActivate = FormActivate
   OnClose = FormClose
   OnCreate = FormCreate
-  SessionProperties = 'BChangeFont.Font;CCloseMe.Checked;ChDontCloseTimer.Checked;ChIncreasingFontSize.Checked;ChShowLogo.Checked;ChTransparent.Checked;ChWindowsBorders.Checked;EAlphaBlend.Value;EChangeEditSize.Value;EEndNote.Text;EIncreasingFontSize.Value;ELogoPlHorizontal.Value;ELogoPlVertical.Value;ELogoProportion.Value;EMinLogoHeight.Value;EMinutes.Value;EWarning1.Value;EWarning2.Value;EWarning3.Value;FontDialog1.Font;Left;OpenPictureDialog.FileName;RGrLogoPlacement.ItemIndex;SBHalf.ButtonColor;SBMain.ButtonColor;SBWarning1.ButtonColor;SBWarning2.ButtonColor;SBWarning3.ButtonColor;SLogoPlHorizontal.Value;SLogoPlVertical.Value;STHalf.ButtonColor;STMain.ButtonColor;STWarning1.ButtonColor;STWarning2.ButtonColor;STWarning3.ButtonColor;Top;Visible;ChNoBacground.Checked'
+  SessionProperties = 'BChangeFont.Font;CCloseMe.Checked;ChDontCloseTimer.Checked;ChIncreasingFontSize.Checked;ChNoBacground.Checked;ChShowLogo.Checked;ChTransparent.Checked;ChWindowsBorders.Checked;EAlphaBlend.Value;EChangeEditSize.Value;EEndNote.Text;EIncreasingFontSize.Value;ELogoPlHorizontal.Value;ELogoPlVertical.Value;ELogoProportion.Value;EMinLogoHeight.Value;EMinutes.Value;EWarning1.Value;EWarning2.Value;EWarning3.Value;FontDialog1.Font;Left;OpenPictureDialog.FileName;RGrLogoPlacement.ItemIndex;SBHalf.ButtonColor;SBMain.ButtonColor;SBWarning1.ButtonColor;SBWarning2.ButtonColor;SBWarning3.ButtonColor;SLogoPlHorizontal.Value;SLogoPlVertical.Value;STHalf.ButtonColor;STMain.ButtonColor;STWarning1.ButtonColor;STWarning2.ButtonColor;STWarning3.ButtonColor;Top;Visible;ChStretchLogo.Checked'
   ShowHint = True
   ShowInTaskBar = stNever
   LCLVersion = '2.0.12.0'
@@ -437,7 +437,7 @@ object FConfig: TFConfig
         AnchorSideBottom.Control = BHotKeys
         Left = 0
         Height = 173
-        Top = 160
+        Top = 165
         Width = 336
         Anchors = [akTop, akLeft, akRight]
         AutoSize = True
@@ -468,7 +468,7 @@ object FConfig: TFConfig
           Left = 62
           Height = 17
           Top = 51
-          Width = 212
+          Width = 213
           Alignment = taCenter
           BorderSpacing.Top = 6
           BorderSpacing.Bottom = 6
@@ -483,9 +483,9 @@ object FConfig: TFConfig
           AnchorSideRight.Control = PTransparent
           AnchorSideRight.Side = asrBottom
           Left = 275
-          Height = 29
+          Height = 34
           Hint = '255 means non-transparent'
-          Top = 19
+          Top = 16
           Width = 60
           Anchors = [akTop, akRight]
           BorderSpacing.Left = 9
@@ -518,7 +518,7 @@ object FConfig: TFConfig
           Left = 1
           Height = 23
           Top = 120
-          Width = 95
+          Width = 96
           Caption = 'Full screen'
           Enabled = False
           OnChange = ChFullScreenChange
@@ -528,10 +528,10 @@ object FConfig: TFConfig
           AnchorSideLeft.Control = PTransparent
           AnchorSideLeft.Side = asrCenter
           AnchorSideTop.Control = PTransparent
-          Left = 103
+          Left = 101
           Height = 17
           Top = 1
-          Width = 131
+          Width = 135
           Caption = 'The timer window'
           Font.Style = [fsBold, fsUnderline]
           ParentColor = False
@@ -572,22 +572,22 @@ object FConfig: TFConfig
         AnchorSideRight.Control = PTImage
         AnchorSideRight.Side = asrBottom
         Left = 0
-        Height = 160
+        Height = 165
         Top = 0
         Width = 336
         Anchors = [akTop, akLeft, akRight]
         AutoSize = True
-        ClientHeight = 160
+        ClientHeight = 165
         ClientWidth = 336
         TabOrder = 0
         object LLogoHeight: TLabel
           AnchorSideTop.Control = EMinLogoHeight
           AnchorSideTop.Side = asrCenter
           AnchorSideRight.Control = EMinLogoHeight
-          Left = 137
+          Left = 136
           Height = 17
-          Top = 136
-          Width = 129
+          Top = 139
+          Width = 130
           Anchors = [akTop, akRight]
           BorderSpacing.Top = 12
           BorderSpacing.Right = 9
@@ -601,7 +601,7 @@ object FConfig: TFConfig
           AnchorSideRight.Control = PLogo
           AnchorSideRight.Side = asrBottom
           Left = 275
-          Height = 29
+          Height = 34
           Hint = 'The minimal height (in pixels) of the logo.  If the resized logo is lower, it is not shown.'
           Top = 130
           Width = 60
@@ -639,10 +639,10 @@ object FConfig: TFConfig
           AnchorSideRight.Control = PLogo
           AnchorSideRight.Side = asrBottom
           Left = 105
-          Height = 31
+          Height = 33
           Hint = 'Browse for a new image'
-          Top = 20
-          Width = 95
+          Top = 19
+          Width = 97
           AutoSize = True
           BorderSpacing.Left = 11
           Caption = 'Change logo'
@@ -672,9 +672,9 @@ object FConfig: TFConfig
           AnchorSideBottom.Control = RGrLogoPlacement
           AnchorSideBottom.Side = asrBottom
           Left = 275
-          Height = 29
+          Height = 34
           Hint = 'The proportional size of the logo.'
-          Top = 98
+          Top = 93
           Width = 60
           Anchors = [akRight, akBottom]
           DecimalPlaces = 1
@@ -692,7 +692,7 @@ object FConfig: TFConfig
           AnchorSideLeft.Side = asrBottom
           AnchorSideTop.Control = RGrLogoPlacement
           Left = 102
-          Height = 29
+          Height = 34
           Hint = 'Horizontal spacing'
           Top = 56
           Width = 57
@@ -709,7 +709,7 @@ object FConfig: TFConfig
           AnchorSideTop.Control = ELogoPlHorizontal
           AnchorSideTop.Side = asrCenter
           Left = 168
-          Height = 29
+          Height = 34
           Hint = 'Vertical spacing'
           Top = 56
           Width = 57
@@ -728,7 +728,7 @@ object FConfig: TFConfig
           Left = 225
           Height = 17
           Hint = 'The border spacing (top or bottom)'
-          Top = 62
+          Top = 65
           Width = 11
           Caption = '↕'
           ParentColor = False
@@ -741,7 +741,7 @@ object FConfig: TFConfig
           Left = 125
           Height = 17
           Hint = 'The border spacing (left or right)'
-          Top = 85
+          Top = 90
           Width = 11
           Caption = '↔'
           ParentColor = False
@@ -789,10 +789,10 @@ object FConfig: TFConfig
           AnchorSideLeft.Control = PLogo
           AnchorSideLeft.Side = asrCenter
           AnchorSideTop.Control = PLogo
-          Left = 151
+          Left = 150
           Height = 17
           Top = 1
-          Width = 35
+          Width = 36
           Caption = 'Logo'
           Font.Style = [fsBold, fsUnderline]
           ParentColor = False
@@ -803,17 +803,30 @@ object FConfig: TFConfig
           AnchorSideTop.Side = asrCenter
           AnchorSideRight.Control = PLogo
           AnchorSideRight.Side = asrBottom
-          Left = 270
-          Height = 31
+          Left = 267
+          Height = 33
           Hint = 'Restore built-in logo'
-          Top = 20
-          Width = 63
+          Top = 19
+          Width = 66
           Anchors = [akTop, akRight]
           AutoSize = True
           BorderSpacing.Right = 2
           Caption = 'Restore'
           OnClick = BRestoreLogoClick
           TabOrder = 2
+        end
+        object ChStretchLogo: TCheckBox
+          AnchorSideLeft.Control = PLogo
+          AnchorSideTop.Control = EMinLogoHeight
+          AnchorSideTop.Side = asrCenter
+          Left = 1
+          Height = 23
+          Hint = ' Stretched the logo to the size of the timer''s window.'
+          Top = 136
+          Width = 104
+          Caption = 'Stretch logo'
+          OnChange = ChStretchLogoChange
+          TabOrder = 8
         end
       end
       object PEndNote: TPanel
@@ -823,12 +836,12 @@ object FConfig: TFConfig
         AnchorSideRight.Control = PTImage
         AnchorSideRight.Side = asrBottom
         Left = 0
-        Height = 159
-        Top = 333
+        Height = 169
+        Top = 338
         Width = 336
         Anchors = [akTop, akLeft, akRight]
         AutoSize = True
-        ClientHeight = 159
+        ClientHeight = 169
         ClientWidth = 336
         TabOrder = 2
         object LEndNote: TLabel
@@ -850,7 +863,7 @@ object FConfig: TFConfig
           AnchorSideRight.Control = PEndNote
           AnchorSideRight.Side = asrBottom
           Left = 1
-          Height = 29
+          Height = 34
           Top = 65
           Width = 334
           Anchors = [akTop, akLeft, akRight]
@@ -866,9 +879,9 @@ object FConfig: TFConfig
           AnchorSideRight.Control = PEndNote
           AnchorSideRight.Side = asrBottom
           Left = 1
-          Height = 29
+          Height = 34
           Hint = 'Command to execute at the end of the time.'
-          Top = 123
+          Top = 128
           Width = 334
           FilterIndex = 0
           HideDirectories = False
@@ -890,7 +903,7 @@ object FConfig: TFConfig
           Left = 73
           Height = 23
           Hint = 'When the time is over, closes the count-down timer.'
-          Top = 100
+          Top = 105
           Width = 51
           Caption = 'Exit'
           TabOrder = 4
@@ -902,7 +915,7 @@ object FConfig: TFConfig
           Left = 1
           Height = 23
           Hint = 'When the time is over, launches another application.'
-          Top = 100
+          Top = 105
           Width = 72
           Caption = 'Launch'
           Enabled = False
@@ -927,9 +940,9 @@ object FConfig: TFConfig
           AnchorSideRight.Control = PEndNote
           AnchorSideRight.Side = asrBottom
           Left = 275
-          Height = 29
+          Height = 34
           Hint = 'Starting size (%)'
-          Top = 16
+          Top = 13
           Width = 60
           Anchors = [akTop, akRight]
           Increment = 5
@@ -943,10 +956,10 @@ object FConfig: TFConfig
           AnchorSideLeft.Control = PEndNote
           AnchorSideLeft.Side = asrCenter
           AnchorSideTop.Control = PEndNote
-          Left = 95
+          Left = 93
           Height = 17
           Top = 1
-          Width = 146
+          Width = 151
           Caption = 'The timer operation'
           Font.Style = [fsBold, fsUnderline]
           ParentColor = False
@@ -960,12 +973,12 @@ object FConfig: TFConfig
         AnchorSideRight.Control = PTImage
         AnchorSideRight.Side = asrBottom
         Left = 0
-        Height = 33
-        Top = 492
+        Height = 35
+        Top = 507
         Width = 336
         Anchors = [akTop, akLeft, akRight]
         AutoSize = True
-        ClientHeight = 33
+        ClientHeight = 35
         ClientWidth = 336
         TabOrder = 3
         object BHotKeys: TButton
@@ -976,7 +989,7 @@ object FConfig: TFConfig
           AnchorSideBottom.Control = PHotKeys
           AnchorSideBottom.Side = asrBottom
           Left = 1
-          Height = 31
+          Height = 33
           Top = 1
           Width = 334
           Anchors = [akLeft, akRight, akBottom]
@@ -1188,7 +1201,7 @@ object FConfig: TFConfig
         Width = 336
         Anchors = [akTop, akLeft, akRight]
         AutoSize = True
-        ClientHeight = 37
+        ClientHeight = 21
         ClientWidth = 334
         TabOrder = 8
         OnResize = GrConsoleResize

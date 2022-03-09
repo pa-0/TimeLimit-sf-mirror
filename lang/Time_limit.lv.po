@@ -5,7 +5,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2018-02-08 22:10+0300\n"
-"PO-Revision-Date: 2021-03-07 22:50+0200\n"
+"PO-Revision-Date: 2022-03-09 02:24+0200\n"
 "Last-Translator: Kārlis Kalviškis <karlo@lu.lv>\n"
 "Language-Team: karlo\n"
 "Language: lv\n"
@@ -13,7 +13,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n != 0 ? 1 : 2);\n"
-"X-Generator: Poedit 2.2.1\n"
+"X-Generator: Poedit 3.0.1\n"
 
 #: help.binfo01
 msgid "Built for"
@@ -418,6 +418,14 @@ msgstr "Rādīt laika ritējumu"
 #: tfconfig.chshowlogo.caption
 msgid "Show logo"
 msgstr "Rādīt logo"
+
+#: tfconfig.chstretchlogo.caption
+msgid "Stretch logo"
+msgstr "Izplest logo"
+
+#: tfconfig.chstretchlogo.hint
+msgid " Stretched the logo to the size of the timer's window."
+msgstr "Izpleš logo pa visu laika atskaites logu."
 
 #: tfconfig.chtransparent.caption
 msgid "Opacity"

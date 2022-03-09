@@ -1,7 +1,8 @@
 (*
- * Version: 00.09.05.
- * Author: Kārlis Kalviškis, 2021.03.03 09:06
+ * Version: 00.09.07.
+ * Author: Kārlis Kalviškis, 2022.03.09
  * License: GPLv3
+ * Слава Україні!
  *)
 program TimeLimit;
 

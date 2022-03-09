@@ -1,6 +1,6 @@
 (*
- * Version: 00.09.06.
- * Author: Kārlis Kalviškis, 2021.12.20
+ * Version: 00.09.07.
+ * Author: Kārlis Kalviškis, 2022.03.09
  * License: GPLv3
  *)
 
@@ -43,6 +43,7 @@ type
     BRestoreLogo: TButton;
     CCloseMe: TCheckBox;
     ChDontCloseTimer: TCheckBox;
+    ChStretchLogo: TCheckBox;
     ChNoBacground: TCheckBox;
     ChLaunch: TCheckBox;
     ChExit: TCheckBox;
@@ -137,6 +138,7 @@ type
    procedure ChNoBacgroundChange(Sender: TObject);
    procedure ChProgressBarChange(Sender: TObject);
    procedure ChShowLogoChange(Sender: TObject);
+   procedure ChStretchLogoChange(Sender: TObject);
    procedure ChTransparentChange(Sender: TObject);
    procedure ChWindowsBordersChange(Sender: TObject);
    procedure ChWindowsPositionChange(Sender: TObject);
@@ -313,6 +315,7 @@ end;
 
 procedure TFConfig.RGrLogoPlacementSelectionChanged(Sender: TObject);
 begin
+  if RGrLogoPlacement.ItemIndex <> 4 then ChStretchLogo.Checked := false;
   case RGrLogoPlacement.ItemIndex of
        0: Begin
              FTimer.ILogo.Anchors := [akTop,akLeft];
@@ -389,8 +392,13 @@ end;
 
 procedure TFConfig.ELogoPlHorizontalChange(Sender: TObject);
 begin
-  FTimer.ILogo.BorderSpacing.Left:=ELogoPlHorizontal.Value;
-  FTimer.ILogo.BorderSpacing.Right:=ELogoPlHorizontal.Value;
+  if ChStretchLogo.Checked then begin
+    FTimer.ResizeLogo;
+  end
+  else begin
+    FTimer.ILogo.BorderSpacing.Left:=ELogoPlHorizontal.Value;
+    FTimer.ILogo.BorderSpacing.Right:=ELogoPlHorizontal.Value;
+  end;
 end;
 
 procedure TFConfig.ELogoPlHorizontalEnter(Sender: TObject);
@@ -405,8 +413,13 @@ end;
 
 procedure TFConfig.ELogoPlVerticalChange(Sender: TObject);
 begin
-  FTimer.ILogo.BorderSpacing.Top:=ELogoPlVertical.Value;
-  FTimer.LogoBottom;
+  if ChStretchLogo.Checked then begin
+    FTimer.ResizeLogo;
+  end
+  else begin
+    FTimer.ILogo.BorderSpacing.Top:=ELogoPlVertical.Value;
+    FTimer.LogoBottom;
+  end;
 end;
 
 procedure TFConfig.ELogoPlVerticalEnter(Sender: TObject);
@@ -474,6 +487,14 @@ end;
 procedure TFConfig.ChShowLogoChange(Sender: TObject);
 begin
   FTimer.CheckLogoVisibility;
+end;
+
+procedure TFConfig.ChStretchLogoChange(Sender: TObject);
+begin
+  if  ChStretchLogo.Checked then begin
+      RGrLogoPlacement.ItemIndex :=   4;
+  end;
+  FTimer.ResizeLogo;
 end;
 
 procedure TFConfig.ChTransparentChange(Sender: TObject);

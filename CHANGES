@@ -1,3 +1,7 @@
+00.09.07
+	The logo is placed behind the numbers.
+	The logo can be stretched to the size of the timer's window.
+
 00.09.06 - 2021.12.20
 	Progress bar visibility is saved in configuration file.
 	Parameter 'Custom colours/System colours' is saved in configuration file.
