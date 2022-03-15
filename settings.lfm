@@ -1,7 +1,7 @@
 object FConfig: TFConfig
-  Left = 532
+  Left = 963
   Height = 687
-  Top = 366
+  Top = 143
   Width = 346
   BorderStyle = bsDialog
   Caption = 'Settings'
@@ -809,6 +809,7 @@ object FConfig: TFConfig
           AnchorSideTop.Side = asrCenter
           Left = 1
           Height = 23
+          Hint = 'Stretched the logo to the size of the timer''s window.'
           Top = 136
           Width = 104
           Caption = 'Stretch logo'
