@@ -2,7 +2,7 @@ Name:           time_limit
 %define projectname Time_limit
 %define breed -no_debug
 %define debug_package %{nil}
-Version:        00.09.06
+Version:        00.09.08
 Release:        K01%{?dist}
 Summary:        A windowed/full-screen countdown timer.
 License:        GPLv3+

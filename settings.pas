@@ -315,7 +315,7 @@ end;
 
 procedure TFConfig.RGrLogoPlacementSelectionChanged(Sender: TObject);
 begin
-  if RGrLogoPlacement.ItemIndex <> 4 then ChStretchLogo.Checked := false;
+  if RGrLogoPlacement.ItemIndex <> 1 then ChStretchLogo.Checked := false;
   case RGrLogoPlacement.ItemIndex of
        0: Begin
              FTimer.ILogo.Anchors := [akTop,akLeft];
@@ -413,13 +413,10 @@ end;
 
 procedure TFConfig.ELogoPlVerticalChange(Sender: TObject);
 begin
-  if ChStretchLogo.Checked then begin
+  FTimer.ILogo.BorderSpacing.Top:=ELogoPlVertical.Value;
+  FTimer.LogoBottom;
+  if ChStretchLogo.Checked then
     FTimer.ResizeLogo;
-  end
-  else begin
-    FTimer.ILogo.BorderSpacing.Top:=ELogoPlVertical.Value;
-    FTimer.LogoBottom;
-  end;
 end;
 
 procedure TFConfig.ELogoPlVerticalEnter(Sender: TObject);
@@ -482,6 +479,7 @@ procedure TFConfig.ChProgressBarChange(Sender: TObject);
 begin
   if ChProgressBar.Enabled then FTimer.PProgressBar.Visible := ChProgressBar.Checked;
   Ftimer.LogoBottom;
+  FTimer.ResizeLogo;
 end;
 
 procedure TFConfig.ChShowLogoChange(Sender: TObject);
@@ -492,7 +490,7 @@ end;
 procedure TFConfig.ChStretchLogoChange(Sender: TObject);
 begin
   if  ChStretchLogo.Checked then begin
-      RGrLogoPlacement.ItemIndex :=   4;
+      RGrLogoPlacement.ItemIndex :=   1;
   end;
   FTimer.ResizeLogo;
 end;

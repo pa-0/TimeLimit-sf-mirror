@@ -44,7 +44,6 @@
 {"hash":341471,"name":"tfconfig.llogosection.caption","sourcebytes":[76,111,103,111],"value":"Logo"},
 {"hash":219012943,"name":"tfconfig.brestorelogo.hint","sourcebytes":[82,101,115,116,111,114,101,32,98,117,105,108,116,45,105,110,32,108,111,103,111],"value":"Restore built-in logo"},
 {"hash":147502805,"name":"tfconfig.brestorelogo.caption","sourcebytes":[82,101,115,116,111,114,101],"value":"Restore"},
-{"hash":243402702,"name":"tfconfig.chstretchlogo.hint","sourcebytes":[32,83,116,114,101,116,99,104,101,100,32,116,104,101,32,108,111,103,111,32,116,111,32,116,104,101,32,115,105,122,101,32,111,102,32,116,104,101,32,116,105,109,101,114,39,115,32,119,105,110,100,111,119,46],"value":" Stretched the logo to the size of the timer's window."},
 {"hash":202291583,"name":"tfconfig.chstretchlogo.caption","sourcebytes":[83,116,114,101,116,99,104,32,108,111,103,111],"value":"Stretch logo"},
 {"hash":141079754,"name":"tfconfig.lendnote.caption","sourcebytes":[84,104,101,32,69,110,100,32,109,101,115,115,97,103,101,58],"value":"The End message:"},
 {"hash":134149602,"name":"tfconfig.eendnote.text","sourcebytes":[84,104,101,32,116,105,109,101,32,105,115,32,111,118,101,114],"value":"The time is over"},

@@ -1,7 +1,7 @@
 object FHelp: TFHelp
-  Left = 672
+  Left = 165
   Height = 290
-  Top = 410
+  Top = 383
   Width = 359
   Caption = 'Help'
   ClientHeight = 290
@@ -12,7 +12,7 @@ object FHelp: TFHelp
   OnCreate = FormCreate
   SessionProperties = 'Height;Left;Top;Width;Visible'
   ShowInTaskBar = stNever
-  LCLVersion = '2.0.12.0'
+  LCLVersion = '2.2.0.4'
   object PHelp: TPageControl
     Left = 0
     Height = 290
@@ -60,9 +60,9 @@ object FHelp: TFHelp
       ClientWidth = 349
       object HTMLSystem: TIpHtmlPanel
         Left = 0
-        Height = 255
+        Height = 259
         Top = 0
-        Width = 353
+        Width = 349
         Align = alClient
         FixedTypeface = 'Courier New'
         DefaultTypeFace = 'default'
@@ -85,9 +85,9 @@ object FHelp: TFHelp
       ClientWidth = 349
       object MThanks: TMemo
         Left = 9
-        Height = 237
+        Height = 241
         Top = 9
-        Width = 335
+        Width = 331
         Align = alClient
         BorderSpacing.Around = 9
         BorderStyle = bsNone

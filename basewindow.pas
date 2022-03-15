@@ -1,5 +1,5 @@
 (*
- * Version: 00.09.07.
+ * Version: 00.09.08.
  * Author: Kārlis Kalviškis, 2022.03.09
  * License: GPLv3
  *)
@@ -425,8 +425,11 @@ end;
 procedure TFTimer.ResizeLogo;
 begin
   if FConfig.ChStretchLogo.Checked then begin
-     ILogo.Height :=  FTimer.Height - 2 * FConfig.ELogoPlHorizontal.Value;
-     ILogo.Width :=   FTimer.Width - 2 * FConfig.ELogoPlVertical.Value;
+    if PProgressBar.Visible then
+       ILogo.Height :=  FTimer.Height - PProgressBar.Height - 2 * FConfig.ELogoPlVertical.Value
+    else
+        ILogo.Height :=  FTimer.Height - 2 * FConfig.ELogoPlVertical.Value;
+     ILogo.Width :=   FTimer.Width - 2 * FConfig.ELogoPlHorizontal.Value;
   end
   else begin
     ILogo.Height := round (PProgressBar.Height * FConfig.ELogoProportion.Value);

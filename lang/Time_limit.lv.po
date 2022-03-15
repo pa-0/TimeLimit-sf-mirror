@@ -5,7 +5,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2018-02-08 22:10+0300\n"
-"PO-Revision-Date: 2022-03-09 02:24+0200\n"
+"PO-Revision-Date: 2021-03-07 22:50+0200\n"
 "Last-Translator: Kārlis Kalviškis <karlo@lu.lv>\n"
 "Language-Team: karlo\n"
 "Language: lv\n"
@@ -13,7 +13,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n != 0 ? 1 : 2);\n"
-"X-Generator: Poedit 3.0.1\n"
+"X-Generator: Poedit 2.2.1\n"
 
 #: help.binfo01
 msgid "Built for"
@@ -184,10 +184,12 @@ msgid "Special thanks to:"
 msgstr "Savu laiku šai lietotnei ir atvēlējuši:"
 
 #: help.thankstodevelopers
+#, object-pascal-format
 msgid "The application “%0:s” is developed using “%1:s” IDE RAD."
 msgstr "Lietotne „%0:s” ir izveidota „%1:s” izstrādes vidē."
 
 #: help.thankstoforum
+#, object-pascal-format
 msgid "A good starting point was “%0:s” forum and wiki pages."
 msgstr "Labs atspēriena punkts bija „%0:s” forums un wiki lapas."
 
@@ -220,6 +222,7 @@ msgid "Configuration files|*.ini|All files|*.*"
 msgstr "Iestatījumu datnes|*.ini|Visas datnes|*.*"
 
 #: settings.rstrfileexists
+#, object-pascal-format
 msgid "The file “%0:s” exists!"
 msgstr "Fails „%0:s” jau ir!"
 
@@ -228,6 +231,7 @@ msgid "Hide"
 msgstr "Paslēpt"
 
 #: settings.rstriconfilemissing
+#, object-pascal-format
 msgid "The logo file “%0:s” is missing!"
 msgstr "Attēls „%0:s” nav atrodams!"
 
@@ -236,7 +240,6 @@ msgid "Clock is invisible"
 msgstr "Pulkstenis nav redzams"
 
 #: settings.rstrminuteshint
-#| msgid "Minutes left"
 msgctxt "settings.rstrminuteshint"
 msgid "Minutes left. Use [Enter] to apply changes."
 msgstr "Minūtes līdz beigām. Lieto [Ievad]-taustiņu, lai pielietotu izmaiņas uzreiz."
@@ -254,6 +257,7 @@ msgid "the timer"
 msgstr "laika atskaites"
 
 #: settings.rstrwindow
+#, object-pascal-format
 msgid "%0:s %1:s window"
 msgstr "%0:s %1:s logu"
 
@@ -421,11 +425,7 @@ msgstr "Rādīt logo"
 
 #: tfconfig.chstretchlogo.caption
 msgid "Stretch logo"
-msgstr "Izplest logo"
-
-#: tfconfig.chstretchlogo.hint
-msgid " Stretched the logo to the size of the timer's window."
-msgstr "Izpleš logo pa visu laika atskaites logu."
+msgstr ""
 
 #: tfconfig.chtransparent.caption
 msgid "Opacity"
@@ -479,7 +479,6 @@ msgid "The minimal height (in pixels) of the logo.  If the resized logo is lower
 msgstr "Mazākais pieļaujamais logo augstums pikseļos. Ja samazinātais logo ir mazāks, tas netiek rādīts."
 
 #: tfconfig.eminutes.hint
-#| msgid "Time for Presenter"
 msgid "Time for Presenter. Use [Enter] to apply changes and reset timer."
 msgstr "Atvēlētais laiks. Lieto [Ievad]-taustiņu, lai pielietotu izmaiņas un palaistu laika atskaiti."
 
@@ -587,7 +586,6 @@ msgid "Open the configuration file"
 msgstr "Atvērt iestatījumu datni"
 
 #: tfconfig.openpicturedialog.title
-#| msgid "Open a image as the logo"
 msgid "Open an image as the logo"
 msgstr "Atver attēlu, kurā ir logo"
 
@@ -647,7 +645,6 @@ msgid "00"
 msgstr "00"
 
 #: timelimit.rstclock
-#| msgid "Start as ordinary digital clock."
 msgid "Start as an ordinary digital clock."
 msgstr "Sākot rādīt parastu pulksteni."
 
@@ -676,7 +673,6 @@ msgid "Read the specified configuration file."
 msgstr "Ielasa uzrādīto iestatījumu datni."
 
 #: timelimit.rstrun
-#| msgid "At the end of countdown launches another programm."
 msgid "At the end of countdown launches another program."
 msgstr "Kad laiks iztecējis, palaist citu programmu."
 
@@ -687,3 +683,4 @@ msgstr "Palaižot programmu, sākt laika atskaiti."
 #: timelimit.rstusage
 msgid "Usage"
 msgstr "Lietošana"
+

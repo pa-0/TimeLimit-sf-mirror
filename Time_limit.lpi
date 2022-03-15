@@ -1,10 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <CONFIG>
   <ProjectOptions>
-    <Version Value="11"/>
+    <Version Value="12"/>
     <General>
+      <Flags>
+        <CompatibilityMode Value="True"/>
+      </Flags>
       <SessionStorage Value="InProjectDir"/>
-      <MainUnit Value="0"/>
       <Title Value="Time limit (Countdown timer)"/>
       <ResourceType Value="res"/>
       <UseXPManifest Value="True"/>
@@ -21,7 +23,7 @@
     <VersionInfo>
       <UseVersionInfo Value="True"/>
       <MinorVersionNr Value="9"/>
-      <RevisionNr Value="7"/>
+      <RevisionNr Value="8"/>
       <Language Value="0809"/>
       <StringTable Comments="A windowed/full-screen countdown timer." FileDescription="A countdown timer." LegalCopyright="Kārlis Kalviškis, GPLv3" LegalTrademarks="Kārlis Kalviškis  &lt;eko@lanet.lv>" OriginalFilename="Time_limit" ProductName="Time limit (Countdown timer)" ProductVersion="Слава Україні!"/>
     </VersionInfo>

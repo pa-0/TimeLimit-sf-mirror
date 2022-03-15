@@ -408,10 +408,6 @@ msgstr ""
 msgid "Stretch logo"
 msgstr ""
 
-#: tfconfig.chstretchlogo.hint
-msgid " Stretched the logo to the size of the timer's window."
-msgstr ""
-
 #: tfconfig.chtransparent.caption
 msgid "Opacity"
 msgstr ""

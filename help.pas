@@ -1,6 +1,6 @@
 (*
- * Version: 00.09.04.
- * Author: Kārlis Kalviškis, 2021.12.20
+ * Version: 00.09.08.
+ * Author: Kārlis Kalviškis, 20221.03.09
  * License: GPLv3
  *)
 
@@ -150,8 +150,8 @@ begin
   MThanks.Append(SpecialThanks);
   MThanks.Append('   * Mike Thompson - mike.cornflake@gmail.com');
   MThanks.Append(LogoSorce);
-  MThanks.Append('   https://https://lv.wikipedia.org/wiki/Attēls:Limbazi_gerb.png');
-  MThanks.Append('         Avala, 2008.01.02');
+  MThanks.Append('   -');
+  MThanks.Append('         -');
   PHelp.TabIndex := 0;
 end;
 
