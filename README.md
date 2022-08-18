@@ -70,19 +70,19 @@ Parameter | Purpose
 Availability:
 -------------
 
- * License:<BR>
-   GPLv3
+ * License:
+   - GPLv3
 
- * Programming Language:<BR>
-   Lazarus, Free Pascal
+ * Programming Language:
+   - Lazarus, Free Pascal
 
 ### Pre-compiled files
 
- * Sourceforge:<BR>
-   https://sourceforge.net/projects/time-limit/
+ * Sourceforge:
+   - https://sourceforge.net/projects/time-limit/
 
- * Fedora Copr:<br>
-   https://copr.fedorainfracloud.org/coprs/zirneklitis/Utilities/package/time_limit/
-   ``dnf copr enable zirneklitis/Utilities``
+ * Fedora Copr:
+   - https://copr.fedorainfracloud.org/coprs/zirneklitis/Utilities/package/time_limit/
+   - ``dnf copr enable zirneklitis/Utilities``
 
 
