@@ -5,7 +5,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2018-02-08 22:10+0300\n"
-"PO-Revision-Date: 2022-03-15 06:58+0200\n"
+"PO-Revision-Date: 2022-08-18 10:19+0300\n"
 "Last-Translator: Kārlis Kalviškis <karlo@lu.lv>\n"
 "Language-Team: karlo\n"
 "Language: lv\n"
@@ -13,7 +13,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n != 0 ? 1 : 2);\n"
-"X-Generator: Poedit 3.0.1\n"
+"X-Generator: Poedit 3.1.1\n"
 
 #: help.binfo01
 msgid "Built for"
@@ -396,8 +396,8 @@ msgid "Increasing font size"
 msgstr "Pieaugošs izmērs"
 
 #: tfconfig.chincreasingfontsize.hint
-msgid "The decrease of time makes the size of numbers bigger"
-msgstr "Samazinoties atlikušajam laikam, palielinās ciparu izmēri"
+msgid "The decrease of time makes the size of numbers bigger."
+msgstr "Samazinoties atlikušajam laikam, palielinās ciparu izmēri."
 
 #: tfconfig.chlaunch.caption
 msgid "Launch"
@@ -406,6 +406,14 @@ msgstr "Palaist"
 #: tfconfig.chlaunch.hint
 msgid "When the time is over, launches another application."
 msgstr "Kad beidzas atvēlētais laiks, palaiž citu programmu."
+
+#: tfconfig.chminustiming.caption
+msgid "Exceeded time"
+msgstr "Pārtērētais laiks"
+
+#: tfconfig.chminustiming.hint
+msgid "When the time is over, timer shows the exceeded time."
+msgstr "Kad pārsniegts atvēlētais laiks, laika skaitīšana turpinās."
 
 #: tfconfig.chnobacground.caption
 msgid "System colours"
@@ -455,7 +463,12 @@ msgstr "Par cik pikseļiem palielināt"
 msgid "Command to execute at the end of the time."
 msgstr "Komanda, kas jāizpilda, kad beidzas atvēlētais laiks."
 
+#: tfconfig.eendnote.hint
+msgid "The message to appear when the time limit is exceeded."
+msgstr "Paziņojums, kuru parāda, kad pārsniegts atvēlētais laiks."
+
 #: tfconfig.eendnote.text
+msgctxt "tfconfig.eendnote.text"
 msgid "The time is over"
 msgstr "Atvēlētais laiks beidzies"
 
@@ -647,6 +660,16 @@ msgstr "42"
 msgctxt "tftimer.lclocks.caption"
 msgid "00"
 msgstr "00"
+
+#: tftimer.lmessage.caption
+msgctxt "tftimer.lmessage.caption"
+msgid "The time is over"
+msgstr "Atvēlētais laiks beidzies"
+
+#: tftimer.ltimeover.caption
+msgctxt "tftimer.ltimeover.caption"
+msgid "The time is over"
+msgstr "Atvēlētais laiks beidzies"
 
 #: timelimit.rstclock
 msgid "Start as an ordinary digital clock."

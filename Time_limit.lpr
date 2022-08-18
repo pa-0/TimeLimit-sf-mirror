@@ -1,6 +1,6 @@
 (*
- * Version: 00.09.07.
- * Author: Kārlis Kalviškis, 2022.03.09
+ * Version: 00.09.09.
+ * Author: Kārlis Kalviškis, 2022.08.18
  * License: GPLv3
  * Слава Україні!
  *)

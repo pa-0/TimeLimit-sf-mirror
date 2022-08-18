@@ -3,6 +3,7 @@ object FTimer: TFTimer
   Height = 242
   Top = 141
   Width = 494
+  ActiveControl = PProgressBar
   AlphaBlendValue = 125
   Anchors = []
   Caption = 'Countdown Timer'
@@ -21,6 +22,22 @@ object FTimer: TFTimer
   OnShow = FormShow
   SessionProperties = 'Height;ILogo.Anchors;Left;Top;Width;WindowState;PProgressBar.Visible'
   LCLVersion = '2.2.0.4'
+  object LTimeOver: TLabel
+    AnchorSideLeft.Control = Owner
+    AnchorSideTop.Control = Owner
+    AnchorSideRight.Control = Owner
+    AnchorSideRight.Side = asrBottom
+    AnchorSideBottom.Control = LClockM
+    Left = 0
+    Height = 113
+    Top = 0
+    Width = 494
+    Alignment = taCenter
+    AutoSize = False
+    Caption = 'The time is over'
+    Visible = False
+    OnMouseDown = FormMouseDown
+  end
   object ILogo: TImage
     AnchorSideLeft.Control = Owner
     AnchorSideTop.Control = Owner
@@ -48,16 +65,13 @@ object FTimer: TFTimer
     AnchorSideTop.Side = asrCenter
     AnchorSideBottom.Control = Owner
     AnchorSideBottom.Side = asrCenter
-    Left = 236
-    Height = 76
-    Top = 83
-    Width = 22
+    Left = 245
+    Height = 17
+    Top = 113
+    Width = 4
     Alignment = taCenter
     Caption = ':'
-    Font.Height = -64
-    Font.Quality = fqCleartypeNatural
     Layout = tlCenter
-    ParentFont = False
     WordWrap = True
     OnDblClick = FormDblClick
     OnMouseDown = FormMouseDown
@@ -66,16 +80,14 @@ object FTimer: TFTimer
     AnchorSideTop.Control = Owner
     AnchorSideTop.Side = asrCenter
     AnchorSideRight.Control = LClock
-    Left = 220
+    Left = 229
     Height = 17
     Top = 113
     Width = 16
     Alignment = taRightJustify
     Anchors = [akTop, akRight]
     Caption = '42'
-    Font.Quality = fqCleartypeNatural
     Layout = tlCenter
-    ParentFont = False
     OnDblClick = FormDblClick
     OnMouseDown = FormMouseDown
     OnMouseWheelDown = LClockMMouseWheelDown
@@ -87,7 +99,7 @@ object FTimer: TFTimer
     AnchorSideTop.Control = Owner
     AnchorSideTop.Side = asrCenter
     AnchorSideRight.Side = asrBottom
-    Left = 258
+    Left = 249
     Height = 17
     Top = 113
     Width = 16
@@ -132,6 +144,22 @@ object FTimer: TFTimer
       OnMouseDown = SProgressBarMouseDown
       Shape = stRoundRect
     end
+  end
+  object LMessage: TLabel
+    AnchorSideLeft.Control = Owner
+    AnchorSideTop.Control = Owner
+    Left = 0
+    Height = 17
+    Top = 0
+    Width = 106
+    Alignment = taCenter
+    AutoSize = False
+    Caption = 'The time is over'
+    Color = clDefault
+    Layout = tlCenter
+    Transparent = False
+    WordWrap = True
+    OnMouseDown = FormMouseDown
   end
   object Timer1: TTimer
     Enabled = False

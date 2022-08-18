@@ -1,6 +1,8 @@
 {"version":1,"strings":[
 {"hash":201334530,"name":"tftimer.caption","sourcebytes":[67,111,117,110,116,100,111,119,110,32,84,105,109,101,114],"value":"Countdown Timer"},
+{"hash":134149602,"name":"tftimer.ltimeover.caption","sourcebytes":[84,104,101,32,116,105,109,101,32,105,115,32,111,118,101,114],"value":"The time is over"},
 {"hash":58,"name":"tftimer.lclock.caption","sourcebytes":[58],"value":":"},
 {"hash":882,"name":"tftimer.lclockm.caption","sourcebytes":[52,50],"value":"42"},
-{"hash":816,"name":"tftimer.lclocks.caption","sourcebytes":[48,48],"value":"00"}
+{"hash":816,"name":"tftimer.lclocks.caption","sourcebytes":[48,48],"value":"00"},
+{"hash":134149602,"name":"tftimer.lmessage.caption","sourcebytes":[84,104,101,32,116,105,109,101,32,105,115,32,111,118,101,114],"value":"The time is over"}
 ]}

@@ -1,6 +1,6 @@
 (*
- * Version: 00.09.07.
- * Author: Kārlis Kalviškis, 2022.03.09
+ * Version: 00.09.09.
+ * Author: Kārlis Kalviškis, 2022.08.18
  * License: GPLv3
  *)
 
@@ -43,6 +43,7 @@ type
     BRestoreLogo: TButton;
     CCloseMe: TCheckBox;
     ChDontCloseTimer: TCheckBox;
+    ChMinusTiming: TCheckBox;
     ChStretchLogo: TCheckBox;
     ChNoBacground: TCheckBox;
     ChLaunch: TCheckBox;
@@ -147,6 +148,8 @@ type
    procedure EAlphaBlendExit(Sender: TObject);
    procedure EChangeEditSizeEnter(Sender: TObject);
    procedure EChangeEditSizeExit(Sender: TObject);
+   procedure ECMDtoRunChange(Sender: TObject);
+   procedure EEndNoteChange(Sender: TObject);
    procedure EIncreasingFontSizeEnter(Sender: TObject);
    procedure EIncreasingFontSizeExit(Sender: TObject);
    procedure ELogoProportionChange(Sender: TObject);
@@ -312,6 +315,7 @@ begin
   BStart.Width := trunc(Self.Width / 2);
   BRestart.Width:=trunc(Self.Width / 4);
 end;
+
 
 procedure TFConfig.RGrLogoPlacementSelectionChanged(Sender: TObject);
 begin
@@ -539,6 +543,24 @@ begin
   BiggerFont := EChangeEditSize.Value;
 end;
 
+procedure TFConfig.ECMDtoRunChange(Sender: TObject);
+begin
+    ECMDtoRun.Text := Trim(ECMDtoRun.Text);
+  If ECMDtoRun.Text <> '' then
+    ChLaunch.Enabled := true
+  else begin
+     ChLaunch.Enabled := false;
+     ChLaunch.Checked := false;
+  end;
+end;
+
+procedure TFConfig.EEndNoteChange(Sender: TObject);
+begin
+  FTimer.LMessage.Caption := EEndNote.Text;
+  FTimer.LTimeOver.Caption := EEndNote.Text;
+end;
+
+
 procedure TFConfig.EIncreasingFontSizeEnter(Sender: TObject);
 begin
   ResizeField(EIncreasingFontSize);
@@ -656,13 +678,7 @@ end;
 
 procedure TFConfig.ECMDtoRunEditingDone(Sender: TObject);
 begin
-  ECMDtoRun.Text := Trim(ECMDtoRun.Text);
-  If ECMDtoRun.Text <> '' then
-    ChLaunch.Enabled := true
-  else begin
-     ChLaunch.Enabled := false;
-     ChLaunch.Checked := false;
-  end;
+
 end;
 
 procedure TFConfig.EWarning3KeyPress(Sender: TObject; var Key: char);

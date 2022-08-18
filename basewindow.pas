@@ -1,6 +1,6 @@
 (*
- * Version: 00.09.08.
- * Author: Kārlis Kalviškis, 2022.03.09
+ * Version: 00.09.09.
+ * Author: Kārlis Kalviškis, 2022.08.18
  * License: GPLv3
  *)
 
@@ -31,6 +31,8 @@ type
   TFTimer = class(TForm)
      ILogo: TImage;
      ILogoList: TImageList;
+     LMessage: TLabel;
+     LTimeOver: TLabel;
      RememberSetings: TIniPropStorage;
      LClock: TLabel;
      LClockM: TLabel;
@@ -61,6 +63,7 @@ type
     procedure ChangeWindowsBorder;
     procedure ResetTimer;
     procedure CheckLogoVisibility;
+    procedure ResizeAlert;
     procedure ResizeLogo;
     procedure LogoBottom;
     procedure ChangeColor (BackgroundColour : TColor; TextColour : TColor);
@@ -228,6 +231,7 @@ begin
   PProgressBar.Height := Round(FTimer.Height * 0.06) ;
   LogoBottom;
   ResizeLogo;
+  ResizeAlert;
 end;
 
 procedure TFTimer.FormShow(Sender: TObject);
@@ -318,23 +322,25 @@ begin
       FConfig.BStart.State := cbChecked;
       Dec(TimeNow);
       if (TimeNow < 0) then begin
-        Timer1.Enabled := False;
-        LClockM.Caption := '';
-        LClockS.Caption := '';
-        LClock.AutoSize := false;
-        LClock.Width := Self.Width;
-        LClock.Height := Self.Height;
-        LClock.OptimalFill := true;
-        LClock.Caption := FConfig.EEndNote.Text;
-        if FConfig.ChLaunch.Checked then begin
-           CMDtoRun := TProcess.Create(nil);
-           CMDtoRun.CommandLine := FConfig.ECMDtoRun.Text;
-           CMDtoRun.Execute;
-           CMDtoRun.Free;
+        if FConfig.ChMinusTiming.Checked then begin
+           LTimeOver.Visible := True;
+           ResizeAlert;
+        end
+        else Begin
+          Timer1.Enabled := False;
+          LMessage.Visible := True;
+          ResizeAlert;
+          if FConfig.ChLaunch.Checked then begin
+             CMDtoRun := TProcess.Create(nil);
+             CMDtoRun.CommandLine := FConfig.ECMDtoRun.Text;
+             CMDtoRun.Execute;
+             CMDtoRun.Free;
+          end;
+          if FConfig.ChExit.Checked then Application.Terminate;
         end;
-        if FConfig.ChExit.Checked then Application.Terminate;
       end
       else begin
+          LTimeOver.Visible := False;
           if FConfig.ChIncreasingFontSize.Checked then TimerFontSize;
           if TimeNow <= Warning3 then
             ChangeColor(ColourB4, ColourT4)
@@ -357,12 +363,13 @@ begin
   end;
   if FTimer.Visible then
     Begin
-      if LClock.Caption = ':' then
-         FConfig.LPClock.Caption := LClockM.Caption + LClock.Caption + LClockS.Caption
-      else
-         FConfig.LPClock.Caption := LClock.Caption;
-      FConfig.LPClock.Font.Color:=LClock.Font.Color;
-      FConfig.PPClock.Color:=FTimer.Color;
+      if LMessage.Visible then begin
+         FConfig.LPClock.Caption :=  LMessage.Caption;
+      end else begin
+         FConfig.LPClock.Caption := LClockM.Caption + LClock.Caption + LClockS.Caption;
+      end;
+      FConfig.LPClock.Font.Color := LClock.Font.Color;
+      FConfig.PPClock.Color := FTimer.Color;
     end;
 end;
 
@@ -406,6 +413,8 @@ end;
 
 procedure TFTimer.ResetTimer;
 begin
+  LTimeOver.Visible := False;
+  LMessage.Visible := False;
   TimeNow := DefTIME;
   LClock.OptimalFill := false;
   LClock.AutoSize := true;
@@ -420,6 +429,19 @@ begin
     end;
   end;
   Timer1.Enabled := true;
+end;
+procedure TFTimer.ResizeAlert;
+begin
+  if LTimeOver.Visible then begin
+    LTimeOver.OptimalFill := False;
+    LTimeOver.Width := Ftimer.Width;
+    LTimeOver.Height := Ftimer.Height;
+    LTimeOver.OptimalFill := True;
+  end;
+  if LMessage.Visible then begin
+    LMessage.Width := Ftimer.Width;
+    LMessage.Height := Ftimer.Height;
+  end;
 end;
 
 procedure TFTimer.ResizeLogo;
@@ -450,10 +472,14 @@ procedure TFTimer.ChangeColor (BackgroundColour : TColor; TextColour : TColor);
 begin
   if not FConfig.ChNoBacground.Checked then begin
       Self.Color := BackgroundColour;
+      LMessage.Color := BackgroundColour;
+      Self.Font.Color := TextColour;
       LClock.Font.Color := TextColour;
       LClockM.Font.Color := TextColour;
       LClockS.Font.Color := TextColour;
       SProgressBar.Brush.Color := TextColour;
+      LTimeOver.Font.Color := TextColour;
+      LMessage.Font.Color := TextColour;
   end;
   MyColour :=  BackgroundColour;
   MyTColour :=  TextColour;
@@ -466,6 +492,17 @@ var
 begin
   minutes := TimeToShow div 60;
   seconds := TimeToShow mod 60;
+  if (minutes < 0) or (seconds < 0) then begin
+    minutes := abs(minutes);
+    seconds := abs(seconds);
+    LClockM.Font.StrikeThrough := true;
+    LClockS.Font.StrikeThrough := true;
+    LClock.Caption := '—';
+  end else begin
+      LClockM.Font.StrikeThrough := false;
+      LClockS.Font.StrikeThrough := false;
+      LClock.Caption := ':';
+  end;
   LClockM.Caption := Format('%.2d', [minutes]);
   LClockS.Caption := Format('%.2d', [seconds]);
 end;
@@ -486,6 +523,7 @@ begin
   LClock.Font.Size := round(fontsize * 0.75);
   LClockM.Font.Size := fontsize;
   LClockS.Font.Size := fontsize;
+  LMessage.Font.Size := round(fontsize * 0.4);
   if FConfig.BClock.Checked then ChangeColor (ColourB0, ColourT0);
 end;
 

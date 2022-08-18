@@ -3,7 +3,7 @@
 Version:
 --------
 
-0.9.7
+0.09.09
 
 In short:
 ---------
@@ -16,11 +16,19 @@ The logo can be used as a background as well.
 
 Three different modes are available:
 
-- time left;
-- time passed;
-- ordinary clock.
+ - time left;
+ - time passed;
+ - ordinary clock.
 
-Useful for time tracking  of your speech, lecture or presentation.
+When the time is over several possibilities are available:
+
+ - to show the defined message;
+ - to continue count the time;
+ - to launch another application;
+ - to close the count-down timer.
+
+
+Useful for speech, lecture or presentation timing.
 
 Colour / font / time limits can be changed using settings window and hot-keys.
 It's possible to save and restore several configurations.

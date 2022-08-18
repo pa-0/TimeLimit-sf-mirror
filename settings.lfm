@@ -1,7 +1,7 @@
 object FConfig: TFConfig
   Left = 963
   Height = 687
-  Top = 143
+  Top = 110
   Width = 346
   BorderStyle = bsDialog
   Caption = 'Settings'
@@ -11,7 +11,7 @@ object FConfig: TFConfig
   OnActivate = FormActivate
   OnClose = FormClose
   OnCreate = FormCreate
-  SessionProperties = 'BChangeFont.Font;CCloseMe.Checked;ChDontCloseTimer.Checked;ChIncreasingFontSize.Checked;ChNoBacground.Checked;ChShowLogo.Checked;ChTransparent.Checked;ChWindowsBorders.Checked;EAlphaBlend.Value;EChangeEditSize.Value;EEndNote.Text;EIncreasingFontSize.Value;ELogoPlHorizontal.Value;ELogoPlVertical.Value;ELogoProportion.Value;EMinLogoHeight.Value;EMinutes.Value;EWarning1.Value;EWarning2.Value;EWarning3.Value;FontDialog1.Font;Left;OpenPictureDialog.FileName;RGrLogoPlacement.ItemIndex;SBHalf.ButtonColor;SBMain.ButtonColor;SBWarning1.ButtonColor;SBWarning2.ButtonColor;SBWarning3.ButtonColor;SLogoPlHorizontal.Value;SLogoPlVertical.Value;STHalf.ButtonColor;STMain.ButtonColor;STWarning1.ButtonColor;STWarning2.ButtonColor;STWarning3.ButtonColor;Top;Visible;ChStretchLogo.Checked'
+  SessionProperties = 'BChangeFont.Font;CCloseMe.Checked;ChDontCloseTimer.Checked;ChIncreasingFontSize.Checked;ChNoBacground.Checked;ChShowLogo.Checked;ChStretchLogo.Checked;ChTransparent.Checked;ChWindowsBorders.Checked;EAlphaBlend.Value;EChangeEditSize.Value;EEndNote.Text;EIncreasingFontSize.Value;ELogoPlHorizontal.Value;ELogoPlVertical.Value;ELogoProportion.Value;EMinLogoHeight.Value;EMinutes.Value;EWarning1.Value;EWarning2.Value;EWarning3.Value;FontDialog1.Font;Left;OpenPictureDialog.FileName;RGrLogoPlacement.ItemIndex;SBHalf.ButtonColor;SBMain.ButtonColor;SBWarning1.ButtonColor;SBWarning2.ButtonColor;SBWarning3.ButtonColor;SLogoPlHorizontal.Value;SLogoPlVertical.Value;STHalf.ButtonColor;STMain.ButtonColor;STWarning1.ButtonColor;STWarning2.ButtonColor;STWarning3.ButtonColor;Top;Visible;ChMinusTiming.Checked'
   ShowHint = True
   ShowInTaskBar = stNever
   LCLVersion = '2.2.0.4'
@@ -834,33 +834,6 @@ object FConfig: TFConfig
         ClientHeight = 169
         ClientWidth = 336
         TabOrder = 2
-        object LEndNote: TLabel
-          AnchorSideLeft.Control = PEndNote
-          AnchorSideTop.Control = ChIncreasingFontSize
-          AnchorSideTop.Side = asrBottom
-          Left = 1
-          Height = 17
-          Top = 45
-          Width = 119
-          BorderSpacing.Top = 3
-          Caption = 'The End message:'
-        end
-        object EEndNote: TEdit
-          AnchorSideLeft.Control = PEndNote
-          AnchorSideTop.Control = LEndNote
-          AnchorSideTop.Side = asrBottom
-          AnchorSideRight.Control = PEndNote
-          AnchorSideRight.Side = asrBottom
-          Left = 1
-          Height = 34
-          Top = 65
-          Width = 334
-          Anchors = [akTop, akLeft, akRight]
-          BorderSpacing.Top = 3
-          BorderSpacing.Bottom = 6
-          TabOrder = 2
-          Text = 'The time is over'
-        end
         object ECMDtoRun: TFileNameEdit
           AnchorSideLeft.Control = PEndNote
           AnchorSideTop.Control = ChLaunch
@@ -879,8 +852,8 @@ object FConfig: TFConfig
           Anchors = [akTop, akLeft, akRight]
           BorderSpacing.Bottom = 6
           MaxLength = 0
-          TabOrder = 5
-          OnEditingDone = ECMDtoRunEditingDone
+          TabOrder = 6
+          OnChange = ECMDtoRunChange
         end
         object ChExit: TCheckBox
           AnchorSideLeft.Control = ChLaunch
@@ -895,7 +868,7 @@ object FConfig: TFConfig
           Top = 105
           Width = 51
           Caption = 'Exit'
-          TabOrder = 4
+          TabOrder = 5
         end
         object ChLaunch: TCheckBox
           AnchorSideLeft.Control = PEndNote
@@ -908,20 +881,50 @@ object FConfig: TFConfig
           Width = 72
           Caption = 'Launch'
           Enabled = False
-          TabOrder = 3
+          TabOrder = 4
         end
-        object ChIncreasingFontSize: TCheckBox
+        object EEndNote: TEdit
           AnchorSideLeft.Control = PEndNote
-          AnchorSideTop.Control = PEndNote
+          AnchorSideTop.Control = LEndNote
+          AnchorSideTop.Side = asrBottom
+          AnchorSideRight.Control = PEndNote
+          AnchorSideRight.Side = asrBottom
           Left = 1
+          Height = 34
+          Hint = 'The message to appear when the time limit is exceeded.'
+          Top = 65
+          Width = 334
+          Anchors = [akTop, akLeft, akRight]
+          BorderSpacing.Top = 3
+          BorderSpacing.Bottom = 6
+          OnChange = EEndNoteChange
+          TabOrder = 3
+          Text = 'The time is over'
+        end
+        object ChMinusTiming: TCheckBox
+          AnchorSideTop.Control = LEndNote
+          AnchorSideTop.Side = asrCenter
+          AnchorSideRight.Control = PEndNote
+          AnchorSideRight.Side = asrBottom
+          Left = 212
           Height = 23
-          Hint = 'The decrease of time makes the size of numbers bigger'
-          Top = 19
-          Width = 153
-          BorderSpacing.Top = 18
-          Caption = 'Increasing font size'
-          OnChange = ChIncreasingFontSizeChange
-          TabOrder = 0
+          Hint = 'When the time is over, timer shows the exceeded time.'
+          Top = 42
+          Width = 123
+          Anchors = [akTop, akRight]
+          Caption = 'Exceeded time'
+          TabOrder = 2
+        end
+        object LEndNote: TLabel
+          AnchorSideLeft.Control = PEndNote
+          AnchorSideTop.Control = ChIncreasingFontSize
+          AnchorSideTop.Side = asrBottom
+          Left = 1
+          Height = 17
+          Top = 45
+          Width = 119
+          BorderSpacing.Top = 3
+          Caption = 'The End message:'
         end
         object EIncreasingFontSize: TSpinEdit
           AnchorSideTop.Control = ChIncreasingFontSize
@@ -940,6 +943,19 @@ object FConfig: TFConfig
           OnExit = EIncreasingFontSizeExit
           TabOrder = 1
           Value = 10
+        end
+        object ChIncreasingFontSize: TCheckBox
+          AnchorSideLeft.Control = PEndNote
+          AnchorSideTop.Control = PEndNote
+          Left = 1
+          Height = 23
+          Hint = 'The decrease of time makes the size of numbers bigger.'
+          Top = 19
+          Width = 153
+          BorderSpacing.Top = 18
+          Caption = 'Increasing font size'
+          OnChange = ChIncreasingFontSizeChange
+          TabOrder = 0
         end
         object LTimerSection: TLabel
           AnchorSideLeft.Control = PEndNote
@@ -1263,7 +1279,6 @@ object FConfig: TFConfig
           Font.Height = 51
           Font.Quality = fqCleartypeNatural
           ParentFont = False
-          WordWrap = True
           OptimalFill = True
         end
       end

@@ -379,7 +379,7 @@ msgid "Increasing font size"
 msgstr ""
 
 #: tfconfig.chincreasingfontsize.hint
-msgid "The decrease of time makes the size of numbers bigger"
+msgid "The decrease of time makes the size of numbers bigger."
 msgstr ""
 
 #: tfconfig.chlaunch.caption
@@ -388,6 +388,14 @@ msgstr ""
 
 #: tfconfig.chlaunch.hint
 msgid "When the time is over, launches another application."
+msgstr ""
+
+#: tfconfig.chminustiming.caption
+msgid "Exceeded time"
+msgstr ""
+
+#: tfconfig.chminustiming.hint
+msgid "When the time is over, timer shows the exceeded time."
 msgstr ""
 
 #: tfconfig.chnobacground.caption
@@ -438,7 +446,12 @@ msgstr ""
 msgid "Command to execute at the end of the time."
 msgstr ""
 
+#: tfconfig.eendnote.hint
+msgid "The message to appear when the time limit is exceeded."
+msgstr ""
+
 #: tfconfig.eendnote.text
+msgctxt "tfconfig.eendnote.text"
 msgid "The time is over"
 msgstr ""
 
@@ -624,6 +637,16 @@ msgstr ""
 
 #: tftimer.lclocks.caption
 msgid "00"
+msgstr ""
+
+#: tftimer.lmessage.caption
+msgctxt "tftimer.lmessage.caption"
+msgid "The time is over"
+msgstr ""
+
+#: tftimer.ltimeover.caption
+msgctxt "tftimer.ltimeover.caption"
+msgid "The time is over"
 msgstr ""
 
 #: timelimit.rstclock
