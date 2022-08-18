@@ -22,22 +22,6 @@ object FTimer: TFTimer
   OnShow = FormShow
   SessionProperties = 'Height;ILogo.Anchors;Left;Top;Width;WindowState;PProgressBar.Visible'
   LCLVersion = '2.2.0.4'
-  object LTimeOver: TLabel
-    AnchorSideLeft.Control = Owner
-    AnchorSideTop.Control = Owner
-    AnchorSideRight.Control = Owner
-    AnchorSideRight.Side = asrBottom
-    AnchorSideBottom.Control = LClockM
-    Left = 0
-    Height = 113
-    Top = 0
-    Width = 494
-    Alignment = taCenter
-    AutoSize = False
-    Caption = 'The time is over'
-    Visible = False
-    OnMouseDown = FormMouseDown
-  end
   object ILogo: TImage
     AnchorSideLeft.Control = Owner
     AnchorSideTop.Control = Owner
@@ -57,6 +41,22 @@ object FTimer: TFTimer
     OnDblClick = FormDblClick
     OnMouseDown = FormMouseDown
     Stretch = True
+  end
+  object LTimeOver: TLabel
+    AnchorSideLeft.Control = Owner
+    AnchorSideTop.Control = Owner
+    AnchorSideRight.Control = Owner
+    AnchorSideRight.Side = asrBottom
+    AnchorSideBottom.Control = LClockM
+    Left = 0
+    Height = 113
+    Top = 0
+    Width = 494
+    Alignment = taCenter
+    AutoSize = False
+    Caption = 'The time is over'
+    Visible = False
+    OnMouseDown = FormMouseDown
   end
   object LClock: TLabel
     AnchorSideLeft.Control = Owner

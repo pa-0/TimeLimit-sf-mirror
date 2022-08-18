@@ -19,8 +19,10 @@
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
         <UnitName Value="BaseWindow"/>
+        <IsVisibleTab Value="True"/>
         <EditorIndex Value="1"/>
-        <CursorPos X="21" Y="2"/>
+        <TopLine Value="488"/>
+        <CursorPos X="25" Y="500"/>
         <UsageCount Value="204"/>
         <Loaded Value="True"/>
         <LoadedDesigner Value="True"/>
@@ -31,10 +33,8 @@
         <ComponentName Value="FConfig"/>
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
-        <IsVisibleTab Value="True"/>
         <EditorIndex Value="2"/>
-        <TopLine Value="554"/>
-        <CursorPos Y="559"/>
+        <CursorPos X="54" Y="2"/>
         <UsageCount Value="206"/>
         <Loaded Value="True"/>
         <LoadedDesigner Value="True"/>
@@ -93,7 +93,7 @@
         <UsageCount Value="9"/>
       </Unit9>
     </Units>
-    <JumpHistory Count="29" HistoryIndex="28">
+    <JumpHistory Count="30" HistoryIndex="29">
       <Position1>
         <Filename Value="basewindow.pas"/>
         <Caret Line="447" Column="16" TopLine="435"/>
@@ -210,6 +210,10 @@
         <Filename Value="settings.pas"/>
         <Caret Line="562" TopLine="554"/>
       </Position29>
+      <Position30>
+        <Filename Value="basewindow.pas"/>
+        <Caret Line="70" Column="20" TopLine="50"/>
+      </Position30>
     </JumpHistory>
     <RunParams>
       <FormatVersion Value="2"/>

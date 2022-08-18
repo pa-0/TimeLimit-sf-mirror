@@ -1,5 +1,5 @@
 (*
- * Version: 00.09.09.
+ * Version: 00.09.10.
  * Author: Kārlis Kalviškis, 2022.08.18
  * License: GPLv3
  *)
@@ -497,7 +497,7 @@ begin
     seconds := abs(seconds);
     LClockM.Font.StrikeThrough := true;
     LClockS.Font.StrikeThrough := true;
-    LClock.Caption := '—';
+    LClock.Caption := '–';
   end else begin
       LClockM.Font.StrikeThrough := false;
       LClockS.Font.StrikeThrough := false;
