@@ -3,7 +3,7 @@
 Version:
 --------
 
-0.09.09
+0.09.10
 
 In short:
 ---------
@@ -70,8 +70,19 @@ Parameter | Purpose
 Availability:
 -------------
 
-The binary files are kept in Sourceforge:
-https://sourceforge.net/projects/time-limit/
+ * License:<BR>
+   GPLv3
 
-- License: GPLv3
-- Programming Language: Lazarus, Free Pascal
+ * Programming Language:<BR>
+   Lazarus, Free Pascal
+
+### Pre-compiled files
+
+ * Sourceforge:<BR>
+   https://sourceforge.net/projects/time-limit/
+
+ * Fedora Copr:<br>
+   https://copr.fedorainfracloud.org/coprs/zirneklitis/Utilities/package/time_limit/
+   ``dnf copr enable zirneklitis/Utilities``
+
+
