@@ -1,6 +1,6 @@
 00.09.09
 	Check-Box for launching another application is made more responsive.
-	Last message is no word-wrapped (not character-wrapped).
+	Last message is now word-wrapped (not character-wrapped).
 	Shows the exceeded time.
 
 00.09.08
