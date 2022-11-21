@@ -3,11 +3,12 @@
   <ProjectSession>
     <Version Value="12"/>
     <BuildModes Active="Default"/>
-    <Units Count="10">
+    <Units Count="11">
       <Unit0>
         <Filename Value="Time_limit.lpr"/>
         <IsPartOfProject Value="True"/>
         <UnitName Value="TimeLimit"/>
+        <TopLine Value="4"/>
         <CursorPos X="21" Y="2"/>
         <UsageCount Value="204"/>
         <Loaded Value="True"/>
@@ -19,10 +20,9 @@
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
         <UnitName Value="BaseWindow"/>
-        <IsVisibleTab Value="True"/>
         <EditorIndex Value="1"/>
-        <TopLine Value="488"/>
-        <CursorPos X="25" Y="500"/>
+        <TopLine Value="330"/>
+        <CursorPos X="48" Y="336"/>
         <UsageCount Value="204"/>
         <Loaded Value="True"/>
         <LoadedDesigner Value="True"/>
@@ -33,8 +33,10 @@
         <ComponentName Value="FConfig"/>
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
+        <IsVisibleTab Value="True"/>
         <EditorIndex Value="2"/>
-        <CursorPos X="54" Y="2"/>
+        <TopLine Value="22"/>
+        <CursorPos X="51" Y="26"/>
         <UsageCount Value="206"/>
         <Loaded Value="True"/>
         <LoadedDesigner Value="True"/>
@@ -92,127 +94,135 @@
         <CursorPos X="3" Y="5"/>
         <UsageCount Value="9"/>
       </Unit9>
+      <Unit10>
+        <Filename Value="/usr/lib64/lazarus/lcl/controls.pp"/>
+        <UnitName Value="Controls"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="10"/>
+        <CursorPos X="14" Y="1511"/>
+        <UsageCount Value="11"/>
+      </Unit10>
     </Units>
     <JumpHistory Count="30" HistoryIndex="29">
       <Position1>
-        <Filename Value="basewindow.pas"/>
-        <Caret Line="447" Column="16" TopLine="435"/>
+        <Filename Value="settings.pas"/>
+        <Caret Line="565" Column="44" TopLine="562"/>
       </Position1>
       <Position2>
-        <Filename Value="basewindow.pas"/>
-        <Caret Line="429" Column="60" TopLine="49"/>
+        <Filename Value="settings.pas"/>
+        <Caret Line="320" TopLine="317"/>
       </Position2>
       <Position3>
-        <Filename Value="basewindow.pas"/>
-        <Caret Line="69" Column="19" TopLine="50"/>
+        <Filename Value="settings.pas"/>
+        <Caret Line="969" Column="20" TopLine="951"/>
       </Position3>
       <Position4>
         <Filename Value="basewindow.pas"/>
-        <Caret Line="71" Column="19" TopLine="49"/>
+        <Caret Line="2" Column="11"/>
       </Position4>
       <Position5>
         <Filename Value="basewindow.pas"/>
-        <Caret Line="69" Column="21" TopLine="51"/>
+        <Caret Line="367" TopLine="342"/>
       </Position5>
       <Position6>
-        <Filename Value="basewindow.pas"/>
-        <Caret Line="339" TopLine="321"/>
+        <Filename Value="settings.pas"/>
+        <Caret Line="178" TopLine="163"/>
       </Position6>
       <Position7>
-        <Filename Value="basewindow.pas"/>
-        <Caret Line="338" Column="53" TopLine="323"/>
+        <Filename Value="settings.pas"/>
+        <Caret Line="2" Column="21"/>
       </Position7>
       <Position8>
-        <Filename Value="basewindow.pas"/>
-        <Caret Line="69" Column="19" TopLine="57"/>
+        <Filename Value="settings.pas"/>
+        <Caret Line="557" Column="39" TopLine="554"/>
       </Position8>
       <Position9>
-        <Filename Value="basewindow.pas"/>
-        <Caret Line="71" Column="23" TopLine="51"/>
+        <Filename Value="settings.pas"/>
+        <Caret Line="562" TopLine="554"/>
       </Position9>
       <Position10>
         <Filename Value="basewindow.pas"/>
-        <Caret Line="523" Column="48" TopLine="507"/>
+        <Caret Line="70" Column="20" TopLine="50"/>
       </Position10>
       <Position11>
-        <Filename Value="basewindow.pas"/>
-        <Caret Line="61" Column="21" TopLine="50"/>
+        <Filename Value="settings.pas"/>
+        <Caret Line="2" Column="54"/>
       </Position11>
       <Position12>
         <Filename Value="basewindow.pas"/>
-        <Caret Line="331" Column="13" TopLine="312"/>
+        <Caret Line="348" Column="17" TopLine="326"/>
       </Position12>
       <Position13>
         <Filename Value="basewindow.pas"/>
-        <Caret Line="67" Column="19" TopLine="50"/>
+        <Caret Line="69" Column="15" TopLine="52"/>
       </Position13>
       <Position14>
         <Filename Value="basewindow.pas"/>
-        <Caret Line="70" Column="20" TopLine="48"/>
+        <Caret Line="493" Column="5" TopLine="465"/>
       </Position14>
       <Position15>
         <Filename Value="basewindow.pas"/>
-        <Caret Line="62" Column="18" TopLine="47"/>
+        <Caret Line="486" Column="11" TopLine="455"/>
       </Position15>
       <Position16>
         <Filename Value="basewindow.pas"/>
-        <Caret Line="65" Column="20" TopLine="49"/>
+        <Caret Line="473" Column="26" TopLine="455"/>
       </Position16>
       <Position17>
         <Filename Value="basewindow.pas"/>
-        <Caret Line="72" Column="20" TopLine="53"/>
+        <Caret Line="486" Column="11" TopLine="455"/>
       </Position17>
       <Position18>
         <Filename Value="basewindow.pas"/>
-        <Caret Line="528" Column="4" TopLine="512"/>
+        <Caret Line="479" Column="40" TopLine="455"/>
       </Position18>
       <Position19>
         <Filename Value="basewindow.pas"/>
-        <Caret Line="527" Column="4" TopLine="100"/>
+        <Caret Line="492" Column="3" TopLine="474"/>
       </Position19>
       <Position20>
-        <Filename Value="settings.pas"/>
-        <Caret Line="845" Column="13" TopLine="816"/>
+        <Filename Value="basewindow.pas"/>
+        <Caret Line="60" Column="7" TopLine="43"/>
       </Position20>
       <Position21>
         <Filename Value="settings.pas"/>
-        <Caret Line="565" Column="44" TopLine="562"/>
+        <Caret Line="2" Column="54"/>
       </Position21>
       <Position22>
-        <Filename Value="settings.pas"/>
-        <Caret Line="320" TopLine="317"/>
+        <Filename Value="basewindow.pas"/>
+        <Caret Line="69" Column="94" TopLine="62"/>
       </Position22>
       <Position23>
-        <Filename Value="settings.pas"/>
-        <Caret Line="969" Column="20" TopLine="951"/>
+        <Filename Value="basewindow.pas"/>
+        <Caret Line="347" Column="11" TopLine="330"/>
       </Position23>
       <Position24>
         <Filename Value="basewindow.pas"/>
-        <Caret Line="2" Column="11"/>
+        <Caret Line="354" Column="50" TopLine="330"/>
       </Position24>
       <Position25>
         <Filename Value="basewindow.pas"/>
-        <Caret Line="367" TopLine="342"/>
+        <Caret Line="61" Column="15" TopLine="61"/>
       </Position25>
       <Position26>
-        <Filename Value="settings.pas"/>
-        <Caret Line="178" TopLine="163"/>
+        <Filename Value="basewindow.pas"/>
+        <Caret Line="69" Column="19" TopLine="45"/>
       </Position26>
       <Position27>
-        <Filename Value="settings.pas"/>
-        <Caret Line="2" Column="21"/>
+        <Filename Value="basewindow.pas"/>
+        <Caret Line="476" Column="24" TopLine="471"/>
       </Position27>
       <Position28>
-        <Filename Value="settings.pas"/>
-        <Caret Line="557" Column="39" TopLine="554"/>
+        <Filename Value="basewindow.pas"/>
+        <Caret Line="350" Column="64" TopLine="333"/>
       </Position28>
       <Position29>
-        <Filename Value="settings.pas"/>
-        <Caret Line="562" TopLine="554"/>
+        <Filename Value="basewindow.pas"/>
+        <Caret Line="427" Column="46" TopLine="410"/>
       </Position29>
       <Position30>
         <Filename Value="basewindow.pas"/>
-        <Caret Line="70" Column="20" TopLine="50"/>
+        <Caret Line="476" Column="54" TopLine="458"/>
       </Position30>
     </JumpHistory>
     <RunParams>
@@ -220,4 +230,15 @@
       <Modes ActiveMode="default"/>
     </RunParams>
   </ProjectSession>
+  <Debugging>
+    <BreakPoints>
+      <Item>
+        <Kind Value="bpkSource"/>
+        <WatchScope Value="wpsLocal"/>
+        <WatchKind Value="wpkWrite"/>
+        <Source Value="basewindow.pas"/>
+        <Line Value="335"/>
+      </Item>
+    </BreakPoints>
+  </Debugging>
 </CONFIG>

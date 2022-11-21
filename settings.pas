@@ -1,6 +1,6 @@
 (*
- * Version: 00.09.09.
- * Author: Kārlis Kalviškis, 2022.08.18
+ * Version: 00.09.11.
+ * Author: Kārlis Kalviškis, 2022.11.21
  * License: GPLv3
  *)
 
@@ -43,6 +43,8 @@ type
     BRestoreLogo: TButton;
     CCloseMe: TCheckBox;
     ChDontCloseTimer: TCheckBox;
+    ChFlashing3: TCheckBox;
+    ChFlashing2: TCheckBox;
     ChMinusTiming: TCheckBox;
     ChStretchLogo: TCheckBox;
     ChNoBacground: TCheckBox;

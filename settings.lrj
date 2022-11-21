@@ -18,6 +18,8 @@
 {"hash":152532852,"name":"tfconfig.ewarning3.hint","sourcebytes":[77,105,110,117,116,101,115,32,108,101,102,116],"value":"Minutes left"},
 {"hash":222471235,"name":"tfconfig.chnobacground.hint","sourcebytes":[85,115,101,32,115,121,115,116,101,109,32,99,111,108,111,117,114,115],"value":"Use system colours"},
 {"hash":185194051,"name":"tfconfig.chnobacground.caption","sourcebytes":[83,121,115,116,101,109,32,99,111,108,111,117,114,115],"value":"System colours"},
+{"hash":42593431,"name":"tfconfig.chflashing2.caption","sourcebytes":[70,108,97,115,104,105,110,103],"value":"Flashing"},
+{"hash":42593431,"name":"tfconfig.chflashing3.caption","sourcebytes":[70,108,97,115,104,105,110,103],"value":"Flashing"},
 {"hash":11288268,"name":"tfconfig.ptimage.caption","sourcebytes":[65,100,100,105,116,105,111,110,97,108],"value":"Additional"},
 {"hash":107454697,"name":"tfconfig.chtransparent.caption","sourcebytes":[79,112,97,99,105,116,121],"value":"Opacity"},
 {"hash":91063425,"name":"tfconfig.ltransparent.caption","sourcebytes":[77,97,121,32,110,111,116,32,119,111,114,107,32,111,110,32,115,111,109,101,32,115,121,115,116,101,109,115,33],"value":"May not work on some systems!"},

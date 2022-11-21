@@ -1,6 +1,6 @@
 (*
- * Version: 00.09.10.
- * Author: Kārlis Kalviškis, 2022.08.18
+ * Version: 00.09.11.
+ * Author: Kārlis Kalviškis, 2022.11.21
  * License: GPLv3
  *)
 
@@ -66,7 +66,7 @@ type
     procedure ResizeAlert;
     procedure ResizeLogo;
     procedure LogoBottom;
-    procedure ChangeColor (BackgroundColour : TColor; TextColour : TColor);
+    procedure ChangeColor (BackgroundColour : TColor; TextColour : TColor; Flashing : Boolean);
     procedure ShowTime (TimeToShow : Integer);
     procedure TimerFontSize;
     procedure ToggleMode;
@@ -343,15 +343,15 @@ begin
           LTimeOver.Visible := False;
           if FConfig.ChIncreasingFontSize.Checked then TimerFontSize;
           if TimeNow <= Warning3 then
-            ChangeColor(ColourB4, ColourT4)
+            ChangeColor(ColourB4, ColourT4, FConfig.ChFlashing3.Checked)
           else if TimeNow <= Warning2 then
-            ChangeColor(ColourB3, ColourT3)
+            ChangeColor(ColourB3, ColourT3, FConfig.ChFlashing2.Checked)
           else if TimeNow <= Warning1 then
-            ChangeColor(ColourB2, ColourT2)
+            ChangeColor(ColourB2, ColourT2, FALSE)
           else if TimeNow < (DefTIME / 2) then
-            ChangeColor(ColourB1, ColourT1)
+            ChangeColor(ColourB1, ColourT1, FALSE)
           else
-            ChangeColor(ColourB0, ColourT0);
+            ChangeColor(ColourB0, ColourT0, FALSE);
       end;
     end
     else
@@ -424,7 +424,7 @@ begin
     SProgressBar.Width := PProgressBar.Width;
     if  not Timer1.Enabled or not RUNING then begin
         RUNING := false;
-        ChangeColor(ColourB0, ColourT0);
+        ChangeColor(ColourB0, ColourT0, FALSE);
         ShowTime (TimeNow);
     end;
   end;
@@ -468,9 +468,16 @@ begin
       Self.ILogo.visible := false;
 end;
 
-procedure TFTimer.ChangeColor (BackgroundColour : TColor; TextColour : TColor);
+procedure TFTimer.ChangeColor (BackgroundColour : TColor; TextColour : TColor; Flashing : Boolean);
+var
+          tmpColour: TColor;
 begin
   if not FConfig.ChNoBacground.Checked then begin
+      if  Flashing and (Self.Font.Color = TextColour)  then begin
+         tmpColour :=  TextColour;
+         TextColour :=  BackgroundColour;
+         BackgroundColour := tmpColour;
+      end;
       Self.Color := BackgroundColour;
       LMessage.Color := BackgroundColour;
       Self.Font.Color := TextColour;
@@ -524,7 +531,7 @@ begin
   LClockM.Font.Size := fontsize;
   LClockS.Font.Size := fontsize;
   LMessage.Font.Size := round(fontsize * 0.4);
-  if FConfig.BClock.Checked then ChangeColor (ColourB0, ColourT0);
+  if FConfig.BClock.Checked then ChangeColor (ColourB0, ColourT0, FALSE);
 end;
 
 procedure TFTimer.LogoBottom;

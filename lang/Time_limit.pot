@@ -370,6 +370,16 @@ msgstr ""
 msgid "When the time is over, closes the count-down timer."
 msgstr ""
 
+#: tfconfig.chflashing2.caption
+msgctxt "tfconfig.chflashing2.caption"
+msgid "Flashing"
+msgstr ""
+
+#: tfconfig.chflashing3.caption
+msgctxt "tfconfig.chflashing3.caption"
+msgid "Flashing"
+msgstr ""
+
 #: tfconfig.chfullscreen.caption
 msgid "Full screen"
 msgstr ""
