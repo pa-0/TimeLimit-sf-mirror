@@ -1,6 +1,6 @@
 (*
- * Version: 00.09.08.
- * Author: Kārlis Kalviškis, 20221.03.09
+ * Version: 00.09.11.
+ * Author: Kārlis Kalviškis, 2022.11.22
  * License: GPLv3
  *)
 
@@ -233,6 +233,8 @@ Begin
   ColValue[ColLen + 2] :=  lcl_version;
   ColName[ColLen + 3] := BInfo04;
   ColValue[ColLen + 3] :=   {$I %DATE%} + ' ' + {$I %TIME%};
+
+  FreeAndNil(FileVerInfo);
 
   Result :=  CreateHTMLTable(ColName, ColValue, '<i>', '</i>', '', '');
 end;

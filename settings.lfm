@@ -51,7 +51,7 @@ object FConfig: TFConfig
         AutoSize = True
         Caption = 'Apply, reset and restart'
         OnClick = BSettingsARRClick
-        TabOrder = 8
+        TabOrder = 10
       end
       object BSettingsAR: TButton
         AnchorSideLeft.Control = PTBase
@@ -68,7 +68,7 @@ object FConfig: TFConfig
         AutoSize = True
         Caption = 'Apply and reset'
         OnClick = BSettingsARClick
-        TabOrder = 7
+        TabOrder = 9
       end
       object BSettingsA: TButton
         AnchorSideLeft.Control = PTBase
@@ -86,7 +86,7 @@ object FConfig: TFConfig
         AutoSize = True
         Caption = 'Apply'
         OnClick = BSettingsAClick
-        TabOrder = 6
+        TabOrder = 8
       end
       object CCloseMe: TCheckBox
         AnchorSideTop.Control = BChangeFont
@@ -103,7 +103,7 @@ object FConfig: TFConfig
         Caption = 'Close on Apply'
         Checked = True
         State = cbChecked
-        TabOrder = 5
+        TabOrder = 7
       end
       object LMinutes4: TLabel
         AnchorSideLeft.Control = PTBase
@@ -168,7 +168,7 @@ object FConfig: TFConfig
         BorderSpacing.Top = 22
         Caption = 'Change font'
         OnClick = BChangeFontClick
-        TabOrder = 4
+        TabOrder = 6
       end
       object EMinutes: TFloatSpinEdit
         AnchorSideTop.Control = LMinutes
@@ -199,6 +199,7 @@ object FConfig: TFConfig
         AnchorSideRight.Side = asrBottom
         Left = 195
         Height = 32
+        Hint = 'Minutes left'
         Top = 124
         Width = 53
         Alignment = taRightJustify
@@ -215,11 +216,11 @@ object FConfig: TFConfig
         AnchorSideTop.Side = asrCenter
         AnchorSideRight.Control = EMinutes
         AnchorSideRight.Side = asrBottom
-        Left = 197
+        Left = 195
         Height = 32
         Hint = 'Minutes left'
         Top = 176
-        Width = 51
+        Width = 53
         Alignment = taRightJustify
         Anchors = [akTop, akRight]
         DecimalPlaces = 1
@@ -246,7 +247,7 @@ object FConfig: TFConfig
         OnEnter = EWarning3Enter
         OnExit = EWarning3Exit
         OnKeyPress = EWarning3KeyPress
-        TabOrder = 3
+        TabOrder = 4
       end
       object SBMain: TColorButton
         AnchorSideTop.Control = LMinutes
@@ -417,31 +418,33 @@ object FConfig: TFConfig
         Anchors = [akTop, akRight]
         Caption = 'System colours'
         OnChange = ChNoBacgroundChange
-        TabOrder = 9
+        TabOrder = 11
       end
       object ChFlashing2: TCheckBox
         AnchorSideTop.Control = EWarning2
         AnchorSideTop.Side = asrCenter
         AnchorSideRight.Control = EWarning2
-        Left = 121
+        Left = 109
         Height = 23
+        Hint = 'Each second swaps the foreground colour with the background colour and vice verse.'
         Top = 181
-        Width = 76
+        Width = 86
         Anchors = [akTop, akRight]
-        Caption = 'Flashing'
-        TabOrder = 10
+        Caption = 'Swapping'
+        TabOrder = 3
       end
       object ChFlashing3: TCheckBox
         AnchorSideTop.Control = EWarning3
         AnchorSideTop.Side = asrCenter
         AnchorSideRight.Control = EWarning3
-        Left = 120
+        Left = 110
         Height = 23
+        Hint = 'Each second swaps the foreground colour with the background colour and vice verse.'
         Top = 232
-        Width = 76
+        Width = 86
         Anchors = [akTop, akRight]
-        Caption = 'Flashing'
-        TabOrder = 11
+        Caption = 'Swapping'
+        TabOrder = 5
       end
     end
     object PTImage: TTabSheet

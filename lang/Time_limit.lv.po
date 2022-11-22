@@ -5,15 +5,14 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: \n"
-"PO-Revision-Date: 2022-11-21 13:18+0200\n"
+"PO-Revision-Date: 2022-11-22 06:24+0200\n"
 "Last-Translator: Kārlis Kalviškis <karlo@lu.lv>\n"
 "Language-Team: karlo\n"
 "Language: lv\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n != 0 ? 1 : "
-"2);\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n != 0 ? 1 : 2);\n"
 "X-Generator: Poedit 3.1.1\n"
 
 #: help.binfo01
@@ -242,8 +241,7 @@ msgstr "Pulkstenis nav redzams"
 
 #: settings.rstrminuteshint
 msgid "Minutes left. Use [Enter] to apply changes."
-msgstr ""
-"Minūtes līdz beigām. Lieto [Ievad]-taustiņu, lai pielietotu izmaiņas uzreiz."
+msgstr "Minūtes līdz beigām. Lieto [Ievad]-taustiņu, lai pielietotu izmaiņas uzreiz."
 
 #: settings.rstrshow
 msgid "Show"
@@ -388,13 +386,23 @@ msgstr "Kad beidzas atvēlētais laiks, aizver šo programmu."
 
 #: tfconfig.chflashing2.caption
 msgctxt "tfconfig.chflashing2.caption"
-msgid "Flashing"
-msgstr "Mirgot"
+msgid "Swapping"
+msgstr "Slēgalēt"
+
+#: tfconfig.chflashing2.hint
+msgctxt "tfconfig.chflashing2.hint"
+msgid "Each second swaps the foreground colour with the background colour and vice verse."
+msgstr "Katra sekunde maina priekšplāna krāsu ar fona krāsu un otrādi."
 
 #: tfconfig.chflashing3.caption
 msgctxt "tfconfig.chflashing3.caption"
-msgid "Flashing"
-msgstr "Mirgot"
+msgid "Swapping"
+msgstr "Slēgalēt"
+
+#: tfconfig.chflashing3.hint
+msgctxt "tfconfig.chflashing3.hint"
+msgid "Each second swaps the foreground colour with the background colour and vice verse."
+msgstr "Katra sekunde maina priekšplāna krāsu ar fona krāsu un otrādi."
 
 #: tfconfig.chfullscreen.caption
 msgid "Full screen"
@@ -498,18 +506,17 @@ msgid "The proportional size of the logo."
 msgstr "Loga un logo izmēru attiecība."
 
 #: tfconfig.eminlogoheight.hint
-msgid ""
-"The minimal height (in pixels) of the logo.  If the resized logo is lower, "
-"it is not shown."
-msgstr ""
-"Mazākais pieļaujamais logo augstums pikseļos. Ja samazinātais logo ir "
-"mazāks, tas netiek rādīts."
+msgid "The minimal height (in pixels) of the logo.  If the resized logo is lower, it is not shown."
+msgstr "Mazākais pieļaujamais logo augstums pikseļos. Ja samazinātais logo ir mazāks, tas netiek rādīts."
 
 #: tfconfig.eminutes.hint
 msgid "Time for Presenter. Use [Enter] to apply changes and reset timer."
-msgstr ""
-"Atvēlētais laiks. Lieto [Ievad]-taustiņu, lai pielietotu izmaiņas un "
-"palaistu laika atskaiti."
+msgstr "Atvēlētais laiks. Lieto [Ievad]-taustiņu, lai pielietotu izmaiņas un palaistu laika atskaiti."
+
+#: tfconfig.ewarning1.hint
+msgctxt "tfconfig.ewarning1.hint"
+msgid "Minutes left"
+msgstr "Minūtes līdz beigām"
 
 #: tfconfig.ewarning2.hint
 msgctxt "tfconfig.ewarning2.hint"
@@ -595,12 +602,8 @@ msgid "42"
 msgstr "42"
 
 #: tfconfig.lpclock.hint
-msgid ""
-"The preview of clock's digits. The font-face and size are system defaults. "
-"Only colour corresponds."
-msgstr ""
-"Laika atskaites logā redzamie simboli. Tiek izmantoti sistēmas piedāvātie "
-"fonti. Atbilst tikai krāsa."
+msgid "The preview of clock's digits. The font-face and size are system defaults. Only colour corresponds."
+msgstr "Laika atskaites logā redzamie simboli. Tiek izmantoti sistēmas piedāvātie fonti. Atbilst tikai krāsa."
 
 #: tfconfig.ltimersection.caption
 msgid "The timer operation"

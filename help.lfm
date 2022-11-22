@@ -1,13 +1,14 @@
 object FHelp: TFHelp
   Left = 596
-  Height = 290
+  Height = 266
   Top = 410
-  Width = 359
+  Width = 329
   Caption = 'Help'
-  ClientHeight = 290
-  ClientWidth = 359
-  Constraints.MinHeight = 242
-  Constraints.MinWidth = 180
+  ClientHeight = 266
+  ClientWidth = 329
+  Constraints.MinHeight = 222
+  Constraints.MinWidth = 165
+  DesignTimePPI = 88
   FormStyle = fsStayOnTop
   OnCreate = FormCreate
   SessionProperties = 'Height;Left;Top;Width;Visible'
@@ -15,17 +16,17 @@ object FHelp: TFHelp
   LCLVersion = '2.2.0.4'
   object PHelp: TPageControl
     Left = 0
-    Height = 290
+    Height = 266
     Top = 0
-    Width = 359
+    Width = 329
     ActivePage = PTHotKey
     Align = alClient
     TabIndex = 0
     TabOrder = 0
     object PTHotKey: TTabSheet
       Caption = 'Hot Keys'
-      ClientHeight = 259
-      ClientWidth = 349
+      ClientHeight = 237
+      ClientWidth = 319
       object HTMLHotKey: TIpHtmlPanel
         AnchorSideLeft.Control = PTHotKey
         AnchorSideTop.Control = PTHotKey
@@ -34,9 +35,9 @@ object FHelp: TFHelp
         AnchorSideBottom.Control = PTHotKey
         AnchorSideBottom.Side = asrBottom
         Left = 0
-        Height = 259
+        Height = 237
         Top = 0
-        Width = 349
+        Width = 319
         Anchors = [akTop, akLeft, akRight, akBottom]
         FixedTypeface = 'Courier New'
         DefaultTypeFace = 'default'
@@ -56,13 +57,13 @@ object FHelp: TFHelp
     end
     object PTAbout: TTabSheet
       Caption = 'About'
-      ClientHeight = 259
-      ClientWidth = 349
+      ClientHeight = 237
+      ClientWidth = 319
       object HTMLSystem: TIpHtmlPanel
         Left = 0
-        Height = 259
+        Height = 237
         Top = 0
-        Width = 349
+        Width = 319
         Align = alClient
         FixedTypeface = 'Courier New'
         DefaultTypeFace = 'default'
@@ -81,15 +82,15 @@ object FHelp: TFHelp
     end
     object PTThanks: TTabSheet
       Caption = 'Acknowledgements'
-      ClientHeight = 259
-      ClientWidth = 349
+      ClientHeight = 237
+      ClientWidth = 319
       object MThanks: TMemo
-        Left = 9
-        Height = 241
-        Top = 9
-        Width = 331
+        Left = 8
+        Height = 221
+        Top = 8
+        Width = 303
         Align = alClient
-        BorderSpacing.Around = 9
+        BorderSpacing.Around = 8
         BorderStyle = bsNone
         Lines.Strings = (
           'MThanks'
@@ -101,12 +102,12 @@ object FHelp: TFHelp
     end
   end
   object IpHtmlDataProvider1: TIpHtmlDataProvider
-    Left = 91
-    Top = 104
+    Left = 83
+    Top = 95
   end
   object RememberSetings: TIniPropStorage
     StoredValues = <>
-    Left = 88
-    Top = 192
+    Left = 81
+    Top = 176
   end
 end

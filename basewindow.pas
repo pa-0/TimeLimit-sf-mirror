@@ -1,6 +1,6 @@
 (*
- * Version: 00.09.11.
- * Author: Kārlis Kalviškis, 2022.11.21
+ * Version: 00.09.12.
+ * Author: Kārlis Kalviškis, 2022.11.22
  * License: GPLv3
  *)
 
@@ -334,7 +334,7 @@ begin
              CMDtoRun := TProcess.Create(nil);
              CMDtoRun.CommandLine := FConfig.ECMDtoRun.Text;
              CMDtoRun.Execute;
-             CMDtoRun.Free;
+             FreeAndNil(CMDtoRun);
           end;
           if FConfig.ChExit.Checked then Application.Terminate;
         end;

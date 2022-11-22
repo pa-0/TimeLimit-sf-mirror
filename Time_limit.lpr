@@ -1,6 +1,6 @@
 (*
- * Version: 00.09.09.
- * Author: Kārlis Kalviškis, 2022.08.18
+ * Version: 00.09.11.
+ * Author: Kārlis Kalviškis, 2022.11.22
  * License: GPLv3
  * Слава Україні!
  *)
@@ -115,6 +115,7 @@ begin
            WriteLn('-s or --start       ', RstStart);
            WriteLn('');
            WriteLn('');
+           FreeAndNil(FileVerInfo);
           {$IFDEF WINDOWS}
              Write(RstPause);
              ReadLn;
