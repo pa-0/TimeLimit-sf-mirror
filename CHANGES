@@ -1,3 +1,6 @@
+00.09.13
+	Now the adjusting of clock numbers to screen scaling should work.
+
 00.09.12
 	FreeAndNil() implemented.
 

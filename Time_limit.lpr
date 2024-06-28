@@ -1,6 +1,6 @@
 (*
- * Version: 00.09.11.
- * Author: Kārlis Kalviškis, 2022.11.22
+ * Version: 00.09.13.
+ * Author: Kārlis Kalviškis, 2024.06.27
  * License: GPLv3
  * Слава Україні!
  *)
@@ -53,9 +53,11 @@ begin
   ExitCounter := false;
   StartCounter := false;
   ClockMode := false;
+  Application.Scaled:=True;
   If ParamCount > 0 then begin
        AllParameters := ParamCount;
-       if Application.HasOption('config') then begin
+       if
+  Application.HasOption('config') then begin
          ConfigurationFile := Application.GetOptionValue('config');
          Dec(AllParameters);
          end;

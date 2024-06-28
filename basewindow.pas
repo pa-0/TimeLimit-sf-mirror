@@ -1,6 +1,6 @@
 (*
- * Version: 00.09.12.
- * Author: Kārlis Kalviškis, 2022.11.22
+ * Version: 00.09.13.
+ * Author: Kārlis Kalviškis, 2024.06.27
  * License: GPLv3
  *)
 
@@ -517,11 +517,13 @@ end;
 procedure TFTimer.TimerFontSize;
 var
       fontsize : integer;
+      dpi_ratio : real;
 begin
+  dpi_ratio := PixelsPerInch / 96;
   if Width / Height < 1.8 then
-      fontsize := Width div 4
+      fontsize := round(Width / (4 * dpi_ratio))
   else
-      fontsize := Height div 2;
+      fontsize := round(Height / (2 * dpi_ratio));
   if FConfig.ChIncreasingFontSize.Checked and not FConfig.BClock.Checked then
       fontsize := round(fontsize / 100 *
          (FConfig.EIncreasingFontSize.Value +
